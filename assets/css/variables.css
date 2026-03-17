@@ -1,0 +1,24 @@
+:root {
+  /* Brand Colors */
+  --brand-primary: #2597E0;
+  --brand-secondary: #64E9CC;
+  --text-dark: #1F2937;
+  --text-light: #6B7280;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F3F4F6;
+  
+  /* Typography */
+  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  
+  /* Layout */
+  --container-width: 1280px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+}

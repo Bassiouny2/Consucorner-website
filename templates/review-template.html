@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Template</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body {
+      background-color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      /* Default font if needed */
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .review-card {
+      width: 351px;
+      height: 195px;
+      border-radius: 15.42px;
+      background: #2597E0;
+      padding: 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      color: #FFFFFF;
+      /* Assuming white text for contrast on blue background */
+    }
+
+    .review-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 18.5px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      margin: 0 0 12px 0;
+    }
+
+    .review-description {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 12.34px;
+      line-height: 130%;
+      letter-spacing: 0%;
+      margin: 0 0 auto 0;
+      /* Pushes rating to the bottom */
+    }
+
+    .review-rating {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 12.34px;
+      line-height: 130%;
+      letter-spacing: 0%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Simple star icon using SVG for rating */
+    .star-icon {
+      width: 14px;
+      height: 14px;
+      fill: #FFD700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="review-card">
+    <h3 class="review-title">Ahmed Mohamed</h3>
+    <p class="review-description">
+      First, a professional and experienced Egyptian broker in this field. Prices are reasonable. The presentation of
+      the documents is smooth and clear. I hope this market succeeds, as it is a pioneer in this field. Thank you to the
+      owners of this market.
+    </p>
+    <div class="review-rating">
+      <span>Rated 4.9/5</span>
+      <svg class="star-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+      </svg>
+    </div>
+  </div>
+
+</body>
+
+</html>
