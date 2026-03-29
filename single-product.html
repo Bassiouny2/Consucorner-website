@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YAG Iridectomy Lens - ConsuCorner</title>
+    <!-- CSS Modules (cascading order matters) -->
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/hero.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/cards.css" />
+    <link rel="stylesheet" href="assets/css/mega-menu.css" />
+    <link rel="stylesheet" href="assets/css/drawer.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/shop-page.css" />
+    <link rel="stylesheet" href="assets/css/single-product.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+  <body>
+    <!-- SVG Sprite (hidden, referenced via <use href="#icon-id">) -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+      <symbol id="icon-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></symbol>
+      <symbol id="icon-tag-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+      <symbol id="icon-tag-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="icon-tag-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z" fill="currentColor"/></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><rect x="7" y="10.5" width="2" height="6.5" fill="currentColor"/><circle cx="8" cy="8.5" r="1" fill="currentColor"/><path d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z" fill="currentColor"/></symbol>
+    </svg>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <a href="#" class="drawer-login-btn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="#icon-login"/>
+          </svg>
+          LOGIN/SIGNUP
+        </a>
+        <button
+          class="drawer-close-btn"
+          id="drawer-close-btn"
+          aria-label="Close menu"
+        >
+          &#10005;
+        </button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab active" data-tab="shop">Shop</button>
+        <button class="drawer-tab" data-tab="explore">Explore</button>
+      </div>
+
+      <div class="drawer-content" data-content="shop">
+        <div class="drawer-category">
+          <button class="drawer-category-toggle active">
+            Surgical Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-down"/>
+            </svg>
+          </button>
+          <div class="drawer-subcategories open">
+            <div class="drawer-subcategory">
+              <button class="drawer-subcategory-toggle active">
+                OPHTHALMOLOGY
+                <svg
+                  class="chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <use href="#icon-chevron-down"/>
+                </svg>
+              </button>
+              <ul class="drawer-items open">
+                <li><a href="#">Lacrimal Instruments</a></li>
+                <li><a href="#">Cannulas</a></li>
+                <li><a href="#">Markers</a></li>
+                <li><a href="#">Chalazion Curettes</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Diagnostic Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right"/>
+            </svg>
+          </button>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Medical Equipments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="drawer-content hidden" data-content="explore">
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Important</h3>
+          <ul class="drawer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">ConsuCorner Partners</a></li>
+          </ul>
+        </div>
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Help</h3>
+          <ul class="drawer-links">
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact &amp; Support</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <header class="site-header">
+      <div class="header-container">
+        <button class="hamburger-btn" aria-label="Open menu" id="hamburger-btn">
+          <img
+            src="assets/images/hamburger-menu.svg"
+            alt="Menu"
+            width="28"
+            height="28"
+          />
+        </button>
+
+        <div class="header-left">
+          <a href="index.html" class="header-logo">
+            <img src="assets/images/main - logo.svg" alt="ConsuCorner Logo" />
+          </a>
+
+          <nav class="header-nav">
+            <div class="nav-item-shop" id="nav-item-shop">
+              <a href="shop.html" class="nav-link nav-link-shop">Shop</a>
+            </div>
+            <div class="nav-item-explore" id="nav-item-explore">
+              <a href="#" class="nav-link nav-link-explore">Explore</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="header-search">
+          <span class="search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search"/>
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Locate Your Match"
+            class="search-input"
+          />
+        </div>
+
+        <div class="header-actions">
+          <a href="#" class="cart-btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-cart"/>
+            </svg>
+            <span class="cart-badge"></span>
+          </a>
+
+          <a href="#" class="auth-link">LOGIN/SIGNUP</a>
+          <a href="#" class="vendor-btn">JOIN AS A VENDOR</a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu awaiting-selection"
+        id="mega-menu"
+        aria-hidden="true"
+      >
+        <div class="mega-menu-inner">
+          <div class="mega-left">
+            <h3 class="mega-cat-title">SHOP BY CATEGORY</h3>
+            <p class="mega-cat-desc">
+              ConsuCorner Brings Multiple Medical Suppliers, Multiple
+              Specialties, And Hundreds Of Instruments Into One Organized
+              Platform.
+            </p>
+            <hr class="mega-cat-divider" />
+            <ul class="mega-cat-list">
+              <li class="mega-cat-item" data-cat="surgical">
+                <span>Surgical Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="diagnostic">
+                <span>Diagnostic Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="equipment">
+                <span>Medical Equipments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="endoscopy">
+                <span>Endoscopy</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="dental">
+                <span>Dental Supplies</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="orthopedic">
+                <span>Orthopedic Devices</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="consumables">
+                <span>Disposables &amp; Consumables</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <div class="mega-right">
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <h2 class="mega-section-title">SHOP BY SPECIALTY</h2>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="specialty-prev"
+                  aria-label="Previous specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left"/>
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="specialty-viewport">
+                  <div class="mega-track" id="specialty-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="specialty-next"
+                  aria-label="Next specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <hr class="mega-section-divider" />
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <div class="mega-instrument-heading">
+                  <h2 class="mega-section-title">SHOP BY INSTRUMENT</h2>
+                  <span class="mega-specialty-label">OPHTHALMOLOGY</span>
+                </div>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="instrument-prev"
+                  aria-label="Previous instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left"/>
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="instrument-viewport">
+                  <div class="mega-track" id="instrument-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="instrument-next"
+                  aria-label="Next instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="explore-mega-menu" id="explore-mega-menu" aria-hidden="true">
+        <div class="explore-mega-inner">
+          <div class="explore-links-col">
+            <div class="explore-links-group">
+              <h3>Important</h3>
+              <a href="#">About Us</a><a href="#">Contact Us</a
+              ><a href="#">Blog</a><a href="#">ConsuCorner Partners</a>
+            </div>
+            <div class="explore-links-group">
+              <h3>Help</h3>
+              <a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a
+              ><a href="#">Contact &amp; Support</a><a href="#">FAQ</a>
+            </div>
+          </div>
+          <article class="explore-featured-card">
+            <span class="explore-tag">Blog Category</span>
+            <h4>A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+            <img
+              src="assets/images/bloge image.png"
+              alt="Featured blog post image"
+            />
+            <div class="explore-meta-row">
+              <span>CONSUCORNER</span><span>02 December 2023</span
+              ><span>3 Min. To Read</span>
+            </div>
+            <p>
+              Here’s A Guide To Building A Complete Ophthalmic Clinic Toolkit.
+            </p>
+          </article>
+          <div class="explore-recent-col">
+            <h5>Recently Posted</h5>
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-search-row">
+        <div class="mobile-search-inner">
+          <input
+            type="text"
+            placeholder="medical supplies"
+            class="mobile-search-input"
+          />
+          <button class="mobile-search-btn">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search"/>
+            </svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── Single Product Page ── -->
+      <section class="sp-section">
+        <div class="sp-inner">
+
+          <!-- ── TOP: Image + Details ── -->
+          <div class="sp-top">
+
+            <!-- Image Panel -->
+            <div class="sp-image-panel">
+              <button class="sp-wishlist-btn" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+
+              <!-- Slider Viewport -->
+              <div class="sp-slider-viewport" id="spSliderViewport">
+                <div class="sp-slider-track" id="spSliderTrack">
+                  <div class="sp-slide"><img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens 1" class="sp-main-img" /></div>
+                  <div class="sp-slide"><img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens 2" class="sp-main-img" /></div>
+                  <div class="sp-slide"><img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens 3" class="sp-main-img" /></div>
+                  <div class="sp-slide"><img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens 4" class="sp-main-img" /></div>
+                </div>
+              </div>
+
+              <!-- Dots + Nav row -->
+              <div class="sp-image-bottom">
+                <div class="sp-image-bottom-spacer"></div>
+                <div class="sp-slider-dots" id="spSliderDots">
+                  <span class="sp-dot sp-dot--active" data-index="0"></span>
+                  <span class="sp-dot" data-index="1"></span>
+                  <span class="sp-dot" data-index="2"></span>
+                  <span class="sp-dot" data-index="3"></span>
+                </div>
+                <div class="sp-image-nav">
+                  <button class="sp-nav-btn" id="spPrev" aria-label="Previous">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-chevron-left"/></svg>
+                  </button>
+                  <button class="sp-nav-btn" id="spNext" aria-label="Next">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-chevron-right"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Details Panel -->
+            <div class="sp-details">
+              <h1 class="sp-title">YAG Iridectomy Lens</h1>
+              <p class="sp-description">Preferred for anterior segment suturing, the 115mm shaft provides enhanced reach and maneuverability in deep-set eyes during complex ophthalmic procedures.</p>
+
+              <div class="sp-pricing">
+                <span class="sp-price-old">1800 EGP</span>
+                <div class="sp-price-current">
+                  <span class="sp-price">1600</span>
+                  <span class="sp-currency">EGP</span>
+                </div>
+              </div>
+
+              <div class="sp-actions">
+                <div class="sp-qty">
+                  <button class="sp-qty-btn" id="spQtyMinus">−</button>
+                  <input type="number" class="sp-qty-val" id="spQtyVal" value="1" min="1" />
+                  <button class="sp-qty-btn" id="spQtyPlus">+</button>
+                </div>
+                <a href="#" class="sp-btn-cart">ADD TO CART</a>
+                <a href="#" class="sp-btn-buy">BUY NOW</a>
+              </div>
+
+              <div class="sp-meta">
+                <div class="sp-meta-row">
+                  <span class="sp-meta-label">SKU:</span>
+                  <span class="sp-meta-val">TY 1122</span>
+                </div>
+                <div class="sp-meta-row">
+                  <span class="sp-meta-label">Categories:</span>
+                  <span class="sp-meta-val">
+                    <a href="#" class="sp-cat-link">Forceps</a>,
+                    <a href="#" class="sp-cat-link">Ophthalmology</a>,
+                    <a href="#" class="sp-cat-link">Surgical Instruments</a>
+                  </span>
+                </div>
+              </div>
+
+              <div class="sp-vendor-row">
+                <div class="sp-vendor-info">
+                  <img src="assets/images/vendor-log.png" alt="LifeCare Surgical" class="sp-vendor-logo" />
+                  <span class="sp-vendor-name">LifeCare Surgical</span>
+                </div>
+                  <div class="country-origin-item">
+                    <img class="sp-country" src="assets/images/country.webp" alt="India" />
+                  </div>
+              </div>
+
+              <a href="#" class="sp-report-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Report Abuse
+              </a>
+            </div>
+          </div><!-- /.sp-top -->
+
+          <!-- ── Technical Specifications ── -->
+          <div class="sp-section-block">
+            <h2 class="sp-section-title">Technical Specifications of 12mm Shaft – 115mm McPherson Angled Tying Forceps</h2>
+            <div class="sp-specs-grid">
+
+              <!-- Specs Table Card -->
+              <div class="sp-specs-card">
+                <div class="sp-specs-card-header">
+                  <span class="sp-specs-card-name">McPherson Angled Tying Forceps</span>
+                  <span class="sp-specs-card-sku">SKU: TY 1122</span>
+                </div>
+                <div class="sp-specs-table">
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Material
+                      <span class="sp-tooltip-wrap" data-tooltip="The material used in manufacturing this instrument. Anodized titanium provides corrosion resistance and lightweight durability.">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="7" x2="12" y2="13"/><circle cx="12" cy="17" r="0.5" fill="currentColor" stroke-width="2.5"/></svg>
+                      </span>
+                    </span>
+                    <span class="sp-spec-val sp-spec-badge">Anodized Titanium</span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Finish</span>
+                    <span class="sp-spec-val">Anti-glare</span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Handle</span>
+                    <span class="sp-spec-val">Lightweight, open-slot handle</span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Length</span>
+                    <span class="sp-spec-val">115mm</span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Manufacturer</span>
+                    <span class="sp-spec-val">ACMED</span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Group Key</span>
+                    <span class="sp-spec-val">McPherson Angled Tying Forceps</span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Available Variants</span>
+                    <span class="sp-spec-val sp-spec-variants">
+                      <a href="#" class="sp-variant-tag">85mm</a>
+                      <a href="#" class="sp-variant-tag sp-variant-tag--active">115mm</a>
+                    </span>
+                  </div>
+                  <div class="sp-spec-row">
+                    <span class="sp-spec-key">Sterilization</span>
+                    <span class="sp-spec-val">
+                      <span class="sp-sterilize-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Autoclavable
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Specs Description -->
+              <div class="sp-specs-desc">
+                <p>In ophthalmic surgery, precision and stability are paramount, making these forceps essential for ophthalmic professionals. Crafted from anodized titanium, they offer both durability and lightweight handling, ensuring control and accuracy during procedures. The anti-glare finish enhances clear visualization, while the open-slot handle design facilitates safe handling. Autoclavable at 134°C, these instruments are critical for maintaining sterile conditions, thus supporting functional reliability in surgical settings. Available in two variants, they cater to the diverse needs of surgeons and clinicians.</p>
+
+                <!-- Surgical Applications (nested under specs desc) -->
+                <div class="sp-section-block">
+                  <h2 class="sp-section-title">Surgical Applications of 12mm Shaft – 115mm McPherson Angled Tying Forceps</h2>
+                  <p class="sp-body-text">In cataract surgery, this variant is particularly advantageous for securing sutures in the anterior segment, where its 12mm angled shaft allows for precise knot tying even in challenging anatomical positions. The extended reach and angled access of this tool facilitate meticulous handling of fine sutures, enhancing surgical outcomes by minimizing tissue trauma and ensuring secure closure in deep ocular procedures.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Common Applications + Know More ── -->
+          <div class="sp-two-col">
+
+            <div class="sp-section-block">
+              <h2 class="sp-section-title">Common Applications</h2>
+              <ul class="sp-app-list">
+                <li>Cataract Surgery</li>
+                <li>Corneal Transplant (Keratoplasty)</li>
+                <li>Glaucoma Surgery</li>
+                <li>Anterior Segment Suturing</li>
+                <li>Retina Surgery</li>
+                <li>Deep Ocular Procedures</li>
+                <li>Penetrating Keratoplasty</li>
+              </ul>
+            </div>
+
+            <div class="sp-section-block">
+              <h2 class="sp-section-title">Know More</h2>
+              <p class="sp-body-text">In cataract surgery, this variant is particularly advantageous for securing sutures in the anterior segment, where its 12mm angled shaft allows for precise knot tying even in challenging anatomical positions. The extended reach and angled access of this tool facilitate meticulous handling of fine sutures, enhancing surgical outcomes by minimizing tissue trauma and ensuring secure closure in deep ocular procedures.</p>
+            </div>
+
+          </div>
+
+        </div><!-- /.sp-inner -->
+      </section>
+
+
+
+      <section>
+        <div class="footer-top-border"></div>
+        <div class="medical-products-banner sp-banner"></div>
+      </section>
+
+      <!-- ── Often Ordered With ── -->
+      <section class="oow-section">
+        <div class="oow-inner">
+          <div class="oow-header">
+            <h2 class="oow-title">Often Ordered With</h2>
+            <div class="oow-nav">
+              <button class="oow-nav-btn" id="oowPrev" aria-label="Previous">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-chevron-left"/></svg>
+              </button>
+              <button class="oow-nav-btn" id="oowNext" aria-label="Next">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-chevron-right"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="oow-viewport" id="oowViewport">
+            <div class="oow-track" id="oowTrack">
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1600</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="oow-card" data-href="single-product.html">
+                <div class="oow-card-img-wrapper">
+                  <img src="assets/images/demo-product-shop.png" alt="YAG Iridectomy Lens" />
+                  <span class="oow-card-badge">Company</span>
+                </div>
+                <div class="oow-card-body">
+                  <h3 class="oow-card-title">YAG Iridectomy Lens</h3>
+                  <div class="oow-priceing">
+                    <p class="oow-price">1800</p>
+                    <p class="oow-currency">EGP</p>
+                  </div>
+                  <div class="oow-card-btn">
+                    <div class="oow-card-btn-left">
+                      <a href="#" class="oow-btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>
+                      <a href="#" class="oow-btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>
+                    </div>
+                    <a href="#" class="oow-btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Compare" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="oow-nav-bottom">
+            <button class="oow-nav-btn" id="oowPrevBottom" aria-label="Previous">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-chevron-left"/></svg>
+            </button>
+            <button class="oow-nav-btn" id="oowNextBottom" aria-label="Next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-chevron-right"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Product Testimonials ── -->
+      <section class="sp-t-section">
+        <div class="sp-t-inner">
+          <div class="sp-t-header">
+            <div class="sp-t-heading-block">
+              <h2 class="sp-t-title">What Our Customers<br />Say About Us</h2>
+            </div>
+            <div class="sp-t-rating-block">
+              <div class="sp-t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="sp-t-rating-text">Trusted by Healthcare professionals</p>
+            </div>
+          </div>
+          <div class="sp-t-wrapper" id="spTWrapper">
+            <div class="sp-t-track" id="spTTrack">
+              <div class="sp-t-card">
+                <h4 class="sp-t-name">Ahmed Mohamed</h4>
+                <p class="sp-t-text">First, a professional and experienced Egyptian broker in this field. Prices are reasonable. The presentation of the documents is smooth and clear. I hope this market succeeds, as it is a pioneer in this field. Thank you to the owners of this market.</p>
+                <span class="sp-t-rating">&#9733; Rated 4.8/5</span>
+              </div>
+              <div class="sp-t-card">
+                <h4 class="sp-t-name">Sara Hassan</h4>
+                <p class="sp-t-text">Excellent service and high-quality medical supplies. The team is very responsive and always ready to help. Delivery was fast and the packaging was secure. Will definitely order again.</p>
+                <span class="sp-t-rating">&#9733; Rated 5.0/5</span>
+              </div>
+              <div class="sp-t-card">
+                <h4 class="sp-t-name">Dr. Khaled Nour</h4>
+                <p class="sp-t-text">I have been sourcing supplies from ConsuCorner for over a year now. The quality is consistent and the prices are competitive. Their customer support team is always helpful and professional.</p>
+                <span class="sp-t-rating">&#9733; Rated 4.9/5</span>
+              </div>
+              <div class="sp-t-card">
+                <h4 class="sp-t-name">Mona Adel</h4>
+                <p class="sp-t-text">Very satisfied with the product quality. It meets all our clinical standards and the delivery was on time. The website is easy to navigate and the ordering process is seamless.</p>
+                <span class="sp-t-rating">&#9733; Rated 4.7/5</span>
+              </div>
+              <div class="sp-t-card">
+                <h4 class="sp-t-name">Omar Farouk</h4>
+                <p class="sp-t-text">Great platform for medical professionals. The product range is extensive and the descriptions are detailed and accurate. I appreciate the transparency in pricing and specifications.</p>
+                <span class="sp-t-rating">&#9733; Rated 4.8/5</span>
+              </div>
+              <div class="sp-t-card">
+                <h4 class="sp-t-name">Nadia Sami</h4>
+                <p class="sp-t-text">Outstanding experience from start to finish. The product exceeded our expectations in terms of quality and durability. ConsuCorner is now our go-to supplier for all medical equipment needs.</p>
+                <span class="sp-t-rating">&#9733; Rated 5.0/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── FAQ Accordion ── -->
+      <section class="sp-faq-section">
+        <div class="sp-faq-inner">
+          <div class="sp-faq-container">
+
+            <div class="sp-faq-item sp-faq-item--open">
+              <button class="sp-faq-header" aria-expanded="true">
+                <span class="sp-faq-number">01</span>
+                <span class="sp-faq-question">What is intraocular lens (IOL) implantation?</span>
+                <span class="sp-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 1L13 13M13 1L1 13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="sp-faq-body">
+                <p>IOL implantation is a surgical procedure performed after cataract removal or extraction of a damaged natural lens, where a transparent artificial lens is implanted to restore clear vision.</p>
+              </div>
+            </div>
+
+            <div class="sp-faq-item">
+              <button class="sp-faq-header" aria-expanded="false">
+                <span class="sp-faq-number">02</span>
+                <span class="sp-faq-question">Is IOL implantation only used for cataract surgery?</span>
+                <span class="sp-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1V13M1 7H13" stroke="#00C8B3" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="sp-faq-body">
+                <p>No, IOL implantation is not limited to cataract surgery. It is also used in refractive lens exchange procedures to correct vision problems such as severe myopia, hyperopia, or presbyopia.</p>
+              </div>
+            </div>
+
+            <div class="sp-faq-item">
+              <button class="sp-faq-header" aria-expanded="false">
+                <span class="sp-faq-number">03</span>
+                <span class="sp-faq-question">What instruments are required for IOL implantation?</span>
+                <span class="sp-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1V13M1 7H13" stroke="#00C8B3" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="sp-faq-body">
+                <p>The procedure requires a phacoemulsification system, IOL injector and cartridge, micro-incision knives, viscoelastic agents, irrigation/aspiration handpieces, and a microscope for precision surgical visualization.</p>
+              </div>
+            </div>
+
+            <div class="sp-faq-item">
+              <button class="sp-faq-header" aria-expanded="false">
+                <span class="sp-faq-number">04</span>
+                <span class="sp-faq-question">Why is an injector and cartridge system important?</span>
+                <span class="sp-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1V13M1 7H13" stroke="#00C8B3" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="sp-faq-body">
+                <p>The injector and cartridge system allows the surgeon to fold and insert the IOL through a very small incision, minimizing trauma to the eye, reducing recovery time, and lowering the risk of complications.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Write A Review ── -->
+      <section class="sp-review-section">
+        <div class="sp-review-inner">
+
+          <h2 class="sp-review-title">Write A Review</h2>
+          <p class="sp-review-subtitle">Share your experience to help others make better decisions.</p>
+
+          <div class="sp-review-contacts-card">
+            <p class="sp-review-contacts-label">Contacts</p>
+            <p class="sp-review-contacts-hint">These contacts are used to inform about orders</p>
+
+            <div class="sp-review-field">
+              <svg class="sp-review-field-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <input type="email" class="sp-review-input" placeholder="your email Address" />
+            </div>
+
+            <div class="sp-review-field sp-review-field--last">
+              <svg class="sp-review-field-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.77 12 19.79 19.79 0 0 1 1.69 3.35 2 2 0 0 1 3.66 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <input type="tel" class="sp-review-input" placeholder="phone number" />
+            </div>
+          </div>
+
+          <label class="sp-review-comment-label">Leve your comment here</label>
+          <textarea class="sp-review-textarea" rows="6"></textarea>
+
+          <button class="sp-review-submit">
+            Submit
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+        </div>
+      </section>
+
+
+      <section>
+        <div class="medical-products-banner sp-banner"></div>
+      </section>
+
+
+    </main>
+
+    <script src="assets/js/mega-menu.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/shop-sections-slider.js"></script>
+
+    <script src="assets/js/single-product.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-top-border"></div>
+
+      <div class="footer-main">
+        <div class="footer-container">
+          <div class="footer-brand-row">
+            <div class="footer-brand">
+              <a href="index.html" class="footer-logo">
+                <img
+                  src="assets/images/main - logo.svg"
+                  alt="ConsuCorner Logo"
+                />
+              </a>
+              <p class="footer-tagline">
+                Your Trusted Medical Supply<br />Hub in Egypt
+              </p>
+            </div>
+            <div class="footer-description">
+              <p>
+                ConsuCorner is Egypt's leading medical e-commerce platform
+                dedicated to providing high-quality medical supplies, surgical
+                instruments, and diagnostic tools to healthcare professionals,
+                clinics, hospitals, and medical businesses. We bring
+                reliability, variety, and simplicity to every purchase — all in
+                one organized online shop.
+              </p>
+            </div>
+          </div>
+
+          <div class="footer-nav-row">
+            <div class="footer-col">
+              <h4 class="footer-col-heading">EXPLORE</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Shop</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">SERVICES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Bulk & Wholesale Orders</a></li>
+                <li><a href="#">Custom Procurement</a></li>
+                <li><a href="#">Product Consulting</a></li>
+                <li><a href="#">Fast Delivery</a></li>
+                <li><a href="#">Returns & Exchanges</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">CONNECT</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Join Our Newsletter</a></li>
+                <li><a href="#">Follow Us on Instagram</a></li>
+                <li><a href="#">Like Us on Facebook</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">RESOURCES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Industry Trends</a></li>
+                <li><a href="#">Event Calendar</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">LEGAL</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Copyright Information</a></li>
+                <li><a href="#">Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container footer-bottom-inner">
+          <div class="footer-bottom-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+          </div>
+
+          <p class="footer-copyright">
+            &copy; 2026 By ConsuCorner. All Rights Reserved.
+          </p>
+
+          <div class="footer-payments">
+            <img
+              src="assets/images/footer-payment.png"
+              alt="Accepted payment methods: Paymob, Mastercard, Visa, Fawry"
+              class="footer-payment-img"
+            />
+          </div>
+
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-facebook"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-linkedin"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

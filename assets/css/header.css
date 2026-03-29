@@ -1,0 +1,247 @@
+/* ---------------------------------
+   Website Header Styles (as per design)
+----------------------------------- */
+.site-header {
+  background-color: #ffffff;
+  padding: 12px 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  font-family: "Manrope", sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+}
+
+/* Hamburger button — hidden on desktop */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #555;
+  flex-shrink: 0;
+}
+
+/* Mobile search row — hidden on desktop */
+.mobile-search-row {
+  display: none;
+  padding: 10px 5px 12px;
+  background: #ffffff;
+}
+
+.mobile-search-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f3f4f6;
+  border-radius: 50px;
+  padding: 0px 0 0 10px;
+}
+
+.mobile-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: "Manrope", sans-serif;
+  color: #374151;
+  outline: none;
+}
+
+.mobile-search-input::placeholder {
+  color: #9ca3af;
+}
+
+.mobile-search-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #2597e0;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.mobile-search-btn:hover {
+  background: #1d87cc;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduced since the logo now has a 20px margin-right */
+}
+
+.header-logo img {
+  height: auto; /* Based on typical header sizing */
+  width: 300px;
+  display: block;
+  margin-right: 20px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #00c8b3;
+}
+
+.nav-link-shop::after,
+.nav-link-explore::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.nav-link-shop::after,
+.nav-link-explore::after {
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.nav-link-shop:hover::after,
+.nav-link-shop:focus-visible::after,
+.nav-link-explore:hover::after,
+.nav-link-explore:focus-visible::after {
+  transform: rotate(45deg) translateY(-1px);
+  border-color: #00c8b3;
+}
+
+.header-search {
+  flex-grow: 1;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  background: #e5e7eb; /* Solid gray pill */
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 0 30px;
+}
+
+.search-icon {
+  color: #9ca3af; /* Gray icon */
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #8c8c8c;
+  font-weight: 400;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.cart-btn {
+  background-color: #2597e0;
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%; /* Perfect circle from Figma */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.cart-btn:hover {
+  transform: scale(1.05);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 10px;
+  height: 10px;
+  background-color: #f8914d; /* Orange dot */
+  border-radius: 50%;
+  border: 2px solid #2597e0; /* Cutout effect */
+}
+
+.auth-link {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Manrope", sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  color: #2597e0;
+}
+
+.vendor-btn {
+  background-color: #64e9cc;
+  color: #121212;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vendor-btn:hover {
+  background-color: #50d9bc;
+  transform: scale(1.02);
+}

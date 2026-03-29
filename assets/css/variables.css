@@ -1,24 +1,31 @@
 :root {
-  /* Brand Colors */
-  --brand-primary: #2597E0;
-  --brand-secondary: #64E9CC;
-  --text-dark: #1F2937;
-  --text-light: #6B7280;
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F3F4F6;
-  
-  /* Typography */
-  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  
-  /* Spacing */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
-  
-  /* Layout */
-  --container-width: 1280px;
-  
-  /* Transitions */
-  --transition-fast: 0.2s ease-in-out;
+  --card-width: 200.28px;
+  --card-height: 276.35px;
+  --card-radius: 12px;
+  --card-border-width: 0.6px;
+
+  /* Gradients */
+  --bg-gradient: radial-gradient(
+    153.25% 153.25% at 50.68% 9.95%,
+    #64e9cc 0%,
+    #2597e0 100%
+  );
+  --border-gradient: linear-gradient(
+    245.77deg,
+    rgba(37, 151, 224, 0.29) -16.48%,
+    rgba(100, 233, 204, 0.29) 161.62%
+  );
+  --blur-amount: 15.65px;
+
+  /* Z-Index Scale */
+  --z-background: 0;
+  --z-base: 1;
+  --z-content: 2;
+  --z-ui-control: 3;
+  --z-section-mid: 5;
+  --z-section-elevated: 10;
+  --z-overlay-banner: 20;
+  --z-mega-menu: 900;
+  --z-drawer-overlay: 998;
+  --z-drawer: 999;
 }
