@@ -18,20 +18,83 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/shop-page.css" />
   </head>
-  <body>
+  <body class="page-shop">
     <!-- SVG Sprite (hidden, referenced via <use href="#icon-id">) -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
-      <symbol id="icon-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
-      <symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
-      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
-      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
-      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-      <symbol id="icon-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></symbol>
-      <symbol id="icon-tag-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
-      <symbol id="icon-tag-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
-      <symbol id="icon-tag-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
-      <symbol id="icon-facebook" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z" fill="currentColor"/></symbol>
-      <symbol id="icon-linkedin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><rect x="7" y="10.5" width="2" height="6.5" fill="currentColor"/><circle cx="8" cy="8.5" r="1" fill="currentColor"/><path d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z" fill="currentColor"/></symbol>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol id="icon-login" viewBox="0 0 24 24">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+        <polyline points="10 17 15 12 10 7" />
+        <line x1="15" y1="12" x2="3" y2="12" />
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" />
+      </symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path
+          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+        />
+      </symbol>
+      <symbol id="icon-tag-cpu" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+        <rect x="9" y="9" width="6" height="6" />
+        <line x1="9" y1="1" x2="9" y2="4" />
+        <line x1="15" y1="1" x2="15" y2="4" />
+        <line x1="9" y1="20" x2="9" y2="23" />
+        <line x1="15" y1="20" x2="15" y2="23" />
+        <line x1="20" y1="9" x2="23" y2="9" />
+        <line x1="1" y1="9" x2="4" y2="9" />
+        <line x1="1" y1="14" x2="4" y2="14" />
+      </symbol>
+      <symbol id="icon-tag-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </symbol>
+      <symbol id="icon-tag-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="11"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <path
+          d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="11"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <rect x="7" y="10.5" width="2" height="6.5" fill="currentColor" />
+        <circle cx="8" cy="8.5" r="1" fill="currentColor" />
+        <path
+          d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z"
+          fill="currentColor"
+        />
+      </symbol>
     </svg>
 
     <!-- Mobile Navigation Drawer -->
@@ -48,7 +111,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <use href="#icon-login"/>
+            <use href="#icon-login" />
           </svg>
           LOGIN/SIGNUP
         </a>
@@ -79,7 +142,7 @@
               stroke="currentColor"
               stroke-width="2"
             >
-              <use href="#icon-chevron-down"/>
+              <use href="#icon-chevron-down" />
             </svg>
           </button>
           <div class="drawer-subcategories open">
@@ -95,7 +158,7 @@
                   stroke="currentColor"
                   stroke-width="2"
                 >
-                  <use href="#icon-chevron-down"/>
+                  <use href="#icon-chevron-down" />
                 </svg>
               </button>
               <ul class="drawer-items open">
@@ -119,7 +182,7 @@
               stroke="currentColor"
               stroke-width="2"
             >
-              <use href="#icon-chevron-right"/>
+              <use href="#icon-chevron-right" />
             </svg>
           </button>
         </div>
@@ -135,7 +198,7 @@
               stroke="currentColor"
               stroke-width="2"
             >
-              <use href="#icon-chevron-right"/>
+              <use href="#icon-chevron-right" />
             </svg>
           </button>
         </div>
@@ -202,7 +265,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <use href="#icon-search"/>
+              <use href="#icon-search" />
             </svg>
           </span>
           <input
@@ -224,7 +287,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <use href="#icon-cart"/>
+              <use href="#icon-cart" />
             </svg>
             <span class="cart-badge"></span>
           </a>
@@ -259,7 +322,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="diagnostic">
@@ -272,7 +335,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="equipment">
@@ -285,7 +348,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="endoscopy">
@@ -298,7 +361,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="dental">
@@ -311,7 +374,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="orthopedic">
@@ -324,7 +387,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="consumables">
@@ -337,7 +400,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
             </ul>
@@ -366,7 +429,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-left"/>
+                    <use href="#icon-chevron-left" />
                   </svg>
                 </button>
                 <div class="mega-viewport" id="specialty-viewport">
@@ -385,7 +448,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-right"/>
+                    <use href="#icon-chevron-right" />
                   </svg>
                 </button>
               </div>
@@ -417,7 +480,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-left"/>
+                    <use href="#icon-chevron-left" />
                   </svg>
                 </button>
                 <div class="mega-viewport" id="instrument-viewport">
@@ -436,7 +499,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-right"/>
+                    <use href="#icon-chevron-right" />
                   </svg>
                 </button>
               </div>
@@ -562,7 +625,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <use href="#icon-search"/>
+              <use href="#icon-search" />
             </svg>
             Search
           </button>
@@ -612,7 +675,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -638,7 +701,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -664,7 +727,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -690,7 +753,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -716,7 +779,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -742,7 +805,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -768,7 +831,7 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <use href="#icon-cart"/>
+                      <use href="#icon-cart" />
                     </svg>
                     Shop Now
                   </a>
@@ -812,10 +875,14 @@
             </button>
             <div class="shop-slider-viewport">
               <div class="shop-specialty-track" id="shop-specialty-track">
-                <a href="#" class="shop-specialty-card shop-specialty-card-green"
+                <a
+                  href="#"
+                  class="shop-specialty-card shop-specialty-card-green"
                   >ENT</a
                 >
-                <a href="#" class="shop-specialty-card shop-specialty-card-green"
+                <a
+                  href="#"
+                  class="shop-specialty-card shop-specialty-card-green"
                   >OPHTHALMOLOGY</a
                 >
                 <a href="#" class="shop-specialty-card shop-specialty-card-blue"
@@ -824,19 +891,25 @@
                 <a href="#" class="shop-specialty-card shop-specialty-card-blue"
                   >GENERAL SURGERY</a
                 >
-                <a href="#" class="shop-specialty-card shop-specialty-card-green"
+                <a
+                  href="#"
+                  class="shop-specialty-card shop-specialty-card-green"
                   >CARDIOLOGY</a
                 >
                 <a href="#" class="shop-specialty-card shop-specialty-card-blue"
                   >UROLOGY</a
                 >
-                <a href="#" class="shop-specialty-card shop-specialty-card-green"
+                <a
+                  href="#"
+                  class="shop-specialty-card shop-specialty-card-green"
                   >DERMATOLOGY</a
                 >
                 <a href="#" class="shop-specialty-card shop-specialty-card-blue"
                   >ANESTHESIA</a
                 >
-                <a href="#" class="shop-specialty-card shop-specialty-card-green"
+                <a
+                  href="#"
+                  class="shop-specialty-card shop-specialty-card-green"
                   >PROCTOLOGY</a
                 >
                 <a href="#" class="shop-specialty-card shop-specialty-card-blue"
@@ -858,11 +931,662 @@
           </div>
         </div>
       </section>
+      <section class="shop-bundle-section">
+        <div class="shop-bundle-inner">
+          <div class="shop-bundle-panel">
+            <header class="shop-bundle-head">
+              <div class="shop-bundle-head-spacer" aria-hidden="true"></div>
+              <h2 class="shop-bundle-heading">
+                Save More With <span>Our Bundle</span>
+              </h2>
+            </header>
+
+            <div class="shop-bundle-main">
+              <div class="shop-bundle-cards">
+                <article class="shop-bundle-card shop-bundle-card--eceff2">
+                  <div class="shop-bundle-card-text">
+                    <p class="shop-bundle-card-cat">Surgical Instruments</p>
+                    <h3 class="shop-bundle-card-title">Dental Mirror Handle</h3>
+                    <p class="shop-bundle-card-price">
+                      <span class="shop-bundle-card-price-value">1800</span>
+                      <span class="shop-bundle-card-currency">EGP</span>
+                    </p>
+                  </div>
+                  <div class="shop-bundle-card-media">
+                    <img
+                      src="assets/images/product-bundel-1.png"
+                      alt="Dental Mirror Handle"
+                    />
+                  </div>
+                </article>
+
+                <span class="shop-bundle-plus" aria-hidden="true">+</span>
+
+                <article class="shop-bundle-card shop-bundle-card--e3f2e6">
+                  <div class="shop-bundle-card-text">
+                    <p class="shop-bundle-card-cat">Surgical Instruments</p>
+                    <h3 class="shop-bundle-card-title">Surgical Forceps</h3>
+                    <p class="shop-bundle-card-price">
+                      <span class="shop-bundle-card-price-value">1800</span>
+                      <span class="shop-bundle-card-currency">EGP</span>
+                    </p>
+                  </div>
+                  <div class="shop-bundle-card-media">
+                    <img
+                      src="assets/images/product-bundel-2.png"
+                      alt="Surgical Forceps"
+                    />
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <footer class="shop-bundle-footer">
+              <div class="shop-bundle-pricing">
+                <p class="shop-bundle-was">
+                  <s>3600</s> <span class="shop-bundle-was-currency">EGP</span>
+                </p>
+                <p class="shop-bundle-now">3200 EGP</p>
+              </div>
+              <a href="#" class="shop-bundle-add-cart">Add to cart</a>
+            </footer>
+          </div>
+        </div>
+      </section>
+      <div class="bestsellers-section">
+        <div class="bestsellers-header">
+          <h2 class="bestsellers-title">Bestsellers</h2>
+          <div class="bestsellers-nav">
+            <button
+              type="button"
+              class="bs-slider-btn bs-prev"
+              aria-label="Previous"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <use href="#icon-chevron-left" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="bs-slider-btn bs-next"
+              aria-label="Next"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <use href="#icon-chevron-right" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="bestsellers-slider">
+          <div class="bs-track">
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="best-saler-section custom-section">
+        <!-- Your custom SVG Curve -->
+        <div class="best-saler-section-content">
+          <h3>New <span>Arrivals</span></h3>
+          <div class="best-saler-section slider">
+            <div class="best-saler-section-slider-left">
+              <div class="product-slider-image-background-wrapper">
+                <img
+                  src="assets/images/Rectangle blue.svg"
+                  alt="Product Image Background"
+                />
+                <img
+                  src="assets/images/Rectangle baby-blue.svg"
+                  alt="Product Image Background"
+                />
+              </div>
+              <div class="product-slider-image-wrapper">
+                <img
+                  src="assets/images/product-image-vendor.png"
+                  alt="Product Image"
+                />
+              </div>
+            </div>
+            <div class="best-saler-section-slider-right">
+              <div class="vendor-slider-item">
+                <img src="assets/images/vendor-log.png" alt="Vendor" />
+                <p class="vendor-slider-item-name">LifeCare Surgical</p>
+              </div>
+              <h2 class="product-slider-item-title">
+                Illumination head for Disposable Proctoscopy
+              </h2>
+              <div class="product-slider-btn">
+                <a class="btn-shop-now" href="#">Shop Now</a>
+                <div class="product-vendor-nav-btn-new-arrivals">
+                  <button
+                    type="button"
+                    class="slider-btn slider-prev"
+                    aria-label="Previous"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="#icon-chevron-left" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="slider-btn slider-next"
+                    aria-label="Next"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="#icon-chevron-right" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="medical-products-banner"
+        aria-label="Promotional medical products banner"
+      ></section>
+      <div class="bestsellers-section bestsellers-section--products">
+        <div class="bestsellers-header">
+          <h2 class="bestsellers-title">Products</h2>
+          <div class="bestsellers-nav bestsellers-nav--cta">
+            <a href="#" class="btn-all-products">All Products</a>
+          </div>
+        </div>
+        <div class="bestsellers-slider">
+          <div class="bs-track">
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="card-shop">
+              <div class="card-shop-img-wrapper">
+                <img
+                  src="assets/images/demo-product-shop.png"
+                  alt="YAG Iridectomy Lens"
+                />
+              </div>
+              <div class="card-shop-body">
+                <h3 class="product-card-title">YAG Iridectomy Lens</h3>
+                <div class="priceing">
+                  <p class="price">1800</p>
+                  <p class="currency">EGP</p>
+                </div>
+                <div class="product-card-btn">
+                  <div class="product-card-btn-left">
+                    <a href="#" class="btn-add-cart">Add to cart</a>
+                    <a href="#" class="btn-save"
+                      ><img
+                        src="assets/images/save-product-icon.svg"
+                        alt="Save"
+                    /></a>
+                  </div>
+                  <a href="#" class="btn-compare"
+                    ><img src="assets/images/Show-icon.svg" alt="Compare/View"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="assets/js/mega-menu.js"></script>
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/shop-sections-slider.js"></script>
+    <script src="assets/js/bestsellers-slider.js"></script>
+    <script src="assets/js/new-arrival-slider.js"></script>
 
     <footer class="site-footer">
       <div class="footer-top-border"></div>
@@ -975,7 +1699,7 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <use href="#icon-facebook"/>
+                <use href="#icon-facebook" />
               </svg>
             </a>
             <a href="#" class="footer-social-link" aria-label="LinkedIn">
@@ -984,7 +1708,7 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <use href="#icon-linkedin"/>
+                <use href="#icon-linkedin" />
               </svg>
             </a>
           </div>
