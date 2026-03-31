@@ -3,36 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forceps - ConsuCorner</title>
-    <!-- CSS Modules (cascading order matters) -->
+    <title>Cart - ConsuCorner</title>
     <link rel="stylesheet" href="assets/css/fonts.css" />
     <link rel="stylesheet" href="assets/css/variables.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/header.css" />
-    <link rel="stylesheet" href="assets/css/hero.css" />
     <link rel="stylesheet" href="assets/css/sections.css" />
-    <link rel="stylesheet" href="assets/css/cards.css" />
     <link rel="stylesheet" href="assets/css/mega-menu.css" />
     <link rel="stylesheet" href="assets/css/drawer.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/shop-page.css" />
+    <link rel="stylesheet" href="assets/css/cart.css" />
     <link rel="stylesheet" href="assets/css/auth-modal.css" />
   </head>
-  <body class="forceps-page">
-    <!-- SVG Sprite (hidden, referenced via <use href="#icon-id">) -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
-      <symbol id="icon-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
-      <symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
-      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
-      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
-      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-      <symbol id="icon-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></symbol>
-      <symbol id="icon-tag-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
-      <symbol id="icon-tag-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
-      <symbol id="icon-tag-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
-      <symbol id="icon-facebook" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z" fill="currentColor"/></symbol>
-      <symbol id="icon-linkedin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><rect x="7" y="10.5" width="2" height="6.5" fill="currentColor"/><circle cx="8" cy="8.5" r="1" fill="currentColor"/><path d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z" fill="currentColor"/></symbol>
+  <body class="page-cart">
+    <!-- SVG Sprite -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol id="icon-login" viewBox="0 0 24 24">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+        <polyline points="10 17 15 12 10 7" />
+        <line x1="15" y1="12" x2="3" y2="12" />
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" />
+      </symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path
+          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+        />
+      </symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="11"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <path
+          d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="11"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <rect x="7" y="10.5" width="2" height="6.5" fill="currentColor" />
+        <circle cx="8" cy="8.5" r="1" fill="currentColor" />
+        <path
+          d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z"
+          fill="currentColor"
+        />
+      </symbol>
     </svg>
 
     <!-- Mobile Navigation Drawer -->
@@ -49,7 +101,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <use href="#icon-login"/>
+            <use href="#icon-login" />
           </svg>
           LOGIN/SIGNUP
         </a>
@@ -61,12 +113,10 @@
           &#10005;
         </button>
       </div>
-
       <div class="drawer-tabs">
         <button class="drawer-tab active" data-tab="shop">Shop</button>
         <button class="drawer-tab" data-tab="explore">Explore</button>
       </div>
-
       <div class="drawer-content" data-content="shop">
         <div class="drawer-category">
           <button class="drawer-category-toggle active">
@@ -80,7 +130,7 @@
               stroke="currentColor"
               stroke-width="2"
             >
-              <use href="#icon-chevron-down"/>
+              <use href="#icon-chevron-down" />
             </svg>
           </button>
           <div class="drawer-subcategories open">
@@ -96,7 +146,7 @@
                   stroke="currentColor"
                   stroke-width="2"
                 >
-                  <use href="#icon-chevron-down"/>
+                  <use href="#icon-chevron-down" />
                 </svg>
               </button>
               <ul class="drawer-items open">
@@ -120,7 +170,7 @@
               stroke="currentColor"
               stroke-width="2"
             >
-              <use href="#icon-chevron-right"/>
+              <use href="#icon-chevron-right" />
             </svg>
           </button>
         </div>
@@ -136,12 +186,11 @@
               stroke="currentColor"
               stroke-width="2"
             >
-              <use href="#icon-chevron-right"/>
+              <use href="#icon-chevron-right" />
             </svg>
           </button>
         </div>
       </div>
-
       <div class="drawer-content hidden" data-content="explore">
         <div class="drawer-section">
           <h3 class="drawer-section-title">Important</h3>
@@ -165,6 +214,7 @@
     </div>
     <div class="drawer-overlay" id="drawer-overlay"></div>
 
+    <!-- Header -->
     <header class="site-header">
       <div class="header-container">
         <button class="hamburger-btn" aria-label="Open menu" id="hamburger-btn">
@@ -175,12 +225,10 @@
             height="28"
           />
         </button>
-
         <div class="header-left">
           <a href="index.html" class="header-logo">
             <img src="assets/images/main - logo.svg" alt="ConsuCorner Logo" />
           </a>
-
           <nav class="header-nav">
             <div class="nav-item-shop" id="nav-item-shop">
               <a href="shop.html" class="nav-link nav-link-shop">Shop</a>
@@ -190,7 +238,6 @@
             </div>
           </nav>
         </div>
-
         <div class="header-search">
           <span class="search-icon">
             <svg
@@ -203,7 +250,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <use href="#icon-search"/>
+              <use href="#icon-search" />
             </svg>
           </span>
           <input
@@ -212,7 +259,6 @@
             class="search-input"
           />
         </div>
-
         <div class="header-actions">
           <a href="#" class="cart-btn">
             <svg
@@ -225,16 +271,16 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <use href="#icon-cart"/>
+              <use href="#icon-cart" />
             </svg>
             <span class="cart-badge"></span>
           </a>
-
           <a href="#" class="auth-link">LOGIN/SIGNUP</a>
           <a href="#" class="vendor-btn">JOIN AS A VENDOR</a>
         </div>
       </div>
 
+      <!-- Mega Menu -->
       <div
         class="mega-menu awaiting-selection"
         id="mega-menu"
@@ -260,7 +306,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="diagnostic">
@@ -273,7 +319,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="equipment">
@@ -286,7 +332,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="endoscopy">
@@ -299,7 +345,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="dental">
@@ -312,7 +358,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="orthopedic">
@@ -325,7 +371,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
               <li class="mega-cat-item" data-cat="consumables">
@@ -338,7 +384,7 @@
                   stroke="currentColor"
                   stroke-width="2.5"
                 >
-                  <use href="#icon-chevron-right"/>
+                  <use href="#icon-chevron-right" />
                 </svg>
               </li>
             </ul>
@@ -367,7 +413,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-left"/>
+                    <use href="#icon-chevron-left" />
                   </svg>
                 </button>
                 <div class="mega-viewport" id="specialty-viewport">
@@ -386,7 +432,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-right"/>
+                    <use href="#icon-chevron-right" />
                   </svg>
                 </button>
               </div>
@@ -418,7 +464,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-left"/>
+                    <use href="#icon-chevron-left" />
                   </svg>
                 </button>
                 <div class="mega-viewport" id="instrument-viewport">
@@ -437,7 +483,7 @@
                     stroke="currentColor"
                     stroke-width="2.5"
                   >
-                    <use href="#icon-chevron-right"/>
+                    <use href="#icon-chevron-right" />
                   </svg>
                 </button>
               </div>
@@ -446,6 +492,7 @@
         </div>
       </div>
 
+      <!-- Explore Mega Menu -->
       <div class="explore-mega-menu" id="explore-mega-menu" aria-hidden="true">
         <div class="explore-mega-inner">
           <div class="explore-links-col">
@@ -472,13 +519,13 @@
               ><span>3 Min. To Read</span>
             </div>
             <p>
-              Here’s A Guide To Building A Complete Ophthalmic Clinic Toolkit.
+              Here's A Guide To Building A Complete Ophthalmic Clinic Toolkit.
             </p>
           </article>
           <div class="explore-recent-col">
             <h5>Recently Posted</h5>
-            <a href="#" class="explore-small-card"
-              ><img src="assets/images/blog image s.png" alt="Recent post" />
+            <a href="#" class="explore-small-card">
+              <img src="assets/images/blog image s.png" alt="Recent post" />
               <div class="explore-small-content">
                 <span class="explore-small-tag">Category</span>
                 <h6 class="explore-small-title">
@@ -488,59 +535,8 @@
                   <span>ConsuCorner</span><span>02 December 2022</span
                   ><span>3 Min. To Read</span>
                 </div>
-                <p class="explore-small-desc">
-                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
-                </p>
-              </div></a
-            >
-            <a href="#" class="explore-small-card"
-              ><img src="assets/images/blog image s.png" alt="Recent post" />
-              <div class="explore-small-content">
-                <span class="explore-small-tag">Category</span>
-                <h6 class="explore-small-title">
-                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
-                </h6>
-                <div class="explore-small-meta">
-                  <span>ConsuCorner</span><span>02 December 2022</span
-                  ><span>3 Min. To Read</span>
-                </div>
-                <p class="explore-small-desc">
-                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
-                </p>
-              </div></a
-            >
-            <a href="#" class="explore-small-card"
-              ><img src="assets/images/blog image s.png" alt="Recent post" />
-              <div class="explore-small-content">
-                <span class="explore-small-tag">Category</span>
-                <h6 class="explore-small-title">
-                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
-                </h6>
-                <div class="explore-small-meta">
-                  <span>ConsuCorner</span><span>02 December 2022</span
-                  ><span>3 Min. To Read</span>
-                </div>
-                <p class="explore-small-desc">
-                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
-                </p>
-              </div></a
-            >
-            <a href="#" class="explore-small-card"
-              ><img src="assets/images/blog image s.png" alt="Recent post" />
-              <div class="explore-small-content">
-                <span class="explore-small-tag">Category</span>
-                <h6 class="explore-small-title">
-                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
-                </h6>
-                <div class="explore-small-meta">
-                  <span>ConsuCorner</span><span>02 December 2022</span
-                  ><span>3 Min. To Read</span>
-                </div>
-                <p class="explore-small-desc">
-                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
-                </p>
-              </div></a
-            >
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -563,7 +559,7 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <use href="#icon-search"/>
+              <use href="#icon-search" />
             </svg>
             Search
           </button>
@@ -572,218 +568,261 @@
     </header>
 
     <main>
-      <section class="shop-page-head" aria-label="Shop page heading">
+      <section
+        class="shop-page-head cart-page-head"
+        aria-label="Cart page heading"
+      >
         <div class="shop-page-head-inner">
-          <h1 class="shop-page-title">Forceps</h1>
-          <p class="shop-page-breadcrumbs">Home/Shop/Ophthalmology/Forceps</p>
+          <h1 class="shop-page-title">Cart</h1>
+          <p class="shop-page-breadcrumbs">Home/Cart</p>
         </div>
       </section>
 
-      <!-- ===== PRODUCTS PAGE ===== -->
-      <section class="fp-products-section">
-        <div class="fp-products-inner">
-
-          <!-- Filter Bar -->
-          <div class="fp-filter-bar">
-            <div class="fp-filter-bar-left">
-              <!-- Mobile: Filters toggle (hidden on desktop) -->
-              <button class="fp-mobile-filter-toggle" id="fpFilterToggle">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-                Filters
-              </button>
-              <button class="fp-filter-tag-btn" data-filter-key="usageType" data-filter-val="grasping">Usage Type</button>
-              <button class="fp-filter-tag-btn" data-filter-key="tipType" data-filter-val="standard">Tip Type</button>
-              <button class="fp-filter-tag-btn" data-filter-key="teeth" data-filter-val="yes">Teeth</button>
-              <button class="fp-filter-tag-btn" data-filter-key="length" data-filter-val="100mm">Length</button>
+      <section class="cart-section" aria-label="Shopping cart">
+        <div class="cart-wrap">
+          <div class="cart-top-pill">
+            <div class="cart-top-left">
+              <span class="cart-count-badge">3</span>
+              <div>
+                <p class="cart-top-title">Your cart</p>
+                <p class="cart-top-sub">Free shipping over 500 EGP</p>
+              </div>
             </div>
-            <a href="#" class="fp-clear-all">Clear All</a>
+            <div class="cart-top-actions">
+              <button type="button" class="cart-action-btn" data-clear-cart>
+                Clear
+              </button>
+            </div>
           </div>
 
-          <!-- Sidebar overlay (mobile) -->
-          <div class="fp-sidebar-overlay" id="fpSidebarOverlay"></div>
+          <div class="cart-grid">
+            <article class="cart-list-card">
+              <header class="cart-list-head">
+                <p>PRODUCT</p>
+                <p>QUANTITY &amp; PRICE</p>
+              </header>
 
-          <!-- Two-column layout -->
-          <div class="fp-layout">
-
-            <!-- ── Sidebar ── -->
-            <aside class="fp-sidebar">
-
-              <!-- Sort -->
-              <div class="fp-sort-wrap">
-                <select class="fp-sort-select">
-                  <option>Default sorting</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Newest First</option>
-                </select>
-                <svg class="fp-sort-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              <div class="cart-empty-state" id="cart-empty-state" hidden>
+                <h3>Your cart is empty</h3>
+                <p>
+                  Looks like you removed everything. Browse products and add
+                  what you need.
+                </p>
+                <a href="shop.html" class="cart-empty-link">Go to Shop</a>
               </div>
 
-              <!-- Advanced Filters -->
-              <div class="fp-advanced-filters">
-                <h3 class="fp-filters-heading">Advanced Filters</h3>
-
-                <div class="fp-filter-group">
-                  <h4 class="fp-filter-group-title">Function</h4>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="func" data-filter-val="capsulorhexis"> Capsulorhexis</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="func" data-filter-val="tying"> Tying</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="func" data-filter-val="tissue-handling"> Tissue Handling</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="func" data-filter-val="dressing"> Dressing</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="func" data-filter-val="fixation"> Fixation</label>
-                </div>
-
-                <div class="fp-filter-group">
-                  <h4 class="fp-filter-group-title">Handle Type</h4>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="handle" data-filter-val="spring-handle"> Spring Handle</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="handle" data-filter-val="round-handle"> Round Handle</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="handle" data-filter-val="locking"> Locking</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="handle" data-filter-val="ergonomic-grip"> Ergonomic Grip</label>
-                </div>
-
-                <div class="fp-filter-group">
-                  <h4 class="fp-filter-group-title">Material</h4>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="material" data-filter-val="stainless-steel"> Stainless Steel</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="material" data-filter-val="titanium"> Titanium</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="material" data-filter-val="german-steel"> German Steel</label>
-                </div>
-
-                <div class="fp-filter-group">
-                  <h4 class="fp-filter-group-title">Tip Dimension</h4>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="tipDim" data-filter-val="0.12mm"> 0.12 mm</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="tipDim" data-filter-val="0.3mm"> 0.3 mm</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="tipDim" data-filter-val="0.5mm"> 0.5 mm</label>
-                </div>
-
-                <div class="fp-filter-group">
-                  <h4 class="fp-filter-group-title">Brand</h4>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="brand" data-filter-val="acmed"> ACMED</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="brand" data-filter-val="madhu"> Madhu</label>
-                </div>
-
-                <div class="fp-filter-group">
-                  <h4 class="fp-filter-group-title">Surgical Application</h4>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="surgApp" data-filter-val="cataract"> Cataract</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="surgApp" data-filter-val="glaucoma"> Glaucoma</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="surgApp" data-filter-val="vitreoretinal"> Vitreoretinal</label>
-                  <label class="fp-checkbox-label"><input type="checkbox" class="fp-checkbox" data-filter-key="surgApp" data-filter-val="microsurgery"> Microsurgery</label>
-                </div>
-
-                <div class="fp-filter-group fp-price-group">
-                  <h4 class="fp-filter-group-title">Price Range</h4>
-                  <input type="range" class="fp-price-slider" min="0" max="150000" value="73750" id="fpPriceSlider">
-                  <div class="fp-price-footer">
-                    <span class="fp-price-value" id="fpPriceDisplay">Price: 73,750 EGP</span>
-                    <button class="fp-price-filter-btn">Filter</button>
+              <div class="cart-item" data-price="1000">
+                <button
+                  class="cart-remove"
+                  type="button"
+                  aria-label="Remove item"
+                >
+                  x
+                </button>
+                <div class="cart-item-main">
+                  <div class="cart-thumb">
+                    <img
+                      src="assets/images/single-product-image.webp"
+                      alt="Product image"
+                    />
                   </div>
+                  <div class="cart-item-info">
+                    <p class="cart-item-cat">SURGICAL INSTRUMENTS</p>
+                    <h3 class="cart-item-name">McPherson Angled Forceps</h3>
+                    <p class="cart-item-meta">115mm · Titanium</p>
+                    <div class="cart-qty-row">
+                      <button
+                        type="button"
+                        class="qty-btn qty-minus"
+                        aria-label="Decrease quantity"
+                      >
+                        -
+                      </button>
+                      <span class="qty-value">1</span>
+                      <button
+                        type="button"
+                        class="qty-btn qty-plus"
+                        aria-label="Increase quantity"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-item-price">
+                  <p class="price-now">1000 EGP</p>
+                  <p class="price-old">1100 EGP</p>
                 </div>
               </div>
 
-              <!-- Promo Banner (slider identical to hero-banner) -->
-              <div class="hero-banner fp-sidebar-banner">
-
-                <!-- Slide 1 -->
-                <div class="hero-slide active">
-                  <div class="banner-overlay">
-                    <span class="banner-tag">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-tag-cpu"/></svg>
-                      Future is here
-                    </span>
-                    <h2 class="fp-banner-title">Shop Now With<br>Premium<br>Quality</h2>
-                    <a href="#" class="banner-btn">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-cart"/></svg>
-                      Shop Now
-                    </a>
-                    <div class="banner-bottom-info">
-                      <div class="banner-slider-indicator">
-                        <span class="active-slide">01</span><span class="total-slide">/03</span>
-                      </div>
-                      <div class="slide-line"></div>
+              <div class="cart-item" data-price="1000">
+                <button
+                  class="cart-remove"
+                  type="button"
+                  aria-label="Remove item"
+                >
+                  x
+                </button>
+                <div class="cart-item-main">
+                  <div class="cart-thumb">
+                    <img
+                      src="assets/images/single-product-image.webp"
+                      alt="Product image"
+                    />
+                  </div>
+                  <div class="cart-item-info">
+                    <p class="cart-item-cat">MICRO INSTRUMENTS</p>
+                    <h3 class="cart-item-name">Micro Scissors Set</h3>
+                    <p class="cart-item-meta">85mm · Stainless</p>
+                    <div class="cart-qty-row">
+                      <button
+                        type="button"
+                        class="qty-btn qty-minus"
+                        aria-label="Decrease quantity"
+                      >
+                        -
+                      </button>
+                      <span class="qty-value">2</span>
+                      <button
+                        type="button"
+                        class="qty-btn qty-plus"
+                        aria-label="Increase quantity"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
-                  <img src="assets/images/product%20banner.png" alt="Shop Now With Premium Quality" class="banner-product-image fp-sidebar-image" />
                 </div>
-
-                <!-- Slide 2 -->
-                <div class="hero-slide">
-                  <div class="banner-overlay">
-                    <span class="banner-tag">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-tag-clock"/></svg>
-                      Fast Delivery
-                    </span>
-                    <h2 class="fp-banner-title">Explore Global<br>Brands at<br>Your Doorstep</h2>
-                    <a href="#" class="banner-btn">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-cart"/></svg>
-                      Shop Brands
-                    </a>
-                    <div class="banner-bottom-info">
-                      <div class="banner-slider-indicator">
-                        <span class="active-slide">02</span><span class="total-slide">/03</span>
-                      </div>
-                      <div class="slide-line"></div>
-                    </div>
-                  </div>
-                  <img src="assets/images/product%20banner.png" alt="Fast Delivery" class="banner-product-image fp-sidebar-image" />
+                <div class="cart-item-price">
+                  <p class="price-now">1000 EGP</p>
+                  <p class="price-old">1100 EGP</p>
                 </div>
-
-                <!-- Slide 3 -->
-                <div class="hero-slide">
-                  <div class="banner-overlay">
-                    <span class="banner-tag">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-tag-shield"/></svg>
-                      Secure Payments
-                    </span>
-                    <h2 class="fp-banner-title">Reliable Checkouts<br>For Every<br>Order</h2>
-                    <a href="#" class="banner-btn">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-cart"/></svg>
-                      Order Now
-                    </a>
-                    <div class="banner-bottom-info">
-                      <div class="banner-slider-indicator">
-                        <span class="active-slide">03</span><span class="total-slide">/03</span>
-                      </div>
-                      <div class="slide-line"></div>
-                    </div>
-                  </div>
-                  <img src="assets/images/product%20banner.png" alt="Secure Payments" class="banner-product-image fp-sidebar-image" />
-                </div>
-
               </div>
 
+              <div class="cart-item" data-price="1000">
+                <button
+                  class="cart-remove"
+                  type="button"
+                  aria-label="Remove item"
+                >
+                  x
+                </button>
+                <div class="cart-item-main">
+                  <div class="cart-thumb">
+                    <img
+                      src="assets/images/single-product-image.webp"
+                      alt="Product image"
+                    />
+                  </div>
+                  <div class="cart-item-info">
+                    <p class="cart-item-cat">STERILIZATION</p>
+                    <h3 class="cart-item-name">Sterilization Case</h3>
+                    <p class="cart-item-meta">Medium · Autoclavable</p>
+                    <div class="cart-qty-row">
+                      <button
+                        type="button"
+                        class="qty-btn qty-minus"
+                        aria-label="Decrease quantity"
+                      >
+                        -
+                      </button>
+                      <span class="qty-value">1</span>
+                      <button
+                        type="button"
+                        class="qty-btn qty-plus"
+                        aria-label="Increase quantity"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-item-price">
+                  <p class="price-now">1000 EGP</p>
+                  <p class="price-old">1100 EGP</p>
+                </div>
+              </div>
+            </article>
+
+            <aside class="cart-summary-card">
+              <header class="summary-head">
+                <h2>Order summary</h2>
+                <span id="cart-items-count">3 items</span>
+              </header>
+
+              <div class="summary-line">
+                <p>Subtotal</p>
+                <p id="summary-subtotal">3000 EGP</p>
+              </div>
+              <div class="summary-line">
+                <p>Shipping</p>
+                <p id="summary-shipping">100 EGP</p>
+              </div>
+              <div class="summary-line">
+                <p>Vat 14%</p>
+                <p id="summary-vat">434 EGP</p>
+              </div>
+
+              <div class="coupon-block">
+                <div class="coupon-row">
+                  <input
+                    type="text"
+                    id="coupon-input"
+                    placeholder="Enter coupon code"
+                    autocomplete="off"
+                    maxlength="32"
+                  />
+                  <button
+                    type="button"
+                    class="coupon-apply-btn"
+                    id="coupon-apply"
+                  >
+                    Apply
+                  </button>
+                  <button
+                    type="button"
+                    class="coupon-remove-btn"
+                    id="coupon-remove"
+                    hidden
+                    aria-label="Remove coupon"
+                  >
+                    Remove
+                  </button>
+                </div>
+                <p class="coupon-hint" id="coupon-hint" hidden></p>
+                <p class="coupon-note" id="coupon-note" hidden></p>
+              </div>
+
+              <div
+                class="summary-pre-discount"
+                id="summary-pre-discount"
+                hidden
+              >
+                <div class="summary-line summary-line--emphasis">
+                  <p>Total before discount</p>
+                  <p id="summary-before-coupon">0 EGP</p>
+                </div>
+                <div class="summary-line summary-discount-line">
+                  <p id="coupon-discount-label">Coupon discount</p>
+                  <p id="summary-coupon-deduction">-0 EGP</p>
+                </div>
+              </div>
+
+              <div class="summary-total">
+                <p>Total</p>
+                <p id="summary-total">3489 EGP</p>
+              </div>
+
+              <a href="checkout.html" class="cart-checkout-btn">Checkout</a>
             </aside>
-
-            <!-- ── Products Main ── -->
-            <div class="fp-products-main">
-
-              <!-- Collection Tabs -->
-              <div class="fp-collection-tabs">
-                <button class="fp-collection-tab fp-collection-tab--active" data-collection="1">Collection 1</button>
-                <button class="fp-collection-tab" data-collection="2">Collection 2</button>
-                <button class="fp-collection-tab" data-collection="3">Collection 3</button>
-              </div>
-
-              <!-- Products Grid -->
-              <div class="fp-products-grid" id="fpGrid"></div><!-- /.fp-products-grid -->
-            </div><!-- /.fp-products-main -->
-          </div><!-- /.fp-layout -->
-        </div><!-- /.fp-products-inner -->
+          </div>
+        </div>
       </section>
-      <!-- ===== END PRODUCTS PAGE ===== -->
-
-      <section>
-        <div class="medical-products-banner"></div>
-      </section>
-
     </main>
 
-    <script src="assets/js/fp-filter.js"></script>
-    <script src="assets/js/mega-menu.js"></script>
-    <script src="assets/js/slider.js"></script>
-    <script src="assets/js/shop-sections-slider.js"></script>
-    <script src="assets/js/auth-modal.js"></script>
-
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-top-border"></div>
-
       <div class="footer-main">
         <div class="footer-container">
           <div class="footer-brand-row">
@@ -809,7 +848,6 @@
               </p>
             </div>
           </div>
-
           <div class="footer-nav-row">
             <div class="footer-col">
               <h4 class="footer-col-heading">EXPLORE</h4>
@@ -819,18 +857,16 @@
                 <li><a href="#">Blog</a></li>
               </ul>
             </div>
-
             <div class="footer-col">
               <h4 class="footer-col-heading">SERVICES</h4>
               <ul class="footer-col-links">
-                <li><a href="#">Bulk & Wholesale Orders</a></li>
+                <li><a href="#">Bulk &amp; Wholesale Orders</a></li>
                 <li><a href="#">Custom Procurement</a></li>
                 <li><a href="#">Product Consulting</a></li>
                 <li><a href="#">Fast Delivery</a></li>
-                <li><a href="#">Returns & Exchanges</a></li>
+                <li><a href="#">Returns &amp; Exchanges</a></li>
               </ul>
             </div>
-
             <div class="footer-col">
               <h4 class="footer-col-heading">CONNECT</h4>
               <ul class="footer-col-links">
@@ -840,7 +876,6 @@
                 <li><a href="#">Like Us on Facebook</a></li>
               </ul>
             </div>
-
             <div class="footer-col">
               <h4 class="footer-col-heading">RESOURCES</h4>
               <ul class="footer-col-links">
@@ -849,7 +884,6 @@
                 <li><a href="#">FAQs</a></li>
               </ul>
             </div>
-
             <div class="footer-col">
               <h4 class="footer-col-heading">LEGAL</h4>
               <ul class="footer-col-links">
@@ -864,7 +898,6 @@
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
         <div class="footer-container footer-bottom-inner">
           <div class="footer-bottom-links">
@@ -872,19 +905,16 @@
             <a href="#">Privacy</a>
             <a href="#">Cookies</a>
           </div>
-
           <p class="footer-copyright">
             &copy; 2026 By ConsuCorner. All Rights Reserved.
           </p>
-
           <div class="footer-payments">
             <img
               src="assets/images/footer-payment.png"
-              alt="Accepted payment methods: Paymob, Mastercard, Visa, Fawry"
+              alt="Accepted payment methods"
               class="footer-payment-img"
             />
           </div>
-
           <div class="footer-socials">
             <a href="#" class="footer-social-link" aria-label="Facebook">
               <svg
@@ -892,7 +922,7 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <use href="#icon-facebook"/>
+                <use href="#icon-facebook" />
               </svg>
             </a>
             <a href="#" class="footer-social-link" aria-label="LinkedIn">
@@ -901,12 +931,17 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <use href="#icon-linkedin"/>
+                <use href="#icon-linkedin" />
               </svg>
             </a>
           </div>
         </div>
       </div>
     </footer>
+
+    <script src="assets/js/mega-menu.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/auth-modal.js"></script>
   </body>
 </html>

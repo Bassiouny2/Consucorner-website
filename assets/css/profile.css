@@ -1,0 +1,289 @@
+/* ============================================================
+   Profile page
+   ============================================================ */
+
+.page-profile {
+  background: #f2fbfa;
+}
+
+/* ---- Hero / page head ---- */
+.page-profile .profile-head {
+  background: linear-gradient(135deg, #0cbfb0 0%, #13c9bc 55%, #0ea89c 100%);
+  padding: 60px 20px 120px;
+  text-align: center;
+}
+
+.page-profile .profile-head h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  color: #c6fff8;
+  letter-spacing: -0.01em;
+}
+
+.page-profile .profile-breadcrumb {
+  margin: 12px 0 0;
+  font-size: 20px;
+  color: #d6fff8;
+  font-weight: 400;
+}
+
+/* ---- Section wrap ---- */
+.page-profile .profile-section {
+  padding: 0 20px 80px;
+  position: relative;
+  z-index: 2;
+  background-image: url("../images/bluered banner-my-account.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.page-profile .profile-wrap {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+/* ---- Profile card ---- */
+.page-profile .profile-card {
+  border-radius: 22px;
+  border: 1px solid rgba(100, 233, 204, 0.22);
+  background: linear-gradient(
+    170deg,
+    rgba(180, 255, 240, 0.38) 0%,
+    rgba(255, 255, 255, 0.82) 42%,
+    rgba(240, 250, 255, 0.96) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 25px 50px -12px rgba(37, 151, 224, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  padding: 28px 32px 30px;
+  margin-top: -100px;
+}
+
+/* ---- Top row ---- */
+.page-profile .profile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.page-profile .profile-user {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ---- Avatar ---- */
+.page-profile .profile-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.page-profile .profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2597e0 0%, #64e9cc 100%);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 16px rgba(37, 151, 224, 0.3);
+}
+
+.page-profile .profile-avatar-edit {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 0;
+  background: #1db39a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.page-profile .profile-avatar-edit:hover {
+  background: #17a088;
+}
+
+/* ---- User info ---- */
+.page-profile .profile-user-info h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f2740;
+}
+
+.page-profile .profile-user-info p {
+  margin: 3px 0 0;
+  font-size: 14px;
+  color: #5f7a90;
+}
+
+/* ---- Logout ---- */
+.page-profile .profile-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: #0f2740;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #cfdae7;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.page-profile .profile-logout:hover {
+  background: #fff;
+  border-color: #2597e0;
+  color: #2597e0;
+}
+
+/* ---- Menu grid ---- */
+.page-profile .profile-menu {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(100, 233, 204, 0.4);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  row-gap: 18px;
+  column-gap: 20px;
+}
+
+.page-profile .profile-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #0f2740;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+
+.page-profile .profile-item:hover {
+  color: #1db39a;
+}
+
+.page-profile .profile-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #13c9bc 0%, #2597e0 100%);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ---- Blurred banner below card ---- */
+.page-profile .profile-blur-banner {
+  margin-top: 20px;
+  height: 320px;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* CSS fallback blobs — mimics the screenshot until image is placed */
+.page-profile .profile-blur-inner {
+  position: absolute;
+  inset: 0;
+  background: #e8f7f5;
+  overflow: hidden;
+}
+
+/* When the real image exists it overlays the blobs */
+.page-profile .profile-blur-banner--has-image .profile-blur-inner {
+  background-image: url("../images/banner-my-account.png");
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  transform: scale(1.04); /* prevent white edge on blur */
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1000px) {
+  .page-profile .profile-head h1 {
+    font-size: 44px;
+  }
+
+  .page-profile .profile-breadcrumb {
+    font-size: 18px;
+  }
+
+  .page-profile .profile-menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-profile .profile-head {
+    padding: 50px 14px 100px;
+  }
+
+  .page-profile .profile-head h1 {
+    font-size: 36px;
+  }
+
+  .page-profile .profile-breadcrumb {
+    font-size: 15px;
+  }
+
+  .page-profile .profile-section {
+    margin-top: -60px;
+    padding: 0 12px 50px;
+  }
+
+  .page-profile .profile-card {
+    padding: 20px 18px 22px;
+  }
+
+  .page-profile .profile-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .page-profile .profile-user-info h2 {
+    font-size: 20px;
+  }
+
+  .page-profile .profile-menu {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 14px;
+  }
+
+  .page-profile .profile-blur-banner {
+    height: 220px;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-profile .profile-menu {
+    grid-template-columns: 1fr;
+  }
+}
