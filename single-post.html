@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Blog - ConsuCorner</title>
+    <!-- CSS Modules (cascading order matters) -->
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/hero.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/cards.css" />
+    <link rel="stylesheet" href="assets/css/mega-menu.css" />
+    <link rel="stylesheet" href="assets/css/drawer.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/shop-page.css" />
+    <link rel="stylesheet" href="assets/css/blog.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+  <body>
+    <!-- SVG Sprite (hidden, referenced via <use href="#icon-id">) -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+      <symbol id="icon-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></symbol>
+      <symbol id="icon-tag-cpu" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+      <symbol id="icon-tag-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="icon-tag-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z" fill="currentColor"/></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><rect x="7" y="10.5" width="2" height="6.5" fill="currentColor"/><circle cx="8" cy="8.5" r="1" fill="currentColor"/><path d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z" fill="currentColor"/></symbol>
+    </svg>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <a href="#" class="drawer-login-btn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="#icon-login"/>
+          </svg>
+          LOGIN/SIGNUP
+        </a>
+        <button
+          class="drawer-close-btn"
+          id="drawer-close-btn"
+          aria-label="Close menu"
+        >
+          &#10005;
+        </button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab active" data-tab="shop">Shop</button>
+        <button class="drawer-tab" data-tab="explore">Explore</button>
+      </div>
+
+      <div class="drawer-content" data-content="shop">
+        <div class="drawer-category">
+          <button class="drawer-category-toggle active">
+            Surgical Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-down"/>
+            </svg>
+          </button>
+          <div class="drawer-subcategories open">
+            <div class="drawer-subcategory">
+              <button class="drawer-subcategory-toggle active">
+                OPHTHALMOLOGY
+                <svg
+                  class="chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <use href="#icon-chevron-down"/>
+                </svg>
+              </button>
+              <ul class="drawer-items open">
+                <li><a href="#">Lacrimal Instruments</a></li>
+                <li><a href="#">Cannulas</a></li>
+                <li><a href="#">Markers</a></li>
+                <li><a href="#">Chalazion Curettes</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Diagnostic Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right"/>
+            </svg>
+          </button>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Medical Equipments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="drawer-content hidden" data-content="explore">
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Important</h3>
+          <ul class="drawer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">ConsuCorner Partners</a></li>
+          </ul>
+        </div>
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Help</h3>
+          <ul class="drawer-links">
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact &amp; Support</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <header class="site-header">
+      <div class="header-container">
+        <button class="hamburger-btn" aria-label="Open menu" id="hamburger-btn">
+          <img
+            src="assets/images/hamburger-menu.svg"
+            alt="Menu"
+            width="28"
+            height="28"
+          />
+        </button>
+
+        <div class="header-left">
+          <a href="index.html" class="header-logo">
+            <img src="assets/images/main - logo.svg" alt="ConsuCorner Logo" />
+          </a>
+
+          <nav class="header-nav">
+            <div class="nav-item-shop" id="nav-item-shop">
+              <a href="shop.html" class="nav-link nav-link-shop">Shop</a>
+            </div>
+            <div class="nav-item-explore" id="nav-item-explore">
+              <a href="#" class="nav-link nav-link-explore">Explore</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="header-search">
+          <span class="search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search"/>
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Locate Your Match"
+            class="search-input"
+          />
+        </div>
+
+        <div class="header-actions">
+          <a href="#" class="cart-btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-cart"/>
+            </svg>
+            <span class="cart-badge"></span>
+          </a>
+
+          <a href="#" class="auth-link">LOGIN/SIGNUP</a>
+          <a href="#" class="vendor-btn">JOIN AS A VENDOR</a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu awaiting-selection"
+        id="mega-menu"
+        aria-hidden="true"
+      >
+        <div class="mega-menu-inner">
+          <div class="mega-left">
+            <h3 class="mega-cat-title">SHOP BY CATEGORY</h3>
+            <p class="mega-cat-desc">
+              ConsuCorner Brings Multiple Medical Suppliers, Multiple
+              Specialties, And Hundreds Of Instruments Into One Organized
+              Platform.
+            </p>
+            <hr class="mega-cat-divider" />
+            <ul class="mega-cat-list">
+              <li class="mega-cat-item" data-cat="surgical">
+                <span>Surgical Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="diagnostic">
+                <span>Diagnostic Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="equipment">
+                <span>Medical Equipments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="endoscopy">
+                <span>Endoscopy</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="dental">
+                <span>Dental Supplies</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="orthopedic">
+                <span>Orthopedic Devices</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="consumables">
+                <span>Disposables &amp; Consumables</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <div class="mega-right">
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <h2 class="mega-section-title">SHOP BY SPECIALTY</h2>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="specialty-prev"
+                  aria-label="Previous specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left"/>
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="specialty-viewport">
+                  <div class="mega-track" id="specialty-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="specialty-next"
+                  aria-label="Next specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <hr class="mega-section-divider" />
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <div class="mega-instrument-heading">
+                  <h2 class="mega-section-title">SHOP BY INSTRUMENT</h2>
+                  <span class="mega-specialty-label">OPHTHALMOLOGY</span>
+                </div>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="instrument-prev"
+                  aria-label="Previous instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left"/>
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="instrument-viewport">
+                  <div class="mega-track" id="instrument-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="instrument-next"
+                  aria-label="Next instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="explore-mega-menu" id="explore-mega-menu" aria-hidden="true">
+        <div class="explore-mega-inner">
+          <div class="explore-links-col">
+            <div class="explore-links-group">
+              <h3>Important</h3>
+              <a href="#">About Us</a><a href="#">Contact Us</a
+              ><a href="#">Blog</a><a href="#">ConsuCorner Partners</a>
+            </div>
+            <div class="explore-links-group">
+              <h3>Help</h3>
+              <a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a
+              ><a href="#">Contact &amp; Support</a><a href="#">FAQ</a>
+            </div>
+          </div>
+          <article class="explore-featured-card">
+            <span class="explore-tag">Blog Category</span>
+            <h4>A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+            <img
+              src="assets/images/bloge image.png"
+              alt="Featured blog post image"
+            />
+            <div class="explore-meta-row">
+              <span>CONSUCORNER</span><span>02 December 2023</span
+              ><span>3 Min. To Read</span>
+            </div>
+            <p>
+              Here’s A Guide To Building A Complete Ophthalmic Clinic Toolkit.
+            </p>
+          </article>
+          <div class="explore-recent-col">
+            <h5>Recently Posted</h5>
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/blog image s.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-search-row">
+        <div class="mobile-search-inner">
+          <input
+            type="text"
+            placeholder="medical supplies"
+            class="mobile-search-input"
+          />
+          <button class="mobile-search-btn">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search"/>
+            </svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- Single Post Layout -->
+      <section class="sp-layout-section">
+        <div class="sp-layout-inner">
+
+          <!-- ── MAIN CONTENT ── -->
+          <article class="sp-post-content">
+
+            <div class="sp-post-meta">
+              <span class="sp-post-badge">Category</span>
+              <span class="sp-post-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-cpu"/></svg>
+                02 December 2022
+              </span>
+              <span class="sp-post-meta-sep">|</span>
+              <span class="sp-post-meta-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-clock"/></svg>
+                3 Min. To Read
+              </span>
+            </div>
+
+            <h1 class="sp-post-title">Intraocular Lens Implantation Instruments</h1>
+
+            <p class="sp-post-lead">Intraocular Lens Implantation is considered the final stage of cataract surgery, and it is the step that ultimately determines the patient's visual outcome after removal of the clouded lens.</p>
+
+            <h2 class="sp-post-heading">1. What Is Intraocular Lens (IOL) Implantation?</h2>
+            <ul class="sp-post-list">
+              <li>It is performed after the removal of cataracts or a damaged natural lens.</li>
+              <li>A transparent artificial lens (IOL) is implanted to replace the original lens.</li>
+              <li>The procedure relies on precise instruments that facilitate lens insertion through a very small surgical incision.</li>
+              <li>It is primarily used in cataract surgery and, in some cases, to correct high refractive errors.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">2. What Are Intraocular Lens Implantation Instruments?</h2>
+            <p class="sp-post-para">IOL implantation instruments include a set of specialized tools designed to hold and guide the lens inside the eye without direct contact with sensitive tissues. These include:</p>
+
+            <p class="sp-post-subheading">2.1 Lens Holding Forceps</p>
+            <ul class="sp-post-list">
+              <li>Used to gently grasp the artificial lens without scratching its surface.</li>
+              <li>Features fine, coated tips to prevent adhesion.</li>
+              <li>Learn more about ophthalmic surgical instruments available on ConsuCorner.</li>
+            </ul>
+
+            <p class="sp-post-subheading">2.2 Lens Positioner / Manipulator</p>
+            <ul class="sp-post-list">
+              <li>An instrument used to guide the lens within the capsular bag after implantation.</li>
+              <li>Helps the surgeon adjust lens positioning without excessive pressure.</li>
+            </ul>
+
+            <p class="sp-post-subheading">2.3 Injector &amp; Cartridge System</p>
+            <ul class="sp-post-list">
+              <li>Used to insert the lens into the eye through a very small incision.</li>
+              <li>Operates on the "Fold &amp; Release" principle, where the lens is folded and then released inside the capsule.</li>
+            </ul>
+
+            <p class="sp-post-subheading">2.4 Viscoelastic Cannula</p>
+            <ul class="sp-post-list">
+              <li>Used to inject a protective viscoelastic substance to safeguard the cornea during insertion.</li>
+              <li>Read more about ophthalmic cannulas and their role in delicate surgical procedures.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">3. Stages of Implantation and Instruments Used</h2>
+            <p class="sp-post-para">You may also refer to the article on the Needle Holder in ophthalmic surgery to understand its role in suturing incisions after lens implantation.</p>
+
+            <div class="sp-post-table-wrapper">
+              <table class="sp-post-table">
+                <thead>
+                  <tr><th>Stage</th><th>Primary Instrument</th><th>Function</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Axis marking</td><td>Corneal Marker</td><td>Precise marking on the cornea to guide lens alignment</td></tr>
+                  <tr><td>Viscoelastic injection</td><td>Viscoelastic Cannula</td><td>Protection of the cornea and internal lens structures</td></tr>
+                  <tr><td>Lens insertion</td><td>Injector / Cartridge</td><td>Implanting the lens through a small surgical incision</td></tr>
+                  <tr><td>Lens fixation</td><td>Lens Manipulator</td><td>Positioning the lens within the capsular bag</td></tr>
+                  <tr><td>Closure</td><td>Needle Holder + Scissors</td><td>Precise wound suturing when required</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 class="sp-post-heading">4. Importance of Precision Instruments in Successful Implantation</h2>
+            <ul class="sp-post-list">
+              <li>Prevents damage to the artificial lens during insertion.</li>
+              <li>Reduces complications such as tears or infections.</li>
+              <li>Shortens surgical time by minimizing incision size.</li>
+              <li>Achieves better visual stability through accurate lens centration.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">5. Instrument Design and Technical Features</h2>
+            <ul class="sp-post-list">
+              <li>Material: Medical-grade anodized titanium, corrosion-resistant.</li>
+              <li>Finish: Matte finish to reduce light reflection under the microscope.</li>
+              <li>Handles: Non-slip handles for enhanced stability during surgery.</li>
+              <li>Blades or tips: Polished and smooth to prevent lens damage.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">6. Integration with Other Surgical Instruments</h2>
+            <p class="sp-post-para">IOL implantation instruments work as part of a complete surgical system that includes:</p>
+            <ul class="sp-post-list">
+              <li>Phaco Handpiece / Chopper for fragmenting the natural lens prior to implantation.</li>
+              <li>Corneal Marker to identify the appropriate axis for the new lens.</li>
+              <li>Ophthalmic Scissors and Needle Holder for closing the surgical incision.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">7. Relationship with Diagnostic Instruments Before implantation</h2>
+            <ul class="sp-post-list">
+              <li>Gonioscopy lenses (GonioLens) to evaluate the internal angles of the eye.</li>
+              <li>Fundus examination lenses (90D / 78D / 20D) to monitor retinal status after surgery.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">8. Prices of IOL Implantation Instruments in Egypt</h2>
+            <ul class="sp-post-list">
+              <li>Lens Forceps &amp; Manipulators: mid-range pricing.</li>
+              <li>Injector Systems: higher cost due to precision and technology.</li>
+              <li>Cannulas &amp; Markers: economical and essential for every procedure.</li>
+              <li>The most common brands in the Egyptian market include ACMED and MADHU.</li>
+            </ul>
+
+            <h2 class="sp-post-heading">9. Tips for Choosing IOL Implantation Instruments</h2>
+            <ul class="sp-post-list">
+              <li>Select instruments compatible with the types of lenses you use.</li>
+              <li>Ensure approval by the Egyptian Drug Authority.</li>
+              <li>Use new or properly sterilized instruments to avoid infections.</li>
+              <li>Work with a trusted supplier such as ConsuCorner to guarantee original quality.</li>
+            </ul>
+
+          </article>
+
+
+          <!-- ── RIGHT COLUMN ── -->
+          <div class="sp-right-col">
+
+            <div class="sp-sidebar-img-col">
+              <img src="assets/images/blog-image.webp" alt="Intraocular Lens Implantation Instruments" />
+            </div>
+
+            <aside class="sp-post-sidebar">
+
+            <!-- Featured image with decorative bg -->
+
+            <!-- Recently Posted -->
+            <div class="sp-sidebar-recent">
+              <h3 class="sp-sidebar-recent-heading">
+                <span class="sp-sidebar-recent-tag">Recently</span> Posted
+              </h3>
+              <div class="sp-sidebar-recent-list">
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+                <a href="#" class="sp-sidebar-card">
+                  <div class="sp-sidebar-card-img">
+                    <img src="assets/images/blog image s.png" alt="Recent post" />
+                  </div>
+                  <div class="sp-sidebar-card-body">
+                    <span class="sp-sidebar-card-badge">Category</span>
+                    <h4 class="sp-sidebar-card-title">A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+                    <div class="sp-sidebar-card-meta">
+                      <span>CONSUCORNER</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>02 December 2022</span>
+                      <span class="sp-sidebar-meta-sep">|</span>
+                      <span>3 Min. To Read</span>
+                    </div>
+                    <p class="sp-sidebar-card-desc">A Guide to Building a Complete Ophthalmic Clinic Toolkit</p>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Promo Banner Widget -->
+            <div class="hero-banner sp-sidebar-banner">
+              <div class="hero-slide active">
+                <div class="banner-overlay">
+                  <span class="banner-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-cpu"/></svg> Future is here</span>
+                  <h2 class="sp-banner-title">Shop Now With<br>Premium<br>Quality</h2>
+                  <a href="#" class="banner-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-cart"/></svg> Shop Now</a>
+                  <div class="banner-bottom-info"><div class="banner-slider-indicator"><span class="active-slide">01</span><span class="total-slide">/03</span></div><div class="slide-line"></div></div>
+                </div>
+                <img src="assets/images/product%20banner.png" alt="Shop Now" class="banner-product-image sp-sidebar-image" />
+              </div>
+              <div class="hero-slide">
+                <div class="banner-overlay">
+                  <span class="banner-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-clock"/></svg> Fast Delivery</span>
+                  <h2 class="sp-banner-title">Explore Global<br>Brands at<br>Your Doorstep</h2>
+                  <a href="#" class="banner-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-cart"/></svg> Shop Brands</a>
+                  <div class="banner-bottom-info"><div class="banner-slider-indicator"><span class="active-slide">02</span><span class="total-slide">/03</span></div><div class="slide-line"></div></div>
+                </div>
+                <img src="assets/images/product%20banner.png" alt="Fast Delivery" class="banner-product-image sp-sidebar-image" />
+              </div>
+              <div class="hero-slide">
+                <div class="banner-overlay">
+                  <span class="banner-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-shield"/></svg> Secure Payments</span>
+                  <h2 class="sp-banner-title">Reliable Checkouts<br>For Every<br>Order</h2>
+                  <a href="#" class="banner-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-cart"/></svg> Order Now</a>
+                  <div class="banner-bottom-info"><div class="banner-slider-indicator"><span class="active-slide">03</span><span class="total-slide">/03</span></div><div class="slide-line"></div></div>
+                </div>
+                <img src="assets/images/product%20banner.png" alt="Secure Payments" class="banner-product-image sp-sidebar-image" />
+              </div>
+            </div>
+
+          </aside>
+
+          </div><!-- /.sp-right-col -->
+
+        </div>
+      </section>
+
+      <section>
+        <div class="medical-products-banner blog-banner"></div>
+      </section>
+
+
+      <section class="blog-faq-section">
+        <div class="blog-faq-inner">
+          <div class="blog-faq-container">
+
+            <div class="blog-faq-item blog-faq-item--open">
+              <button class="blog-faq-header" aria-expanded="true">
+                <span class="blog-faq-number">01</span>
+                <span class="blog-faq-question">What is intraocular lens (IOL) implantation?</span>
+                <span class="blog-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 1L13 13M13 1L1 13" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                  </svg>
+                </span>
+              </button>
+              <div class="blog-faq-body">
+                <p>IOL implantation is a surgical procedure performed after cataract removal or extraction of a damaged natural lens, where a transparent artificial lens is implanted to restore clear vision.</p>
+              </div>
+            </div>
+
+            <div class="blog-faq-item">
+              <button class="blog-faq-header" aria-expanded="false">
+                <span class="blog-faq-number">02</span>
+                <span class="blog-faq-question">Is IOL implantation only used for cataract surgery?</span>
+                <span class="blog-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1V13M1 7H13" stroke="#00C8B3" stroke-width="2" stroke-linecap="round"></path>
+                  </svg>
+                </span>
+              </button>
+              <div class="blog-faq-body">
+                <p>No, IOL implantation is not limited to cataract surgery. It is also used in refractive lens exchange procedures to correct vision problems such as severe myopia, hyperopia, or presbyopia.</p>
+              </div>
+            </div>
+
+            <div class="blog-faq-item">
+              <button class="blog-faq-header" aria-expanded="false">
+                <span class="blog-faq-number">03</span>
+                <span class="blog-faq-question">What instruments are required for IOL implantation?</span>
+                <span class="blog-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1V13M1 7H13" stroke="#00C8B3" stroke-width="2" stroke-linecap="round"></path>
+                  </svg>
+                </span>
+              </button>
+              <div class="blog-faq-body">
+                <p>The procedure requires a phacoemulsification system, IOL injector and cartridge, micro-incision knives, viscoelastic agents, irrigation/aspiration handpieces, and a microscope for precision surgical visualization.</p>
+              </div>
+            </div>
+
+            <div class="blog-faq-item">
+              <button class="blog-faq-header" aria-expanded="false">
+                <span class="blog-faq-number">04</span>
+                <span class="blog-faq-question">Why is an injector and cartridge system important?</span>
+                <span class="blog-faq-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1V13M1 7H13" stroke="#00C8B3" stroke-width="2" stroke-linecap="round"></path>
+                  </svg>
+                </span>
+              </button>
+              <div class="blog-faq-body">
+                <p>The injector and cartridge system allows the surgeon to fold and insert the IOL through a very small incision, minimizing trauma to the eye, reducing recovery time, and lowering the risk of complications.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- READ MORE Carousel -->
+      <section class="read-more-section">
+        <div class="read-more-inner">
+          <h2 class="read-more-heading">READ <span>MORE</span></h2>
+          <div class="read-more-grid">
+
+            <div class="blog-post-card">
+              <div class="blog-post-img"><img src="assets/images/blogs-image.jpg" alt="Blog post" /></div>
+              <div class="blog-post-body">
+                <span class="blog-post-badge">Category</span>
+                <h3 class="blog-post-title">Intraocular Lens Implantation</h3>
+                <div class="blog-post-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-cpu"/></svg> 02 December 2022</span>
+                  <span class="blog-post-meta-sep">|</span>
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-clock"/></svg> 3 Min. To Read</span>
+                </div>
+                <p class="blog-post-desc">Intraocular Lens Implantation is considered the final stage of cataract surgery, and it is the step that ultimately determines the patient's visual outcome after removal of the clouded lens.</p>
+              </div>
+            </div>
+
+            <div class="blog-post-card">
+              <div class="blog-post-img"><img src="assets/images/blogs-image.jpg" alt="Blog post" /></div>
+              <div class="blog-post-body">
+                <span class="blog-post-badge">Category</span>
+                <h3 class="blog-post-title">Intraocular Lens Implantation</h3>
+                <div class="blog-post-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-cpu"/></svg> 02 December 2022</span>
+                  <span class="blog-post-meta-sep">|</span>
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-clock"/></svg> 3 Min. To Read</span>
+                </div>
+                <p class="blog-post-desc">Intraocular Lens Implantation is considered the final stage of cataract surgery, and it is the step that ultimately determines the patient's visual outcome after removal of the clouded lens.</p>
+              </div>
+            </div>
+
+            <div class="blog-post-card">
+              <div class="blog-post-img"><img src="assets/images/blogs-image.jpg" alt="Blog post" /></div>
+              <div class="blog-post-body">
+                <span class="blog-post-badge">Category</span>
+                <h3 class="blog-post-title">Intraocular Lens Implantation</h3>
+                <div class="blog-post-meta">
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-cpu"/></svg> 02 December 2022</span>
+                  <span class="blog-post-meta-sep">|</span>
+                  <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-tag-clock"/></svg> 3 Min. To Read</span>
+                </div>
+                <p class="blog-post-desc">Intraocular Lens Implantation is considered the final stage of cataract surgery, and it is the step that ultimately determines the patient's visual outcome after removal of the clouded lens.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="assets/js/mega-menu.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/shop-sections-slider.js"></script>
+    <script>
+      /* ── Blog FAQ Accordion ── */
+      (function () {
+        var faqItems = document.querySelectorAll('.blog-faq-item');
+        faqItems.forEach(function (item) {
+          var btn = item.querySelector('.blog-faq-header');
+          btn.addEventListener('click', function () {
+            var isOpen = item.classList.contains('blog-faq-item--open');
+            faqItems.forEach(function (i) {
+              i.classList.remove('blog-faq-item--open');
+              i.querySelector('.blog-faq-header').setAttribute('aria-expanded', 'false');
+              var path = i.querySelector('.blog-faq-toggle svg path');
+              if (path) { path.setAttribute('d', 'M7 1V13M1 7H13'); path.setAttribute('stroke', '#00C8B3'); }
+            });
+            if (!isOpen) {
+              item.classList.add('blog-faq-item--open');
+              btn.setAttribute('aria-expanded', 'true');
+              var path = item.querySelector('.blog-faq-toggle svg path');
+              if (path) { path.setAttribute('d', 'M1 1L13 13M13 1L1 13'); path.setAttribute('stroke', 'white'); }
+            }
+          });
+        });
+      })();
+
+      (function () {
+        var slides = document.querySelectorAll('.sp-sidebar-banner .hero-slide');
+        if (slides.length > 0) {
+          var idx = 0;
+          setInterval(function () {
+            slides[idx].classList.remove('active');
+            idx = (idx + 1) % slides.length;
+            slides[idx].classList.add('active');
+          }, 4500);
+        }
+      })();
+    </script>
+
+    <footer class="site-footer">
+      <div class="footer-top-border"></div>
+
+      <div class="footer-main">
+        <div class="footer-container">
+          <div class="footer-brand-row">
+            <div class="footer-brand">
+              <a href="index.html" class="footer-logo">
+                <img
+                  src="assets/images/main - logo.svg"
+                  alt="ConsuCorner Logo"
+                />
+              </a>
+              <p class="footer-tagline">
+                Your Trusted Medical Supply<br />Hub in Egypt
+              </p>
+            </div>
+            <div class="footer-description">
+              <p>
+                ConsuCorner is Egypt's leading medical e-commerce platform
+                dedicated to providing high-quality medical supplies, surgical
+                instruments, and diagnostic tools to healthcare professionals,
+                clinics, hospitals, and medical businesses. We bring
+                reliability, variety, and simplicity to every purchase — all in
+                one organized online shop.
+              </p>
+            </div>
+          </div>
+
+          <div class="footer-nav-row">
+            <div class="footer-col">
+              <h4 class="footer-col-heading">EXPLORE</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Shop</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">SERVICES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Bulk & Wholesale Orders</a></li>
+                <li><a href="#">Custom Procurement</a></li>
+                <li><a href="#">Product Consulting</a></li>
+                <li><a href="#">Fast Delivery</a></li>
+                <li><a href="#">Returns & Exchanges</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">CONNECT</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Join Our Newsletter</a></li>
+                <li><a href="#">Follow Us on Instagram</a></li>
+                <li><a href="#">Like Us on Facebook</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">RESOURCES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Industry Trends</a></li>
+                <li><a href="#">Event Calendar</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">LEGAL</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Copyright Information</a></li>
+                <li><a href="#">Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container footer-bottom-inner">
+          <div class="footer-bottom-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+          </div>
+
+          <p class="footer-copyright">
+            &copy; 2026 By ConsuCorner. All Rights Reserved.
+          </p>
+
+          <div class="footer-payments">
+            <img
+              src="assets/images/footer-payment.png"
+              alt="Accepted payment methods: Paymob, Mastercard, Visa, Fawry"
+              class="footer-payment-img"
+            />
+          </div>
+
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-facebook"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-linkedin"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

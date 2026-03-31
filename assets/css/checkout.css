@@ -1,0 +1,699 @@
+/* ============================================================
+   CHECKOUT PAGE
+   ============================================================ */
+
+/* ── Layout ── */
+.checkout-section {
+  padding: 60px 20px 80px;
+  background: #f8f9fa;
+  min-height: 60vh;
+}
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: stretch; /* both columns fill the same height */
+}
+
+/* ── Left column fills its grid cell ── */
+.checkout-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Checkout Card (left) ── */
+.checkout-card {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e8eaed;
+  padding: 40px 44px 44px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.checkout-heading {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #1a1a1a;
+  margin: 0 0 32px;
+}
+
+/* ── Form fields ── */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.co-label {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.co-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 48px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.18s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.co-input::placeholder {
+  color: #9ca3af;
+}
+
+.co-input:focus {
+  border-color: #2597e0;
+  box-shadow: 0 0 0 3px rgba(37, 151, 224, 0.12);
+}
+
+/* Keep white background when browser autofills (Chrome/Edge yellow override) */
+.co-input:-webkit-autofill,
+.co-input:-webkit-autofill:hover,
+.co-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 40px #ffffff inset !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-family: "Manrope", sans-serif;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Two-column row */
+.co-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.co-row--three {
+  grid-template-columns: 2fr 2fr 1fr;
+}
+
+/* Select wrapper */
+.co-select-wrap {
+  position: relative;
+}
+
+.co-select {
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.co-select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+}
+
+/* ── Payment Method Buttons ── */
+.co-payment-methods {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.co-pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  background: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    color 0.18s;
+  white-space: nowrap;
+}
+
+.co-pay-btn:hover {
+  border-color: #2597e0;
+  color: #2597e0;
+}
+
+.co-pay-btn--active {
+  border-color: #2597e0;
+  color: #2597e0;
+  background: rgba(37, 151, 224, 0.05);
+}
+
+.co-pay-icon {
+  font-style: normal;
+}
+
+/* ── Paymob badge ── */
+.co-paymob-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid #e8eaed;
+  border-radius: 8px;
+  background: #ffffff;
+  margin-bottom: 4px;
+}
+
+.co-paymob-logo {
+  height: 22px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.co-geidea-logo {
+  height: 20px;
+}
+
+/* Card detail row */
+.co-row--card {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+/* Card details panel (hidden when COD) */
+.co-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  max-height: 220px;
+  transition:
+    max-height 0.32s ease,
+    opacity 0.25s ease;
+  opacity: 1;
+}
+
+.co-card-details.co-card-details--hidden {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Submit Button ── */
+.co-submit-btn {
+  display: block;
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background: #2597e0;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  margin-top: 8px;
+}
+
+.co-submit-btn:hover {
+  background: #1d82c4;
+  transform: translateY(-1px);
+}
+
+.co-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Summary Card (right) ── */
+.co-summary-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e8eaed;
+  padding: 28px 28px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.co-summary-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.co-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.co-summary-label {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.co-summary-value {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+.co-summary-row--total {
+  padding-top: 12px;
+  border-top: 1px solid #e8eaed;
+}
+
+.co-summary-row--total .co-summary-label,
+.co-summary-row--total .co-summary-value {
+  font-weight: 700;
+  font-size: 17px;
+  color: #1a1a1a;
+}
+
+.co-secure-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.co-secure-note svg {
+  flex-shrink: 0;
+}
+
+/* ── Right column: flex column so reviews fills remaining height ── */
+.checkout-summary-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Reviews ── */
+.co-reviews {
+  flex: 1; /* grow to fill leftover height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* clip so only the list scrolls */
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e8eaed;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.co-reviews-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.35;
+  color: #1a1a1a;
+  margin: 0 0 14px;
+}
+
+.co-reviews-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.co-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.co-star {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: none;
+}
+
+.co-star--filled {
+  fill: #f59e0b;
+  width: 22px;
+  height: 22px;
+}
+
+.co-star--gold-sm {
+  fill: #f59e0b;
+  width: 14px;
+  height: 14px;
+}
+
+.co-rating-score {
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.co-reviews-sub {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 20px;
+}
+
+.co-reviews-list {
+  flex: 1; /* fill remaining space inside .co-reviews */
+  overflow-y: auto; /* scroll the cards */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 4px; /* room for scrollbar */
+}
+
+/* Thin styled scrollbar */
+.co-reviews-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.co-reviews-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.co-reviews-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.co-reviews-list::-webkit-scrollbar-thumb:hover {
+  background: #2597e0;
+}
+
+.co-review-card {
+  background: #2597e0;
+  border-radius: 12px;
+  padding: 18px 20px 16px;
+}
+
+.co-review-name {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.co-review-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 12px;
+}
+
+.co-review-footer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.co-review-rated {
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    align-items: start; /* natural heights when stacked */
+  }
+
+  /* Reviews: remove flex-grow scroll on mobile — let it expand naturally */
+  .co-reviews {
+    flex: none;
+    overflow: visible;
+    min-height: 0;
+  }
+
+  .co-reviews-list {
+    overflow-y: visible;
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-card {
+    padding: 28px 20px 32px;
+  }
+
+  .checkout-heading {
+    font-size: 22px;
+  }
+
+  .co-row {
+    grid-template-columns: 1fr;
+  }
+
+  .co-row--three {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .co-row--card {
+    grid-template-columns: 1fr;
+  }
+
+  .co-payment-methods {
+    flex-direction: column;
+  }
+
+  .co-pay-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .checkout-section {
+    padding: 32px 12px 60px;
+  }
+
+  .co-row--three {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .page-checkout .co-row--three .co-label {
+    font-size: 11px;
+  }
+
+  .page-checkout .co-row--three .co-input,
+  .page-checkout .co-row--three .co-select {
+    font-size: 13px;
+    padding: 0 8px;
+    height: 44px;
+  }
+}
+
+/* ============================================================
+   MOBILE CHECKOUT (matches cart / checkout mockup)
+   ============================================================ */
+.checkout-hero-title--mobile,
+.checkout-bc--mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .page-checkout .checkout-hero-title--desktop {
+    display: none;
+  }
+
+  .page-checkout .checkout-hero-title--mobile {
+    display: block;
+  }
+
+  .page-checkout .checkout-bc--desktop {
+    display: none;
+  }
+
+  .page-checkout .checkout-bc--mobile {
+    display: block;
+  }
+
+  .page-checkout .shop-page-head.checkout-page-head {
+    height: 220px !important;
+    min-height: 220px;
+  }
+
+  .page-checkout .shop-page-title {
+    font-size: 40px !important;
+    line-height: 1.1;
+  }
+
+  .page-checkout .shop-page-breadcrumbs {
+    font-size: 17px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Pull section up under hero so summary can overlap */
+  .page-checkout .checkout-section {
+    padding: 0 16px 48px;
+    margin-top: -56px;
+    position: relative;
+    z-index: var(--z-content);
+    background: #f3f4f600;
+  }
+
+  .page-checkout .checkout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 100%;
+  }
+
+  /* Order summary first, overlapping teal head */
+  .page-checkout .checkout-summary-col {
+    order: -1;
+    width: 100%;
+    margin-bottom: 0;
+    position: relative;
+    z-index: var(--z-section-elevated);
+  }
+
+  .page-checkout .co-summary-card {
+    margin-bottom: 16px;
+    border-radius: 14px;
+    padding: 22px 20px 18px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mockup: no reviews in mobile flow */
+  .page-checkout .co-reviews {
+    display: none;
+  }
+
+  .page-checkout .checkout-form-col {
+    order: 0;
+    width: 100%;
+  }
+
+  .page-checkout .checkout-card {
+    border-radius: 14px;
+    padding: 24px 18px 28px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .page-checkout .checkout-heading {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+
+  /* First + last name stay side by side */
+  .page-checkout .checkout-form > .co-row:first-of-type {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* City / governorate / postal — one row */
+  .page-checkout .co-row--three {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 8px;
+  }
+
+  .page-checkout .co-row--three .co-label {
+    font-size: 11px;
+  }
+
+  .page-checkout .co-row--three .co-input,
+  .page-checkout .co-row--three .co-select {
+    font-size: 13px;
+    padding: 0 10px;
+    height: 44px;
+  }
+
+  /* Payment tabs side by side */
+  .page-checkout .co-payment-methods {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .page-checkout .co-pay-btn {
+    flex: 1;
+    min-width: 0;
+    height: auto;
+    min-height: 48px;
+    padding: 10px 8px;
+    font-size: 11px;
+    line-height: 1.25;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .page-checkout .co-pay-icon {
+    flex-shrink: 0;
+  }
+
+  /* Card number full width; MM/YY + CVV in one row */
+  .page-checkout .co-row--card {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .page-checkout .co-field--card-num {
+    grid-column: 1 / -1;
+  }
+
+  /* Prevent mobile clipping inside the animated card-details panel */
+  .page-checkout .co-card-details {
+    max-height: 520px;
+  }
+
+  .page-checkout .co-field--expiry,
+  .page-checkout .co-field--cvv {
+    min-width: 0;
+  }
+
+  .page-checkout .co-submit-btn {
+    height: 54px;
+    font-size: 17px;
+    border-radius: 12px;
+    margin-top: 4px;
+  }
+
+  .page-checkout .co-paymob-badge {
+    width: 88%;
+    justify-content: center;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-checkout .co-pay-btn {
+    font-size: 10px;
+    padding: 8px 6px;
+  }
+}

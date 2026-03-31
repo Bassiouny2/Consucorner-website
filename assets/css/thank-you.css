@@ -1,0 +1,433 @@
+.page-thankyou {
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.ty-main {
+  padding: 24px 14px 36px;
+}
+
+.ty-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.ty-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  padding: 18px;
+}
+
+.ty-order-id {
+  margin: 0 0 6px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.ty-title {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.2;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ty-title-icon {
+  width: 28px;
+  height: 28px;
+  color: #14b8a6;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ty-status-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #edf1f3;
+  padding: 14px 0 16px;
+  margin-bottom: 16px;
+}
+
+.ty-chip {
+  margin: 0;
+  font-size: 12px;
+  color: #3f5568;
+  background: #eff4f8;
+  padding: 5px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ty-chip-icon,
+.ty-panel-icon,
+.ty-line-icon,
+.ty-product-icon,
+.ty-payment-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.ty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.ty-panel {
+  border: 1px solid #edf1f3;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.ty-panel-title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #53769b;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ty-simple-list p {
+  margin: 0 0 7px;
+  color: #334155;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ty-simple-list p span {
+  color: #64748b;
+  display: inline-block;
+  width: 56px;
+  margin-right: 0;
+}
+
+.ty-address-box {
+  background: #f7fafc;
+  border: 1px solid #e8edf2;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.ty-address-box p {
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ty-address-box p:last-child {
+  margin-bottom: 0;
+}
+
+.ty-strong {
+  font-weight: 700;
+}
+
+.ty-same-note {
+  margin: 0;
+  font-size: 12px;
+  color: #53769b;
+  background: #dfeaf6;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+}
+
+.ty-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  border-bottom: 1px solid #edf1f3;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+
+.ty-product-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #d6ecef;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #126f79;
+  flex-shrink: 0;
+}
+
+.ty-product-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.ty-product-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ty-product:last-of-type {
+  margin-bottom: 16px;
+}
+
+.ty-product-name {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.ty-product-meta {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ty-product-tag {
+  margin: 6px 0 0;
+  color: #53769b;
+  font-size: 12px;
+  background: #e4edf6;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+
+.ty-product-price {
+  margin: 4px 0 0;
+  font-weight: 700;
+  font-size: 28px;
+  color: #0f2740;
+  white-space: nowrap;
+}
+
+.ty-totals-box {
+  max-width: 320px;
+  margin-left: auto;
+  background: #f7fafc;
+  border: 1px solid #e8edf2;
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+}
+
+.ty-totals-box p {
+  margin: 0 0 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.ty-totals-box p strong {
+  font-weight: 700;
+  color: #0f2740;
+}
+
+.ty-total-line {
+  border-top: 1px solid #d9e4ee;
+  padding-top: 8px;
+  margin-top: 6px;
+}
+
+.ty-total-line strong {
+  font-size: 22px;
+}
+
+.ty-cod-pill {
+  justify-content: center !important;
+  color: #2597e0 !important;
+  background: #e9f5ff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin-top: 10px !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+
+.ty-payment-note {
+  margin: 18px 0 0;
+  background: #e8f1f8;
+  color: #335169;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ty-bottom-meta {
+  border-top: 1px solid #edf1f3;
+  margin-top: 14px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.ty-bottom-meta p {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ty-followup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 26px;
+  padding: 0 10px;
+}
+
+.ty-followup p {
+  margin: 0 0 14px;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+.ty-followup h3 {
+  margin: 0 0 8px;
+  color: #1f2937;
+  font-size: 24px;
+}
+
+.ty-thanks-line {
+  color: #1b9e7a !important;
+  font-weight: 700;
+  margin-top: 36px !important;
+}
+
+@media (max-width: 980px) {
+  .ty-title {
+    font-size: 28px;
+  }
+
+  .ty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ty-followup {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ty-main {
+    padding: 10px 8px 26px;
+  }
+
+  .ty-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .ty-title {
+    font-size: 18px;
+  }
+
+  .ty-title-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ty-order-id {
+    font-size: 10px;
+  }
+
+  .ty-chip {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .ty-panel-title {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .ty-simple-list p,
+  .ty-address-box p,
+  .ty-payment-note,
+  .ty-totals-box p {
+    font-size: 12px;
+  }
+
+  .ty-product-name {
+    font-size: 15px;
+  }
+
+  .ty-product-price {
+    font-size: 22px;
+  }
+
+  .ty-product-icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ty-product-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ty-total-line strong {
+    font-size: 32px;
+  }
+
+  .ty-followup {
+    margin-top: 16px;
+    padding: 0 4px;
+    gap: 0;
+  }
+
+  .ty-followup p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .ty-followup h3 {
+    font-size: 18px;
+    margin-top: 12px;
+  }
+
+  .ty-thanks-line {
+    margin-top: 20px !important;
+  }
+}

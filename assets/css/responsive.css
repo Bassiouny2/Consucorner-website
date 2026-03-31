@@ -481,6 +481,7 @@
   /* Banner */
   .medical-products-banner {
     height: 180px;
+    background-position: 0;
   }
 
   /* Browse grid: 3 columns */
@@ -1357,21 +1358,29 @@
   }
 
   .sp-faq-header {
-    padding: 18px 20px;
-    gap: 14px;
-    align-items: start;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .sp-faq-number {
+    font-size: 32px;
   }
 
   .sp-faq-question {
-    font-size: 14px;
+    font-size: 18px;
   }
 
-  .sp-faq-body {
-    padding: 0 20px 0 62px;
+  .sp-faq-toggle {
+    width: 36px;
+    height: 36px;
   }
 
   .sp-faq-item--open .sp-faq-body {
-    padding: 0 20px 18px 62px;
+    padding: 0 16px 18px 16px;
+  }
+
+  .sp-faq-body p {
+    font-size: 14px;
   }
 
   /* Write A Review */
@@ -1676,35 +1685,12 @@
     padding: 36px 14px;
   }
 
-  .sp-faq-header {
-    padding: 20px 14px;
-    gap: 12px;
+  .sp-faq-question {
+    font-size: 16px;
   }
 
   .sp-faq-number {
-    font-size: 18px;
-    width: 24px;
-  }
-
-  .sp-faq-question {
-    font-size: 15px;
-  }
-
-  .sp-faq-toggle {
-    width: 25px;
-    height: 25px;
-  }
-
-  .sp-faq-body {
-    padding: 0 14px 0 14px;
-  }
-
-  .sp-faq-item--open .sp-faq-body {
-    padding: 0 14px 16px 14px;
-  }
-
-  .sp-faq-body p {
-    font-size: 13px;
+    font-size: 26px;
   }
 
   /* Write A Review */
@@ -1738,5 +1724,330 @@
     justify-content: center;
     padding: 12px 20px;
     font-size: 14px;
+  }
+}
+
+/* ============================================================
+   ARCHIVE POSTS PAGE — RESPONSIVE
+   ============================================================ */
+
+/* ---- Tablet: ≤ 1024px ---- */
+@media (max-width: 1024px) {
+  /* Featured section: stack featured area above recently posted */
+  .blog-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Featured row: image on top, text below */
+  .blog-featured-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .blog-featured-img-col {
+    order: -1;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+
+  .blog-featured-img-col::before {
+    width: 80%;
+    height: 80%;
+  }
+
+  /* Recently posted: keep scroll */
+  .blog-recent-list {
+    max-height: 400px;
+    overflow-y: auto;
+    direction: ltr;
+    padding-left: 0;
+  }
+
+  /* Blog posts grid: 2 columns on tablet */
+  .blog-posts-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* ---- Mobile: ≤ 768px ---- */
+@media (max-width: 768px) {
+  .blog-section {
+    padding: 40px 0;
+  }
+
+  .blog-inner {
+    padding: 0 16px;
+  }
+
+  .blog-heading {
+    font-size: 18px;
+  }
+
+  .blog-featured-title {
+    font-size: 22px;
+  }
+
+  .blog-featured-desc {
+    font-size: 13px;
+  }
+
+  .blog-featured-img-col {
+    padding-bottom: 16px;
+    padding-left: 16px;
+  }
+
+  .blog-recent-heading {
+    font-size: 18px;
+  }
+
+  .blog-recent-img {
+    width: 100px;
+    height: 80px;
+  }
+
+  .blog-posts-section {
+    padding: 40px 0 60px;
+  }
+
+  .blog-posts-inner {
+    padding: 0 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .blog-post-title {
+    font-size: 15px;
+  }
+
+  .blog-post-desc {
+    font-size: 12px;
+  }
+}
+
+/* ---- Mobile: ≤ 480px ---- */
+@media (max-width: 480px) {
+  .blog-section {
+    padding: 32px 0;
+  }
+
+  .blog-inner {
+    padding: 0 14px;
+    gap: 32px;
+  }
+
+  .blog-heading {
+    font-size: 16px;
+  }
+
+  .blog-featured-row {
+    gap: 16px;
+  }
+
+  .blog-featured-title {
+    font-size: 25px;
+  }
+
+  .blog-featured-img-col {
+    padding-bottom: 12px;
+    padding-left: 12px;
+  }
+
+  .blog-featured-img-col::before {
+    width: 75%;
+    height: 75%;
+  }
+
+  .blog-recent-heading {
+    font-size: 16px;
+  }
+
+  .blog-recent-img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .blog-recent-title {
+    font-size: 12px;
+  }
+
+  /* Blog posts grid: single column on mobile */
+  .blog-posts-section {
+    padding: 32px 0 48px;
+  }
+
+  .blog-posts-inner {
+    padding: 0 14px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .blog-post-title {
+    font-size: 20px;
+  }
+  .blog-featured {
+    gap: 30px;
+  }
+}
+
+/* ============================================================
+   SINGLE POST PAGE — RESPONSIVE
+   ============================================================ */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .sp-layout-section {
+    padding: 40px 0 60px;
+  }
+
+  .sp-layout-inner {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* Dissolve the right-col wrapper so its children join the parent flex */
+  .sp-right-col {
+    display: contents;
+  }
+
+  /* Image first — full width */
+  .sp-sidebar-img-col {
+    order: 1;
+    width: 100%;
+  }
+
+  .sp-sidebar-img-col img {
+    width: 100%;
+    height: 400px;
+  }
+
+  /* Article second */
+  .sp-post-content {
+    order: 2;
+  }
+
+  /* Sidebar hidden on tablet */
+  .sp-post-sidebar {
+    display: none;
+  }
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+  .sp-layout-section {
+    padding: 28px 0 48px;
+  }
+
+  .sp-layout-inner {
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .sp-sidebar-img-col {
+    width: 100%;
+  }
+
+  .sp-sidebar-img-col img {
+    width: 100%;
+    height: 260px;
+  }
+
+  .sp-post-title {
+    font-size: 24px;
+  }
+
+  .sp-post-lead {
+    font-size: 14px;
+  }
+
+  .sp-post-heading {
+    font-size: 14px;
+  }
+
+  .sp-sidebar-recent-list {
+    max-height: 340px;
+  }
+
+  .sp-sidebar-banner {
+    height: 280px;
+  }
+
+  .read-more-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .read-more-heading {
+    font-size: 26px;
+  }
+
+  .blog-faq-header {
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .blog-faq-number {
+    font-size: 32px;
+  }
+
+  .blog-faq-question {
+    font-size: 18px;
+  }
+
+  .blog-faq-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .blog-faq-item--open .blog-faq-body {
+    padding: 0 16px 18px 16px;
+  }
+
+  .blog-faq-body p {
+    font-size: 13px;
+  }
+}
+
+/* ── Small mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  .sp-layout-inner {
+    padding: 0 14px;
+  }
+
+  .sp-sidebar-img-col {
+    padding-bottom: 14px;
+    padding-left: 14px;
+  }
+
+  .sp-sidebar-img-col img {
+    height: auto;
+    width: fit-content;
+  }
+
+  .sp-post-title {
+    font-size: 27px;
+  }
+
+  .sp-post-table-wrapper {
+    font-size: 12px;
+  }
+
+  .sp-sidebar-banner {
+    height: 240px;
+  }
+
+  .blog-faq-question {
+    font-size: 16px;
+  }
+
+  .blog-faq-number {
+    font-size: 26px;
+  }
+  .blog-faq-section{
+    padding: 80px 14px;
+  }
+  .read-more-inner {
+    padding: 0 14px;
   }
 }
