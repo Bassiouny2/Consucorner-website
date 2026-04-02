@@ -1,0 +1,384 @@
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+/* Page Head */
+.about-page-head {
+  width: 100%;
+  height: 423px;
+  background-image: url("../images/page-head.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page-head-inner {
+  max-width: 1280px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-page-title {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  text-align: center;
+  color: #ffffff;
+  line-height: 1.05;
+}
+
+.about-page-breadcrumbs {
+  margin: 8px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.about-us-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.about-us-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Header — tag + title centered */
+.about-us-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-us-tag {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.02em;
+}
+
+.about-us-title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #64e9cc;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.1;
+}
+
+
+.about-us-title span {
+    color: #2597e0;
+}
+
+/* 2×2 text grid */
+.about-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 80px;
+}
+
+.about-us-text {
+  font-size: 15px;
+  color: #444c56 !important;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ============================================================
+   WHAT MAKES US DIFFERENT
+   ============================================================ */
+
+.about-diff-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.about-diff-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.about-diff-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-diff-tag {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555e6a;
+  letter-spacing: 0.02em;
+}
+
+.about-diff-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #00c8b3;
+  margin: 0;
+  line-height: 1.15;
+  font-family: "Manrope", sans-serif;
+}
+
+.about-diff-title span {
+  color: #2597e0;
+}
+
+/* 3×2 grid with divider lines */
+.about-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.about-diff-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 40px;
+  border-right: 2px solid #e7e7e7;
+  border-bottom: 2px solid #e7e7e7;
+  gap: 16px;
+}
+
+.about-diff-card:nth-child(3n) {
+  border-right: none;
+}
+
+.about-diff-card:nth-child(n+4) {
+  border-bottom: none;
+}
+
+.about-diff-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-diff-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.about-diff-card-desc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 300px;
+}
+
+/* ============================================================
+   MISSION, VISION & CORE VALUES
+   ============================================================ */
+
+.about-mv-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.about-mv-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* Mission & Vision — 2 cards */
+.about-mv-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-mv-card {
+  background: #f3f5f6;
+  border-radius: 16px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-mv-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2597e0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.about-mv-title span {
+  color: #00c8b3;
+}
+
+.about-mv-text {
+  font-size: 15px;
+  color: #555e6a;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Core Values */
+.about-cv-block {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-cv-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.about-cv-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: #2597e0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.about-cv-title span {
+  color: #00c8b3;
+}
+
+.about-cv-subtitle {
+  font-size: 15px;
+  color: #555e6a;
+  margin: 0;
+}
+
+/* 4-column grid */
+.about-cv-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.about-cv-card {
+  background: #f3f5f6;
+  border-radius: 14px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-cv-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-cv-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2597E0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+.about-cv-card-desc {
+  font-size: 14px;
+  color: #555e6a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   ABOUT PAGE — RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .about-page-title   { font-size: 48px; }
+  .about-us-title     { font-size: 32px; }
+  .about-diff-title   { font-size: 32px; }
+  .about-cv-title     { font-size: 36px; }
+  .about-cv-grid      { grid-template-columns: repeat(2, 1fr); }
+  .about-diff-card    { padding: 36px 24px; }
+}
+
+@media (max-width: 768px) {
+  .about-page-head        { height: 280px; }
+  .about-page-title       { font-size: 36px; }
+  .about-page-breadcrumbs { font-size: 16px; }
+
+  .about-us-section,
+  .about-diff-section,
+  .about-mv-section {
+    padding: 48px 16px 60px;
+  }
+
+  .about-us-title   { font-size: 26px; }
+  .about-diff-title { font-size: 26px; }
+  .about-cv-title   { font-size: 28px; }
+  .about-mv-title   { font-size: 22px; }
+
+  .about-us-grid  { grid-template-columns: 1fr; gap: 20px; }
+  .about-mv-row   { grid-template-columns: 1fr; }
+  .about-cv-grid  { grid-template-columns: repeat(2, 1fr); }
+
+  .about-diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-diff-card:nth-child(3n)  { border-right: 2px solid #e7e7e7; }
+  .about-diff-card:nth-child(2n)  { border-right: none; }
+  .about-diff-card:nth-child(n+4) { border-bottom: 2px solid #e7e7e7; }
+  .about-diff-card:nth-child(n+5) { border-bottom: none; }
+  .about-diff-card { padding: 28px 20px; }
+}
+
+@media (max-width: 480px) {
+  .about-page-head  { height: 220px; }
+  .about-page-title { font-size: 28px; }
+
+  .about-us-section,
+  .about-diff-section,
+  .about-mv-section {
+    padding: 36px 14px 48px;
+  }
+
+  .about-cv-grid   { grid-template-columns: 1fr; }
+  .about-cv-title  { font-size: 24px; }
+
+  .about-diff-grid           { grid-template-columns: 1fr; }
+  .about-diff-card           { border-right: none; }
+  .about-diff-card:nth-child(n+5) { border-bottom: 2px solid #e7e7e7; }
+  .about-diff-card:last-child     { border-bottom: none; }
+}

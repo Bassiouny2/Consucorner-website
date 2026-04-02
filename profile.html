@@ -609,14 +609,16 @@
       </div>
     </header>
 
-        <main>
+    
+
+    <main>
       <section
         class="shop-page-head cart-page-head"
-        aria-label="Profile page heading"
+        aria-label="My Account heading"
       >
         <div class="shop-page-head-inner">
-          <h1 class="shop-page-title">Profile</h1>
-          <p class="shop-page-breadcrumbs">Home/Profile</p>
+          <h1 class="shop-page-title">My Account</h1>
+          <p class="shop-page-breadcrumbs">Home / My Account</p>
         </div>
       </section>
 
@@ -626,39 +628,949 @@
             <div class="profile-top">
               <div class="profile-user">
                 <div class="profile-avatar-wrap">
-                  <div class="profile-avatar" aria-label="User initials">AR</div>
-                  <button class="profile-avatar-edit" aria-label="Change profile photo" type="button">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <use href="#pi-camera"/>
-                    </svg>
+                  <div class="profile-avatar" id="profile-avatar-display">AR</div>
+                  <button class="profile-avatar-edit" type="button" id="profile-avatar-btn" aria-label="Change photo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-camera"/></svg>
                   </button>
+                  <input type="file" id="profile-avatar-input" accept="image/*" hidden />
                 </div>
                 <div class="profile-user-info">
-                  <h2>Alexa Rawles</h2>
-                  <p>alexarawles@gmail.com</p>
+                  <h2 id="profile-user-name">Alexa Rawles</h2>
+                  <p id="profile-user-email">alexarawles@gmail.com</p>
+                  <span class="profile-member-badge">Member since March 2024</span>
                 </div>
               </div>
-              <a href="#" class="profile-logout">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <use href="#pi-logout"/>
-                </svg>
-                Log-out
+              <a href="#" class="profile-logout" id="profile-logout-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-logout"/></svg>
+                Log out
               </a>
             </div>
             <div class="profile-menu" role="list">
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-user"/></svg></span>Account Details</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-wallet"/></svg></span>Wallet</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-clock"/></svg></span>Order History</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-shield"/></svg></span>Privacy &amp; Policy</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-heart"/></svg></span>Favorite</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-bell"/></svg></span>Notification</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-lock"/></svg></span>Reset Password</a>
-              <a href="#" class="profile-item" role="listitem"><span class="profile-item-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-flag"/></svg></span>Report</a>
+              <a href="#" class="profile-item" data-modal="modal-account" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-user"/></svg></span>
+                Account Details
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-wallet" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-wallet"/></svg></span>
+                Wallet
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-orders" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-clock"/></svg></span>
+                Order History
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-privacy" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-shield"/></svg></span>
+                Privacy &amp; Policy
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-favorites" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-heart"/></svg></span>
+                Favorite
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-notifications" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-bell"/></svg></span>
+                Notification
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-password" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-lock"/></svg></span>
+                Reset Password
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-report" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-flag"/></svg></span>
+                Report
+              </a>
+              <!-- ═══ PLUGIN MENU SLOT ═══════════════════════════════════
+                   WordPress plugins (Smart Coupons, Referral, Subscriptions,
+                   Points & Rewards, etc.) inject items here via:
+                     window.CCProfile.registerMenuItem({ id, icon, label, modalId })
+                   Or PHP/WooCommerce template hooks can echo additional
+                   <a href="#" class="profile-item" data-modal="modal-XXX"> tags here.
+                   ════════════════════════════════════════════════════════ -->
+              <div id="profile-menu-plugins" role="presentation"></div>
             </div>
           </article>
         </div>
       </section>
     </main>
+
+    <!-- ============================================================
+         PROFILE MODALS (8 popups — WooCommerce REST API ready)
+         ============================================================ -->
+
+    <!-- ── Modal 1: Account Details (3 tabs) ── -->
+    <div class="pmodal" id="modal-account" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-account-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-user"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-account-title">Account Details</h2>
+                <p class="pmodal-subtitle">Manage your personal info, billing &amp; shipping addresses</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+
+          <nav class="pmodal-tabs" role="tablist" aria-label="Account sections">
+            <button class="pmodal-tab-btn is-active" role="tab" aria-selected="true" data-tab="personal">Personal Info</button>
+            <button class="pmodal-tab-btn" role="tab" aria-selected="false" data-tab="billing">Billing Address</button>
+            <button class="pmodal-tab-btn" role="tab" aria-selected="false" data-tab="shipping">Shipping Address</button>
+          </nav>
+
+          <form class="pmodal-form" id="form-account"
+                data-wc-endpoint="/wp-json/wc/v3/customers/{id}"
+                data-wc-method="PUT">
+
+            <!-- ─ Tab: Personal Info ─ -->
+            <div class="pmodal-tab-panel is-active" data-tab-panel="personal">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Personal Information</h3>
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-first-name">First Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-first-name" type="text" name="first_name" placeholder="Enter first name" required autocomplete="given-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-last-name">Last Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-last-name" type="text" name="last_name" placeholder="Enter last name" required autocomplete="family-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-display-name">Display Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-display-name" type="text" name="display_name" placeholder="Shown publicly" required />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-username">Username</label>
+                    <input class="pf-input pf-readonly" id="acc-username" type="text" name="username" readonly tabindex="-1" autocomplete="username" />
+                    <p class="pf-hint">Username cannot be changed after registration</p>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-email">Email Address <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-phone">Phone Number</label>
+                    <input class="pf-input" id="acc-phone" type="tel" name="billing_phone" placeholder="+20 100 000 0000" autocomplete="tel" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-birthdate">Date of Birth</label>
+                    <input class="pf-input" id="acc-birthdate" type="date" name="meta_birth_date" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-gender">Gender</label>
+                    <select class="pf-input pf-select" id="acc-gender" name="meta_gender">
+                      <option value="">Select gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="prefer_not">Prefer not to say</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Professional Details</h3>
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-specialty">Medical Specialty</label>
+                    <select class="pf-input pf-select" id="acc-specialty" name="meta_specialty">
+                      <option value="">Select specialty</option>
+                      <option value="ophthalmology">Ophthalmology</option>
+                      <option value="general_surgery">General Surgery</option>
+                      <option value="dental">Dental</option>
+                      <option value="orthopedics">Orthopedics</option>
+                      <option value="cardiology">Cardiology</option>
+                      <option value="dermatology">Dermatology</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-role">Role / Title</label>
+                    <select class="pf-input pf-select" id="acc-role" name="meta_role_title">
+                      <option value="">Select role</option>
+                      <option value="doctor">Doctor</option>
+                      <option value="nurse">Nurse</option>
+                      <option value="pharmacist">Pharmacist</option>
+                      <option value="clinic_manager">Clinic Manager</option>
+                      <option value="hospital_buyer">Hospital Buyer</option>
+                      <option value="distributor">Distributor</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="acc-company">Company / Clinic Name</label>
+                    <input class="pf-input" id="acc-company" type="text" name="billing_company" placeholder="Clinic or hospital name" autocomplete="organization" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ Tab: Billing Address ─ -->
+            <div class="pmodal-tab-panel" data-tab-panel="billing">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Billing Address</h3>
+                <p class="pf-section-desc">Used for invoices and payment records.</p>
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-first">First Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-first" type="text" name="billing_first_name" required autocomplete="billing given-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-last">Last Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-last" type="text" name="billing_last_name" required autocomplete="billing family-name" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-company">Company / Clinic</label>
+                    <input class="pf-input" id="bill-company" type="text" name="billing_company" autocomplete="billing organization" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-addr1">Address Line 1 <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-addr1" type="text" name="billing_address_1" placeholder="Street address or P.O. Box" required autocomplete="billing address-line1" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-addr2">Address Line 2</label>
+                    <input class="pf-input" id="bill-addr2" type="text" name="billing_address_2" placeholder="Apartment, suite, unit, building..." autocomplete="billing address-line2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-city">City <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-city" type="text" name="billing_city" required autocomplete="billing address-level2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-state">Governorate / State</label>
+                    <input class="pf-input" id="bill-state" type="text" name="billing_state" autocomplete="billing address-level1" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-postcode">Postal Code</label>
+                    <input class="pf-input" id="bill-postcode" type="text" name="billing_postcode" autocomplete="billing postal-code" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-country">Country <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="bill-country" name="billing_country" required autocomplete="billing country">
+                      <option value="EG" selected>Egypt</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="AE">UAE</option>
+                      <option value="JO">Jordan</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="QA">Qatar</option>
+                      <option value="BH">Bahrain</option>
+                      <option value="OM">Oman</option>
+                      <option value="IQ">Iraq</option>
+                      <option value="LY">Libya</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="MA">Morocco</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-phone">Phone <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-phone" type="tel" name="billing_phone" required autocomplete="billing tel" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-email">Billing Email</label>
+                    <input class="pf-input" id="bill-email" type="email" name="billing_email" placeholder="billing@example.com" autocomplete="billing email" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ Tab: Shipping Address ─ -->
+            <div class="pmodal-tab-panel" data-tab-panel="shipping">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Shipping Address</h3>
+                <p class="pf-section-desc">Where your orders will be delivered.</p>
+                <label class="pf-same-billing-row">
+                  <input type="checkbox" id="ship-same-as-billing" name="ship_same_as_billing" />
+                  <span class="pf-checkbox-custom"></span>
+                  <span>Same as billing address</span>
+                </label>
+                <div class="pf-grid-2" id="shipping-fields-wrap">
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-first">First Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-first" type="text" name="shipping_first_name" required autocomplete="shipping given-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-last">Last Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-last" type="text" name="shipping_last_name" required autocomplete="shipping family-name" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="ship-company">Company / Clinic</label>
+                    <input class="pf-input" id="ship-company" type="text" name="shipping_company" autocomplete="shipping organization" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="ship-addr1">Address Line 1 <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-addr1" type="text" name="shipping_address_1" required autocomplete="shipping address-line1" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="ship-addr2">Address Line 2</label>
+                    <input class="pf-input" id="ship-addr2" type="text" name="shipping_address_2" autocomplete="shipping address-line2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-city">City <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-city" type="text" name="shipping_city" required autocomplete="shipping address-level2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-state">Governorate / State</label>
+                    <input class="pf-input" id="ship-state" type="text" name="shipping_state" autocomplete="shipping address-level1" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-postcode">Postal Code</label>
+                    <input class="pf-input" id="ship-postcode" type="text" name="shipping_postcode" autocomplete="shipping postal-code" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-country">Country <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="ship-country" name="shipping_country" required autocomplete="shipping country">
+                      <option value="EG" selected>Egypt</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="AE">UAE</option>
+                      <option value="JO">Jordan</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="QA">Qatar</option>
+                      <option value="BH">Bahrain</option>
+                      <option value="OM">Oman</option>
+                      <option value="IQ">Iraq</option>
+                      <option value="LY">Libya</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="MA">Morocco</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-phone">Phone</label>
+                    <input class="pf-input" id="ship-phone" type="tel" name="shipping_phone" autocomplete="shipping tel" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <footer class="pmodal-footer">
+              <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+              <button type="submit" class="pmodal-btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Save Changes
+              </button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 2: Wallet ── -->
+    <div class="pmodal" id="modal-wallet" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-wallet-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-wallet"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-wallet-title">My Wallet</h2>
+                <p class="pmodal-subtitle">Manage balance and view transaction history</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pwallet-balance-card">
+              <p class="pwallet-label">Available Balance</p>
+              <p class="pwallet-amount" id="wallet-balance-display">1,275.00 <span>EGP</span></p>
+              <div class="pwallet-actions">
+                <button type="button" class="pmodal-btn-primary" id="btn-show-topup">+ Top Up</button>
+                <button type="button" class="pmodal-btn-outline">Withdraw</button>
+              </div>
+            </div>
+            <div class="pf-section" id="wallet-topup-section" hidden>
+              <h3 class="pf-section-title">Top Up Wallet</h3>
+              <form class="pmodal-form" id="form-topup"
+                    data-wc-endpoint="/wp-json/custom/v1/wallet/topup"
+                    data-wc-method="POST">
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="topup-amount">Amount (EGP) <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="topup-amount" type="number" name="amount" min="10" step="1" placeholder="e.g. 500" required />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="topup-method">Payment Method <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="topup-method" name="payment_method" required>
+                      <option value="">Select method</option>
+                      <option value="card">Credit / Debit Card</option>
+                      <option value="instapay">InstaPay</option>
+                      <option value="vodafone_cash">Vodafone Cash</option>
+                      <option value="orange_money">Orange Money</option>
+                      <option value="fawry">Fawry</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="pmodal-footer-inline">
+                  <button type="button" class="pmodal-btn-ghost" id="btn-cancel-topup">Cancel</button>
+                  <button type="submit" class="pmodal-btn-primary">Confirm Top Up</button>
+                </div>
+              </form>
+            </div>
+            <div class="pf-section">
+              <h3 class="pf-section-title">Transaction History</h3>
+              <div class="ptable-wrap">
+                <table class="ptable" aria-label="Wallet transactions">
+                  <thead>
+                    <tr><th>TXN ID</th><th>Description</th><th>Date</th><th>Amount</th><th>Balance</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ptable-id">#TXN-00421</td>
+                      <td>Top-up via Visa card</td>
+                      <td>30 Mar 2026</td>
+                      <td class="ptable-positive">+500.00 EGP</td>
+                      <td>1,275.00 EGP</td>
+                    </tr>
+                    <tr>
+                      <td class="ptable-id">#TXN-00420</td>
+                      <td>Order #410184730 payment</td>
+                      <td>29 Mar 2026</td>
+                      <td class="ptable-negative">−127.00 EGP</td>
+                      <td>775.00 EGP</td>
+                    </tr>
+                    <tr>
+                      <td class="ptable-id">#TXN-00418</td>
+                      <td>Refund – Order #410180095</td>
+                      <td>22 Mar 2026</td>
+                      <td class="ptable-positive">+200.00 EGP</td>
+                      <td>902.00 EGP</td>
+                    </tr>
+                    <tr>
+                      <td class="ptable-id">#TXN-00415</td>
+                      <td>Order #410178231 payment</td>
+                      <td>15 Mar 2026</td>
+                      <td class="ptable-negative">−498.00 EGP</td>
+                      <td>702.00 EGP</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 3: Order History ── -->
+    <div class="pmodal" id="modal-orders" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-orders-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--indigo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-clock"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-orders-title">Order History</h2>
+                <p class="pmodal-subtitle">Track status and details of all your orders</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="porder-filter-bar" role="tablist" aria-label="Filter by status">
+              <button class="porder-filter-btn is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="processing">Processing</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="completed">Completed</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="cancelled">Cancelled</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="refunded">Refunded</button>
+            </div>
+            <div class="ptable-wrap">
+              <table class="ptable" aria-label="Order history">
+                <thead>
+                  <tr>
+                    <th>Order #</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                  <tr data-status="completed">
+                    <td class="ptable-id">#410184730</td>
+                    <td>01 Apr 2026</td>
+                    <td>2 items</td>
+                    <td><span class="pstatus-chip pstatus-completed">Completed</span></td>
+                    <td><strong>9,827 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="thank-you.html" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                    </td>
+                  </tr>
+                  <tr data-status="processing">
+                    <td class="ptable-id">#410182105</td>
+                    <td>28 Mar 2026</td>
+                    <td>1 item</td>
+                    <td><span class="pstatus-chip pstatus-processing">Processing</span></td>
+                    <td><strong>4,020 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="#" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                      <button type="button" class="pmodal-btn-sm pmodal-btn-sm--danger">Cancel</button>
+                    </td>
+                  </tr>
+                  <tr data-status="completed">
+                    <td class="ptable-id">#410180095</td>
+                    <td>15 Mar 2026</td>
+                    <td>3 items</td>
+                    <td><span class="pstatus-chip pstatus-completed">Completed</span></td>
+                    <td><strong>12,450 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="#" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                      <button type="button" class="pmodal-btn-sm pmodal-btn-sm--ghost">Re-order</button>
+                    </td>
+                  </tr>
+                  <tr data-status="cancelled">
+                    <td class="ptable-id">#410175012</td>
+                    <td>02 Mar 2026</td>
+                    <td>1 item</td>
+                    <td><span class="pstatus-chip pstatus-cancelled">Cancelled</span></td>
+                    <td><strong>3,200 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="#" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 4: Privacy & Policy ── -->
+    <div class="pmodal" id="modal-privacy" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-shield"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-privacy-title">Privacy &amp; Policy</h2>
+                <p class="pmodal-subtitle">Control your data, consent settings, and account privacy</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-privacy"
+                  data-wc-endpoint="/wp-json/custom/v1/privacy"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Data &amp; Consent Settings</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Marketing Emails</span>
+                      <span class="pf-toggle-desc">Receive promotional offers, discounts, and product updates by email</span>
+                    </div>
+                    <span class="pf-switch">
+                      <input type="checkbox" name="marketing_email_consent" checked />
+                      <span class="pf-switch-track"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Manage Your Data</h3>
+                <div class="pprivacy-actions">
+                  <div class="pprivacy-action-row">
+                    <div>
+                      <p class="pprivacy-action-title">Download Personal Data</p>
+                      <p class="pprivacy-action-desc">Request an export of all data ConsuCorner holds about you (GDPR / PDPL)</p>
+                    </div>
+                    <button type="button" class="pmodal-btn-outline" data-wc-action="export_data">Request Export</button>
+                  </div>
+                  <div class="pprivacy-action-row pprivacy-action-row--danger">
+                    <div>
+                      <p class="pprivacy-action-title">Delete My Account</p>
+                      <p class="pprivacy-action-desc">Permanently remove your account and all associated personal data. This cannot be undone.</p>
+                    </div>
+                    <button type="button" class="pmodal-btn-danger" id="btn-delete-account" data-wc-action="delete_account">Delete Account</button>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-section">
+                <a href="#" class="pprivacy-policy-link" target="_blank" rel="noopener noreferrer">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Read Full Privacy Policy
+                </a>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-privacy" class="pmodal-btn-primary">Save Preferences</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 5: Favorites / Wishlist ── -->
+    <div class="pmodal" id="modal-favorites" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-favorites-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--rose">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-heart"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-favorites-title">My Wishlist</h2>
+                <p class="pmodal-subtitle">Products saved for later — add to cart anytime</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pwishlist-grid" id="wishlist-grid">
+              <article class="pwishlist-item" data-product-id="prod-001" data-product-url="single-product.html">
+                <a class="pwishlist-img-link" href="single-product.html" aria-label="View McPherson Angled Forceps">
+                  <div class="pwishlist-img">
+                    <img src="assets/images/single-product-image.webp" alt="McPherson Angled Forceps" />
+                  </div>
+                </a>
+                <div class="pwishlist-body">
+                  <p class="pwishlist-cat">SURGICAL INSTRUMENTS</p>
+                  <a class="pwishlist-name-link" href="single-product.html">
+                    <h4 class="pwishlist-name">McPherson Angled Forceps</h4>
+                  </a>
+                  <p class="pwishlist-meta">115mm · Titanium</p>
+                  <p class="pwishlist-price">1,200 EGP</p>
+                  <div class="pwishlist-actions">
+                    <button type="button" class="pmodal-btn-primary pwishlist-add-cart" data-product-id="prod-001">Add to Cart</button>
+                    <button type="button" class="pmodal-btn-icon pwishlist-remove" aria-label="Remove from wishlist" data-product-id="prod-001">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="pwishlist-item" data-product-id="prod-002" data-product-url="single-product.html">
+                <a class="pwishlist-img-link" href="single-product.html" aria-label="View Micro Scissors Set">
+                  <div class="pwishlist-img">
+                    <img src="assets/images/single-product-image.webp" alt="Micro Scissors Set" />
+                  </div>
+                </a>
+                <div class="pwishlist-body">
+                  <p class="pwishlist-cat">MICRO INSTRUMENTS</p>
+                  <a class="pwishlist-name-link" href="single-product.html">
+                    <h4 class="pwishlist-name">Micro Scissors Set</h4>
+                  </a>
+                  <p class="pwishlist-meta">85mm · Stainless Steel</p>
+                  <p class="pwishlist-price">890 EGP</p>
+                  <div class="pwishlist-actions">
+                    <button type="button" class="pmodal-btn-primary pwishlist-add-cart" data-product-id="prod-002">Add to Cart</button>
+                    <button type="button" class="pmodal-btn-icon pwishlist-remove" aria-label="Remove from wishlist" data-product-id="prod-002">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="pwishlist-empty" id="wishlist-empty" hidden>
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><use href="#pi-heart"/></svg>
+              <p>Your wishlist is empty</p>
+              <a href="shop.html" class="pmodal-btn-primary">Browse Products</a>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+            <a href="shop.html" class="pmodal-btn-outline">Continue Shopping</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 6: Notification Preferences ── -->
+    <div class="pmodal" id="modal-notifications" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-notif-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-bell"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-notif-title">Notification Preferences</h2>
+                <p class="pmodal-subtitle">Choose how you receive updates from ConsuCorner</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-notifications"
+                  data-wc-endpoint="/wp-json/custom/v1/notifications"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Order Updates</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Order Confirmation</span>
+                      <span class="pf-toggle-desc">Email when an order is successfully placed</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_order_confirmed" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Shipping Updates</span>
+                      <span class="pf-toggle-desc">Email &amp; SMS when your order is shipped or out for delivery</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_shipping" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Delivery Confirmation</span>
+                      <span class="pf-toggle-desc">Notification when your order has been delivered</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_delivered" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Cancellation &amp; Refund</span>
+                      <span class="pf-toggle-desc">Updates on cancelled orders and refund status</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_refund" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Account &amp; Security</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Login Alerts</span>
+                      <span class="pf-toggle-desc">Email when your account is accessed from a new device or location</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_login_alert" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Password Change Confirmation</span>
+                      <span class="pf-toggle-desc">Email confirmation when your password has been changed</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_password_change" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Promotions &amp; Marketing</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Special Offers &amp; Discounts</span>
+                      <span class="pf-toggle-desc">Flash sale alerts and exclusive discounts for registered users</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_offers" /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">New Product Arrivals</span>
+                      <span class="pf-toggle-desc">Alerts when new instruments or equipment matching your specialty arrive</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_new_products" /><span class="pf-switch-track"></span></span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-notifications" class="pmodal-btn-primary">Save Preferences</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 7: Reset Password ── -->
+    <div class="pmodal" id="modal-password" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-password-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--slate">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-lock"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-password-title">Reset Password</h2>
+                <p class="pmodal-subtitle">Use a strong password with at least 8 characters</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-password"
+                  data-wc-endpoint="/wp-json/custom/v1/account/password"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <div class="pf-field">
+                  <label class="pf-label" for="pwd-current">Current Password <span class="pf-req">*</span></label>
+                  <div class="pf-input-eyewrap">
+                    <input class="pf-input" id="pwd-current" type="password" name="current_password" required autocomplete="current-password" placeholder="Enter current password" />
+                    <button class="pf-eye-btn" type="button" data-eye="pwd-current" aria-label="Show/hide password">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="pf-field">
+                  <label class="pf-label" for="pwd-new">New Password <span class="pf-req">*</span></label>
+                  <div class="pf-input-eyewrap">
+                    <input class="pf-input" id="pwd-new" type="password" name="new_password" required autocomplete="new-password" placeholder="Enter new password" />
+                    <button class="pf-eye-btn" type="button" data-eye="pwd-new" aria-label="Show/hide password">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                  <div class="pf-strength-bar">
+                    <div class="pf-strength-track"><div class="pf-strength-fill" id="pwd-strength-fill"></div></div>
+                    <span class="pf-strength-label" id="pwd-strength-label" aria-live="polite"></span>
+                  </div>
+                  <ul class="pf-pwd-rules" id="pwd-rules">
+                    <li data-rule="length"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> At least 8 characters</li>
+                    <li data-rule="upper"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One uppercase letter</li>
+                    <li data-rule="digit"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One number</li>
+                    <li data-rule="special"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One special character</li>
+                  </ul>
+                </div>
+                <div class="pf-field">
+                  <label class="pf-label" for="pwd-confirm">Confirm New Password <span class="pf-req">*</span></label>
+                  <div class="pf-input-eyewrap">
+                    <input class="pf-input" id="pwd-confirm" type="password" name="confirm_password" required autocomplete="new-password" placeholder="Repeat new password" />
+                    <button class="pf-eye-btn" type="button" data-eye="pwd-confirm" aria-label="Show/hide password">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                  <p class="pf-match-msg" id="pwd-match-msg" aria-live="polite" hidden></p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-password" class="pmodal-btn-primary">Update Password</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 8: Report & Support ── -->
+    <div class="pmodal" id="modal-report" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-report-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-flag"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-report-title">Report &amp; Support</h2>
+                <p class="pmodal-subtitle">Get help with orders, payments, or account issues</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-report"
+                  data-wc-endpoint="/wp-json/custom/v1/support/ticket"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="rep-category">Issue Category <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="rep-category" name="category" required>
+                      <option value="">Select a category</option>
+                      <option value="order_issue">Order Issue</option>
+                      <option value="payment_issue">Payment Issue</option>
+                      <option value="shipping_delay">Shipping / Delivery Delay</option>
+                      <option value="wrong_item">Wrong Item Received</option>
+                      <option value="damaged_item">Damaged / Defective Item</option>
+                      <option value="refund_request">Refund Request</option>
+                      <option value="account_access">Account Access Problem</option>
+                      <option value="technical_issue">Website / Technical Issue</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="rep-order">Related Order # <span class="pf-hint-inline">(optional)</span></label>
+                    <input class="pf-input" id="rep-order" type="text" name="order_number" placeholder="e.g. #410184730" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="rep-priority">Priority</label>
+                    <select class="pf-input pf-select" id="rep-priority" name="priority">
+                      <option value="normal" selected>Normal</option>
+                      <option value="high">High – Affects my ability to order</option>
+                      <option value="urgent">Urgent – Financial / undelivered order</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="rep-subject">Subject <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="rep-subject" type="text" name="subject" placeholder="Brief description of the issue" required maxlength="120" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="rep-desc">Description <span class="pf-req">*</span></label>
+                    <textarea class="pf-input pf-textarea" id="rep-desc" name="message" rows="5" placeholder="Describe the issue in detail so our support team can assist you promptly..." required></textarea>
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="rep-attachment">Attachment <span class="pf-hint-inline">(optional)</span></label>
+                    <input class="pf-input pf-file" id="rep-attachment" type="file" name="attachment" accept="image/*,.pdf" />
+                    <p class="pf-hint">Accepted: JPG, PNG, PDF — Max 5 MB</p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-report" class="pmodal-btn-primary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Submit Report
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PLUGIN MODALS SLOT ════════════════════════════════════════════
+         WordPress plugins can inject additional <div class="pmodal"> modals
+         here via wp_footer() hooks, shortcodes, or WooCommerce account hooks:
+           woocommerce_account_content  /  woocommerce_after_account_navigation
+         JS API: window.CCProfile.registerModal({ id, title, subtitle, icon,
+                   iconColor, bodyHTML, footerHTML })
+         CSS:  All pmodal-* / pf-* classes are available for consistent styling.
+         ═════════════════════════════════════════════════════════════════════ -->
+    <div id="profile-modals-plugins"></div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -782,5 +1694,6 @@
     <script src="assets/js/mega-menu.js"></script>
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/auth-modal.js"></script>
+    <script src="assets/js/profile.js"></script>
   </body>
 </html>

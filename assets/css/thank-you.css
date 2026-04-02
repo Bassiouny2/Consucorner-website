@@ -14,9 +14,9 @@
 
 .ty-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #64e9cc33;
   border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+  box-shadow: 0px 25px 50px -12px #2597e040;
   padding: 18px;
 }
 
@@ -92,9 +92,11 @@
 }
 
 .ty-panel {
-  border: 1px solid #edf1f3;
+  border: 1px solid #e2ebf4;
   border-radius: 12px;
   padding: 14px;
+  background: #ffffff;
+  box-shadow: 0 12px 24px -20px #2597e066;
 }
 
 .ty-panel-title {
@@ -124,11 +126,12 @@
 }
 
 .ty-address-box {
-  background: #f7fafc;
-  border: 1px solid #e8edf2;
+  background: #f7fbff;
+  border: 1px solid #dbe7f3;
   border-radius: 10px;
   padding: 10px 12px;
   margin-bottom: 12px;
+  box-shadow: 0 8px 18px -16px #2597e066;
 }
 
 .ty-address-box p {
@@ -170,21 +173,30 @@
   margin-bottom: 14px;
 }
 
-.ty-product-icon-wrap {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: #d6ecef;
-  display: inline-flex;
+.ty-product-main {
+  display: flex;
+  gap: 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.ty-product-thumb {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #eef2f6;
+  border-radius: 24px;
+  background: #f7f7f7;
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: #126f79;
+  overflow: hidden;
   flex-shrink: 0;
 }
 
-.ty-product-icon {
-  width: 22px;
-  height: 22px;
+.ty-product-thumb img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
 }
 
 .ty-product-text {
@@ -235,10 +247,11 @@
 .ty-totals-box {
   max-width: 320px;
   margin-left: auto;
-  background: #f7fafc;
-  border: 1px solid #e8edf2;
+  background: #f7fbff;
+  border: 1px solid #dbe7f3;
   border-radius: 12px;
   padding: 14px 14px 12px;
+  box-shadow: 0 10px 24px -18px #2597e066;
 }
 
 .ty-totals-box p {
@@ -397,14 +410,15 @@
     font-size: 22px;
   }
 
-  .ty-product-icon-wrap {
+  .ty-product-thumb {
     width: 36px;
     height: 36px;
+    border-radius: 10px;
   }
 
-  .ty-product-icon {
-    width: 18px;
-    height: 18px;
+  .ty-product-thumb img {
+    width: 30px;
+    height: 30px;
   }
 
   .ty-total-line strong {
