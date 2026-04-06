@@ -89,7 +89,7 @@
     var brandLabel = BRAND_LABEL[p.brand] || p.brand;
     return '<div class="card-shop" data-href="single-product.html">' +
       '<div class="card-shop-img-wrapper">' +
-        '<img src="assets/images/demo-product-shop.png" alt="' + p.name + '" />' +
+        '<img src="assets/images/blog image s.png" alt="' + p.name + '" />' +
         '<span class="fp-card-company-badge">' + brandLabel + '</span>' +
       '</div>' +
       '<div class="card-shop-body">' +
@@ -100,7 +100,12 @@
         '</div>' +
         '<div class="product-card-btn">' +
           '<div class="product-card-btn-left">' +
-            '<a href="#" class="btn-add-cart" onclick="event.stopPropagation()">Add to cart</a>' +
+            '<a href="#" class="btn-add-cart"' +
+            ' data-product-id="' + p.id + '"' +
+            ' data-product-name="' + p.name.replace(/"/g, '&quot;') + '"' +
+            ' data-product-price="' + p.price + '"' +
+            ' data-product-image="assets/images/blog image s.png"' +
+            ' onclick="event.stopPropagation()">Add to cart</a>' +
             '<a href="#" class="btn-save" onclick="event.stopPropagation()"><img src="assets/images/save-product-icon.svg" alt="Save" /></a>' +
           '</div>' +
           '<a href="#" class="btn-compare" onclick="event.stopPropagation()"><img src="assets/images/Show-icon.svg" alt="Quick View" /></a>' +

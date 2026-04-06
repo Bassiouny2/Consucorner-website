@@ -47,6 +47,7 @@
    ============================================================ */
 
 .get-in-touch {
+  position: relative;
   padding: 250px 24px;
   display: flex;
   flex-direction: column;
@@ -57,16 +58,29 @@
 /* Card */
 .get-in-touch-card {
   position: absolute;
-  top: 375px;
-  padding: 65px 65px 0;
+  top: -350px;
+  padding: 100px 65px 0;
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 40px;
   max-width: 1100px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 8px 40px #193A4B4D;
+  z-index: 1;
+}
+
+.get-in-touch-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: #f2f2f2;
+  z-index: 0;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
 
 /* Form column */
@@ -80,8 +94,8 @@
 .get-in-touch-title {
   margin: 0 0 12px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 800;
-  font-size: 36px;
+  font-weight: 700;
+  font-size: 44px;
   color: #1a1a1a;
   line-height: 1.2;
 }
@@ -93,7 +107,7 @@
 .get-in-touch-desc {
   margin: 0 0 28px;
   font-family: "Montserrat", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   color: #555;
   line-height: 1.6;
 }
@@ -109,7 +123,7 @@
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #d6d6d6;
-  border-radius: 6px;
+  border-radius: 0px;
   padding: 13px 16px;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
@@ -139,7 +153,7 @@
   background: #00c8b3;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 0px;
   padding: 14px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -157,6 +171,7 @@
 .get-in-touch-map-col {
   background: #e8e8e8;
   min-height: 420px;
+  z-index: 9999;
 }
 
 .get-in-touch-map {
@@ -174,7 +189,8 @@
   justify-content: flex-start;
   gap: 48px;
   flex-wrap: wrap;
-  padding: 65px;
+  padding: 40px 65px;
+  margin: 0 -65px;
 }
 
 .git-info-item {
@@ -185,8 +201,8 @@
 }
 
 .git-info-icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
   color: #1a1a1a;
   margin-top: 2px;
@@ -208,9 +224,12 @@
   font-size: 12px;
   color: #00c8b3;
   line-height: 1.5;
+  width: 70%;
 }
 
 a.git-info-value:hover {
   color: #00aa8c;
 }
-
+.contact-banner .medical-products-banner {
+  margin-bottom: 0;
+}

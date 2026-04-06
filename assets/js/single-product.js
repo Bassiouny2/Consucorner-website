@@ -385,34 +385,6 @@
   spTWrapper.addEventListener('mouseenter', stopAuto);
   spTWrapper.addEventListener('mouseleave', startAuto);
 
-  /* ── FAQ Accordion ── */
-  var faqItems = document.querySelectorAll('.sp-faq-item');
-  faqItems.forEach(function (item) {
-    var btn = item.querySelector('.sp-faq-header');
-    btn.addEventListener('click', function () {
-      var isOpen = item.classList.contains('sp-faq-item--open');
-      faqItems.forEach(function (i) {
-        i.classList.remove('sp-faq-item--open');
-        i.querySelector('.sp-faq-header').setAttribute('aria-expanded', 'false');
-        /* swap icon to plus */
-        var svg = i.querySelector('.sp-faq-toggle svg path');
-        if (svg) svg.setAttribute('d', 'M7 1V13M1 7H13');
-        var path = i.querySelector('.sp-faq-toggle svg path');
-        if (path) path.setAttribute('stroke', '#00C8B3');
-      });
-      if (!isOpen) {
-        item.classList.add('sp-faq-item--open');
-        btn.setAttribute('aria-expanded', 'true');
-        /* swap icon to × */
-        var path = item.querySelector('.sp-faq-toggle svg path');
-        if (path) {
-          path.setAttribute('d', 'M1 1L13 13M13 1L1 13');
-          path.setAttribute('stroke', 'white');
-        }
-      }
-    });
-  });
-
   /* ── Dynamic page title ── */
   var spTitleEl = document.querySelector('.sp-title');
   if (spTitleEl) {

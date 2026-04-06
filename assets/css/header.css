@@ -202,13 +202,24 @@
 
 .cart-badge {
   position: absolute;
-  top: 7px;
-  right: 7px;
-  width: 10px;
-  height: 10px;
-  background-color: #f8914d; /* Orange dot */
-  border-radius: 50%;
-  border: 2px solid #2597e0; /* Cutout effect */
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background-color: #f8914d;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  box-sizing: border-box;
+  display: none; /* shown via JS when count > 0 */
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
 .auth-link {

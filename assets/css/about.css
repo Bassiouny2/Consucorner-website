@@ -45,7 +45,7 @@
   margin: 0 auto;
   padding: 80px 24px;
   background: #ffffff;
-  font-family: "Inter", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 .about-us-inner {
@@ -65,14 +65,14 @@
 }
 
 .about-us-tag {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   color: #000000;
   letter-spacing: 0.02em;
 }
 
 .about-us-title {
-  font-size: 40px;
+  font-size: 43px;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: #64e9cc;
@@ -94,7 +94,7 @@
 }
 
 .about-us-text {
-  font-size: 15px;
+  font-size: 18px;
   color: #444c56 !important;
   line-height: 1.75;
   margin: 0;
@@ -109,7 +109,7 @@
   margin: 0 auto;
   padding: 80px 24px 100px;
   background: #ffffff;
-  font-family: "Inter", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 .about-diff-inner {
@@ -135,7 +135,7 @@
 }
 
 .about-diff-title {
-  font-size: 40px;
+  font-size: 64px;
   font-weight: 700;
   color: #00c8b3;
   margin: 0;
@@ -159,8 +159,8 @@
   align-items: center;
   text-align: center;
   padding: 48px 40px;
-  border-right: 2px solid #e7e7e7;
-  border-bottom: 2px solid #e7e7e7;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
   gap: 16px;
 }
 
@@ -180,8 +180,14 @@
   justify-content: center;
 }
 
+.about-diff-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
 .about-diff-card-title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: #1a1a2e;
   margin: 0;
@@ -189,8 +195,8 @@
 }
 
 .about-diff-card-desc {
-  font-size: 14px;
-  color: #6b7280;
+  font-size: 18px;
+  color: #000000;
   line-height: 1.75;
   margin: 0;
   max-width: 300px;
@@ -246,7 +252,7 @@
 
 .about-mv-text {
   font-size: 15px;
-  color: #555e6a;
+  color: #000000;
   line-height: 1.75;
   margin: 0;
 }
@@ -280,7 +286,7 @@
 
 .about-cv-subtitle {
   font-size: 15px;
-  color: #555e6a;
+  color: #000000;
   margin: 0;
 }
 
@@ -308,6 +314,12 @@
   justify-content: center;
 }
 
+.about-cv-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
 .about-cv-card-title {
   font-size: 18px;
   font-weight: 700;
@@ -323,62 +335,3 @@
   margin: 0;
 }
 
-/* ============================================================
-   ABOUT PAGE — RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1024px) {
-  .about-page-title   { font-size: 48px; }
-  .about-us-title     { font-size: 32px; }
-  .about-diff-title   { font-size: 32px; }
-  .about-cv-title     { font-size: 36px; }
-  .about-cv-grid      { grid-template-columns: repeat(2, 1fr); }
-  .about-diff-card    { padding: 36px 24px; }
-}
-
-@media (max-width: 768px) {
-  .about-page-head        { height: 280px; }
-  .about-page-title       { font-size: 36px; }
-  .about-page-breadcrumbs { font-size: 16px; }
-
-  .about-us-section,
-  .about-diff-section,
-  .about-mv-section {
-    padding: 48px 16px 60px;
-  }
-
-  .about-us-title   { font-size: 26px; }
-  .about-diff-title { font-size: 26px; }
-  .about-cv-title   { font-size: 28px; }
-  .about-mv-title   { font-size: 22px; }
-
-  .about-us-grid  { grid-template-columns: 1fr; gap: 20px; }
-  .about-mv-row   { grid-template-columns: 1fr; }
-  .about-cv-grid  { grid-template-columns: repeat(2, 1fr); }
-
-  .about-diff-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-diff-card:nth-child(3n)  { border-right: 2px solid #e7e7e7; }
-  .about-diff-card:nth-child(2n)  { border-right: none; }
-  .about-diff-card:nth-child(n+4) { border-bottom: 2px solid #e7e7e7; }
-  .about-diff-card:nth-child(n+5) { border-bottom: none; }
-  .about-diff-card { padding: 28px 20px; }
-}
-
-@media (max-width: 480px) {
-  .about-page-head  { height: 220px; }
-  .about-page-title { font-size: 28px; }
-
-  .about-us-section,
-  .about-diff-section,
-  .about-mv-section {
-    padding: 36px 14px 48px;
-  }
-
-  .about-cv-grid   { grid-template-columns: 1fr; }
-  .about-cv-title  { font-size: 24px; }
-
-  .about-diff-grid           { grid-template-columns: 1fr; }
-  .about-diff-card           { border-right: none; }
-  .about-diff-card:nth-child(n+5) { border-bottom: 2px solid #e7e7e7; }
-  .about-diff-card:last-child     { border-bottom: none; }
-}

@@ -445,3 +445,264 @@
     }
   });
 })();
+
+/* ------------------------------------------------------------------ */
+/*  AJAX cart badge updater (global)                                   */
+/* ------------------------------------------------------------------ */
+(function () {
+  'use strict';
+
+  var STORE_URL = 'https://woocommerce-1495315-6042724.cloudwaysapps.com';
+  var WC_API_BASE = STORE_URL.replace(/\/$/, '') + '/wp-json/wc/v3';
+  var WC_CONSUMER_KEY = 'ck_9f6935f4460f1bf88750e7f2c5a839409a32dc8d';
+  var WC_CONSUMER_SECRET = 'cs_1d04665a6048cad50f6cef1700404dbc74df56ad';
+  var COUNT_KEY = 'cc_cart_count';
+  var productIdCache = {};
+
+  function toInt(val, fallback) {
+    var n = parseInt(val, 10);
+    return isNaN(n) ? (fallback || 0) : n;
+  }
+
+  function getStoredCount() {
+    return toInt(localStorage.getItem(COUNT_KEY), 0);
+  }
+
+  function storeCount(count) {
+    localStorage.setItem(COUNT_KEY, String(Math.max(0, count)));
+  }
+
+  function setBadge(count) {
+    var safe = Math.max(0, toInt(count, 0));
+    document.querySelectorAll('.cart-badge').forEach(function (badge) {
+      if (!badge) return;
+      badge.textContent = safe > 0 ? String(safe) : '';
+      badge.style.display = safe > 0 ? 'inline-flex' : 'none';
+    });
+    storeCount(safe);
+  }
+
+  function parseCountFromFragments(data) {
+    if (!data || !data.fragments) return null;
+    var html = Object.keys(data.fragments).map(function (k) { return String(data.fragments[k]); }).join(' ');
+
+    var m = html.match(/cart-badge[^>]*>(\d+)</i);
+    if (m && m[1]) return toInt(m[1], null);
+
+    m = html.match(/cart-contents-count[^>]*>(\d+)</i);
+    if (m && m[1]) return toInt(m[1], null);
+
+    return null;
+  }
+
+  function buildWooUrl(endpoint, query) {
+    var url = new URL(WC_API_BASE + endpoint);
+    var params = query || {};
+    Object.keys(params).forEach(function (key) {
+      if (params[key] !== undefined && params[key] !== null && params[key] !== '') {
+        url.searchParams.set(key, String(params[key]));
+      }
+    });
+    url.searchParams.set('consumer_key', WC_CONSUMER_KEY);
+    url.searchParams.set('consumer_secret', WC_CONSUMER_SECRET);
+    return url.toString();
+  }
+
+  function resolveProductIdFromButton(button) {
+    if (!button) return Promise.resolve(null);
+
+    var idFromData = button.getAttribute('data-product-id');
+    if (idFromData) return Promise.resolve(toInt(idFromData, null));
+
+    var href = button.getAttribute('href') || '';
+    try {
+      var url = new URL(href, window.location.href);
+      var qId = url.searchParams.get('add-to-cart');
+      if (qId) return Promise.resolve(toInt(qId, null));
+    } catch (_e) {
+      // no-op
+    }
+
+    var card = button.closest('.card-shop, .oow-card');
+    var titleEl = card
+      ? (card.querySelector('.product-card-title') || card.querySelector('.oow-card-title'))
+      : document.querySelector('.sp-title');
+    var productName = titleEl ? titleEl.textContent.trim() : '';
+    if (!productName) return Promise.resolve(null);
+
+    if (productIdCache[productName]) {
+      return Promise.resolve(productIdCache[productName]);
+    }
+
+    var lookupUrl = buildWooUrl('/products', {
+      search: productName,
+      per_page: 10,
+      status: 'publish'
+    });
+
+    return fetch(lookupUrl)
+      .then(function (res) {
+        if (!res.ok) throw new Error('Product lookup failed: ' + res.status);
+        return res.json();
+      })
+      .then(function (products) {
+        if (!Array.isArray(products) || !products.length) return null;
+
+        var exact = products.find(function (p) {
+          return (p.name || '').trim().toLowerCase() === productName.toLowerCase();
+        });
+        var chosen = exact || products[0];
+        var resolved = chosen && chosen.id ? toInt(chosen.id, null) : null;
+        if (resolved) productIdCache[productName] = resolved;
+        return resolved;
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  function addToCartAjax(productId, qty) {
+    var endpoint = STORE_URL.replace(/\/$/, '') + '/?wc-ajax=add_to_cart';
+    var body = new URLSearchParams();
+    body.set('product_id', String(productId));
+    body.set('quantity', String(qty || 1));
+
+    return fetch(endpoint, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: body.toString()
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Add-to-cart failed: ' + res.status);
+        return res.json();
+      });
+  }
+
+  function reflectAddedState(button) {
+    if (!button) return;
+    var original = button.textContent;
+    button.textContent = 'Added!';
+    setTimeout(function () {
+      button.textContent = original;
+    }, 1200);
+  }
+
+  function getRequestedQuantity(button) {
+    if (!button) return 1;
+
+    // Single product page quantity input
+    var qtyInput = document.getElementById('spQtyVal');
+    if (button.classList.contains('sp-btn-cart') && qtyInput) {
+      return Math.max(1, toInt(qtyInput.value, 1));
+    }
+    return 1;
+  }
+
+  /**
+   * Extract product display data from the card element containing the button.
+   * Reads data-product-* attributes first, then falls back to DOM extraction.
+   * @param {HTMLElement} button
+   * @returns {{ name: string, price: number, image: string, permalink: string }}
+   */
+  function extractItemData(button) {
+    /* Prefer explicit data attributes (set by browse-specialty.js etc.) */
+    var name      = button.getAttribute('data-product-name')  || '';
+    var price     = parseFloat(button.getAttribute('data-product-price') || 0);
+    var image     = button.getAttribute('data-product-image') || '';
+    var permalink = button.getAttribute('data-product-permalink') || '#';
+
+    /* Fall back to DOM extraction from the parent card */
+    var card = button.closest('.card-shop, .oow-card, .fp-card, .ap-card, .sp-product');
+    if (card) {
+      if (!name) {
+        var nameEl = card.querySelector('.product-card-title, .oow-card-title, .fp-card-title, .ap-card-name, .sp-title, h3, h2');
+        if (nameEl) name = nameEl.textContent.trim();
+      }
+      if (!price) {
+        var priceEl = card.querySelector('.price, .oow-price, .fp-card-price, .ap-card-price, .sp-price');
+        if (priceEl) price = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) || 0;
+      }
+      if (!image) {
+        var imgEl = card.querySelector('.card-shop-img-wrapper img, .oow-card-img-wrapper img, img');
+        if (imgEl) image = imgEl.getAttribute('src') || '';
+      }
+      if (permalink === '#') {
+        var viewLink = card.querySelector('a[href*="product"], a[href*="single-product"], a[href*="single_product"]');
+        if (viewLink) permalink = viewLink.href || '#';
+      }
+    }
+
+    /* Last resort: single-product page */
+    if (!name) {
+      var spTitle = document.querySelector('.sp-title');
+      if (spTitle) name = spTitle.textContent.trim();
+    }
+    if (!image) {
+      var spImg = document.querySelector('.sp-main-img, .sp-gallery img');
+      if (spImg) image = spImg.src || '';
+    }
+
+    return { name: name, price: price, image: image, permalink: permalink };
+  }
+
+  function bindAddToCartDelegation() {
+    document.addEventListener('click', function (e) {
+      var button = e.target.closest('.btn-add-cart, .oow-btn-add-cart, .sp-btn-cart');
+      if (!button) return;
+
+      if (button.classList.contains('btn-add-cart--disabled')) {
+        e.preventDefault();
+        return;
+      }
+
+      e.preventDefault();
+
+      var qty      = getRequestedQuantity(button);
+      var itemData = extractItemData(button); /* capture before async */
+
+      resolveProductIdFromButton(button)
+        .then(function (productId) {
+          if (!productId) {
+            throw new Error('No product ID could be resolved.');
+          }
+
+          /* Feed mini-cart immediately (optimistic, matches WoodMart UX) */
+          if (window.CCMiniCart) {
+            window.CCMiniCart.addItem({
+              id:        productId,
+              name:      itemData.name,
+              price:     itemData.price,
+              qty:       qty,
+              image:     itemData.image,
+              permalink: itemData.permalink
+            });
+            window.CCMiniCart.open();
+          }
+
+          return addToCartAjax(productId, qty);
+        })
+        .then(function (data) {
+          var parsed  = parseCountFromFragments(data);
+          var current = getStoredCount();
+          setBadge(parsed !== null ? parsed : current + qty);
+          reflectAddedState(button);
+          /* Re-sync badge from mini-cart state (single source of truth) */
+          if (window.CCMiniCart) window.CCMiniCart.syncBadge();
+        })
+        .catch(function (err) {
+          console.warn('[ConsuCorner cart] ' + err.message);
+        });
+    });
+  }
+
+  function initBadgeFromCache() {
+    setBadge(getStoredCount());
+  }
+
+  initBadgeFromCache();
+  bindAddToCartDelegation();
+})();
