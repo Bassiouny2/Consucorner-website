@@ -1,0 +1,210 @@
+/**
+ * ConsuCorner — Driver.js product tour branding overrides.
+ */
+
+.driver-overlay {
+  z-index: 10050 !important;
+}
+
+.driver-popover.cc-driver-popover {
+  z-index: 10060 !important;
+  font-family: var(--cc-font-primary, "Manrope", sans-serif);
+  color: var(--cc-color-ink, #0f2740);
+  background: var(--cc-color-surface, #fff);
+  border: 1px solid var(--cc-color-border, #d8e7f3);
+  border-radius: var(--cc-radius-field, 14px);
+  box-shadow: var(--cc-shadow-card, 0 25px 55px -20px rgba(37, 151, 224, 0.28));
+  max-width: min(400px, 92vw);
+  padding: 0;
+}
+
+.cc-driver-popover .driver-popover-title {
+  font-family: var(--cc-font-heading, "Manrope", sans-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--cc-color-ink, #0f2740);
+  line-height: 1.35;
+  margin: 0;
+  padding: 1rem 1.25rem 0.35rem;
+}
+
+.cc-driver-popover .driver-popover-description {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--cc-color-muted, #5f7a90);
+  margin: 0;
+  padding: 0 1.25rem 0.75rem;
+}
+
+.cc-driver-popover .driver-popover-close-btn,
+.cc-driver-popover .cc-driver-skip-btn {
+  color: var(--cc-color-muted, #5f7a90);
+  width: auto;
+  min-width: 2rem;
+  height: 2rem;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0 0.5rem;
+  line-height: 2rem;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.cc-driver-popover .driver-popover-close-btn:hover,
+.cc-driver-popover .driver-popover-close-btn:focus-visible {
+  color: var(--cc-color-ink, #0f2740);
+  background: var(--cc-color-soft, #f2fbfa);
+  border-radius: 8px;
+}
+
+.cc-driver-popover .driver-popover-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem 0.75rem;
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid var(--cc-color-border, #d8e7f3);
+  background: var(--cc-color-soft, #f2fbfa);
+  border-radius: 0 0 var(--cc-radius-field, 14px) var(--cc-radius-field, 14px);
+}
+
+.cc-driver-popover .driver-popover-progress-text {
+  flex: 0 0 auto;
+  order: 2;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cc-color-muted, #5f7a90);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.cc-driver-popover .driver-popover-navigation-btns {
+  display: flex;
+  flex: 0 0 auto;
+  flex-grow: 0;
+  order: 3;
+  gap: 0.5rem;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.cc-driver-popover .driver-popover-prev-btn,
+.cc-driver-popover .driver-popover-next-btn {
+  font-family: var(--cc-font-primary, "Manrope", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--cc-radius-pill, 999px);
+  border: 1px solid var(--cc-color-border, #d8e7f3);
+  background: var(--cc-color-surface, #fff);
+  color: var(--cc-color-ink, #0f2740);
+  text-shadow: none;
+  box-shadow: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.cc-driver-popover .driver-popover-prev-btn:hover,
+.cc-driver-popover .driver-popover-prev-btn:focus-visible,
+.cc-driver-popover .driver-popover-next-btn:hover,
+.cc-driver-popover .driver-popover-next-btn:focus-visible {
+  background: var(--cc-color-soft, #f2fbfa);
+  border-color: var(--cc-color-primary, #13c9bc);
+  color: var(--cc-color-ink, #0f2740);
+}
+
+.cc-driver-popover .driver-popover-next-btn {
+  background: var(
+    --cc-gradient-brand,
+    linear-gradient(135deg, #13c9bc 0%, #2597e0 100%)
+  );
+  border: none;
+  color: #fff;
+}
+
+.cc-driver-popover .driver-popover-next-btn:hover,
+.cc-driver-popover .driver-popover-next-btn:focus-visible {
+  filter: brightness(1.05);
+  color: #fff;
+}
+
+.cc-driver-popover .driver-popover-btn-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.driver-active-element {
+  z-index: 10055 !important;
+}
+
+html.cc-tour-is-active,
+body.cc-tour-is-active {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+body.cc-tour-is-active * {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+body.cc-tour-is-active .driver-popover,
+body.cc-tour-is-active .driver-popover * {
+  pointer-events: auto !important;
+  user-select: auto !important;
+}
+
+.cc-driver-popover .cc-tour-skip-all {
+  display: block;
+  flex: 0 0 100%;
+  order: 1;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 0.15rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--cc-font-primary, "Manrope", sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cc-color-muted, #5f7a90);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Footer without skip-all: progress left, nav right on one row */
+.cc-driver-popover
+  .driver-popover-footer:not(:has(.cc-tour-skip-all))
+  .driver-popover-progress-text {
+  order: 0;
+  margin-right: auto;
+}
+
+.cc-driver-popover .cc-tour-skip-all:hover,
+.cc-driver-popover .cc-tour-skip-all:focus-visible {
+  color: var(--cc-color-ink, #0f2740);
+}
+
+@media (max-width: 768px) {
+  .driver-popover.cc-driver-popover {
+    max-width: min(360px, 92vw);
+    margin-left: env(safe-area-inset-left, 0);
+    margin-right: env(safe-area-inset-right, 0);
+  }
+
+  .cc-driver-popover .driver-popover-title {
+    font-size: 1rem;
+    padding-right: 2.5rem;
+  }
+
+  .cc-driver-popover .driver-popover-prev-btn,
+  .cc-driver-popover .driver-popover-next-btn {
+    min-height: 44px;
+    padding: 0.5rem 0.875rem;
+  }
+}

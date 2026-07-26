@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex,nofollow">
+	<title>ConsuCorner Operations — Complete Fulfillment, Returns &amp; Refunds Guide</title>
+	<style>
+		:root {
+			--brand: #1a5f4a;
+			--brand-dark: #0f3d30;
+			--brand-light: #e8f5f0;
+			--accent: #c9a227;
+			--text: #1f2937;
+			--muted: #6b7280;
+			--border: #e5e7eb;
+			--danger: #b91c1c;
+			--danger-bg: #fef2f2;
+			--warn-bg: #fffbeb;
+			--ok-bg: #f0fdf4;
+			--info-bg: #eff6ff;
+			--code-bg: #f3f4f6;
+			--radius: 10px;
+			--max: 980px;
+			--shadow: 0 1px 3px rgba(0,0,0,.08);
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; line-height: 1.65; color: var(--text); background: #f8fafc; }
+		.hero { background: linear-gradient(135deg, var(--brand-dark), var(--brand), #2d8a6a); color: #fff; padding: 2.5rem 1.5rem 2rem; }
+		.hero-inner, .container { max-width: var(--max); margin: 0 auto; }
+		.hero h1 { margin: 0 0 .4rem; font-size: clamp(1.55rem, 4vw, 2.15rem); }
+		.hero .subtitle { opacity: .93; max-width: 62ch; margin: 0; }
+		.hero .meta { margin-top: 1rem; font-size: .88rem; opacity: .82; }
+		.hero a { color: #fff; }
+		.layout { display: grid; grid-template-columns: 250px 1fr; gap: 1.5rem; align-items: start; padding: 1.5rem; max-width: calc(var(--max) + 3rem); margin: 0 auto; }
+		@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .toc { position: static !important; } }
+		.toc { position: sticky; top: 1rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); font-size: .86rem; max-height: calc(100vh - 2rem); overflow-y: auto; }
+		.toc h2 { margin: 0 0 .5rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+		.toc ol { margin: 0; padding-left: 1.1rem; }
+		.toc li { margin: .28rem 0; }
+		.toc a { color: var(--brand); text-decoration: none; }
+		.toc a:hover { text-decoration: underline; }
+		main section { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.35rem 1.45rem; margin-bottom: 1.1rem; box-shadow: var(--shadow); }
+		h2 { margin: 0 0 .9rem; font-size: 1.32rem; color: var(--brand); border-bottom: 2px solid var(--brand-light); padding-bottom: .45rem; }
+		h3 { margin: 1.2rem 0 .45rem; font-size: 1.04rem; }
+		p, ul, ol { margin: 0 0 .8rem; }
+		ul, ol { padding-left: 1.3rem; }
+		.callout { border-radius: 8px; padding: .85rem 1rem; margin: .9rem 0; border-left: 4px solid; }
+		.callout.info { background: var(--info-bg); border-color: #1d4ed8; }
+		.callout.warn { background: var(--warn-bg); border-color: var(--accent); }
+		.callout.danger { background: var(--danger-bg); border-color: var(--danger); }
+		.callout.ok { background: var(--ok-bg); border-color: #166534; }
+		.callout strong { display: block; margin-bottom: .2rem; }
+		table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .85rem 0; }
+		th, td { border: 1px solid var(--border); padding: .5rem .65rem; text-align: left; vertical-align: top; }
+		th { background: var(--brand-light); color: var(--brand); font-weight: 600; }
+		tr:nth-child(even) td { background: #fafafa; }
+		code { font-family: Consolas, monospace; font-size: .86em; background: var(--code-bg); padding: .1em .35em; border-radius: 4px; }
+		.flow { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; margin: .85rem 0; font-size: .82rem; }
+		.flow .step { background: var(--brand-light); color: var(--brand); padding: .3rem .55rem; border-radius: 6px; font-weight: 600; }
+		.flow .arrow { color: var(--muted); font-weight: 700; }
+		.flow .alt { background: #fee2e2; color: #991b1b; padding: .3rem .55rem; border-radius: 6px; font-weight: 600; }
+		.status-pill { display: inline-block; padding: .12rem .5rem; border-radius: 999px; font-size: .78rem; font-weight: 600; }
+		.pill-ordered { background: #f3f4f6; color: #374151; }
+		.pill-confirmed { background: #dbeafe; color: #1e40af; }
+		.pill-preparing { background: #fef3c7; color: #92400e; }
+		.pill-shipped { background: #e0e7ff; color: #3730a3; }
+		.pill-ofd { background: #fce7f3; color: #9d174d; }
+		.pill-delivered { background: #d1fae5; color: #065f46; }
+		.pill-cancelled { background: #fee2e2; color: #991b1b; }
+		.btn-demo { display: inline-block; background: #f6f7f7; border: 1px solid #c3c4c7; border-radius: 3px; padding: .15rem .5rem; font-size: .8rem; margin: 0 .1rem; }
+		.btn-demo.primary { background: #2271b1; border-color: #2271b1; color: #fff; }
+		.steps { counter-reset: step; list-style: none; padding: 0; }
+		.steps li { counter-increment: step; position: relative; padding: .7rem 0 .7rem 2.6rem; border-bottom: 1px solid var(--border); }
+		.steps li:last-child { border-bottom: none; }
+		.steps li::before { content: counter(step); position: absolute; left: 0; top: .65rem; width: 1.75rem; height: 1.75rem; background: var(--brand); color: #fff; border-radius: 50%; text-align: center; line-height: 1.75rem; font-weight: 700; font-size: .82rem; }
+		.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+		@media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+		.card { border: 1px solid var(--border); border-radius: 8px; padding: .9rem; background: #fafafa; }
+		.card h4 { margin: 0 0 .4rem; color: var(--brand); font-size: .95rem; }
+		.audience { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0; }
+		@media (max-width: 700px) { .audience { grid-template-columns: 1fr; } }
+		.audience .card { text-align: center; }
+		.footer { text-align: center; color: var(--muted); font-size: .84rem; padding: 1.5rem 1rem 2.5rem; }
+		@media print {
+			body { background: #fff; }
+			.toc, .hero .meta { display: none; }
+			.layout { display: block; padding: 0; }
+			main section { break-inside: avoid; box-shadow: none; }
+		}
+	</style>
+</head>
+<body>
+
+<header class="hero">
+	<div class="hero-inner">
+		<h1>ConsuCorner Operations — Complete Guide</h1>
+		<p class="subtitle">Everything operations needs to manage <strong>fulfillment</strong>, <strong>cancellation requests</strong>, <strong>returns</strong>, and <strong>refunds</strong> on the marketplace.</p>
+		<p class="meta">Theme v2.9.4 · July 2026 · Internal training document · Open this file in any browser</p>
+	</div>
+</header>
+
+<div class="layout">
+	<nav class="toc" aria-label="Table of contents">
+		<h2>Contents</h2>
+		<ol>
+			<li><a href="#start-here">Start here</a></li>
+			<li><a href="#three-layers">Three layers on every order</a></li>
+			<li><a href="#who-sees-what">Who sees what</a></li>
+			<li><a href="#admin-screens">Where to work in admin</a></li>
+			<li><a href="#fulfillment">Fulfillment statuses</a></li>
+			<li><a href="#bosta">Bosta auto-sync</a></li>
+			<li><a href="#manual-fulfillment">Manual fulfillment updates</a></li>
+			<li><a href="#cancellations">Cancellation requests</a></li>
+			<li><a href="#returns">Return workflow</a></li>
+			<li><a href="#refunds">Wallet vs Direct refunds</a></li>
+			<li><a href="#vendor-ledger">Vendor Ledger (finance)</a></li>
+			<li><a href="#lifecycle">Full lifecycle</a></li>
+			<li><a href="#playbooks">Step-by-step playbooks</a></li>
+			<li><a href="#troubleshooting">Troubleshooting</a></li>
+			<li><a href="#checklists">Printable checklists</a></li>
+			<li><a href="#quick-ref">Quick reference</a></li>
+		</ol>
+	</nav>
+
+	<main>
+
+		<section id="start-here">
+			<h2>1. Start here</h2>
+			<div class="callout ok">
+				<strong>Your main screen is WooCommerce → Returns</strong>
+				Almost everything — load an order, update fulfillment, review cancellation requests, advance returns, and issue Wallet/Direct refunds — happens from this one page plus the order edit screen.
+			</div>
+			<p>ConsuCorner separates <em>payment</em> (WooCommerce order status) from <em>physical progress</em> (operations fulfillment) from <em>after-delivery issues</em> (returns &amp; refunds). Operations owns fulfillment and return resolution. Vendors see status read-only. Customers see simplified labels — never raw Bosta codes.</p>
+			<p><strong>Required permission:</strong> <code>manage_woocommerce</code> (Shop Manager or Administrator).</p>
+			<p><strong>Geidea rule (critical):</strong> The website never auto-reverses Geidea payments. Wallet credits store balance. Direct records a WooCommerce refund but you must send money back via Geidea dashboard or bank transfer manually.</p>
+		</section>
+
+		<section id="three-layers">
+			<h2>2. Three layers on every order</h2>
+			<table>
+				<thead>
+					<tr><th>Layer</th><th>What it tracks</th><th>Where you change it</th><th>Example values</th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>1. Payment</strong></td>
+						<td>Geidea, COD, wallet checkout</td>
+						<td>Order edit → <em>Status</em> dropdown (top)</td>
+						<td>Pending, Processing, Completed, Cancelled</td>
+					</tr>
+					<tr>
+						<td><strong>2. Fulfillment</strong></td>
+						<td>Warehouse, packing, Bosta shipping, delivery — <strong>per vendor</strong></td>
+						<td><em>ConsuCorner operations fulfillment</em> panel (order edit or Returns page)</td>
+						<td>Confirmed → Preparing → Shipped → Out for delivery → Delivered</td>
+					</tr>
+					<tr>
+						<td><strong>3. Return workflow</strong></td>
+						<td>Customer cancel until delivered; return after delivery/completed</td>
+						<td>WooCommerce → <strong>Returns</strong> table → Actions column</td>
+						<td>Requested → … → Received → Resolved</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="callout warn">
+				<strong>Common mistake</strong>
+				Setting WooCommerce status to <em>Completed</em> does <strong>not</strong> update operations fulfillment by itself, but it <strong>does</strong> allow customer self-service returns. Prefer setting fulfillment to <strong>Delivered</strong> when the package arrives. Always check the fulfillment panel.
+			</div>
+		</section>
+
+		<section id="who-sees-what">
+			<h2>3. Who sees what</h2>
+			<div class="audience">
+				<div class="card">
+					<h4>Customer (My Account)</h4>
+					<p>Simplified fulfillment label only. <em>Delivered</em> shows as <strong>Completed</strong>. Bosta raw status is hidden. Can <strong>Cancel order</strong> while Confirmed → Out for delivery. Can <strong>Request return</strong> after Delivered or WooCommerce Completed. Emails confirm cancel/return requests.</p>
+				</div>
+				<div class="card">
+					<h4>Vendor (Dokan)</h4>
+					<p>Read-only fulfillment + return labels. Sees <strong>Bosta status</strong> column on Orders list + tracking on detail. Sees <strong>earnings card</strong> (commission, return deductions, net payable). Cannot approve returns, cancellations, or refunds.</p>
+				</div>
+				<div class="card">
+					<h4>Operations (you)</h4>
+					<p>Full fulfillment control, Bosta mapping, cancellation approve/reject, return workflow, Wallet/Direct refunds. Vendor Ledger for monthly payout reporting.</p>
+				</div>
+			</div>
+
+			<h3>Customer status labels vs operations labels</h3>
+			<table>
+				<thead><tr><th>Operations fulfillment</th><th>Customer sees</th><th>Customer can…</th></tr></thead>
+				<tbody>
+					<tr><td><span class="status-pill pill-confirmed">Confirmed</span></td><td>Confirmed</td><td>Cancel order</td></tr>
+					<tr><td><span class="status-pill pill-preparing">Preparing</span></td><td>Preparing</td><td>Cancel order</td></tr>
+					<tr><td><span class="status-pill pill-shipped">Shipped</span></td><td>Shipped</td><td>Cancel order</td></tr>
+					<tr><td><span class="status-pill pill-ofd">Out for delivery</span></td><td>Out for delivery</td><td>Cancel order</td></tr>
+					<tr><td><span class="status-pill pill-delivered">Delivered</span></td><td><strong>Completed</strong></td><td>Request return (self-service)</td></tr>
+					<tr><td><span class="status-pill pill-cancelled">Cancelled</span></td><td>Cancelled</td><td>Nothing</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section id="admin-screens">
+			<h2>4. Where to work in WordPress admin</h2>
+			<table>
+				<thead><tr><th>Screen</th><th>Menu path</th><th>Use for</th></tr></thead>
+				<tbody>
+					<tr>
+						<td><strong>Returns (main hub)</strong></td>
+						<td>WooCommerce → <strong>Returns</strong></td>
+						<td>Load orders, fulfillment cards, cancellation requests, return table, Wallet/Direct. Pending badge on menu when returns or cancellations need review.</td>
+					</tr>
+					<tr>
+						<td><strong>Order edit</strong></td>
+						<td>WooCommerce → Orders → open order</td>
+						<td>Quick fulfillment per vendor, Bosta fields, order notes, yellow returns notice</td>
+					</tr>
+					<tr>
+						<td><strong>Vendor Ledger</strong></td>
+						<td>WooCommerce → <strong>Vendor Ledger</strong></td>
+						<td>Monthly vendor earnings, return deductions, net payable, CSV export for finance</td>
+					</tr>
+					<tr>
+						<td><strong>Customer Wallets</strong></td>
+						<td>Users → Customer Wallets</td>
+						<td>Verify balance after Wallet refund</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h3>Order lookup on Returns page</h3>
+			<ol class="steps">
+				<li>Go to <strong>WooCommerce → Returns</strong></li>
+				<li>In <strong>Operations order workflow</strong>, enter the order number</li>
+				<li>Click <span class="btn-demo primary">Load order</span></li>
+			</ol>
+			<p>You can use either the <strong>display order number</strong> (what the customer sees, e.g. <code>13566249</code>) or the internal <strong>WooCommerce ID</strong> (e.g. <code>5662</code>). For the <strong>returns table filter</strong> at the bottom, use the <strong>internal ID</strong> in the Order # field.</p>
+		</section>
+
+		<section id="fulfillment">
+			<h2>5. Fulfillment statuses</h2>
+			<div class="flow">
+				<span class="step">Confirmed</span><span class="arrow">→</span>
+				<span class="step">Preparing</span><span class="arrow">→</span>
+				<span class="step">Shipped</span><span class="arrow">→</span>
+				<span class="step">Out for delivery</span><span class="arrow">→</span>
+				<span class="step">Delivered</span>
+			</div>
+			<p><span class="alt">Cancelled</span> is only available from Confirmed or Preparing — <strong>before shipment</strong>.</p>
+
+			<table>
+				<thead><tr><th>Status</th><th>Meaning</th><th>Typical trigger</th></tr></thead>
+				<tbody>
+					<tr><td><span class="status-pill pill-confirmed">Confirmed</span></td><td>Order placed and acknowledged — starting status for every new order</td><td>Automatic on checkout</td></tr>
+					<tr><td><span class="status-pill pill-preparing">Preparing</span></td><td>Items being packed at warehouse</td><td>Ops manual, or Bosta pickup-stage codes (21–22)</td></tr>
+					<tr><td><span class="status-pill pill-shipped">Shipped</span></td><td>With Bosta / in transit. Customer may still <strong>cancel</strong> (not return yet).</td><td>Bosta in-transit, <strong>or Received at warehouse</strong></td></tr>
+					<tr><td><span class="status-pill pill-ofd">Out for delivery</span></td><td>Courier on last-mile route. Customer may still <strong>cancel</strong>.</td><td>Bosta state 41 or matching text</td></tr>
+					<tr><td><span class="status-pill pill-delivered">Delivered</span></td><td>Package received. Customer sees <strong>Completed</strong>. <strong>Returns unlock.</strong></td><td>Bosta delivered (45/46)</td></tr>
+					<tr><td><span class="status-pill pill-cancelled">Cancelled</span></td><td>Fulfilment stopped before completion</td><td>Ops cancel (early stages), approved customer cancellation, or Bosta terminated</td></tr>
+				</tbody>
+			</table>
+
+			<h3>Allowed manual transitions (one step forward)</h3>
+			<table>
+				<thead><tr><th>Current</th><th>Can move to</th></tr></thead>
+				<tbody>
+					<tr><td>Confirmed</td><td>Preparing, Cancelled</td></tr>
+					<tr><td>Preparing</td><td>Shipped, Cancelled</td></tr>
+					<tr><td>Shipped</td><td>Out for delivery, Delivered</td></tr>
+					<tr><td>Out for delivery</td><td>Delivered</td></tr>
+					<tr><td>Delivered / Cancelled</td><td><em>Final — no further moves</em></td></tr>
+				</tbody>
+			</table>
+
+			<h3>Multi-vendor orders</h3>
+			<ul>
+				<li>One parent WooCommerce order; fulfillment tracked <strong>per vendor</strong> on that parent order.</li>
+				<li>Summary line shows the <strong>slowest</strong> vendor status (bottleneck).</li>
+				<li>One Bosta shipment per order — when Bosta updates, <strong>all vendors</strong> sync to the mapped status.</li>
+				<li>Customer <strong>cancel</strong> unlocks until Delivered; <strong>return</strong> unlocks when Delivered (or WooCommerce Completed), or ops creates a manual return.</li>
+			</ul>
+		</section>
+
+		<section id="bosta">
+			<h2>6. Bosta auto-sync</h2>
+			<p>When Bosta updates <code>bosta_status</code> or <code>bosta_state_code</code> on the order (webhook or manual meta), ConsuCorner maps it to fulfillment for every vendor. Sync only moves <strong>forward</strong> — never downgrades.</p>
+
+			<table>
+				<thead><tr><th>Bosta state / status text</th><th>Maps to fulfillment</th></tr></thead>
+				<tbody>
+					<tr><td>Created, Pickup requested (codes 10–11)</td><td><span class="status-pill pill-confirmed">Confirmed</span></td></tr>
+					<tr><td>Pickup / warehouse prep codes (21–22)</td><td><span class="status-pill pill-preparing">Preparing</span></td></tr>
+					<tr><td><strong>Received at warehouse</strong> (text or code ≥10 with warehouse text)</td><td><span class="status-pill pill-shipped">Shipped</span> ← treated as shipped, not preparing</td></tr>
+					<tr><td>Picked up, In transit, between hubs (20, 30–31)</td><td><span class="status-pill pill-shipped">Shipped</span></td></tr>
+					<tr><td>Out for delivery (41)</td><td><span class="status-pill pill-ofd">Out for delivery</span></td></tr>
+					<tr><td>Delivered (45–46)</td><td><span class="status-pill pill-delivered">Delivered</span></td></tr>
+					<tr><td>Terminated / Returned (48, 100, 101, 104)</td><td><span class="status-pill pill-cancelled">Cancelled</span> (if not already past shipped)</td></tr>
+				</tbody>
+			</table>
+
+			<p>Look for order notes: <em>"Bosta sync updated vendor #… fulfillment from … to …"</em>. Bosta fields on the order:</p>
+			<ul>
+				<li><code>bosta_tracking_number</code> — shown to customer for tracking</li>
+				<li><code>bosta_status</code> — human-readable Bosta label (vendors + ops only)</li>
+				<li><code>bosta_state_code</code> — numeric code used for mapping</li>
+			</ul>
+			<div class="callout info">
+				<strong>When Bosta webhook is delayed</strong>
+				Once you confirm handover to Bosta, you may manually set fulfillment to <strong>Shipped</strong> on the fulfillment panel. Bosta will catch up later without downgrading.
+			</div>
+		</section>
+
+		<section id="manual-fulfillment">
+			<h2>7. Manual fulfillment updates</h2>
+			<h3>From order edit</h3>
+			<ol class="steps">
+				<li><strong>WooCommerce → Orders → [order]</strong></li>
+				<li>Scroll to <strong>ConsuCorner operations fulfillment</strong></li>
+				<li>For each vendor: choose status, optional note → <span class="btn-demo primary">Save fulfillment</span></li>
+			</ol>
+			<h3>From Returns page</h3>
+			<ol class="steps">
+				<li><strong>WooCommerce → Returns</strong> → Load order</li>
+				<li>Use vendor cards under <strong>Vendor fulfillment</strong></li>
+			</ol>
+			<div class="callout warn">
+				<strong>Cannot cancel after Shipped</strong>
+				If the order already shipped, do not try to set fulfillment to Cancelled. Use the <strong>return workflow</strong> or handle delivery failure via Bosta support.
+			</div>
+		</section>
+
+		<section id="cancellations">
+			<h2>8. Cancellation requests (before shipment)</h2>
+			<p>Customers request cancellation from <strong>My Account → Orders</strong> while fulfillment is Confirmed, Preparing, Shipped, or Out for delivery (not Delivered / Completed). Operations must <strong>approve or reject</strong> — cancellation is never automatic. Submitting a request emails the customer, ops, and vendors.</p>
+
+			<div class="flow">
+				<span class="step">Customer requests</span><span class="arrow">→</span>
+				<span class="step">Ops reviews</span><span class="arrow">→</span>
+				<span class="step">Approved or Rejected</span>
+			</div>
+
+			<h3>What the customer can cancel</h3>
+			<ul>
+				<li><strong>Whole order</strong> — all remaining line items</li>
+				<li><strong>Specific items</strong> — item-level partial cancellation (qty picker)</li>
+			</ul>
+
+			<h3>How operations processes a cancellation</h3>
+			<ol class="steps">
+				<li><strong>WooCommerce → Returns</strong> (pending badge includes cancellation requests)</li>
+				<li>Load the order → scroll to <strong>Cancellation requests</strong></li>
+				<li>Review items, reason, and current fulfillment</li>
+				<li>Optional: add a note in the text field</li>
+				<li>Click <span class="btn-demo primary">Approve cancellation</span> or <span class="btn-demo">Reject</span></li>
+			</ol>
+
+			<h3>What happens on approve</h3>
+			<table>
+				<thead><tr><th>Request type</th><th>System action</th><th>Refund / payment</th></tr></thead>
+				<tbody>
+					<tr>
+						<td><strong>Whole order</strong></td>
+						<td>WooCommerce order → <em>Cancelled</em>; vendor fulfillment → Cancelled</td>
+						<td>Process Geidea/bank refund <strong>manually</strong> outside WordPress (or wallet credit via separate process if agreed)</td>
+					</tr>
+					<tr>
+						<td><strong>Partial (items)</strong></td>
+						<td>WooCommerce partial refund created (<code>refund_payment = false</code>); affected vendor fulfillment → Cancelled</td>
+						<td>Same — no automatic Geidea reversal</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="callout danger">
+				<strong>Cancellation ≠ Wallet/Direct return refund</strong>
+				Approving a cancellation records the cancel/refund in WooCommerce but does <strong>not</strong> run the Returns page Wallet/Direct flow. For post-shipment returns, use the return workflow in Section 9.
+			</div>
+
+			<p>Vendors see a <strong>Cancellation</strong> badge in Dokan when a request is pending or resolved. They are notified by email when customers submit and when you approve/reject.</p>
+		</section>
+
+		<section id="returns">
+			<h2>9. Return workflow (after shipment)</h2>
+			<div class="callout ok">
+				<strong>Wallet / Direct buttons appear only when return status is <em>Received</em></strong>
+				Advance the return through every step in the Actions column before refunding.
+			</div>
+
+			<h3>Who can start a return?</h3>
+			<table>
+				<thead><tr><th>Who</th><th>When</th><th>How</th></tr></thead>
+				<tbody>
+					<tr>
+						<td><strong>Customer</strong></td>
+						<td>Fulfillment = Delivered, or WooCommerce status = Completed</td>
+						<td>My Account → Orders → <em>Request return</em> (emails customer + ops)</td>
+					</tr>
+					<tr>
+						<td><strong>Customer</strong></td>
+						<td>Fulfillment still Confirmed → Out for delivery</td>
+						<td><strong>Cancel order</strong> instead — return form is blocked with a cancel message</td>
+					</tr>
+					<tr>
+						<td><strong>Operations</strong></td>
+						<td>Fulfillment Shipped, Out for delivery, or Delivered</td>
+						<td>Returns page → Load order → <em>Create manual return request</em></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h3>Return status flow</h3>
+			<div class="flow">
+				<span class="step">Requested</span><span class="arrow">→</span>
+				<span class="step">Reviewing</span><span class="arrow">→</span>
+				<span class="step">Approved</span><span class="arrow">→</span>
+				<span class="step">Return in transit</span><span class="arrow">→</span>
+				<span class="step">Received</span><span class="arrow">→</span>
+				<span class="step" style="background:#d1fae5;">Wallet / Direct</span>
+			</div>
+
+			<table>
+				<thead><tr><th>Status</th><th>Meaning</th><th>Next button(s)</th></tr></thead>
+				<tbody>
+					<tr><td><strong>Requested</strong></td><td>Customer or ops created the return</td><td>Reviewing · Rejected</td></tr>
+					<tr><td><strong>Reviewing</strong></td><td>Ops checking eligibility / photos</td><td>Approved · Rejected</td></tr>
+					<tr><td><strong>Approved</strong></td><td>Return accepted; arrange pickup</td><td>Return in transit · Rejected</td></tr>
+					<tr><td><strong>Return in transit</strong></td><td>Item coming back</td><td>Received · Rejected</td></tr>
+					<tr><td><strong>Received</strong></td><td>Goods physically received</td><td><strong>Wallet · Direct</strong></td></tr>
+					<tr><td><strong>Resolved</strong></td><td>Refund completed</td><td>—</td></tr>
+					<tr><td><strong>Rejected</strong></td><td>Return denied</td><td>—</td></tr>
+				</tbody>
+			</table>
+
+			<h3>Create a manual return (operations)</h3>
+			<ol class="steps">
+				<li>Returns → Load order → confirm <em>Return eligible</em> badge</li>
+				<li>Under <strong>Create manual return request</strong>, tick line items and quantities</li>
+				<li>Enter reason and notes → <span class="btn-demo primary">Create return request(s)</span></li>
+				<li>Multi-vendor orders create <strong>one RMA per vendor</strong></li>
+				<li>Find the row in the Returns table (filter by internal order ID if needed)</li>
+				<li>Advance workflow to <strong>Received</strong>, then refund (Section 10)</li>
+			</ol>
+
+			<div class="callout warn">
+				<strong>Click workflow buttons one at a time</strong>
+				Wait for the green success notice after each click before the next step.
+			</div>
+		</section>
+
+		<section id="refunds">
+			<h2>10. Wallet vs Direct refunds</h2>
+			<p>After return status = <strong>Received</strong>, click one of:</p>
+
+			<div class="two-col">
+				<div class="card">
+					<h4>Wallet (store credit)</h4>
+					<ul>
+						<li>Credits customer ConsuCorner wallet immediately</li>
+						<li>Customer uses balance on next purchase</li>
+						<li>Optional <strong>shipping deduction</strong> (EGP amount subtracted before credit)</li>
+						<li>Reduces vendor Dokan earnings / net payable</li>
+						<li><strong>Does not</strong> touch Geidea</li>
+					</ul>
+					<p><strong>Best for:</strong> Standard returns where store credit is acceptable.</p>
+				</div>
+				<div class="card">
+					<h4>Direct (manual)</h4>
+					<ul>
+						<li>Creates WooCommerce refund for bookkeeping</li>
+						<li><code>refund_payment = false</code> — Geidea <strong>not</strong> auto-reversed</li>
+						<li>You refund customer via Geidea dashboard or bank transfer</li>
+						<li>Same vendor earning adjustment as Wallet</li>
+					</ul>
+					<p><strong>Best for:</strong> Customer paid Geidea and wants money back to card/bank.</p>
+				</div>
+			</div>
+
+			<h3>Refund steps (both routes)</h3>
+			<ol class="steps">
+				<li>Confirm return is <strong>Received</strong></li>
+				<li>Click <span class="btn-demo">Wallet</span> or <span class="btn-demo">Direct</span></li>
+				<li>Confirm the popup</li>
+				<li>Answer <strong>Restock items?</strong> (Yes/No)</li>
+				<li>Wallet only: enter shipping deduction (<code>0</code> if none)</li>
+				<li>Verify <strong>Resolution</strong> column shows Wallet or Direct (manual)</li>
+				<li>Check order notes for audit trail</li>
+				<li>Direct only: complete Geidea/bank refund outside WordPress</li>
+			</ol>
+
+			<div class="callout danger">
+				<strong>Never double-refund</strong>
+				Do not refund the same line item via Returns + Wallet meta box + manual WC refund. One resolution per return request.
+			</div>
+
+			<h3>Edge-case refunds (avoid if possible)</h3>
+			<table>
+				<thead><tr><th>Method</th><th>Where</th><th>When</th></tr></thead>
+				<tbody>
+					<tr>
+						<td>Wallet Operations meta box</td>
+						<td>Order edit → sidebar</td>
+						<td>Partial wallet credit without RMA — blocked if item already on open return</td>
+					</tr>
+					<tr>
+						<td>WooCommerce Refund UI</td>
+						<td>Order edit → line items refund</td>
+						<td>Bookkeeping only; skips return workflow — avoid duplicating Returns resolution</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section id="vendor-ledger">
+			<h2>11. Vendor Ledger (finance team)</h2>
+			<p><strong>WooCommerce → Vendor Ledger</strong> reports what each vendor earned after commission and return deductions. Vendor bank payouts are <strong>manual</strong> (contract/bank transfer) — this screen is for visibility and CSV export.</p>
+			<table>
+				<thead><tr><th>Column</th><th>Meaning</th></tr></thead>
+				<tbody>
+					<tr><td>Order total</td><td>Vendor's portion of the order</td></tr>
+					<tr><td>Commission</td><td>Platform fee deducted</td></tr>
+					<tr><td><strong>Return deductions</strong></td><td>Amount reduced due to resolved returns/refunds on that order</td></tr>
+					<tr><td><strong>Net payable</strong></td><td>What finance should pay the vendor for that row</td></tr>
+				</tbody>
+			</table>
+			<p>Filter by vendor and date range, then export CSV for accounting. Per-item states in Dokan order detail show <em>Pending / Earned / Deducted</em> for vendor clarity.</p>
+		</section>
+
+		<section id="lifecycle">
+			<h2>12. Full order lifecycle</h2>
+			<table>
+				<thead><tr><th>Phase</th><th>Where</th><th>Ends when</th></tr></thead>
+				<tbody>
+					<tr><td>Payment confirmed</td><td>WC order status</td><td>Processing</td></tr>
+					<tr><td>Fulfillment &amp; Bosta</td><td>Fulfillment panel</td><td>Delivered or Cancelled (pre-ship)</td></tr>
+					<tr><td>Cancellation request (optional)</td><td>Returns → Cancellation requests</td><td>Approved / Rejected</td></tr>
+					<tr><td>Return workflow (if needed)</td><td>Returns table</td><td>Received</td></tr>
+					<tr><td>Refund resolution</td><td>Returns → Wallet / Direct</td><td>Resolved</td></tr>
+					<tr><td>Vendor payout (monthly)</td><td>Vendor Ledger + bank</td><td>Finance transfers net payable</td></tr>
+				</tbody>
+			</table>
+
+			<div class="flow">
+				<span class="step">Confirmed</span><span class="arrow">→</span>
+				<span class="step">Shipped</span><span class="arrow">→</span>
+				<span class="step">Return requested</span><span class="arrow">→</span>
+				<span class="step">Received</span><span class="arrow">→</span>
+				<span class="step">Wallet / Direct</span>
+			</div>
+		</section>
+
+		<section id="playbooks">
+			<h2>13. Step-by-step playbooks</h2>
+
+			<h3>A — New order, ship via Bosta</h3>
+			<ol class="steps">
+				<li>Confirm payment (Geidea/COD) in order status</li>
+				<li>Notify vendors / set fulfillment <strong>Confirmed</strong> per vendor</li>
+				<li>Pack → set <strong>Preparing</strong> or wait for Bosta</li>
+				<li>Create Bosta shipment; confirm tracking on order</li>
+				<li>Let Bosta sync to <strong>Shipped</strong> → <strong>Delivered</strong></li>
+				<li>Customer sees tracking + status in My Account</li>
+			</ol>
+
+			<h3>B — Customer wants to cancel before shipping</h3>
+			<ol class="steps">
+				<li>Customer submits cancellation from My Account</li>
+				<li>Returns → Load order → <strong>Cancellation requests</strong></li>
+				<li>Approve or reject with note</li>
+				<li>If approved: process Geidea/bank refund manually if payment was captured</li>
+				<li>Confirm order cancelled and vendors notified</li>
+			</ol>
+
+			<h3>C — Customer return after delivery (self-service)</h3>
+			<ol class="steps">
+				<li>Customer submits return from My Account (Delivered / Completed)</li>
+				<li>Returns table → advance workflow to Received</li>
+				<li>Wallet or Direct as per policy</li>
+			</ol>
+
+			<h3>D — Customer wants to cancel while shipped / out for delivery</h3>
+			<ol class="steps">
+				<li>Customer submits <strong>Cancel order</strong> from My Account</li>
+				<li>Ops reviews on Returns → Approve or Reject</li>
+				<li>If approved: WC cancel/refund recorded; process Geidea/bank offline if needed</li>
+			</ol>
+		</section>
+
+		<section id="troubleshooting">
+			<h2>14. Troubleshooting</h2>
+			<table>
+				<thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+				<tbody>
+					<tr><td>No Wallet/Direct buttons</td><td>Return not at <strong>Received</strong> yet, or already Resolved</td></tr>
+					<tr><td>Customer cannot request return</td><td>Order not Delivered/Completed yet — they should <strong>Cancel</strong> instead. Or RMA warranty missing on items.</td></tr>
+					<tr><td>Customer cannot request cancellation</td><td>Already Delivered/Completed — use return workflow instead</td></tr>
+					<tr><td>Cancel button does nothing</td><td>Hard-refresh profile (theme 2.9.4+). Open order detail → cancel panel should expand automatically.</td></tr>
+					<tr><td>Fulfillment stuck on Confirmed but Bosta in transit</td><td>Reload order edit page (triggers backfill). Check Bosta meta. Set Shipped manually if needed.</td></tr>
+					<tr><td>Cannot change fulfillment — transition error</td><td>Move one step at a time; cannot go backwards</td></tr>
+					<tr><td>Return row not in table</td><td>Filter by internal order ID; widen date range</td></tr>
+					<tr><td>Item checkbox disabled for new return</td><td>Open return already exists — resolve or reject first</td></tr>
+					<tr><td>Cancellation approve fails</td><td>Refresh page and retry. Note request ID. Contact dev if persists.</td></tr>
+					<tr><td>"No registered customer for wallet"</td><td>Guest order — use Direct after manual bank refund</td></tr>
+					<tr><td>Vendor status differs from ops</td><td>Always update parent marketplace order, not Dokan sub-order only</td></tr>
+					<tr><td>WooCommerce Completed but no return button</td><td>Completed WC status should unlock return; hard-refresh. Confirm customer owns the order.</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section id="checklists">
+			<h2>15. Printable checklists</h2>
+
+			<h3>Daily fulfillment</h3>
+			<ul>
+				<li>☐ New paid orders → Confirmed per vendor</li>
+				<li>☐ Packed orders → Bosta shipment + tracking</li>
+				<li>☐ Pending cancellation requests reviewed</li>
+				<li>☐ Pending return requests in Returns table reviewed</li>
+				<li>☐ Bosta delivered statuses match fulfillment panel</li>
+			</ul>
+
+			<h3>Return refund</h3>
+			<ul>
+				<li>☐ Fulfillment Shipped+ (or manual return created for Completed)</li>
+				<li>☐ Return workflow → <strong>Received</strong></li>
+				<li>☐ Wallet or Direct chosen</li>
+				<li>☐ Restock yes/no confirmed</li>
+				<li>☐ Resolution column + order note verified</li>
+				<li>☐ Direct: Geidea/bank refund done outside WP</li>
+			</ul>
+
+			<h3>Cancellation approve</h3>
+			<ul>
+				<li>☐ Fulfillment still pre-ship (Confirmed / Preparing)</li>
+				<li>☐ Items and qty reviewed</li>
+				<li>☐ Approve or Reject with note</li>
+				<li>☐ Payment refund arranged manually if Geidea paid</li>
+			</ul>
+		</section>
+
+		<section id="quick-ref">
+			<h2>16. Quick reference</h2>
+			<table>
+				<thead><tr><th>I need to…</th><th>Go to…</th><th>Action</th></tr></thead>
+				<tbody>
+					<tr><td>Look up any order</td><td>Returns → Load order</td><td>Enter display # or internal ID</td></tr>
+					<tr><td>Update shipping progress</td><td>Fulfillment panel</td><td>Per vendor → next status → Save</td></tr>
+					<tr><td>Enable customer self-service returns</td><td>Fulfillment panel</td><td>At least one vendor → <strong>Delivered</strong> (or WC Completed)</td></tr>
+					<tr><td>Approve customer cancellation</td><td>Returns → Cancellation requests</td><td>Approve / Reject</td></tr>
+					<tr><td>Process a return refund</td><td>Returns table</td><td>→ Received → Wallet or Direct</td></tr>
+					<tr><td>Vendor monthly payout data</td><td>Vendor Ledger</td><td>Filter → export CSV</td></tr>
+					<tr><td>Check customer wallet after refund</td><td>Users → Customer Wallets</td><td>Search customer</td></tr>
+				</tbody>
+			</table>
+
+			<div class="callout info" style="margin-top:1rem;">
+				<strong>Technical support</strong>
+				Contact development with: display order #, internal ID, screenshot of fulfillment panel, Bosta tracking, and what you clicked.
+			</div>
+		</section>
+
+	</main>
+</div>
+
+<footer class="footer">
+	<p>ConsuCorner Operations — Complete Fulfillment, Returns &amp; Refunds Guide · Theme v2.9.4</p>
+	<p><code>wp-content/themes/consucorner/docs/operations-complete-guide.html</code></p>
+	<p>Open in Chrome/Edge → Print → Save as PDF for a handout.</p>
+</footer>
+
+</body>
+</html>

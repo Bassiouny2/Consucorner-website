@@ -1,0 +1,11 @@
+<svg width="960" height="760" viewBox="0 0 960 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="760" rx="34" fill="#111827"/>
+  <rect x="94" y="118" width="772" height="524" rx="36" fill="#1F2937"/>
+  <path d="M304 502L642 164" stroke="#E5E7EB" stroke-width="26" stroke-linecap="round"/>
+  <path d="M384 582L722 244" stroke="#E5E7EB" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="260" cy="546" r="72" stroke="#00C8B3" stroke-width="22"/>
+  <circle cx="342" cy="628" r="72" stroke="#2597E0" stroke-width="22"/>
+  <path d="M618 188L752 122M698 268L832 202" stroke="#00C8B3" stroke-width="18" stroke-linecap="round"/>
+  <text x="72" y="92" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="5">CONSU CORNER</text>
+  <text x="72" y="704" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="700">Needle Holders</text>
+</svg>

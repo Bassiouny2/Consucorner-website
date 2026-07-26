@@ -1,0 +1,116 @@
+/**
+ * ConsuCorner Tours v2 — Welcome modal (sibling styling to .cc-driver-popover).
+ */
+
+.cc-welcome-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10070;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cc-welcome-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 39, 64, 0.55);
+  cursor: pointer;
+}
+
+.cc-welcome-modal__card {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 100%);
+  font-family: var(--cc-font-primary, "Manrope", sans-serif);
+  color: var(--cc-color-ink, #0f2740);
+  background: var(--cc-color-surface, #fff);
+  border: 1px solid var(--cc-color-border, #d8e7f3);
+  border-radius: var(--cc-radius-field, 14px);
+  box-shadow: var(--cc-shadow-card, 0 25px 55px -20px rgba(37, 151, 224, 0.28));
+  padding: 1.25rem 1.25rem 1rem;
+}
+
+.cc-welcome-modal__title {
+  font-family: var(--cc-font-heading, "Manrope", sans-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.35rem;
+}
+
+.cc-welcome-modal__subtitle {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--cc-color-muted, #5f7a90);
+  margin: 0 0 1rem;
+}
+
+.cc-welcome-modal__paths {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cc-welcome-modal__path {
+  font-family: var(--cc-font-primary, "Manrope", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--cc-radius-pill, 999px);
+  border: 1px solid var(--cc-color-border, #d8e7f3);
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.cc-welcome-modal__path--primary {
+  background: var(
+    --cc-gradient-brand,
+    linear-gradient(135deg, #13c9bc 0%, #2597e0 100%)
+  );
+  border: none;
+  color: #fff;
+}
+
+.cc-welcome-modal__path--primary:hover,
+.cc-welcome-modal__path--primary:focus-visible {
+  filter: brightness(1.05);
+}
+
+.cc-welcome-modal__path--secondary {
+  background: var(--cc-color-soft, #f2fbfa);
+  color: var(--cc-color-ink, #0f2740);
+}
+
+.cc-welcome-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--cc-color-border, #d8e7f3);
+}
+
+.cc-welcome-modal__skip-all {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  color: var(--cc-color-muted, #5f7a90);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cc-welcome-modal__skip-all:hover,
+.cc-welcome-modal__skip-all:focus-visible {
+  color: var(--cc-color-ink, #0f2740);
+}
+
+body.cc-welcome-modal-open {
+  overflow: hidden;
+}

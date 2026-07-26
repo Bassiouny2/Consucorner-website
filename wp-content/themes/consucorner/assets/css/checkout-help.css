@@ -1,0 +1,54 @@
+/**
+ * ConsuCorner — checkout help chip (no Driver overlay).
+ */
+
+.cc-checkout-help {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.cc-checkout-help__toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--cc-color-border, #d8e7f3);
+  background: var(--cc-color-soft, #f2fbfa);
+  color: var(--cc-color-ink, #0f2740);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cc-checkout-help__toggle:hover,
+.cc-checkout-help__toggle:focus-visible {
+  border-color: var(--cc-color-primary, #13c9bc);
+}
+
+.cc-checkout-help__panel {
+  font-family: var(--cc-font-primary, "Manrope", sans-serif);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--cc-color-muted, #5f7a90);
+  background: var(--cc-color-surface, #fff);
+  border: 1px solid var(--cc-color-border, #d8e7f3);
+  border-radius: var(--cc-radius-field, 14px);
+  box-shadow: var(--cc-shadow-card, 0 25px 55px -20px rgba(37, 151, 224, 0.28));
+  padding: 0.75rem 1rem;
+  max-width: min(360px, 92vw);
+  margin: 0;
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.cc-checkout-help__panel li + li {
+  margin-top: 0.35rem;
+}
+
+.cc-checkout-help:not(.is-open) .cc-checkout-help__panel {
+  display: none;
+}

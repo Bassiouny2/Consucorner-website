@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ConsuCorner Operations — Fulfillment Guide</title>
+	<style>
+		:root {
+			--brand: #1a5f4a;
+			--brand-light: #e8f5f0;
+			--accent: #c9a227;
+			--text: #1f2937;
+			--muted: #6b7280;
+			--border: #e5e7eb;
+			--danger: #b91c1c;
+			--danger-bg: #fef2f2;
+			--warn: #92400e;
+			--warn-bg: #fffbeb;
+			--ok: #166534;
+			--ok-bg: #f0fdf4;
+			--info-bg: #eff6ff;
+			--info: #1d4ed8;
+			--code-bg: #f3f4f6;
+			--shadow: 0 1px 3px rgba(0,0,0,.08);
+			--radius: 10px;
+			--max: 920px;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+			font-size: 16px;
+			line-height: 1.65;
+			color: var(--text);
+			background: #f8fafc;
+		}
+
+		.hero {
+			background: linear-gradient(135deg, #0f3d30 0%, var(--brand) 55%, #2d8a6a 100%);
+			color: #fff;
+			padding: 2.5rem 1.5rem 2rem;
+		}
+
+		.hero-inner {
+			max-width: var(--max);
+			margin: 0 auto;
+		}
+
+		.hero h1 {
+			margin: 0 0 .35rem;
+			font-size: clamp(1.6rem, 4vw, 2.2rem);
+			font-weight: 700;
+			letter-spacing: -.02em;
+		}
+
+		.hero .subtitle {
+			opacity: .92;
+			font-size: 1.05rem;
+			max-width: 52ch;
+		}
+
+		.hero .meta {
+			margin-top: 1rem;
+			font-size: .88rem;
+			opacity: .8;
+		}
+
+		.container {
+			max-width: var(--max);
+			margin: 0 auto;
+			padding: 1.5rem;
+		}
+
+		.layout {
+			display: grid;
+			grid-template-columns: 240px 1fr;
+			gap: 2rem;
+			align-items: start;
+		}
+
+		@media (max-width: 860px) {
+			.layout { grid-template-columns: 1fr; }
+			.toc { position: static !important; }
+		}
+
+		.toc {
+			position: sticky;
+			top: 1rem;
+			background: #fff;
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			padding: 1rem 1.1rem;
+			box-shadow: var(--shadow);
+			font-size: .9rem;
+		}
+
+		.toc h2 {
+			margin: 0 0 .6rem;
+			font-size: .78rem;
+			text-transform: uppercase;
+			letter-spacing: .06em;
+			color: var(--muted);
+		}
+
+		.toc ol {
+			margin: 0;
+			padding-left: 1.1rem;
+		}
+
+		.toc li { margin: .35rem 0; }
+		.toc a { color: var(--brand); text-decoration: none; }
+		.toc a:hover { text-decoration: underline; }
+
+		main section {
+			background: #fff;
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			padding: 1.4rem 1.5rem;
+			margin-bottom: 1.25rem;
+			box-shadow: var(--shadow);
+		}
+
+		h2 {
+			margin: 0 0 1rem;
+			font-size: 1.35rem;
+			color: var(--brand);
+			padding-bottom: .5rem;
+			border-bottom: 2px solid var(--brand-light);
+		}
+
+		h3 {
+			margin: 1.4rem 0 .6rem;
+			font-size: 1.05rem;
+			color: #111827;
+		}
+
+		p { margin: 0 0 .85rem; }
+
+		ul, ol { margin: 0 0 1rem; padding-left: 1.35rem; }
+		li { margin: .3rem 0; }
+
+		.callout {
+			border-radius: 8px;
+			padding: .9rem 1rem;
+			margin: 1rem 0;
+			border-left: 4px solid;
+		}
+
+		.callout.info { background: var(--info-bg); border-color: var(--info); }
+		.callout.warn { background: var(--warn-bg); border-color: var(--accent); }
+		.callout.danger { background: var(--danger-bg); border-color: var(--danger); }
+		.callout.ok { background: var(--ok-bg); border-color: var(--ok); }
+
+		.callout strong { display: block; margin-bottom: .25rem; }
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: .92rem;
+			margin: 1rem 0;
+		}
+
+		th, td {
+			border: 1px solid var(--border);
+			padding: .55rem .7rem;
+			text-align: left;
+			vertical-align: top;
+		}
+
+		th {
+			background: var(--brand-light);
+			color: var(--brand);
+			font-weight: 600;
+		}
+
+		tr:nth-child(even) td { background: #fafafa; }
+
+		code, .kbd {
+			font-family: Consolas, "Courier New", monospace;
+			font-size: .88em;
+			background: var(--code-bg);
+			padding: .1em .35em;
+			border-radius: 4px;
+		}
+
+		.kbd {
+			border: 1px solid #d1d5db;
+			box-shadow: 0 1px 0 #fff inset;
+		}
+
+		.status-pill {
+			display: inline-block;
+			padding: .15rem .55rem;
+			border-radius: 999px;
+			font-size: .8rem;
+			font-weight: 600;
+			white-space: nowrap;
+		}
+
+		.pill-ordered { background: #f3f4f6; color: #374151; }
+		.pill-confirmed { background: #dbeafe; color: #1e40af; }
+		.pill-preparing { background: #fef3c7; color: #92400e; }
+		.pill-shipped { background: #e0e7ff; color: #3730a3; }
+		.pill-ofd { background: #fce7f3; color: #9d174d; }
+		.pill-delivered { background: #d1fae5; color: #065f46; }
+		.pill-cancelled { background: #fee2e2; color: #991b1b; }
+
+		.flow {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .45rem;
+			align-items: center;
+			margin: 1rem 0;
+			font-size: .85rem;
+		}
+
+		.flow .step {
+			background: var(--brand-light);
+			color: var(--brand);
+			padding: .35rem .65rem;
+			border-radius: 6px;
+			font-weight: 600;
+		}
+
+		.flow .arrow { color: var(--muted); font-weight: 700; }
+
+		.flow .branch {
+			color: var(--danger);
+			font-weight: 600;
+			font-size: .8rem;
+		}
+
+		.checklist {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		.checklist li {
+			position: relative;
+			padding-left: 1.6rem;
+			margin: .5rem 0;
+		}
+
+		.checklist li::before {
+			content: "☐";
+			position: absolute;
+			left: 0;
+			color: var(--brand);
+			font-size: 1.1rem;
+			line-height: 1.4;
+		}
+
+		.two-col {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+
+		@media (max-width: 640px) {
+			.two-col { grid-template-columns: 1fr; }
+		}
+
+		.card {
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 1rem;
+			background: #fafafa;
+		}
+
+		.card h4 {
+			margin: 0 0 .5rem;
+			font-size: .95rem;
+			color: var(--brand);
+		}
+
+		.footer {
+			text-align: center;
+			color: var(--muted);
+			font-size: .85rem;
+			padding: 2rem 1rem 3rem;
+		}
+
+		@media print {
+			body { background: #fff; }
+			.toc, .hero .meta { display: none; }
+			.layout { display: block; }
+			main section { break-inside: avoid; box-shadow: none; }
+			a { color: inherit; text-decoration: none; }
+		}
+	</style>
+</head>
+<body>
+
+<header class="hero">
+	<div class="hero-inner">
+		<h1>ConsuCorner Operations — Fulfillment Guide</h1>
+		<p class="subtitle">How the operations team manages order fulfillment, Bosta shipping sync, multi-vendor orders, customer return eligibility, and handoff to refunds.</p>
+		<p class="meta">Version 2.9.4 · ConsuCorner theme · Last updated July 2026 · <a href="operations-complete-guide.html" style="color:#fff;"><strong>Complete Guide (recommended)</strong></a> · <a href="operations-returns-refunds-guide.html" style="color:#fff;">Returns &amp; Refunds</a></p>
+	</div>
+</header>
+
+<div class="container">
+	<div class="layout">
+		<nav class="toc" aria-label="Table of contents">
+			<h2>Contents</h2>
+			<ol>
+				<li><a href="#overview">Overview</a></li>
+				<li><a href="#two-systems">Two status systems</a></li>
+				<li><a href="#where">Where to work in admin</a></li>
+				<li><a href="#statuses">Fulfillment statuses</a></li>
+				<li><a href="#transitions">Allowed transitions</a></li>
+				<li><a href="#multi-vendor">Multi-vendor orders</a></li>
+				<li><a href="#bosta">Bosta auto-sync</a></li>
+				<li><a href="#manual">Manual updates</a></li>
+				<li><a href="#order-numbers">Order numbers</a></li>
+				<li><a href="#returns-link">Returns eligibility</a></li>
+				<li><a href="#lifecycle">Full order lifecycle</a></li>
+				<li><a href="#worked-example">Worked example</a></li>
+				<li><a href="#vendor-view">What vendors see</a></li>
+				<li><a href="#daily">Daily workflows</a></li>
+				<li><a href="#troubleshooting">Troubleshooting</a></li>
+				<li><a href="#rules">Do / Don't rules</a></li>
+				<li><a href="#quick-ref">Quick reference</a></li>
+			</ol>
+		</nav>
+
+		<main>
+
+			<section id="overview">
+				<h2>1. Overview</h2>
+				<p>ConsuCorner uses a dedicated <strong>operations fulfillment workflow</strong> that is separate from WooCommerce payment status. Operations owns fulfillment from the moment an order is placed until it is delivered (or cancelled before shipping).</p>
+
+				<div class="callout info">
+					<strong>Key principle</strong>
+					The WooCommerce <em>Status</em> dropdown (Processing, Completed, On hold, etc.) tracks <strong>payment</strong>. The <em>ConsuCorner operations fulfillment</em> panel tracks <strong>physical order progress</strong> per vendor. Do not confuse the two.
+				</div>
+
+				<p>Fulfillment status controls:</p>
+				<ul>
+					<li>What customers see in <strong>My Account → Order History</strong></li>
+					<li>When the <strong>Request return</strong> button becomes available</li>
+					<li>What vendors see as read-only status in their Dokan dashboard</li>
+					<li>Operations notes and audit trail on the order</li>
+				</ul>
+			</section>
+
+			<section id="two-systems">
+				<h2>2. Two status systems — side by side</h2>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>WooCommerce status</th>
+							<th>Operations fulfillment</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>Purpose</strong></td>
+							<td>Payment &amp; accounting (Geidea, COD, etc.)</td>
+							<td>Warehouse, packing, Bosta shipping, delivery</td>
+						</tr>
+						<tr>
+							<td><strong>Who changes it</strong></td>
+							<td>Payment gateway, finance, or admin manually</td>
+							<td>Operations team (or auto-sync from Bosta)</td>
+						</tr>
+						<tr>
+							<td><strong>Where to find it</strong></td>
+							<td>Top of order edit screen — <em>Status</em> dropdown</td>
+							<td><em>ConsuCorner operations fulfillment</em> panel below order details</td>
+						</tr>
+						<tr>
+							<td><strong>Typical values</strong></td>
+							<td>Pending, Processing, Completed, Cancelled</td>
+							<td>Confirmed → Preparing → Shipped → Out for delivery → Delivered</td>
+						</tr>
+						<tr>
+							<td><strong>Drives returns?</strong></td>
+							<td>No (legacy Dokan setting may still say Completed — ignore for gating)</td>
+							<td><strong>Yes</strong> — customer <strong>cancel</strong> until Out for delivery; <strong>return</strong> after Delivered / Completed</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="callout warn">
+					<strong>Common mistake</strong>
+					Changing WooCommerce status to <em>Completed</em> does <strong>not</strong> update operations fulfillment by itself, but it <strong>does</strong> allow customer self-service returns. Prefer setting fulfillment to <strong>Delivered</strong> when the package arrives.
+				</div>
+			</section>
+
+			<section id="where">
+				<h2>3. Where to work in WordPress admin</h2>
+
+				<h3>Primary screens</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Screen</th>
+							<th>Path</th>
+							<th>Use for</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>Order edit</strong></td>
+							<td>WooCommerce → Orders → open order</td>
+							<td>Quick fulfillment updates per vendor; view Bosta fields; order notes</td>
+						</tr>
+						<tr>
+							<td><strong>Returns / Operations workflow</strong></td>
+							<td>WooCommerce → <strong>Returns</strong></td>
+							<td>Full order lookup, fulfillment, manual return creation, return workflow actions</td>
+						</tr>
+						<tr>
+							<td><strong>Bosta plugin fields</strong></td>
+							<td>Order edit → Custom fields / Bosta meta</td>
+							<td>Tracking number, Bosta status (usually auto-updated by Bosta webhook)</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Returns page — order lookup</h3>
+				<ol>
+					<li>Go to <strong>WooCommerce → Returns</strong></li>
+					<li>In <strong>Operations order workflow</strong>, enter the order number in the lookup field</li>
+					<li>Click <strong>Load order</strong></li>
+				</ol>
+				<p>You can enter either:</p>
+				<ul>
+					<li>The <strong>display order number</strong> shown to customers (e.g. <code>13566249</code>)</li>
+					<li>The internal <strong>WooCommerce order ID</strong> (e.g. <code>5662</code>)</li>
+				</ul>
+			</section>
+
+			<section id="statuses">
+				<h2>4. Fulfillment statuses — meaning &amp; actions</h2>
+
+				<div class="flow">
+					<span class="step">Confirmed</span>
+					<span class="arrow">→</span>
+					<span class="step">Preparing</span>
+					<span class="arrow">→</span>
+					<span class="step">Shipped</span>
+					<span class="arrow">→</span>
+					<span class="step">Out for delivery</span>
+					<span class="arrow">→</span>
+					<span class="step">Delivered</span>
+				</div>
+				<p class="branch">↳ Cancelled is available from Confirmed or Preparing only (before shipment).</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Meaning</th>
+							<th>Typical trigger</th>
+							<th>Ops action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span class="status-pill pill-confirmed">Confirmed</span></td>
+							<td>Starting status for every new order. Order is acknowledged and ready to pick &amp; pack.</td>
+							<td>Automatic when order is created</td>
+							<td>Verify payment (Geidea/COD). Notify vendors if needed. Start allocation.</td>
+						</tr>
+						<tr>
+							<td><span class="status-pill pill-preparing">Preparing</span></td>
+							<td>Items being picked, packed, or waiting at warehouse.</td>
+							<td>Manual ops update, or Bosta pickup-stage codes (21–22)</td>
+							<td>Confirm all line items from each vendor are ready. Create Bosta shipment when packed.</td>
+						</tr>
+						<tr>
+							<td><span class="status-pill pill-shipped">Shipped</span></td>
+							<td>Handed to Bosta / in transit. <strong>Returns become eligible.</strong></td>
+							<td>Manual ops update, or Bosta in-transit statuses</td>
+							<td>Verify tracking number on order. Customer can still cancel until Delivered; returns unlock after Delivered.</td>
+						</tr>
+						<tr>
+							<td><span class="status-pill pill-ofd">Out for delivery</span></td>
+							<td>Courier is on the last-mile route to the customer.</td>
+							<td>Bosta <em>Out for delivery</em> (state 41 or matching text)</td>
+							<td>Monitor Bosta tracking. Prepare for delivery issues.</td>
+						</tr>
+						<tr>
+							<td><span class="status-pill pill-delivered">Delivered</span></td>
+							<td>Customer received the package. Final fulfillment state.</td>
+							<td>Bosta delivered (state 45/46)</td>
+							<td>Close fulfillment loop. Returns still allowed if within policy window.</td>
+						</tr>
+						<tr>
+							<td><span class="status-pill pill-cancelled">Cancelled</span></td>
+							<td>Order fulfilment stopped before completion (stock issue, customer cancel, Bosta terminated).</td>
+							<td>Manual ops (early stages), or Bosta terminated/returned codes</td>
+							<td>Coordinate refund separately (wallet/manual — never auto-reverse Geidea).</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="callout ok">
+					<strong>Return eligibility badge</strong>
+					On the fulfillment panel, <em>Return eligible</em> appears when at least one vendor on the order is at <strong>Shipped</strong>, <strong>Out for delivery</strong>, or <strong>Delivered</strong>.
+				</div>
+			</section>
+
+			<section id="transitions">
+				<h2>5. Allowed status transitions</h2>
+				<p>Operations can only move fulfillment <strong>one step forward</strong> at a time (except Bosta auto-sync, which can jump multiple steps forward). You cannot skip backwards.</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Current status</th>
+							<th>Can move to</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Confirmed</td><td>Preparing, Cancelled</td></tr>
+						<tr><td>Preparing</td><td>Shipped, Cancelled</td></tr>
+						<tr><td>Shipped</td><td>Out for delivery, Delivered</td></tr>
+						<tr><td>Out for delivery</td><td>Delivered</td></tr>
+						<tr><td>Delivered</td><td><em>Final — no further moves</em></td></tr>
+						<tr><td>Cancelled</td><td><em>Final — no further moves</em></td></tr>
+					</tbody>
+				</table>
+
+				<div class="callout warn">
+					<strong>Cannot cancel after shipment</strong>
+					If an order is already <strong>Shipped</strong> or later, you cannot set fulfillment to <em>Cancelled</em> through the normal workflow. Handle delivery failures via Bosta support and returns/refund process instead.
+				</div>
+			</section>
+
+			<section id="multi-vendor">
+				<h2>6. Multi-vendor orders</h2>
+				<p>When a customer buys from multiple vendors in one checkout, there is <strong>one parent WooCommerce order</strong> with multiple vendor line items. Fulfillment is tracked <strong>per vendor</strong> on that parent order.</p>
+
+				<h3>What you will see</h3>
+				<ul>
+					<li>One card per vendor in the fulfillment panel (vendor name + current status)</li>
+					<li>Each vendor can be at a different fulfillment stage</li>
+					<li>The summary line <em>Current fulfillment</em> shows the <strong>lowest</strong> status among all vendors (bottleneck view)</li>
+				</ul>
+
+				<h3>Best practice</h3>
+				<ol>
+					<li>Update each vendor as their items are confirmed, packed, and included in the shipment</li>
+					<li>When the whole package ships via Bosta, all vendors typically move to <strong>Shipped</strong> together (Bosta sync does this automatically)</li>
+					<li>If one vendor is delayed, their card can stay on <em>Preparing</em> while others advance — customer <strong>cancel</strong> stays available until delivered lines are past OFD; <strong>return</strong> unlocks when Delivered / Completed</li>
+				</ol>
+
+				<div class="callout info">
+					<strong>One Bosta shipment per order</strong>
+					Bosta tracking is stored on the parent order. There is no separate Bosta status per vendor. When Bosta updates, <strong>all vendors</strong> on the order are synced to the mapped fulfillment status.
+				</div>
+			</section>
+
+			<section id="bosta">
+				<h2>7. Bosta auto-sync</h2>
+				<p>When the Bosta plugin receives a webhook (or Bosta metadata is saved on an order), ConsuCorner automatically maps the Bosta shipment state to operations fulfillment for every vendor on the order.</p>
+
+				<h3>When sync runs</h3>
+				<ul>
+					<li>Automatically when Bosta updates <code>bosta_status</code> or <code>bosta_state_code</code> on the order</li>
+					<li>When you open the order edit screen or load the order on the Returns page (backfill for existing orders)</li>
+				</ul>
+
+				<h3>Bosta → fulfillment mapping</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Bosta state / status</th>
+							<th>Maps to fulfillment</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Created, Pickup requested (codes 10–11)</td>
+							<td><span class="status-pill pill-confirmed">Confirmed</span></td>
+						</tr>
+						<tr>
+							<td>Pickup / warehouse prep (codes 21–22)</td>
+							<td><span class="status-pill pill-preparing">Preparing</span></td>
+						</tr>
+						<tr>
+							<td><strong>Received at warehouse</strong> (text or warehouse handling)</td>
+							<td><span class="status-pill pill-shipped">Shipped</span></td>
+						</tr>
+						<tr>
+							<td>Picked up, In transit between Hubs (codes 20, 30–31)</td>
+							<td><span class="status-pill pill-shipped">Shipped</span></td>
+						</tr>
+						<tr>
+							<td>Out for delivery (code 41 or matching text)</td>
+							<td><span class="status-pill pill-ofd">Out for delivery</span></td>
+						</tr>
+						<tr>
+							<td>Delivered (codes 45–46)</td>
+							<td><span class="status-pill pill-delivered">Delivered</span></td>
+						</tr>
+						<tr>
+							<td>Terminated / Returned / Cancelled (codes 48, 100, 101, 104)</td>
+							<td><span class="status-pill pill-cancelled">Cancelled</span> <em>(only if not already shipped+)</em></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Sync rules operations must know</h3>
+				<ul>
+					<li><strong>Forward only</strong> — Bosta never downgrades fulfillment. If you manually set a higher status, a later Bosta update will not pull it back.</li>
+					<li><strong>Multi-step jumps</strong> — Bosta can move from Confirmed directly to Shipped in one webhook (system walks through intermediate steps internally).</li>
+					<li><strong>Order notes</strong> — Look for notes like <em>"Bosta sync updated vendor #… fulfillment from … to …"</em></li>
+					<li><strong>UI indicator</strong> — When Bosta data exists, the panel shows <em>Bosta shipment: [status]</em> and <em>Auto-syncs to [fulfillment]</em></li>
+				</ul>
+
+				<h3>Bosta fields on the order</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Field</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td><code>bosta_tracking_number</code></td><td>Tracking ID — shown to customer in My Account</td></tr>
+						<tr><td><code>bosta_status</code></td><td>Human-readable status text from Bosta</td></tr>
+						<tr><td><code>bosta_state_code</code></td><td>Numeric state used for mapping</td></tr>
+						<tr><td><code>bosta_delivery_date</code></td><td>Set automatically when delivered (state 45)</td></tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="manual">
+				<h2>8. Manual fulfillment updates</h2>
+				<p>Use manual updates when Bosta is not connected yet, for corrections, or to reflect vendor-specific progress before the shipment is created.</p>
+
+				<h3>From order edit screen</h3>
+				<ol>
+					<li>Open <strong>WooCommerce → Orders → [order]</strong></li>
+					<li>Scroll to <strong>ConsuCorner operations fulfillment</strong></li>
+					<li>For each vendor card: choose new status, add optional note, click <strong>Save fulfillment</strong></li>
+					<li>Changes save immediately (no page reload) and appear in order notes</li>
+				</ol>
+
+				<h3>From Returns page</h3>
+				<ol>
+					<li><strong>WooCommerce → Returns</strong></li>
+					<li>Enter order ID → <strong>Load order</strong></li>
+					<li>Use the same vendor cards under <strong>Vendor fulfillment</strong></li>
+				</ol>
+
+				<h3>When to use manual vs Bosta</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Situation</th>
+							<th>Recommended approach</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Bosta shipment created &amp; tracking active</td>
+							<td>Let Bosta auto-sync handle Shipped → Delivered. Only intervene if Bosta is wrong.</td>
+						</tr>
+						<tr>
+							<td>Vendor confirmed but not yet in Bosta</td>
+							<td>Manually set <strong>Confirmed</strong> or <strong>Preparing</strong></td>
+						</tr>
+						<tr>
+							<td>One vendor delayed in multi-vendor order</td>
+							<td>Update that vendor's card individually</td>
+						</tr>
+						<tr>
+							<td>Bosta webhook delayed</td>
+							<td>Manually advance to <strong>Shipped</strong> once you confirm handover to Bosta</td>
+						</tr>
+						<tr>
+							<td>Need to correct a mistake</td>
+							<td>You can only move <strong>forward</strong> one step. Contact dev/admin if a status was set too high by error.</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="order-numbers">
+				<h2>9. Order numbers — display vs internal ID</h2>
+				<p>Customers see a <strong>display order number</strong> (e.g. <code>13566249</code>). Operations screens also show the internal <strong>WooCommerce ID</strong> in parentheses (e.g. <code>5662</code>).</p>
+
+				<div class="callout info">
+					<strong>Format</strong>
+					Display number = <code>{minutes}{orderID}{seconds}</code> from order creation time.<br>
+					Example: order ID <code>5662</code> created at 14:45:30 → display number <code>45566230</code> (minutes <code>45</code> + ID <code>5662</code> + seconds <code>30</code>).
+				</div>
+
+				<p>Both numbers work in the Returns page lookup field. Use whichever the customer or Bosta provides.</p>
+			</section>
+
+			<section id="returns-link">
+				<h2>10. Link to customer returns &amp; refunds</h2>
+				<p>Fulfillment is the <strong>gate</strong> for customer-initiated returns:</p>
+				<ul>
+					<li><strong>Before Delivered</strong> — customer can <em>Cancel order</em> (Confirmed → Out for delivery)</li>
+					<li><strong>Delivered or WooCommerce Completed</strong> — customer can submit a <em>Request return</em></li>
+				</ul>
+
+				<div class="callout warn">
+					<strong>Return eligible badge vs summary line</strong>
+					The panel may show <em>Current fulfillment: Confirmed</em> together with a <em>Return eligible</em> badge on multi-vendor orders. That happens when at least one vendor is Shipped+ even if others are still Confirmed. Returns unlock when <strong>any</strong> vendor reaches Shipped or later.
+				</div>
+
+				<h3>After fulfillment — what operations does next</h3>
+				<p>Returns and refunds are <strong>not</strong> set on the fulfillment panel. Use <strong>WooCommerce → Returns</strong>:</p>
+				<ol>
+					<li>Customer submits return <em>or</em> ops creates one manually (Load order → tick items → Create return request)</li>
+					<li>Advance return workflow: Reviewing → Approved → Return in transit → <strong>Received</strong></li>
+					<li>Click <strong>Wallet</strong> (store credit) or <strong>Direct</strong> (manual WC refund + offline Geidea/bank)</li>
+				</ol>
+				<p>Full refund steps: <a href="operations-returns-refunds-guide.html">Returns &amp; Refunds Guide</a>.</p>
+
+				<div class="callout danger">
+					<strong>Geidea payments</strong>
+					Fulfillment and returns never auto-reverse Geidea charges. Refunds are processed via wallet credit or recorded manual refund only.
+				</div>
+			</section>
+
+			<section id="lifecycle">
+				<h2>11. Full order lifecycle (fulfillment → return → refund)</h2>
+				<p>Operations touches the same order in three layers. Keep them in order:</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Phase</th>
+							<th>Where</th>
+							<th>Goal</th>
+							<th>Ends when</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>1. Payment</strong></td>
+							<td>WooCommerce order status</td>
+							<td>Geidea/COD confirmed</td>
+							<td>Processing / Completed</td>
+						</tr>
+						<tr>
+							<td><strong>2. Fulfillment</strong></td>
+							<td>ConsuCorner operations fulfillment panel</td>
+							<td>Pack &amp; ship via Bosta</td>
+							<td>Delivered (or Cancelled before ship)</td>
+						</tr>
+						<tr>
+							<td><strong>3. Return workflow</strong></td>
+							<td>WooCommerce → Returns table</td>
+							<td>Review &amp; receive returned goods</td>
+							<td><strong>Received</strong></td>
+						</tr>
+						<tr>
+							<td><strong>4. Refund resolution</strong></td>
+							<td>Returns → Wallet or Direct</td>
+							<td>Credit customer / record refund</td>
+							<td><strong>Resolved</strong></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="flow">
+					<span class="step">Confirmed</span>
+					<span class="arrow">→</span>
+					<span class="step">Shipped</span>
+					<span class="arrow">→</span>
+					<span class="step">Return requested</span>
+					<span class="arrow">→</span>
+					<span class="step">Received</span>
+					<span class="arrow">→</span>
+					<span class="step">Wallet / Direct</span>
+				</div>
+			</section>
+
+			<section id="worked-example">
+				<h2>12. Worked example (tested on staging)</h2>
+				<p>Use this reference order when training new ops staff:</p>
+
+				<table>
+					<thead>
+						<tr><th>Field</th><th>Value</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Display order #</td><td><code>13566249</code></td></tr>
+						<tr><td>Internal WooCommerce ID</td><td><code>5662</code></td></tr>
+						<tr><td>Customer</td><td>Ahmed Magdy (ahmed.bassiouny)</td></tr>
+						<tr><td>Type</td><td>Multi-vendor (3 vendors)</td></tr>
+						<tr><td>Returns page lookup</td><td>Either <code>13566249</code> or <code>5662</code> in Load order</td></tr>
+						<tr><td>Returns table filter</td><td>Use internal ID <code>5662</code> in <em>Order #</em> filter → Filter</td></tr>
+					</tbody>
+				</table>
+
+				<h3>Typical test flow</h3>
+				<ol>
+					<li><strong>Returns</strong> → enter <code>13566249</code> → Load order</li>
+					<li>Confirm <em>Return eligible</em> badge (fulfillment Shipped+ for at least one vendor)</li>
+					<li>Tick one line item → Create return request(s) → appears in table as Request #N</li>
+					<li>Filter table by Order <code>5662</code> if the row is not visible</li>
+					<li>Actions: Reviewing → Approved → Return in transit → Received</li>
+					<li>Click Wallet or Direct → confirm → restock → (Wallet: shipping deduction <code>0</code>)</li>
+					<li>Verify Resolution column + order notes</li>
+				</ol>
+
+				<div class="callout info">
+					<strong>Blocked line items</strong>
+					After a return is created for an item, its checkbox in <em>Create manual return request</em> is disabled with a note like <em>Pending return request #5 — resolve it on WooCommerce → Returns</em>. You cannot create a duplicate return for the same qty.
+				</div>
+			</section>
+
+			<section id="vendor-view">
+				<h2>13. What vendors see (read-only)</h2>
+				<p>Vendors <strong>cannot</strong> change fulfillment or return workflow statuses. They see read-only labels plus a <strong>Bosta status</strong> column on the Dokan Orders list (React DataViews) and Bosta tracking on order detail.</p>
+				<ul>
+					<li><strong>Dokan → Orders</strong> — <em>ConsuCorner status</em> column</li>
+					<li><strong>Order detail</strong> — <em>ConsuCorner operations status</em> panel</li>
+					<li><strong>RMA requests</strong> — notice that operations manages status</li>
+				</ul>
+				<p>If a vendor reports a wrong status, operations updates it in WordPress — not the vendor dashboard.</p>
+			</section>
+
+			<section id="daily">
+				<h2>14. Daily operations workflows</h2>
+
+				<div class="two-col">
+					<div class="card">
+						<h4>Morning — new orders</h4>
+						<ul class="checklist">
+							<li>Review new WooCommerce orders (payment confirmed)</li>
+							<li>Verify fulfillment shows <em>Confirmed</em> for each vendor (starting status)</li>
+							<li>Move to <em>Preparing</em> once packing starts</li>
+							<li>Flag unpaid / failed Geidea orders — do not advance fulfillment</li>
+						</ul>
+					</div>
+					<div class="card">
+						<h4>Midday — warehouse &amp; Bosta</h4>
+						<ul class="checklist">
+							<li>Update vendors to <em>Preparing</em> as items are packed</li>
+							<li>Create Bosta shipments from the Bosta plugin</li>
+							<li>Confirm <code>bosta_tracking_number</code> appears on the order</li>
+							<li>Let Bosta sync move status to <em>Shipped</em> — or set manually if webhook is delayed</li>
+						</ul>
+					</div>
+					<div class="card">
+						<h4>Delivery monitoring</h4>
+						<ul class="checklist">
+							<li>Watch Bosta for <em>Out for delivery</em> and <em>Delivered</em></li>
+							<li>Confirm fulfillment matches Bosta on the order edit screen</li>
+							<li>Respond to customer "where is my order" using Bosta tracking link</li>
+						</ul>
+					</div>
+					<div class="card">
+						<h4>Exceptions</h4>
+						<ul class="checklist">
+							<li>Customer cancel before ship → set vendor fulfillment to <em>Cancelled</em></li>
+							<li>Bosta terminated → check if fulfillment moved to <em>Cancelled</em>; process refund separately</li>
+							<li>Partial vendor delay → update only that vendor's card</li>
+							<li>Return requests → handle on Returns page after fulfillment is Shipped+</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id="troubleshooting">
+				<h2>15. Troubleshooting</h2>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Problem</th>
+							<th>Likely cause</th>
+							<th>What to do</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Fulfillment stuck on <em>Confirmed</em> but Bosta shows in transit</td>
+							<td>Bosta meta missing or webhook not received</td>
+							<td>Check order for <code>bosta_status</code> / <code>bosta_state_code</code>. Reload order edit page to trigger backfill. If meta exists but status wrong, set <em>Shipped</em> manually.</td>
+						</tr>
+						<tr>
+							<td>Customer cannot see <em>Request return</em></td>
+							<td>Order not Delivered / Completed yet (or RMA warranty missing)</td>
+							<td>If still in transit, customer should <em>Cancel order</em>. If delivered, set fulfillment to <em>Delivered</em> or confirm WC status Completed, then hard-refresh My Account.</td>
+						</tr>
+						<tr>
+							<td>Cannot change status — error about transition</td>
+							<td>Trying to skip a step or go backwards</td>
+							<td>Move one step at a time: Confirmed → Preparing → Shipped, etc.</td>
+						</tr>
+						<tr>
+							<td>Returns page says order not found</td>
+							<td>Wrong ID format</td>
+							<td>Try display number and internal ID. Copy from order edit screen.</td>
+						</tr>
+						<tr>
+							<td>Vendor sees different status than operations</td>
+							<td>Vendor sub-order vs parent order</td>
+							<td>Always update fulfillment on the <strong>parent</strong> marketplace order.</td>
+						</tr>
+						<tr>
+							<td>Bosta sync note appears but status unchanged</td>
+							<td>Already at same or higher status</td>
+							<td>Expected — sync only moves forward. Check current vendor card status.</td>
+						</tr>
+						<tr>
+							<td>WooCommerce says Completed but no return button</td>
+							<td>WC status ≠ fulfillment status</td>
+							<td>Update operations fulfillment to Shipped+, not WC status.</td>
+						</tr>
+						<tr>
+							<td>Return row not in table after creating request</td>
+							<td>Date filter too narrow</td>
+							<td>Set <em>Order #</em> filter to internal ID (e.g. <code>5662</code>) and click Filter. Date range defaults to last 30 days unless opened from an order link.</td>
+						</tr>
+						<tr>
+							<td>Cannot tick item for new manual return</td>
+							<td>Open return already exists for that line</td>
+							<td>Resolve or reject the existing request first. Checkbox shows <em>Pending return request #…</em></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="rules">
+				<h2>16. Do / Don't rules</h2>
+
+				<div class="two-col">
+					<div class="callout ok">
+						<strong>Do</strong>
+						<ul>
+							<li>Use operations fulfillment as the source of truth for shipping progress</li>
+							<li>Let Bosta auto-sync handle in-transit and delivered updates when possible</li>
+							<li>Update each vendor card on multi-vendor orders when needed</li>
+							<li>Add notes when manually changing status (reason, ticket ID)</li>
+							<li>Check Bosta tracking before telling a customer their order shipped</li>
+							<li>Process refunds only via Wallet or Direct manual on Returns page</li>
+						</ul>
+					</div>
+					<div class="callout danger">
+						<strong>Don't</strong>
+						<ul>
+							<li>Don't use WooCommerce <em>Completed</em> as a substitute for fulfillment</li>
+							<li>Don't tell customers returns are open based on payment status alone</li>
+							<li>Don't ask vendors to change fulfillment — they are read-only</li>
+							<li>Don't auto-refund Geidea from the theme or fulfillment screens</li>
+							<li>Don't cancel fulfillment after the order is already shipped (use returns process)</li>
+							<li>Don't edit Bosta plugin files — report integration issues to tech team</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id="quick-ref">
+				<h2>17. Quick reference card</h2>
+
+				<table>
+					<thead>
+						<tr>
+							<th>I need to…</th>
+							<th>Go to…</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Confirm vendor packing started</td>
+							<td>Order edit → Fulfillment panel</td>
+							<td>Set vendor → <strong>Preparing</strong> → Save</td>
+						</tr>
+						<tr>
+							<td>Mark items being packed</td>
+							<td>Order edit → Fulfillment panel</td>
+							<td>Set vendor → <strong>Preparing</strong> → Save</td>
+						</tr>
+						<tr>
+							<td>Order handed to Bosta</td>
+							<td>Bosta plugin + wait for sync</td>
+							<td>Or manually set <strong>Shipped</strong></td>
+						</tr>
+						<tr>
+							<td>Enable customer returns</td>
+							<td>Fulfillment panel</td>
+							<td>At least one vendor at <strong>Delivered</strong> (or WC Completed)</td>
+						</tr>
+						<tr>
+							<td>Check shipment tracking</td>
+							<td>Order edit → Bosta fields</td>
+							<td>Use <code>bosta_tracking_number</code> on bosta.co</td>
+						</tr>
+						<tr>
+							<td>Look up any order quickly</td>
+							<td>WooCommerce → Returns</td>
+							<td>Enter order # → Load order</td>
+						</tr>
+						<tr>
+							<td>Cancel before shipping</td>
+							<td>Fulfillment panel</td>
+							<td>Set vendor → <strong>Cancelled</strong> (only from Confirmed/Preparing)</td>
+						</tr>
+						<tr>
+							<td>Refund after return received</td>
+							<td>WooCommerce → Returns</td>
+							<td>Workflow to <strong>Received</strong> → <strong>Wallet</strong> or <strong>Direct</strong></td>
+						</tr>
+						<tr>
+							<td>Create return for customer</td>
+							<td>Returns → Load order</td>
+							<td>Tick items → Create return request(s) → advance workflow → refund</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="callout info" style="margin-top:1.2rem;">
+					<strong>Support</strong>
+					For technical issues (Bosta webhook, sync not working, status stuck), contact the development team with: order display number, internal ID, screenshot of fulfillment panel, and Bosta tracking number.
+				</div>
+			</section>
+
+		</main>
+	</div>
+</div>
+
+<footer class="footer">
+	<p>ConsuCorner Operations Fulfillment Guide · Theme v2.9.4 · Internal use only</p>
+	<p>Related: <a href="operations-complete-guide.html">Complete Guide</a> · <a href="operations-returns-refunds-guide.html">Returns &amp; Refunds Guide</a></p>
+	<p><code>wp-content/themes/consucorner/docs/operations-fulfillment-guide.html</code></p>
+</footer>
+
+</body>
+</html>

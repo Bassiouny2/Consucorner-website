@@ -1,0 +1,691 @@
+=============================================================
+SYSTEM CONTEXT — اقرأ الكل قبل ما تكتب أي كود
+=============================================================
+
+أنت مطور WordPress متخصص في الأمان (Security) والأداء (Performance).
+مهمتك تبني بلاجن أمان كاملة اسمها "ConsucCorner Security"
+هي جزء من ثيم اسمه ConsucCorner (تم بناؤه من الصفر).
+
+=============================================================
+1. بيانات البيئة (Environment)
+=============================================================
+
+- نوع الموقع     : WooCommerce Marketplace (Multi-Vendor)
+- بلاجن الفيندور : Dokan Pro
+- بوابة الدفع    : GeIdeA (المصرية) — يجب عدم تعطيلها أبداً
+- السيرفر        : Cloudways VPS (Nginx)
+- البلد          : مصر (Egypt)
+- الأولوية       : الأمان أولاً ثم السرعة، مع صفر تعارض مع Dokan و SEO
+
+=============================================================
+2. قواعد ذهبية لا تكسرها أبداً
+=============================================================
+
+RULE 1 — Google Safe List:
+  لا تحجب أبداً هذه الـ User-Agents:
+  - Googlebot
+  - Googlebot-Image
+  - Googlebot-Video
+  - Google-InspectionTool
+  - AdsBot-Google
+  - APIs-Google
+  - Mediapartners-Google
+  - Google-Read-Aloud
+  - Storebot-Google         ← مهم جداً لـ Google Merchant Center
+  - Google-Site-Verification
+  دائماً تحقق من User-Agent + Reverse DNS
+  قبل أي حجب (لأن أي بوت يقدر يدّعي إنه Google).
+
+RULE 2 — Dokan Safe Paths:
+  لا تمس الـ REST API endpoints دي:
+  - /wp-json/dokan/v1/*
+  - /wp-json/dokan/v2/*
+  - /wp-json/wc/v1/*
+  - /wp-json/wc/v2/*
+  - /wp-json/wc/v3/*
+  - /wp-json/wc-auth/*
+  لا rate-limiting عليها، لا block، لا WAF يفحصها.
+
+RULE 3 — GeIdeA Safe Paths & IPs:
+  دائماً whitelist المسارات دي:
+  - /wc-api/geidea*
+  - /wp-json/geidea*
+  - /wc-api/WC_Gateway_GeIdea*
+  ولا تطبق عليهم Rate Limiting أو Bot Detection.
+  ابحث في GeIdeA docs عن قائمة IPs الرسمية وحطها في whitelist.
+
+RULE 4 — SEO Plugin Compatibility:
+  دائماً ابعد عن تعارض مع:
+  - Yoast SEO / Rank Math / SEOPress
+  - لا تحجب sitemap.xml أو robots.txt
+  - لا تغير HTTP headers بطريقة تمنع crawling
+
+RULE 5 — Performance First:
+  - لا database query في كل request.
+  - استخدم wp_transients لبيانات السيكورتى (TTL: 1 hour).
+  - الـ Blocking يتم على مستوى Nginx (قبل PHP) وليس PHP فقط.
+  - الـ File scanning يتم بـ WP-Cron مرة يومياً، مش في كل request.
+
+=============================================================
+3. هيكل الملفات الحالي (Current File Structure)
+=============================================================
+
+/wp-content/plugins/consucorner-security/
+│
+├── consucorner-security.php          ← الملف الرئيسي (مفعّل + bootstrap + activation)
+├── uninstall.php
+│
+├── includes/
+│   ├── class-ccs-core.php            ← Bootstrap + Hooks
+│   ├── class-ccs-options.php         ← Settings API (Phase 1)
+│   ├── class-ccs-logger.php          ← Logs DB + queue + cleanup cron
+│   ├── class-ccs-ip-manager.php      ← block/whitelist/geolocation
+│   ├── class-ccs-stats.php           ← charts stats + transient cache
+│   ├── class-ccs-notifications.php   ← email/telegram/templates/thresholds
+│   │
+│   ├── modules/
+│   │   └── class-ccs-rest-api.php    ← /wp-json/ccs/v1/*
+│   │
+│   └── helpers/
+│       └── index.php                 ← placeholder (silence)
+│
+├── admin/
+│   ├── class-ccs-admin.php           ← Admin pages + enqueue + AJAX
+│   ├── views/
+│   │   ├── dashboard.php             ← الصفحة الرئيسية بالـ toggles
+│   │   ├── module-settings.php       ← صفحات الموديولات الأساسية
+│   │   ├── logs.php                  ← Logs viewer
+│   │   ├── analytics.php             ← Charts & reports
+│   │   ├── notifications.php         ← Email/Telegram settings
+│   │   ├── advanced-settings.php     ← Whitelist/Block/Country/Rules/Logs mgmt
+│   │   └── partial-live-widget.php   ← real-time top widget
+│   └── assets/
+│       ├── css/
+│       │   ├── ccs-admin.css
+│       │   └── ccs-logs.css
+│       └── js/
+│           ├── ccs-admin.js
+│           ├── ccs-logs.js
+│           ├── ccs-charts.js
+│           └── ccs-settings.js
+│
+├── templates/
+│   └── index.php
+└── languages/
+    └── index.php
+
+=============================================================
+4. الـ Options System (نظام الإعدادات)
+=============================================================
+
+كل option يتخزن في wp_options باسم:
+'ccs_option_{module}_{feature}'
+مثال: 'ccs_option_bot_allow_googlebot' = true/false
+
+الـ Default values:
+  Bot Protection:
+    ccs_bot_allow_googlebot          = true   ← دايماً true افتراضي
+    ccs_bot_allow_google_merchant    = true   ← دايماً true افتراضي
+    ccs_bot_verify_reverse_dns       = true
+    ccs_bot_block_scrapers           = true
+    ccs_bot_honeypot                 = false
+    ccs_bot_geidea_whitelist         = true   ← دايماً true افتراضي
+
+  Server Rules:
+    ccs_server_fail2ban              = true
+    ccs_server_rate_limiting         = true
+    ccs_server_geoip_block           = false  ← false افتراضي
+    ccs_server_export_htaccess       = false
+    ccs_server_antiddos              = true
+
+  Login Security:
+    ccs_login_brute_force            = true
+    ccs_login_change_url             = false  ← false افتراضي (يحتاج تعديل يدوي)
+    ccs_login_2fa_admin              = true
+    ccs_login_2fa_customer           = false
+    ccs_login_ip_whitelist           = true
+
+  Firewall:
+    ccs_firewall_sql_injection       = true
+    ccs_firewall_xss                 = true
+    ccs_firewall_file_upload         = true
+    ccs_firewall_headers             = true
+    ccs_firewall_dokan_exclusion     = true   ← دايماً true
+
+  Database & Files:
+    ccs_db_table_prefix              = false  ← يحتاج تأكيد يدوي
+    ccs_db_file_monitor              = true
+    ccs_db_disable_file_edit         = true
+    ccs_db_activity_monitor          = true
+
+  Audit Log:
+    ccs_log_admin_events             = true
+    ccs_log_email_alerts             = true
+    ccs_log_weekly_report            = false
+
+=============================================================
+5. الداشبورد (Admin Dashboard Design)
+=============================================================
+
+اعمل صفحة واحدة رئيسية في:
+Admin Menu > ConsucCorner > Security
+
+الصفحة دي فيها:
+  - Header: اسم البلاجن + Status (Protected/Issues Found)
+  - Security Score: رقم من 0-100 بناءً على الـ options المفعّلة
+  - 6 Section Cards:
+    كل card فيها:
+      * أيقونة + اسم القسم
+      * وصف مختصر
+      * Master Toggle للقسم كله
+      * زرار "Settings" يودي لصفحة القسم الخاصة
+  - لكل صفحة قسم:
+      * شرح لكل option
+      * Toggle (on/off) لكل option
+      * تحذير بالأحمر لو Option خطر إنه يتعطل
+      * Badge "Safe for Dokan" أو "Safe for Google" أو "GeIdeA OK"
+
+IMPORTANT: الـ toggles بتشتغل بـ AJAX من غير Page Reload.
+اعمل AJAX handler يحفظ الـ option فوراً.
+
+=============================================================
+6. Module: Bot Protection (الأهم — ابدأ بيه)
+=============================================================
+
+الهدف: حجب البوتات الضارة مع السماح الكامل لـ Google
+        وتقليل السكرابينج من مستوى Nginx و PHP معاً
+
+=== الجزء الأول: PHP Layer ===
+
+Step 1: تعريف القوائم
+
+GOOGLE_BOTS_WHITELIST = [
+  'Googlebot',
+  'Googlebot-Image',
+  'Googlebot-Video',
+  'Google-InspectionTool',
+  'AdsBot-Google',
+  'APIs-Google',
+  'Mediapartners-Google',
+  'Google-Read-Aloud',
+  'Storebot-Google',
+  'Google-Site-Verification',
+  'Googlebot-News',
+  'Google Favicon',
+]
+
+SCRAPERS_BLACKLIST = [
+  'AhrefsBot',
+  'SemrushBot',
+  'DotBot',
+  'MJ12bot',
+  'BLEXBot',
+  'DataForSeoBot',
+  'PetalBot',
+  'YandexBot',     ← روسيا، مش مهم للسوق المصري
+  'BingBot',       ← اتركه لو مش حابب تحجبه
+  'SeznamBot',
+  'Exabot',
+  'Baiduspider',
+  'ia_archiver',
+  'HTTrack',
+  'wget',
+  'curl',          ← انتبه! بعض بوابات الدفع بتستخدمه
+]
+
+Step 2: دالة التحقق من Googlebot
+
+function ccs_verify_googlebot($ip, $user_agent):
+  1. تحقق إن الـ user_agent يحتوي على "Googlebot"
+  2. اعمل reverse DNS: gethostbyaddr($ip)
+  3. تأكد إن الـ hostname ينتهي بـ:
+     .googlebot.com أو .google.com أو .googleusercontent.com
+  4. اعمل forward DNS على الـ hostname
+  5. تأكد إن الـ IP المرجع = الـ IP الأصلي
+  6. لو كل ده صح → مسموح بالكامل
+  7. Cache النتيجة في transient لمدة 6 ساعات:
+     'ccs_bot_verify_' . md5($ip) = true/false
+
+Step 3: الحجب في init hook (priority 1 — أول حاجة بتتنفذ)
+
+add_action('init', 'ccs_bot_protection', 1):
+  1. جيب الـ IP الحقيقي (مع مراعاة Cloudways proxy)
+  2. جيب الـ User-Agent
+  3. لو في الـ Whitelist (Google/GeIdeA/Dokan) → اسمح فوراً
+  4. لو في الـ Blacklist → حجب (HTTP 403)
+  5. لو مفيش User-Agent خالص → حجب (HTTP 403)
+  6. Honeypot: لو شرط الـ honeypot اتفعّل، اضف hidden link في footer
+
+=== الجزء الثاني: Nginx Layer ===
+
+اعمل function تولّد ملف نصي بقواعد Nginx:
+
+function ccs_generate_nginx_rules():
+
+  الـ Template يتكون من:
+
+  # === ConsucCorner Security — Auto-Generated Nginx Rules ===
+  # Generated: {date}
+  # DO NOT EDIT — يتولد تلقائياً من الداشبورد
+  
+  # --- Anti-Scraping: Block known scrapers at Nginx level ---
+  map $http_user_agent $ccs_bad_bot {
+    default         0;
+    ~*AhrefsBot     1;
+    ~*SemrushBot    1;
+    ~*DotBot        1;
+    ~*MJ12bot       1;
+    ~*BLEXBot       1;
+    ~*DataForSeoBot 1;
+    ~*PetalBot      1;
+    ~*Baiduspider   1;
+    ~*HTTrack       1;
+    ~*ia_archiver   1;
+  }
+  
+  # --- Rate Limiting zones ---
+  limit_req_zone $binary_remote_addr zone=ccs_general:10m rate=30r/m;
+  limit_req_zone $binary_remote_addr zone=ccs_login:10m   rate=5r/m;
+  limit_req_zone $binary_remote_addr zone=ccs_api:10m     rate=20r/m;
+  
+  # --- في server block ---
+  
+  # Block bad bots
+  if ($ccs_bad_bot) {
+    return 403;
+  }
+  
+  # Block empty User-Agent
+  if ($http_user_agent = "") {
+    return 403;
+  }
+  
+  # Apply rate limits
+  location / {
+    limit_req zone=ccs_general burst=10 nodelay;
+  }
+  
+  # Login page rate limit
+  location ~* /(wp-login\.php|wp-admin/admin-ajax\.php) {
+    limit_req zone=ccs_login burst=3 nodelay;
+  }
+  
+  # REST API rate limit (مع استثناء Dokan و GeIdeA)
+  location /wp-json/ {
+    limit_req zone=ccs_api burst=10 nodelay;
+    # استثناء Dokan
+    location ~* /wp-json/dokan/ { limit_req off; }
+    location ~* /wp-json/wc/    { limit_req off; }
+  }
+  
+  # استثناء GeIdeA Webhooks
+  location ~* /wc-api/geidea { limit_req off; }
+  
+  # Google bots: bypass rate limiting
+  # (Nginx لا يقدر يتحقق من DNS، الـ verification في PHP)
+  map $http_user_agent $is_google {
+    default        0;
+    ~*Googlebot    1;
+    ~*Storebot     1;
+    ~*AdsBot-Google 1;
+  }
+  
+  # منع XML-RPC (إلا لو محتاجه)
+  location = /xmlrpc.php {
+    deny all;
+  }
+  
+  # منع تصفح الـ directories
+  autoindex off;
+  
+  # حماية ملفات حساسة
+  location ~* \.(git|env|log|sql|bak|backup|config)$ {
+    deny all;
+  }
+
+اعمل زرار في الداشبورد "Generate & Download Nginx Rules"
+يولّد الملف ويدي المستخدم تعليمات إنه يحطه في:
+Cloudways → Server → Nginx Configuration
+
+=============================================================
+7. Module: Security Headers
+=============================================================
+
+اعمل Headers تشتغل مع GeIdeA:
+
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval'
+             *.googleapis.com
+             *.gstatic.com
+             *.google.com
+             *.geidea.net         ← GeIdeA
+             *.geidea-payment.com ← GeIdeA
+  style-src 'self' 'unsafe-inline' *.googleapis.com *.gstatic.com;
+  img-src 'self' data: blob:
+          *.googleapis.com *.gstatic.com *.google.com
+          *.geidea.net;
+  frame-src 'self' *.geidea.net *.geidea-payment.com
+            *.google.com;
+  connect-src 'self' *.geidea.net *.geidea-payment.com
+              *.googleapis.com;
+  font-src 'self' *.googleapis.com *.gstatic.com data:;
+
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+ملاحظة: لو GeIdeA بتفتح iframe للدفع، غيّر X-Frame-Options لـ:
+ALLOW-FROM https://payment.geidea.net
+
+=============================================================
+8. Module: Login Security
+=============================================================
+
+Brute Force:
+  max_attempts     = 5
+  lockout_minutes  = 30
+  permanent_after  = 10 محاولات
+  storage          = transients (مش database كل مرة)
+  whitelist_ips    = من الإعدادات (إدخال يدوي)
+
+Login URL Change:
+  - ما تحذفش wp-login.php من السيرفر
+  - بس اعمل redirect من wp-admin لـ 404 للزوار غير المسجلين
+  - الـ URL الجديد يتخزن في options
+  - تحذير في الداشبورد لو انتهى بـ admin/login/signin (سهل يتخمن)
+
+2FA:
+  - استخدم TOTP (Google Authenticator compatible)
+  - إجباري على: administrator, shop_manager, dokan_vendor
+  - اختياري على: customer
+  - اعمل Recovery codes (8 codes تُستخدم مرة واحدة)
+
+=============================================================
+9. إعدادات خاصة بـ Cloudways
+=============================================================
+
+اعمل section في الداشبورد اسمه "Server Configuration Guide"
+بيوضح للمستخدم:
+
+  الخطوة 1: في Cloudways Server Settings:
+    - فعّل Varnish Cache أو Redis (الأسرع)
+    - PHP Memory Limit: 256MB
+    
+  الخطوة 2: Nginx Custom Configuration:
+    - انسخ الـ rules اللي البلاجن ولّدتها
+    - حطها في: Cloudways → Server → Settings → Nginx Configuration
+    
+  الخطوة 3: Fail2Ban (SSH access):
+    - البلاجن بتولّد fail2ban jail config
+    - ضيفه على السيرفر عن طريق SSH
+
+=============================================================
+10. حالة التنفيذ الحالية + الأولويات القادمة
+=============================================================
+
+CURRENT STATUS:
+  - Phase 1 (Core + Dashboard + Options): مكتمل
+  - Phase 3 (Logs/Charts/Settings manager + REST): مكتمل
+
+NEXT PRIORITY (Phase 2 Runtime Protection Modules):
+  1. class-ccs-bot-protection.php
+  2. class-ccs-firewall.php
+  3. class-ccs-login-security.php
+  4. class-ccs-headers.php
+  5. class-ccs-server-rules.php
+  6. class-ccs-file-monitor.php
+  7. class-ccs-database.php
+  8. class-ccs-audit-log.php
+
+MANDATORY FOR EVERY NEXT STEP:
+  - اربط أي module جديد مع CCS_Logger للأحداث المهمة
+  - لا تضيف breaking changes على صفحات الإدارة الموجودة
+  - كل endpoints لازم تبقى capability + nonce protected
+  - أي query على logs لازم LIMIT + index-friendly
+  - لا تعطل Dokan/GeIdeA/Google/SEO rules تحت أي ظرف
+
+=============================================================
+11. تعليمات البرمجة (Coding Standards)
+=============================================================
+
+- اتبع WordPress Coding Standards
+- كل function ليها prefix: ccs_
+- كل class ليها prefix: CCS_
+- استخدم nonces في كل AJAX requests
+- استخدم current_user_can() قبل أي admin action
+- sanitize كل input, escape كل output 
+- لا error logs في Production
+- اكتب PHPDoc لكل function
+- PHP minimum version: 7.4
+
+=============================================================
+12. WEBSITE KNOWLEDGE BASE (مهم جداً لأي AI جديد)
+=============================================================
+
+A) BIG PICTURE (ما هو الموقع؟)
+-------------------------------------------------------------
+- الاسم: ConsuCorner
+- النوع: WooCommerce Marketplace (Multi-vendor) عبر Dokan Pro
+- بوابة الدفع الأساسية: GeIdeA (Critical Integration)
+- الثيم: custom theme باسم consucorner
+- مبدأ العمل: UX-heavy storefront + custom account/profile flows + custom filtering/search
+- اللغة/السوق: مصر أولاً، لذلك لا تستخدم assumptions خاصة بأسواق أخرى بدون طلب صريح
+
+
+B) THEME CORE MAP (خريطة الثيم الأساسية)
+-------------------------------------------------------------
+main theme:
+  /wp-content/themes/consucorner/
+
+الأعمدة الأساسية:
+- functions.php
+  - theme setup + menus + supports
+  - conditional asset loading (CSS/JS حسب نوع الصفحة)
+  - AJAX handlers متعددة (homepage/product blocks/auth/etc)
+  - auto-create pages + seed footer menus
+  - includes لكل ملفات inc/*
+
+- woocommerce overrides:
+  - woocommerce/archive-product.php
+  - woocommerce/content-single-product.php
+  - woocommerce/single-product.php
+  - woocommerce/cart/*.php
+  - woocommerce/checkout/*.php
+  - woocommerce/myaccount/*.php
+
+- inc/ (logic modules):
+  - category-filters.php
+  - search-experience.php
+  - dokan-overrides.php
+  - profile-account.php
+  - customer-wallet.php
+  - admin-vendor-ledger.php
+  - product-specialties-taxonomy.php
+  - product-procedures-taxonomy.php
+  - meta-boxes.php
+  - help-pages.php
+  - mobile-drawer-menu.php
+  - product-mega-menu.php
+  - explore-mega-menu.php
+  - attribute-images.php
+
+- asset architecture:
+  - /assets/css/*.css
+  - /assets/js/*.js
+  - functions.php يعمل page-conditional enqueue لتقليل الحمل
+
+
+C) IMPORTANT BUSINESS FLOWS (مسارات العمل المهمة)
+-------------------------------------------------------------
+1) Shop / Archive filtering:
+   - Frontend: assets/js/category-filter.js
+   - Backend: inc/category-filters.php
+   - Template UI: woocommerce/archive-product.php
+   - ملاحظة: فيه dynamic availability للفلاتر + multi-select لبعض taxonomies
+
+2) Live search:
+   - inc/search-experience.php
+   - AJAX action: consucorner_live_search
+
+3) Homepage dynamic product sections:
+   - AJAX actions:
+     - consucorner_get_specialty_products
+     - consucorner_get_recommended_products
+     - consucorner_get_overall_bestsellers
+
+4) Account/Profile custom system:
+   - inc/profile-account.php
+   - AJAX endpoints كثيرة (get data, avatar, account, orders, wishlist, privacy, notifications...)
+
+5) Wallet + refunds:
+   - inc/customer-wallet.php
+   - inc/admin-wallet-refunds.php
+   - يمتد إلى checkout/order/admin actions
+
+6) Dokan compatibility overrides:
+   - inc/dokan-overrides.php
+   - يحافظ على purchasable/price/button behavior في وجود catalog mode
+
+
+D) TAXONOMIES & CONTENT MODEL
+-------------------------------------------------------------
+- WooCommerce product categories: product_cat
+- custom taxonomy: specialty (inc/product-specialties-taxonomy.php)
+- custom taxonomy: procedure (inc/product-procedures-taxonomy.php)
+- metadata كثيف عبر inc/meta-boxes.php لصفحات متعددة ومنتجات
+
+
+E) AUTO-PROVISIONING BEHAVIOR (يُنشأ تلقائياً)
+-------------------------------------------------------------
+functions.php يقوم بإنشاء/تهيئة:
+- الصفحة الرئيسية كـ front page
+- صفحات static أساسية (About, Contact, Privacy, Terms, Vendor, Blogs, FAQ, Shop pages)
+- footer menus + تعيين locations
+
+IMPORTANT:
+- لا تفترض أن كل صفحة تم إنشاؤها يدوياً من الأدمن
+- كثير من البنية قد تكون generated من الكود
+
+
+F) SECURITY PLUGIN CURRENT REALITY (ليس plan فقط)
+-------------------------------------------------------------
+plugin:
+  /wp-content/plugins/consucorner-security/
+
+الحالة الحالية:
+- Phase 1 مكتمل (dashboard/options/module toggles)
+- Phase 3 مكتمل (logs/charts/settings manager + REST endpoints)
+- Phase 2 runtime protection modules ما زالت الأولوية القادمة
+
+مكوّنات فعلياً موجودة الآن:
+- class-ccs-logger.php
+- class-ccs-ip-manager.php
+- class-ccs-stats.php
+- class-ccs-notifications.php
+- modules/class-ccs-rest-api.php
+- admin views/assets لصفحات logs/analytics/notifications/advanced
+
+
+G) CONSUCORNER SECURITY REST MAP (implemented)
+-------------------------------------------------------------
+namespace:
+  /wp-json/ccs/v1/
+
+stats:
+- GET stats/summary
+- GET stats/timeline
+- GET stats/types
+- GET stats/countries
+- GET stats/heatmap
+- GET stats/top-ips
+- GET stats/score
+
+logs:
+- GET logs
+- GET logs/{id}
+- GET logs/export
+- POST logs/clear
+
+ip:
+- POST ip/block
+- POST ip/whitelist
+- DELETE ip/block/{ip}
+- DELETE ip/whitelist/{ip}
+- GET ip/{ip}/info
+- GET ip/blocked
+- GET ip/whitelist
+- POST ip/clear-expired
+
+settings/notifications/live:
+- POST settings
+- POST notifications/test-email
+- POST notifications/test-telegram
+- GET live-feed
+
+security requirements for ALL endpoints:
+- user logged in
+- manage_options capability
+- REST nonce
+
+
+H) NON-NEGOTIABLE COMPATIBILITY RULES (كررها دائماً أثناء التطوير)
+-------------------------------------------------------------
+- لا تمنع أو تكسر GeIdeA payment callbacks/webhooks
+- لا تمنع Dokan/WooCommerce API routes المحددة في الأعلى
+- لا تحجب Google bots المذكورين (مع DNS verification عند الحاجة)
+- لا تكسر SEO crawling: sitemap.xml / robots.txt / headers
+- أي حماية جديدة يجب أن تكون opt-safe وتدريجية
+
+
+I) PERFORMANCE GUIDELINES FOR THIS PROJECT
+-------------------------------------------------------------
+- تجنب heavy queries على كل request
+- استخدم transient caching للـ computed data
+- استخدم cron/background للمهام الثقيلة (مثل cleanup/scans)
+- SELECT على logs لازم LIMIT دايماً
+- احترم index-friendly filters خاصة created_at / severity / ip
+- لا ترفع JS/CSS غير المطلوب للصفحة الحالية
+
+
+J) WHEN EDITING: FILE PRIORITY ORDER
+-------------------------------------------------------------
+لو المشكلة في:
+- UI archive filters:
+  1) woocommerce/archive-product.php
+  2) assets/js/category-filter.js
+  3) inc/category-filters.php
+  4) assets/css/shop-page.css
+
+- profile/account:
+  1) inc/profile-account.php
+  2) assets/js/profile.js
+  3) woocommerce/myaccount/*
+
+- security dashboard/runtime:
+  1) wp-content/plugins/consucorner-security/consucorner-security.php
+  2) includes/*
+  3) includes/modules/class-ccs-rest-api.php
+  4) admin/class-ccs-admin.php
+  5) admin/views/*
+  6) admin/assets/js/*
+  7) admin/assets/css/*
+
+
+K) QUALITY CHECKLIST BEFORE FINISHING ANY TASK
+-------------------------------------------------------------
+- capability + nonce checks موجودة؟
+- sanitization input + escaped output؟
+- Dokan/GeIdeA/Google/SEO safe؟
+- no obvious performance regressions؟
+- admin UX لا يحتاج page reload لو action AJAX-based؟
+- لوجيك جديد مسجّل في logs عند الأحداث الأمنية المهمة؟
+
+
+=============================================================
+ابدأ الآن في Phase 2 modules مع الحفاظ على Phase 1 + 3 كما هي،
+ومع الالتزام الكامل بخريطة الموقع المذكورة أعلاه
+=============================================================

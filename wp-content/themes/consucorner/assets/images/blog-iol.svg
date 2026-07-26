@@ -1,0 +1,12 @@
+<svg width="960" height="760" viewBox="0 0 960 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="760" rx="34" fill="#00C8B3"/>
+  <circle cx="704" cy="218" r="168" fill="#35D8C8" opacity=".45"/>
+  <circle cx="278" cy="518" r="210" fill="#2597E0" opacity=".22"/>
+  <path d="M220 414C274 286 414 218 540 272C612 303 666 362 690 432C642 510 554 562 454 562C356 562 270 505 220 414Z" fill="white" opacity=".94"/>
+  <path d="M454 322C522 322 580 364 604 424C580 484 522 526 454 526C386 526 328 484 304 424C328 364 386 322 454 322Z" fill="#E9FFFC"/>
+  <circle cx="454" cy="424" r="82" fill="#2597E0"/>
+  <circle cx="454" cy="424" r="38" fill="#0F172A"/>
+  <path d="M640 214L760 148M654 252L792 252M640 292L760 360" stroke="white" stroke-width="18" stroke-linecap="round" opacity=".78"/>
+  <text x="72" y="112" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="5">CONSU CORNER</text>
+  <text x="72" y="668" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="700">Ophthalmic Instruments</text>
+</svg>

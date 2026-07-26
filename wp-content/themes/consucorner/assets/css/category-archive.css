@@ -1,0 +1,288 @@
+/* ============================================================
+   CATEGORY ARCHIVE — extras layered on top of shop-page.css
+   ============================================================
+   The base layout (.fp-products-section, .fp-sidebar, .fp-products-grid,
+   .card-shop, .fp-collection-tabs, etc.) is defined in shop-page.css.
+   This file only adds the bits that aren't covered there:
+     • Numbered pagination
+     • Results row spacing
+     • Out-of-stock badge on cards
+     • Filter group title hover/focus polish
+   ============================================================ */
+
+/* Pagination */
+.fp-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f2f5;
+}
+
+.fp-pagination:empty {
+  display: none;
+}
+
+.cc-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f2f5;
+}
+
+.cc-pagination .page-numbers {
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    color 0.18s;
+}
+
+.cc-pagination .page-numbers.current {
+  background: #07af9e;
+  border-color: #07af9e;
+  color: #fff;
+}
+
+.cc-pagination a.page-numbers:hover {
+  border-color: #07af9e;
+  color: #07af9e;
+}
+
+.fp-page-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    color 0.18s;
+}
+
+.fp-page-btn:hover:not(:disabled) {
+  border-color: #07af9e;
+  color: #07af9e;
+}
+
+.fp-page-btn--active {
+  background: #07af9e;
+  border-color: #07af9e;
+  color: #fff;
+}
+
+.fp-page-btn--active:hover {
+  background: #059286;
+  color: #fff;
+}
+
+.fp-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.fp-page-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  color: #9ca3af;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+}
+
+/* Product card title — keep the link inside the H3 styled like plain text
+   (matches the static front-end design where the title is a dark heading,
+   not a default browser-blue underlined link). */
+.product-card-title a,
+.product-card-title-link,
+.product-card-title-link:link,
+.product-card-title-link:visited,
+.product-card-title-link:hover,
+.product-card-title-link:focus,
+.product-card-title-link:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card-title-link:hover {
+  color: #07af9e;
+}
+
+/* Out-of-stock badge on the card */
+.ap-out-of-stock-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.btn-add-cart--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Results row tweaks */
+.fp-results-row {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Infinite scroll — sentinel + loading state + end message */
+.fp-infinite-sentinel-wrap {
+  width: 100%;
+  min-height: 1px;
+}
+
+.fp-infinite-sentinel {
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.fp-infinite-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 20px;
+  padding-bottom: 8px;
+}
+
+.fp-infinite-spinner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.fp-infinite-spinner[hidden] {
+  display: none !important;
+}
+
+.fp-infinite-spinner-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #07af9e;
+  border-radius: 50%;
+  animation: fp-infinite-spin 0.7s linear infinite;
+}
+
+@keyframes fp-infinite-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fp-infinite-done {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #9ca3af;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.fp-infinite-done[hidden] {
+  display: none !important;
+}
+
+.fp-collection-tabs {
+  flex-wrap: wrap;
+}
+
+/* Mobile tightening for additional bits */
+@media (max-width: 768px) {
+  .fp-pagination {
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+  .fp-page-btn {
+    min-width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .fp-infinite-foot {
+    margin-top: 14px;
+    min-height: 44px;
+  }
+
+  .fp-infinite-spinner {
+    font-size: 13px;
+  }
+}
+
+/* ============================================================
+   COMPACT ARCHIVE PAGE HEAD (WooCommerce shop + tax archives)
+   Desktop: shorter banner. Mobile: 60px only (see responsive.css).
+   ============================================================ */
+.shop-page-head.shop-page-head--archive-compact {
+  height: 200px;
+  min-height: 200px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-page-head.shop-page-head--archive-compact .shop-page-head-inner {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.shop-page-head.shop-page-head--archive-compact .shop-page-title {
+  font-size: 40px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.shop-page-head.shop-page-head--archive-compact .shop-page-breadcrumbs {
+  margin-top: 6px;
+  font-size: 16px;
+  text-align: center;
+}

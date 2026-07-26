@@ -1,0 +1,56 @@
+:root {
+  /* ConsuCorner brand DNA */
+  --cc-font-primary: "Manrope", sans-serif;
+  --cc-font-heading: "Manrope", sans-serif;
+  --cc-color-primary: #13c9bc;
+  --cc-color-secondary: #2597e0;
+  --cc-color-accent: #64e9cc;
+  --cc-color-ink: #0f2740;
+  --cc-color-text: #1f2937;
+  --cc-color-muted: #5f7a90;
+  --cc-color-soft: #f2fbfa;
+  --cc-color-surface: #ffffff;
+  --cc-color-border: #d8e7f3;
+  --cc-gradient-brand: linear-gradient(135deg, var(--cc-color-primary) 0%, var(--cc-color-secondary) 100%);
+  --cc-gradient-card: linear-gradient(
+    170deg,
+    rgba(180, 255, 240, 0.38) 0%,
+    rgba(255, 255, 255, 0.9) 48%,
+    rgba(240, 250, 255, 0.98) 100%
+  );
+  --gradient-dark: linear-gradient(180deg, #0d3f66 0%, #091e33 100%);
+  --cc-shadow-card: 0 25px 55px -20px rgba(37, 151, 224, 0.28), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  --cc-radius-card: 26px;
+  --cc-radius-field: 14px;
+  --cc-radius-pill: 999px;
+
+  --card-width: 200.28px;
+  --card-height: 276.35px;
+  --card-radius: 12px;
+  --card-border-width: 0.6px;
+
+  /* Gradients */
+  --bg-gradient: radial-gradient(
+    153.25% 153.25% at 50.68% 9.95%,
+    #64e9cc 0%,
+    #2597e0 100%
+  );
+  --border-gradient: linear-gradient(
+    245.77deg,
+    rgba(37, 151, 224, 0.29) -16.48%,
+    rgba(100, 233, 204, 0.29) 161.62%
+  );
+  --blur-amount: 15.65px;
+
+  /* Z-Index Scale */
+  --z-background: 0;
+  --z-base: 1;
+  --z-content: 2;
+  --z-ui-control: 3;
+  --z-section-mid: 5;
+  --z-section-elevated: 10;
+  --z-overlay-banner: 20;
+  --z-mega-menu: 900;
+  --z-drawer-overlay: 998;
+  --z-drawer: 999;
+}

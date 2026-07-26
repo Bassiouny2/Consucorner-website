@@ -1,0 +1,602 @@
+/* =================================================================
+   Mobile Navigation Drawer — card-based design
+   Font: Manrope (theme default)
+================================================================= */
+
+/* ── Overlay ─────────────────────────────────────────────────── */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-drawer-overlay);
+}
+
+.drawer-overlay.active {
+  display: block;
+}
+
+/* ── Drawer shell ─────────────────────────────────────────────── */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 82vw;
+  max-width: 360px;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  padding: 26px 22px 36px;
+  z-index: var(--z-drawer);
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at 90% 8%, rgba(0, 164, 255, 0.09), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f5f6f8 100%);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+}
+
+.mobile-drawer::-webkit-scrollbar {
+  width: 0;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+/* ── Header row (logo + close) ────────────────────────────────── */
+.cc-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cc-drawer-logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #54e0c9;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline-offset: 4px;
+}
+
+.cc-drawer-logo span {
+  color: #16a8f2;
+}
+
+.cc-drawer-logo:hover,
+.cc-drawer-logo:focus-visible {
+  color: #54e0c9;
+  text-decoration: none;
+}
+
+.cc-drawer-close {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: #eef3f7;
+  color: #6a8099;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s;
+  flex-shrink: 0;
+}
+
+.cc-drawer-close:hover {
+  background: #dce6ee;
+}
+
+/* ── Login / Account button ───────────────────────────────────── */
+.cc-drawer-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  background: #16a8e8;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 18px rgba(22, 168, 232, 0.28);
+  transition:
+    background 0.22s,
+    transform 0.22s;
+}
+
+.cc-drawer-login:hover {
+  background: #0b94d5;
+  transform: translateY(-1px);
+}
+
+/* ── Tab row ──────────────────────────────────────────────────── */
+.drawer-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0 26px;
+}
+
+.drawer-tab {
+  height: 42px;
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8ee;
+  color: #00a796;
+  font-family: "Manrope", sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(23, 35, 51, 0.06);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.drawer-tab.active {
+  border-color: #20e4c5;
+  box-shadow:
+    inset 0 0 0 1px #20e4c5,
+    0 4px 12px rgba(23, 35, 51, 0.06);
+}
+
+/* ── Content panels ───────────────────────────────────────────── */
+.drawer-content.hidden {
+  display: none;
+}
+
+/* ── Section wrappers ─────────────────────────────────────────── */
+.cc-section {
+  margin-bottom: 28px;
+}
+
+.cc-section h3 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  color: #009b96;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cc-section h3.with-dot::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #12c9b6;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.cc-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cc-slider-nav {
+  display: flex;
+  gap: 0;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 3px 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.cc-section > p {
+  margin: 6px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 11.5px;
+  color: #90a0b4;
+  line-height: 1.45;
+}
+
+/* ── Horizontal snap-slider (Shop by Category / Specialty) ───── */
+.cc-slider-wrap {
+  position: relative;
+}
+
+.cc-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0;
+  padding: 16px 1px 12px;
+  margin-inline: -1px;
+  /* thin teal scrollbar for tactile feedback */
+  scrollbar-width: thin;
+  scrollbar-color: #d0ede8 transparent;
+}
+
+.cc-slider::-webkit-scrollbar {
+  height: 3px;
+}
+
+.cc-slider::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cc-slider::-webkit-scrollbar-thumb {
+  background: #c8e8e2;
+  border-radius: 99px;
+}
+
+.cc-slider-arrow {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.cc-slider-arrow:hover {
+  background: #e9fff9;
+  color: #2597e0;
+}
+
+.cc-slider-arrow svg {
+  width: 13px;
+  height: 13px;
+}
+
+.cc-slider-arrow--prev svg {
+  transform: rotate(180deg);
+}
+
+/* Each page inside the slider — full-width 2×2 grid.
+   align-items + grid-auto-rows keep all cards at natural (compact) height. */
+.cc-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  align-items: start;
+  gap: 12px;
+}
+
+/* ── 2×2 static grid (Explore Important Links — no slider) ───── */
+.cc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  align-items: start;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ── Category cards ───────────────────────────────────────────── */
+.cc-card {
+  height: 80px; /* fixed height — same as Figma spec */
+  border-radius: 18px;
+  background: #ffffff;
+  color: #213242;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 8px;
+  border: 1px #f2f2f2 solid;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.cc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(30, 43, 61, 0.13);
+}
+
+.cc-card strong {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ── Icon bubble (mobile drawer + explore cards only) ─────────── */
+.mobile-drawer .cc-icon,
+.cc-explore-card .cc-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: #e9fff9;
+  color: #00a897;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.mobile-drawer .cc-icon img,
+.cc-explore-card .cc-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* ── Specialty cards ──────────────────────────────────────────── */
+.cc-specialty-card {
+  position: relative;
+  min-height: 60px;
+  border-radius: 16px;
+  padding: 18px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #32d4b4 0%, #1ab8c8 100%);
+  transition:
+    transform 0.22s ease,
+    filter 0.22s ease;
+  justify-content: center;
+}
+
+/* Decorative circle and pill */
+.cc-specialty-card::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+.cc-specialty-card::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 10px;
+  width: 44px;
+  height: 18px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+.cc-specialty-card:hover {
+  transform: translateY(-3px);
+  filter: saturate(1.08);
+}
+
+/* Colour variants */
+.cc-specialty-card.blue {
+  background: linear-gradient(135deg, #5b9dff 0%, #286be8 100%);
+}
+
+.cc-specialty-card.purple {
+  background: linear-gradient(135deg, #5f65ff 0%, #244dd6 100%);
+}
+
+.cc-specialty-card.teal {
+  background: linear-gradient(135deg, #20c6b8 0%, #009f98 100%);
+}
+
+/* ── Explore (Important Links) cards ─────────────────────────── */
+.cc-explore-card {
+  position: relative;
+  min-height: 90px;
+  padding: 18px;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #253547;
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgba(30, 43, 61, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6px;
+  overflow: hidden;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.cc-explore-card strong {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.18;
+  color: inherit;
+  margin-top: auto;
+}
+
+.cc-explore-card small {
+  font-family: "Manrope", sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  color: #8fa1b4;
+  transition: color 0.22s;
+}
+
+.cc-explore-card:hover,
+.cc-explore-card.is-active {
+  background: #10998d;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.cc-explore-card:hover small,
+.cc-explore-card.is-active small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cc-explore-card:hover .cc-icon,
+.cc-explore-card.is-active .cc-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Decorative ring on hover/active */
+.cc-explore-card:hover::after,
+.cc-explore-card.is-active::after {
+  content: "";
+  position: absolute;
+  right: -19px;
+  bottom: -17px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.13);
+  pointer-events: none;
+}
+
+.cc-explore-card:hover::before,
+.cc-explore-card.is-active::before {
+  content: "";
+  position: absolute;
+  right: -2px;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.13);
+  pointer-events: none;
+}
+
+/* ── Help & Guidelines list ───────────────────────────────────── */
+.cc-help-list {
+  margin-top: 14px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 6px 14px;
+  box-shadow: 0 10px 22px rgba(30, 43, 61, 0.08);
+}
+
+.cc-help-item {
+  min-height: 56px;
+  display: grid;
+  grid-template-columns: 36px 1fr 18px;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #253547;
+  border-bottom: 1px solid #eef2f5;
+  transition: transform 0.18s;
+}
+
+.cc-help-item:last-child {
+  border-bottom: 0;
+}
+
+.cc-help-item:hover {
+  transform: translateX(3px);
+}
+
+.cc-help-item-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: #eef5fa;
+  color: #8da1b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cc-help-item-text strong {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #253547;
+}
+
+.cc-help-item-text small {
+  display: block;
+  margin-top: 3px;
+  font-family: "Manrope", sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #9aabbb;
+}
+
+.cc-help-item-arrow {
+  font-style: normal;
+  color: #b5c1cc;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ── Responsive tweaks ────────────────────────────────────────── */
+@media (max-width: 380px) {
+  .mobile-drawer {
+    padding: 22px 16px 30px;
+  }
+
+  .cc-grid {
+    gap: 10px;
+  }
+
+  .cc-card {
+    height: 90px;
+    padding: 12px 8px;
+  }
+
+  .cc-explore-card {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  .cc-card strong {
+    font-size: 11px;
+  }
+
+  .cc-explore-card strong {
+    font-size: 12px;
+  }
+}

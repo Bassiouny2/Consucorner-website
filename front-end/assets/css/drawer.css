@@ -1,0 +1,209 @@
+/* =================================
+   Mobile Navigation Drawer
+================================= */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: var(--z-drawer-overlay);
+}
+
+.drawer-overlay.active {
+  display: block;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 82vw;
+  max-width: 420px;
+  height: 100dvh;
+  background: #3ecfb2; /* teal from Figma */
+  z-index: var(--z-drawer);
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: "Manrope", sans-serif;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+/* Drawer Header */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 16px;
+}
+
+.drawer-login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: "Manrope", sans-serif;
+  padding: 9px 18px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+.drawer-close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 10px;
+  line-height: 1;
+}
+
+/* Tab Row */
+.drawer-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px 20px;
+}
+
+.drawer-tab {
+  flex: 1;
+  padding: 11px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+
+.drawer-tab.active {
+  background: #fff;
+  color: #3ecfb2;
+  border-color: #fff;
+}
+
+/* Drawer Content Panels */
+.drawer-content {
+  padding: 0 20px 40px;
+}
+
+.drawer-content.hidden {
+  display: none;
+}
+
+/* Category toggles */
+.drawer-category {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.drawer-category-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  padding: 18px 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Subcategory heading */
+.drawer-subcategory {
+  padding-left: 8px;
+}
+
+.drawer-subcategory-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* Item list */
+.drawer-items {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0 0 0 8px;
+  display: none;
+}
+
+.drawer-items.open {
+  display: block;
+}
+
+.drawer-items li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 0;
+  opacity: 0.9;
+  transition: opacity 0.15s;
+}
+
+.drawer-items li a:hover {
+  opacity: 1;
+}
+
+/* Explore Sections */
+.drawer-section {
+  margin-bottom: 32px;
+}
+
+.drawer-section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 14px;
+}
+
+.drawer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-links li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px 0;
+  opacity: 0.92;
+  transition: opacity 0.15s;
+}
+
+.drawer-links li a:hover {
+  opacity: 1;
+}

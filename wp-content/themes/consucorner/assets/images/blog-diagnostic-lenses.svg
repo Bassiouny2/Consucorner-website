@@ -1,0 +1,11 @@
+<svg width="960" height="760" viewBox="0 0 960 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="760" rx="34" fill="#EAF7F6"/>
+  <circle cx="458" cy="344" r="220" fill="#00C8B3" opacity=".22"/>
+  <circle cx="458" cy="344" r="150" fill="white"/>
+  <circle cx="458" cy="344" r="104" fill="#2597E0"/>
+  <circle cx="458" cy="344" r="54" fill="#0F172A"/>
+  <path d="M566 452L748 634" stroke="#00C8B3" stroke-width="34" stroke-linecap="round"/>
+  <path d="M328 250C358 214 404 192 458 192C512 192 558 214 588 250" stroke="#0F172A" stroke-width="18" stroke-linecap="round" opacity=".32"/>
+  <text x="72" y="112" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="5">CONSU CORNER</text>
+  <text x="72" y="668" fill="#0F172A" font-family="Arial, sans-serif" font-size="48" font-weight="700">Diagnostic Lenses</text>
+</svg>

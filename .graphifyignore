@@ -1,0 +1,50 @@
+# Graphify scope for ConsuCorner — index custom code only (not WP core / vendor plugins).
+
+# WordPress core & runtime
+wp-admin/
+wp-includes/
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
+wp-content/debug.log
+
+# Third-party plugins (keep consucorner-* via negation below)
+wp-content/plugins/woocommerce/
+wp-content/plugins/dokan-lite/
+wp-content/plugins/forminator/
+wp-content/plugins/geidea-online-payments/
+wp-content/plugins/seo-by-rank-math/
+wp-content/plugins/wp-all-import-pro/
+wp-content/plugins/wpai-woocommerce-add-on/
+wp-content/plugins/updraftplus/
+wp-content/plugins/paymob-for-woocommerce/
+wp-content/plugins/duracelltomi-google-tag-manager/
+wp-content/plugins/email-log/
+wp-content/plugins/wt-smart-coupons-for-woocommerce/
+wp-content/plugins/import-xml-csv-settings-to-rank-math-seo/
+wp-content/plugins/Referral-Discounts-for-WooCommerce-RDFW-main/
+
+# Dependencies & build artifacts
+node_modules/
+vendor/
+*.min.js
+*.min.css
+
+# Local / debug
+debug-*.log
+.specify/
+
+# Re-include custom project code
+!wp-content/themes/consucorner/
+!wp-content/themes/consucorner/**
+!wp-content/plugins/consucorner-security/
+!wp-content/plugins/consucorner-security/**
+!wp-content/plugins/consucorner-gtm/
+!wp-content/plugins/consucorner-gtm/**
+!wp-content/plugins/consucorner-order-migration/
+!wp-content/plugins/consucorner-order-migration/**
+!spec-kit/
+!spec-kit/**
+!front-end/
+!front-end/**

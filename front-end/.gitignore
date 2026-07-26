@@ -1,0 +1,15 @@
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+
+# Editor and AI tools directories
+.cursor/
+.agent/
+.specify/
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db

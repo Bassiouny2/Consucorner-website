@@ -1,0 +1,393 @@
+/* =============================================
+   Auth Modal — Login & Sign Up popup
+   Used site-wide via auth-modal.js
+   ============================================= */
+
+.cc-auth-modal[hidden] {
+  display: none !important;
+}
+
+/* Outer overlay — fixed, centered, prevents body scroll */
+.cc-auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  overflow: hidden;
+}
+
+.cc-auth-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 35, 0.52);
+  z-index: 0;
+}
+
+body.auth-modal-open {
+  overflow: hidden;
+}
+
+/* ---- Dialog card ----
+   The dialog itself is the scroll container.
+   Login fits naturally; signup scrolls inside the capped height.
+   Both views appear at the same visual size.
+*/
+.cc-auth-dialog {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: min(100%, 460px);
+  max-height: min(560px, calc(100vh - 40px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 36px 36px 32px;
+  box-shadow: 0 28px 60px -20px rgba(15, 39, 64, 0.44);
+  /* Thin scrollbar for desktop */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.cc-auth-dialog::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cc-auth-dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cc-auth-dialog::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+
+/* ---- Close button ---- */
+.cc-auth-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin: -8px -8px 0 0;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #5f6f81;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.cc-auth-close:hover {
+  background: #e2e8f0;
+  color: #0f2740;
+}
+
+/* ---- View containers ---- */
+.cc-auth-view[hidden] {
+  display: none;
+}
+
+/* Clear the float set by close button */
+.cc-auth-view::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---- Titles ---- */
+.cc-auth-title {
+  margin: 0 0 22px;
+  color: #1a2130;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.cc-auth-view[data-auth-view="signup"] .cc-auth-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.cc-auth-section-title {
+  margin: 0 0 12px;
+  text-align: center;
+  color: #1a2130;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---- Form grid ---- */
+.cc-auth-form {
+  display: grid;
+  gap: 6px;
+}
+
+.cc-auth-signup-form {
+  gap: 6px;
+}
+
+/* ---- Labels ---- */
+.cc-auth-label {
+  display: block;
+  color: #5d636f;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* ---- Inputs ---- */
+.cc-auth-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 46px;
+  border: 1.5px solid #d4dae3;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #1a2130;
+  background: #f5f7fa;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.cc-auth-input::placeholder {
+  color: #aab2bc;
+}
+
+.cc-auth-input:focus {
+  background: #ffffff;
+  border-color: #2597e0;
+  box-shadow: 0 0 0 3px rgba(37, 151, 224, 0.14);
+}
+
+/* ---- Password wrapper ---- */
+.cc-auth-password-wrap {
+  position: relative;
+}
+
+.cc-auth-password-wrap .cc-auth-input {
+  padding-right: 68px;
+}
+
+.cc-auth-eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #8a96a5;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 4px;
+}
+
+.cc-auth-eye:hover {
+  color: #2597e0;
+}
+
+/* ---- Checkbox row ---- */
+.cc-auth-check-row {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  color: #2a3340;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.cc-auth-check-row input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  accent-color: #2597e0;
+  cursor: pointer;
+}
+
+/* ---- Terms copy ---- */
+.cc-auth-copy {
+  margin: 4px 0 0;
+  color: #5d6b7a;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.cc-auth-copy a {
+  color: #1a2130;
+  text-decoration: underline;
+}
+
+/* ---- Help text ---- */
+.cc-auth-help {
+  margin: 2px 0 0;
+  color: #7c8796;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* ---- Submit button ---- */
+.cc-auth-submit {
+  margin-top: 10px;
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  height: 50px;
+  background: #c4c8d2;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: background 0.2s;
+}
+
+.cc-auth-submit.active {
+  background: linear-gradient(90deg, #64e9cc 0%, #2597e0 100%);
+  cursor: pointer;
+}
+
+.cc-auth-submit.active:hover {
+  filter: brightness(1.05);
+}
+
+/* ---- Forget password link ---- */
+.cc-auth-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #1a2130;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.cc-auth-link:hover {
+  color: #2597e0;
+}
+
+/* ---- Footnote (switch link) ---- */
+.cc-auth-footnote {
+  margin: 12px 0 0;
+  color: #5d6b7a;
+  font-size: 13px;
+  text-align: center;
+}
+
+.cc-auth-footnote a {
+  color: #1a2130;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ---- Social buttons ---- */
+.cc-auth-socials {
+  display: grid;
+  gap: 9px;
+  margin-bottom: 2px;
+}
+
+.cc-auth-social-btn {
+  height: 46px;
+  border-radius: 999px;
+  border: 1.5px solid #d0d6df;
+  background: #ffffff;
+  color: #1a2130;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.cc-auth-social-btn:hover {
+  background: #f5f7fa;
+  border-color: #b0b8c6;
+}
+
+/* Social icon circles */
+.cc-social-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cc-social-icon--facebook {
+  background: #1877f2;
+  color: #ffffff;
+}
+
+.cc-social-icon--google {
+  background: #ffffff;
+  color: #ea4335;
+  border: 1px solid #dde3eb;
+}
+
+/* ---- Divider ---- */
+.cc-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 12px;
+  color: #8a96a5;
+  font-size: 12px;
+}
+
+.cc-auth-divider::before,
+.cc-auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dde3eb;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 520px) {
+  .cc-auth-modal {
+    padding: 12px 10px;
+    align-items: flex-end;
+  }
+
+  .cc-auth-dialog {
+    width: 100%;
+    max-height: calc(100vh - 24px);
+    border-radius: 20px 20px 14px 14px;
+    padding: 28px 22px 26px;
+  }
+
+  .cc-auth-title {
+    font-size: 26px;
+  }
+
+  .cc-auth-view[data-auth-view="signup"] .cc-auth-title {
+    font-size: 18px;
+  }
+}

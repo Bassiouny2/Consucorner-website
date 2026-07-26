@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - ConsuCorner</title>
+    <!-- CSS Modules (cascading order matters) -->
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/hero.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/cards.css" />
+    <link rel="stylesheet" href="assets/css/mega-menu.css" />
+    <link rel="stylesheet" href="assets/css/drawer.css" />
+    <link rel="stylesheet" href="assets/css/mini-cart.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/shop-page.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+  <body>
+    <!-- SVG Sprite (hidden, referenced via <use href="#icon-id">) -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+      <symbol id="icon-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></symbol>
+      <symbol id="icon-tag-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+      <symbol id="icon-tag-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="icon-tag-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z" fill="currentColor"/></symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><rect x="7" y="10.5" width="2" height="6.5" fill="currentColor"/><circle cx="8" cy="8.5" r="1" fill="currentColor"/><path d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z" fill="currentColor"/></symbol>
+    </svg>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <a href="#" class="drawer-login-btn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="#icon-login"/>
+          </svg>
+          LOGIN/SIGNUP
+        </a>
+        <button
+          class="drawer-close-btn"
+          id="drawer-close-btn"
+          aria-label="Close menu"
+        >
+          &#10005;
+        </button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab active" data-tab="shop">Shop</button>
+        <button class="drawer-tab" data-tab="explore">Explore</button>
+      </div>
+
+      <div class="drawer-content" data-content="shop">
+        <div class="drawer-category">
+          <button class="drawer-category-toggle active">
+            Surgical Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-down"/>
+            </svg>
+          </button>
+          <div class="drawer-subcategories open">
+            <div class="drawer-subcategory">
+              <button class="drawer-subcategory-toggle active">
+                OPHTHALMOLOGY
+                <svg
+                  class="chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <use href="#icon-chevron-down"/>
+                </svg>
+              </button>
+              <ul class="drawer-items open">
+                <li><a href="#">Lacrimal Instruments</a></li>
+                <li><a href="#">Cannulas</a></li>
+                <li><a href="#">Markers</a></li>
+                <li><a href="#">Chalazion Curettes</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Diagnostic Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right"/>
+            </svg>
+          </button>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Medical Equipments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="drawer-content hidden" data-content="explore">
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Important</h3>
+          <ul class="drawer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">ConsuCorner Partners</a></li>
+          </ul>
+        </div>
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Help</h3>
+          <ul class="drawer-links">
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact &amp; Support</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <header class="site-header">
+      <div class="header-container">
+        <button class="hamburger-btn" aria-label="Open menu" id="hamburger-btn">
+          <img
+            src="assets/images/hamburger-menu.svg"
+            alt="Menu"
+            width="28"
+            height="28"
+          />
+        </button>
+
+        <div class="header-left">
+          <a href="index.html" class="header-logo">
+            <img src="assets/images/main - logo.svg" alt="ConsuCorner Logo" />
+          </a>
+
+          <nav class="header-nav">
+            <div class="nav-item-shop" id="nav-item-shop">
+              <a href="shop.html" class="nav-link nav-link-shop">Shop</a>
+            </div>
+            <div class="nav-item-explore" id="nav-item-explore">
+              <a href="#" class="nav-link nav-link-explore">Explore</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="header-search">
+          <span class="search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search"/>
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Locate Your Match"
+            class="search-input"
+          />
+        </div>
+
+        <div class="header-actions">
+          <a href="#" class="cart-btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-cart"/>
+            </svg>
+            <span class="cart-badge"></span>
+          </a>
+
+          <a href="#" class="auth-link">LOGIN/SIGNUP</a>
+          <a href="#" class="vendor-btn">JOIN AS A VENDOR</a>
+        </div>
+      </div>
+
+      <div
+        class="mega-menu awaiting-selection"
+        id="mega-menu"
+        aria-hidden="true"
+      >
+        <div class="mega-menu-inner">
+          <div class="mega-left">
+            <h3 class="mega-cat-title">SHOP BY CATEGORY</h3>
+            <p class="mega-cat-desc">
+              ConsuCorner Brings Multiple Medical Suppliers, Multiple
+              Specialties, And Hundreds Of Instruments Into One Organized
+              Platform.
+            </p>
+            <hr class="mega-cat-divider" />
+            <ul class="mega-cat-list">
+              <li class="mega-cat-item" data-cat="surgical">
+                <span>Surgical Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="diagnostic">
+                <span>Diagnostic Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="equipment">
+                <span>Medical Equipments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="endoscopy">
+                <span>Endoscopy</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="dental">
+                <span>Dental Supplies</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="orthopedic">
+                <span>Orthopedic Devices</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="consumables">
+                <span>Disposables &amp; Consumables</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right"/>
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <div class="mega-right">
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <h2 class="mega-section-title">SHOP BY SPECIALTY</h2>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="specialty-prev"
+                  aria-label="Previous specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left"/>
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="specialty-viewport">
+                  <div class="mega-track" id="specialty-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="specialty-next"
+                  aria-label="Next specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <hr class="mega-section-divider" />
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <div class="mega-instrument-heading">
+                  <h2 class="mega-section-title">SHOP BY INSTRUMENT</h2>
+                  <span class="mega-specialty-label">OPHTHALMOLOGY</span>
+                </div>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="instrument-prev"
+                  aria-label="Previous instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left"/>
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="instrument-viewport">
+                  <div class="mega-track" id="instrument-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="instrument-next"
+                  aria-label="Next instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="explore-mega-menu" id="explore-mega-menu" aria-hidden="true">
+        <div class="explore-mega-inner">
+          <div class="explore-links-col">
+            <div class="explore-links-group">
+              <h3>Important</h3>
+              <a href="#">About Us</a><a href="#">Contact Us</a
+              ><a href="#">Blog</a><a href="#">ConsuCorner Partners</a>
+            </div>
+            <div class="explore-links-group">
+              <h3>Help</h3>
+              <a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a
+              ><a href="#">Contact &amp; Support</a><a href="#">FAQ</a>
+            </div>
+          </div>
+          <article class="explore-featured-card">
+            <span class="explore-tag">Blog Category</span>
+            <h4>A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+            <img
+              src="assets/images/bloge image.png"
+              alt="Featured blog post image"
+            />
+            <div class="explore-meta-row">
+              <span>CONSUCORNER</span><span>02 December 2023</span
+              ><span>3 Min. To Read</span>
+            </div>
+            <p>
+              Here’s A Guide To Building A Complete Ophthalmic Clinic Toolkit.
+            </p>
+          </article>
+          <div class="explore-recent-col">
+            <h5>Recently Posted</h5>
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/demo-product-shop.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/demo-product-shop.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/demo-product-shop.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+            <a href="#" class="explore-small-card"
+              ><img src="assets/images/demo-product-shop.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+                <p class="explore-small-desc">
+                  A Guide to Building a Complete Ophthalmic Clinic Toolkit
+                </p>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-search-row">
+        <div class="mobile-search-inner">
+          <input
+            type="text"
+            placeholder="medical supplies"
+            class="mobile-search-input"
+          />
+          <button class="mobile-search-btn">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search"/>
+            </svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="about-page-head" aria-label="About page heading">
+        <div class="about-page-head-inner">
+          <h1 class="about-page-title">About Consucorner</h1>
+          <p class="about-page-breadcrumbs">Home/About</p>
+        </div>
+      </section>
+
+      <!-- About Us Section -->
+      <section class="about-us-section">
+        <div class="about-us-inner">
+          <div class="about-us-header">
+            <span class="about-us-tag">About Us</span>
+            <h2 class="about-us-title">CONSU<span>CORNER</span></h2>
+          </div>
+          <div class="about-us-grid">
+            <p class="about-us-text">Our Goal is to make ConsuCorner the medical hub for professionals across every specialty — offering clarity, speed, and trusted tools in one organized platform.</p>
+            <p class="about-us-text">We're building ConsuCorner to become a multi-specialty platform, covering a full range of medical fields — from ophthalmology to dental, ENT, and beyond.</p>
+            <p class="about-us-text">Each specialty will be launched with the same care, organization, and commitment to compliance that define our current ophthalmology offerings.</p>
+            <p class="about-us-text">Today, ConsuCorner is your go-to destination for trusted eye care tools — from surgical instruments and diagnostic devices to sterile consumables that are all carefully selected and clearly presented for professionals who don't have time to waste.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Makes Us Different -->
+      <section class="about-diff-section">
+        <div class="about-diff-inner">
+
+          <div class="about-diff-header">
+            <span class="about-us-tag">Why choose us</span>
+            <h2 class="about-diff-title">What Makes Us <span>Different</span></h2>
+          </div>
+
+          <div class="about-diff-grid">
+
+            <!-- Professionalism -->
+            <div class="about-diff-card">
+              <div class="about-diff-icon">
+                <img src="assets/images/professionalism-icon.png" alt="Professionalism" width="80" height="80">
+              </div>
+              <h3 class="about-diff-card-title">Professionalism</h3>
+              <p class="about-diff-card-desc">We serve healthcare professionals with care, respect, and a clear understanding of their daily needs.</p>
+            </div>
+
+            <!-- Trust -->
+            <div class="about-diff-card">
+              <div class="about-diff-icon">
+                <img src="assets/images/trust-icon.png" alt="Trust" width="80" height="80">
+              </div>
+              <h3 class="about-diff-card-title">Trust</h3>
+              <p class="about-diff-card-desc">We only offer products we'd trust ourselves — reliable, compliant, and carefully chosen to support real-world medical work.</p>
+            </div>
+
+            <!-- Clarity -->
+            <div class="about-diff-card">
+              <div class="about-diff-icon">
+                <img src="assets/images/clarity-icon.png" alt="Clarity" width="80" height="80">
+              </div>
+              <h3 class="about-diff-card-title">Clarity</h3>
+              <p class="about-diff-card-desc">We keep things simple and clear. No clutter, no confusion — just well-organized tools and supplies that speak for themselves.</p>
+            </div>
+
+            <!-- Speed -->
+            <div class="about-diff-card">
+              <div class="about-diff-icon">
+                <img src="assets/images/speed-icon.png" alt="Speed" width="80" height="80">
+              </div>
+              <h3 class="about-diff-card-title">Speed</h3>
+              <p class="about-diff-card-desc">We respect your time. Our platform is built to help you find what you need quickly, so you can focus on what really matters — your patients.</p>
+            </div>
+
+            <!-- Integrity & Compliance -->
+            <div class="about-diff-card">
+              <div class="about-diff-icon">
+                <img src="assets/images/integrity-icon.png" alt="Integrity &amp; Compliance" width="80" height="80">
+              </div>
+              <h3 class="about-diff-card-title">Integrity & Compliance</h3>
+              <p class="about-diff-card-desc">We do things the right way, every time. Each product and specialty is added with full attention to medical standards and ethical practices.</p>
+            </div>
+
+            <!-- Specialty-Focused -->
+            <div class="about-diff-card">
+              <div class="about-diff-icon">
+                <img src="assets/images/specialty-icon.png" alt="Specialty-Focused" width="80" height="80">
+              </div>
+              <h3 class="about-diff-card-title">Specialty-Focused</h3>
+              <p class="about-diff-card-desc">We grow with purpose — building spaces that truly meet the needs of each medical field, one specialty at a time.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission, Vision & Core Values -->
+      <section class="about-mv-section">
+        <div class="about-mv-inner">
+
+          <!-- Mission & Vision -->
+          <div class="about-mv-row">
+            <div class="about-mv-card">
+              <h3 class="about-mv-title"><span>Our</span> Mission</h3>
+              <p class="about-mv-text">To simplify the medical supply process for healthcare providers across Egypt — offering a trusted platform with reliable brands, organized ordering system, and all the products they need in one marketplace.</p>
+            </div>
+            <div class="about-mv-card">
+              <h3 class="about-mv-title"><span>Our</span> Vision</h3>
+              <p class="about-mv-text">To build a trusted medical hub where finding, ordering, and receiving supplies is always simple, smooth, and within reach.</p>
+            </div>
+          </div>
+
+          <!-- Core Values -->
+          <div class="about-cv-block">
+            <div class="about-cv-header">
+              <h2 class="about-cv-title"><span>Our Core</span> Values</h2>
+              <p class="about-cv-subtitle">ConsuCorner is built on four values that guide everything we do:</p>
+            </div>
+            <div class="about-cv-grid">
+
+              <div class="about-cv-card">
+                <div class="about-cv-icon">
+                  <img src="assets/images/organized-icon.png" alt="Organized Access">
+                </div>
+                <h4 class="about-cv-card-title">Organized Access</h4>
+                <p class="about-cv-card-desc">All your medical tools in one reliable platform — sorted, searchable, and updated.</p>
+              </div>
+
+              <div class="about-cv-card">
+                <div class="about-cv-icon">
+                  <img src="assets/images/verified-icon.png" alt="Verified Quality">
+                </div>
+                <h4 class="about-cv-card-title">Verified Quality</h4>
+                <p class="about-cv-card-desc">We only work with licensed, verified suppliers. Every product is traceable and certified.</p>
+              </div>
+
+              <div class="about-cv-card">
+                <div class="about-cv-icon">
+                  <img src="assets/images/smooth-icon.png" alt="Smooth Operations">
+                </div>
+                <h4 class="about-cv-card-title">Smooth Operations</h4>
+                <p class="about-cv-card-desc">All your medical tools in one reliable platform — sorted, searchable, and updated.</p>
+              </div>
+
+              <div class="about-cv-card">
+                <div class="about-cv-icon">
+                  <img src="assets/images/compliance-icon.png" alt="Compliance-Ready">
+                </div>
+                <h4 class="about-cv-card-title">Compliance-Ready</h4>
+                <p class="about-cv-card-desc">We only work with licensed, verified suppliers. Every product is traceable and certified.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="medical-products-banner sp-banner"></div>
+      </section>
+
+    </main>
+
+    <script src="assets/js/mega-menu.js"></script>
+    <script src="assets/js/mini-cart.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/shop-sections-slider.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-top-border"></div>
+
+      <div class="footer-main">
+        <div class="footer-container">
+          <div class="footer-brand-row">
+            <div class="footer-brand">
+              <a href="index.html" class="footer-logo">
+                <img
+                  src="assets/images/main - logo.svg"
+                  alt="ConsuCorner Logo"
+                />
+              </a>
+              <p class="footer-tagline">
+                Your Trusted Medical Supply<br />Hub in Egypt
+              </p>
+            </div>
+            <div class="footer-description">
+              <p>
+                ConsuCorner is Egypt's leading medical e-commerce platform
+                dedicated to providing high-quality medical supplies, surgical
+                instruments, and diagnostic tools to healthcare professionals,
+                clinics, hospitals, and medical businesses. We bring
+                reliability, variety, and simplicity to every purchase — all in
+                one organized online shop.
+              </p>
+            </div>
+          </div>
+
+          <div class="footer-nav-row">
+            <div class="footer-col">
+              <h4 class="footer-col-heading">EXPLORE</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Shop</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">SERVICES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Bulk & Wholesale Orders</a></li>
+                <li><a href="#">Custom Procurement</a></li>
+                <li><a href="#">Product Consulting</a></li>
+                <li><a href="#">Fast Delivery</a></li>
+                <li><a href="#">Returns & Exchanges</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">CONNECT</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Join Our Newsletter</a></li>
+                <li><a href="#">Follow Us on Instagram</a></li>
+                <li><a href="#">Like Us on Facebook</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">RESOURCES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Industry Trends</a></li>
+                <li><a href="#">Event Calendar</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4 class="footer-col-heading">LEGAL</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Copyright Information</a></li>
+                <li><a href="#">Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container footer-bottom-inner">
+          <div class="footer-bottom-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+          </div>
+
+          <p class="footer-copyright">
+            &copy; 2026 By ConsuCorner. All Rights Reserved.
+          </p>
+
+          <div class="footer-payments">
+            <img
+              src="assets/images/footer-payment.png"
+              alt="Accepted payment methods: Paymob, Mastercard, Visa, Fawry"
+              class="footer-payment-img"
+            />
+          </div>
+
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-facebook"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-linkedin"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

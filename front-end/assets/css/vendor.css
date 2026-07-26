@@ -1,0 +1,585 @@
+/* ============================================================
+   VENDOR PAGE
+   ============================================================ */
+
+/* Hero Section */
+.vendor-hero {
+  padding: 80px 24px 70px;
+  background: #ffffff;
+}
+
+.vendor-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Left: Content */
+.vendor-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vendor-hero-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 1.15;
+  color: #2597e0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.vendor-hero-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.vendor-hero-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #555e6a;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.vendor-color-container {
+  margin-top: 8px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Right: Form Card */
+.vendor-form-card {
+  background: #F9FAFB;
+  border-radius: 16px;
+  padding: 40px 36px;
+}
+
+.vendor-form-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+}
+
+.vendor-form-title span {
+  color: #1a1a1a;
+}
+
+.vendor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vendor-input,
+.vendor-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #e2e5ea;
+  border-radius: 20px;
+  padding: 13px 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #333;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.vendor-input::placeholder,
+.vendor-textarea::placeholder {
+  color: #aaa;
+}
+
+.vendor-input:focus,
+.vendor-textarea:focus {
+  border-color: #00c8b3;
+}
+
+.vendor-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Business Type */
+.vendor-business-type {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vendor-business-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.vendor-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.vendor-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #555e6a;
+  cursor: pointer;
+}
+
+.vendor-radio-label input[type="radio"] {
+  accent-color: #00c8b3;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* Send Button */
+.vendor-send-btn {
+  background: #00c8b3;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+
+.vendor-send-btn:hover {
+  background: #00aa96;
+}
+
+/* ============================================================
+   WHY JOIN SECTION
+   ============================================================ */
+
+.vendor-why {
+  padding: 80px 24px 50px;
+  background: #ffffff;
+}
+
+.vendor-why-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* Header */
+.vendor-why-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.vendor-why-tag {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0;
+}
+
+.vendor-why-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #00c8b3;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.vendor-why-title span {
+  color: #2597e0;
+}
+
+.vendor-why-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #555e6a;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Features Grid */
+.vendor-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 80px;
+}
+
+.vendor-why-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.vendor-why-icon {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  background-image: url("../images/under-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vendor-why-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.vendor-why-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.vendor-why-item-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000000;
+  margin: 0;
+}
+
+.vendor-why-item-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   PARTNERS BROCHURE SECTION
+   ============================================================ */
+
+.vendor-brochure {
+  background: #00c8b3;
+  margin: 100px 0;
+}
+
+.vendor-brochure-inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 275px;
+}
+
+.vendor-brochure-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 48px 0;
+}
+
+.vendor-brochure-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.vendor-brochure-btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #2597E0;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vendor-brochure-btn:hover {
+  background: #e0f7f4;
+}
+
+.vendor-brochure-img-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.vendor-brochure-img-wrap img {
+  width: 800px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: -4px;
+  position: absolute;
+  right: 0;
+  bottom: -90px;
+}
+
+/* ============================================================
+   HOW WE COLLABORATE SECTION
+   ============================================================ */
+
+.vendor-collab {
+  padding: 20px 0px 100px;
+  background: #ffffff;
+}
+
+.vendor-collab-inner {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+}
+
+/* Header */
+.vendor-collab-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.vendor-collab-tag {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0;
+}
+
+.vendor-collab-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #00c8b3;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.vendor-collab-title span {
+  color: #2597e0;
+}
+
+.vendor-collab-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #282828CC;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* Timeline */
+.vendor-collab-timeline {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.vendor-collab-line {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  height: 7px;
+  background: #2597e0;
+  z-index: 0;
+  width: 100%;
+}
+
+.vendor-collab-steps {
+  width: 1280px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  z-index: 1;
+  gap: 30px;
+}
+
+/* Each step */
+.vendor-collab-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+/* Hexagon badge */
+.vendor-collab-hex {
+  width: 120px;
+  height: 120px;
+  background: url("../images/num-background.png") center / contain no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 60px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.vendor-collab-step-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.vendor-collab-step-desc {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: #282828CC;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 230px;
+}
+
+/* ============================================================
+   VENDOR FAQ SECTION
+   ============================================================ */
+
+.vendor-faq-section {
+  background: #f3f5f6;
+  padding: 80px 24px;
+}
+
+.vendor-faq-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #00c8b3;
+  margin: 0 0 40px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.vendor-faq-title span {
+  color: #2597e0;
+}
+
+.vendor-faq-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.vendor-faq-container {
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.vendor-faq-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.vendor-faq-item:last-child {
+  border-bottom: none;
+}
+
+.vendor-faq-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 35px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.vendor-faq-number {
+  font-family: "Inter", sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  color: #9e9ea1;
+  flex-shrink: 0;
+}
+
+.vendor-faq-question {
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.vendor-faq-toggle {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e8f5f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.vendor-faq-item--open .vendor-faq-toggle {
+  background: #00C8B3;
+}
+
+.vendor-faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 28px 0 76px;
+}
+
+.vendor-faq-item--open .vendor-faq-body {
+  max-height: 300px;
+  padding: 0 103px 22px 125px;
+}
+
+.vendor-faq-body p {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  color: #6b7280;
+  line-height: 1.75;
+  margin: 0;
+}

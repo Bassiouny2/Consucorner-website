@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family:
+    "Manrope",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.card {
+  flex-shrink: 0; /* CRITICAL: prevents cards from squishing */
+  width: 200px;
+  height: 288px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(180deg, #64e9cc 0%, #2597e0 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 12px 0;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(37, 151, 224, 0.3);
+}
+
+.card-img-container {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+.card-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.card-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  font-family: "Manrope", sans-serif;
+}
+
+.card-btn {
+  display: block;
+  text-decoration: none;
+  /* Flush to the bottom edge of the card, full width */
+  width: 100%;
+  padding: 10px 0;
+  background: #64e9cc;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card-btn:hover {
+  background: #4dd9b8;
+}

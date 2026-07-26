@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - ConsuCorner</title>
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/mega-menu.css" />
+    <link rel="stylesheet" href="assets/css/drawer.css" />
+    <link rel="stylesheet" href="assets/css/mini-cart.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/shop-page.css" />
+    <link rel="stylesheet" href="assets/css/profile.css" />
+    <link rel="stylesheet" href="assets/css/auth-modal.css" />
+  </head>
+  <body class="page-profile">
+    <!-- SVG Sprite -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol id="icon-login" viewBox="0 0 24 24">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+        <polyline points="10 17 15 12 10 7" />
+        <line x1="15" y1="12" x2="3" y2="12" />
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6" />
+      </symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path
+          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+        />
+      </symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+        />
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="11"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <path
+          d="M13.5 8.5H15V6.5H13C11.6 6.5 10.5 7.6 10.5 9V10.5H9V12.5H10.5V18H12.5V12.5H14L14.5 10.5H12.5V9C12.5 8.7 12.7 8.5 13 8.5H13.5Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="11"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <rect x="7" y="10.5" width="2" height="6.5" fill="currentColor" />
+        <circle cx="8" cy="8.5" r="1" fill="currentColor" />
+        <path
+          d="M11.5 10.5H13.5V11.3C13.9 10.8 14.5 10.5 15.2 10.5C16.8 10.5 17.5 11.5 17.5 13V17H15.5V13.5C15.5 12.8 15.2 12.3 14.5 12.3C13.8 12.3 13.5 12.8 13.5 13.5V17H11.5V10.5Z"
+          fill="currentColor"
+        />
+      </symbol>
+
+      <symbol id="pi-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </symbol>
+      <symbol id="pi-wallet" viewBox="0 0 24 24">
+        <rect x="2" y="6" width="20" height="14" rx="2"/>
+        <path d="M16 13a1 1 0 1 0 2 0 1 1 0 0 0-2 0z" fill="currentColor"/>
+        <path d="M2 10h20"/>
+      </symbol>
+      <symbol id="pi-download" viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </symbol>
+      <symbol id="pi-card" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <line x1="2" y1="10" x2="22" y2="10"/>
+        <line x1="6" y1="15" x2="10" y2="15"/>
+      </symbol>
+      <symbol id="pi-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <polyline points="12 7 12 12 15.5 14"/>
+      </symbol>
+      <symbol id="pi-shield" viewBox="0 0 24 24">
+        <path d="M12 2l7 3v5c0 5-3.5 9.3-7 11C8.5 19.3 5 15 5 10V5l7-3z"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </symbol>
+      <symbol id="pi-heart" viewBox="0 0 24 24">
+        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0l-1 1-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"/>
+      </symbol>
+      <symbol id="pi-bell" viewBox="0 0 24 24">
+        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+      </symbol>
+      <symbol id="pi-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </symbol>
+      <symbol id="pi-flag" viewBox="0 0 24 24">
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+        <line x1="4" y1="22" x2="4" y2="15"/>
+      </symbol>
+      <symbol id="pi-logout" viewBox="0 0 24 24">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <polyline points="16 17 21 12 16 7"/>
+        <line x1="21" y1="12" x2="9" y2="12"/>
+      </symbol>
+      <symbol id="pi-camera" viewBox="0 0 24 24">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+        <circle cx="12" cy="13" r="4"/>
+      </symbol>
+    </svg>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <a href="#" class="drawer-login-btn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <use href="#icon-login" />
+          </svg>
+          LOGIN/SIGNUP
+        </a>
+        <button
+          class="drawer-close-btn"
+          id="drawer-close-btn"
+          aria-label="Close menu"
+        >
+          &#10005;
+        </button>
+      </div>
+      <div class="drawer-tabs">
+        <button class="drawer-tab active" data-tab="shop">Shop</button>
+        <button class="drawer-tab" data-tab="explore">Explore</button>
+      </div>
+      <div class="drawer-content" data-content="shop">
+        <div class="drawer-category">
+          <button class="drawer-category-toggle active">
+            Surgical Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-down" />
+            </svg>
+          </button>
+          <div class="drawer-subcategories open">
+            <div class="drawer-subcategory">
+              <button class="drawer-subcategory-toggle active">
+                OPHTHALMOLOGY
+                <svg
+                  class="chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <use href="#icon-chevron-down" />
+                </svg>
+              </button>
+              <ul class="drawer-items open">
+                <li><a href="#">Lacrimal Instruments</a></li>
+                <li><a href="#">Cannulas</a></li>
+                <li><a href="#">Markers</a></li>
+                <li><a href="#">Chalazion Curettes</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Diagnostic Instruments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right" />
+            </svg>
+          </button>
+        </div>
+        <div class="drawer-category">
+          <button class="drawer-category-toggle">
+            Medical Equipments
+            <svg
+              class="chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <use href="#icon-chevron-right" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="drawer-content hidden" data-content="explore">
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Important</h3>
+          <ul class="drawer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">ConsuCorner Partners</a></li>
+          </ul>
+        </div>
+        <div class="drawer-section">
+          <h3 class="drawer-section-title">Help</h3>
+          <ul class="drawer-links">
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact &amp; Support</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <button class="hamburger-btn" aria-label="Open menu" id="hamburger-btn">
+          <img
+            src="assets/images/hamburger-menu.svg"
+            alt="Menu"
+            width="28"
+            height="28"
+          />
+        </button>
+        <div class="header-left">
+          <a href="index.html" class="header-logo">
+            <img src="assets/images/main - logo.svg" alt="ConsuCorner Logo" />
+          </a>
+          <nav class="header-nav">
+            <div class="nav-item-shop" id="nav-item-shop">
+              <a href="shop.html" class="nav-link nav-link-shop">Shop</a>
+            </div>
+            <div class="nav-item-explore" id="nav-item-explore">
+              <a href="#" class="nav-link nav-link-explore">Explore</a>
+            </div>
+          </nav>
+        </div>
+        <div class="header-search">
+          <span class="search-icon">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search" />
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Locate Your Match"
+            class="search-input"
+          />
+        </div>
+        <div class="header-actions">
+          <a href="#" class="cart-btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-cart" />
+            </svg>
+            <span class="cart-badge"></span>
+          </a>
+          <a href="#" class="auth-link">LOGIN/SIGNUP</a>
+          <a href="#" class="vendor-btn">JOIN AS A VENDOR</a>
+        </div>
+      </div>
+
+      <!-- Mega Menu -->
+      <div
+        class="mega-menu awaiting-selection"
+        id="mega-menu"
+        aria-hidden="true"
+      >
+        <div class="mega-menu-inner">
+          <div class="mega-left">
+            <h3 class="mega-cat-title">SHOP BY CATEGORY</h3>
+            <p class="mega-cat-desc">
+              ConsuCorner Brings Multiple Medical Suppliers, Multiple
+              Specialties, And Hundreds Of Instruments Into One Organized
+              Platform.
+            </p>
+            <hr class="mega-cat-divider" />
+            <ul class="mega-cat-list">
+              <li class="mega-cat-item" data-cat="surgical">
+                <span>Surgical Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="diagnostic">
+                <span>Diagnostic Instruments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="equipment">
+                <span>Medical Equipments</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="endoscopy">
+                <span>Endoscopy</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="dental">
+                <span>Dental Supplies</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="orthopedic">
+                <span>Orthopedic Devices</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+              <li class="mega-cat-item" data-cat="consumables">
+                <span>Disposables &amp; Consumables</span
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <use href="#icon-chevron-right" />
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <div class="mega-right">
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <h2 class="mega-section-title">SHOP BY SPECIALTY</h2>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="specialty-prev"
+                  aria-label="Previous specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left" />
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="specialty-viewport">
+                  <div class="mega-track" id="specialty-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="specialty-next"
+                  aria-label="Next specialty"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <hr class="mega-section-divider" />
+            <div class="mega-section">
+              <div class="mega-section-header">
+                <div class="mega-instrument-heading">
+                  <h2 class="mega-section-title">SHOP BY INSTRUMENT</h2>
+                  <span class="mega-specialty-label">OPHTHALMOLOGY</span>
+                </div>
+                <p class="mega-section-desc">
+                  ConsuCorner Brings Multiple Medical Suppliers, Multiple
+                  Specialties, And Hundreds Of Instruments Into One Organized
+                  Platform.
+                </p>
+              </div>
+              <div class="mega-slider-row">
+                <button
+                  class="mega-arrow"
+                  id="instrument-prev"
+                  aria-label="Previous instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-left" />
+                  </svg>
+                </button>
+                <div class="mega-viewport" id="instrument-viewport">
+                  <div class="mega-track" id="instrument-track"></div>
+                </div>
+                <button
+                  class="mega-arrow"
+                  id="instrument-next"
+                  aria-label="Next instrument"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <use href="#icon-chevron-right" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explore Mega Menu -->
+      <div class="explore-mega-menu" id="explore-mega-menu" aria-hidden="true">
+        <div class="explore-mega-inner">
+          <div class="explore-links-col">
+            <div class="explore-links-group">
+              <h3>Important</h3>
+              <a href="#">About Us</a><a href="#">Contact Us</a
+              ><a href="#">Blog</a><a href="#">ConsuCorner Partners</a>
+            </div>
+            <div class="explore-links-group">
+              <h3>Help</h3>
+              <a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a
+              ><a href="#">Contact &amp; Support</a><a href="#">FAQ</a>
+            </div>
+          </div>
+          <article class="explore-featured-card">
+            <span class="explore-tag">Blog Category</span>
+            <h4>A Guide To Building A Complete Ophthalmic Clinic Toolkit</h4>
+            <img
+              src="assets/images/bloge image.png"
+              alt="Featured blog post image"
+            />
+            <div class="explore-meta-row">
+              <span>CONSUCORNER</span><span>02 December 2023</span
+              ><span>3 Min. To Read</span>
+            </div>
+            <p>
+              Here's A Guide To Building A Complete Ophthalmic Clinic Toolkit.
+            </p>
+          </article>
+          <div class="explore-recent-col">
+            <h5>Recently Posted</h5>
+            <a href="#" class="explore-small-card">
+              <img src="assets/images/demo-product-shop.png" alt="Recent post" />
+              <div class="explore-small-content">
+                <span class="explore-small-tag">Category</span>
+                <h6 class="explore-small-title">
+                  A Guide To Building A Complete Ophthalmic Clinic Toolkit
+                </h6>
+                <div class="explore-small-meta">
+                  <span>ConsuCorner</span><span>02 December 2022</span
+                  ><span>3 Min. To Read</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-search-row">
+        <div class="mobile-search-inner">
+          <input
+            type="text"
+            placeholder="medical supplies"
+            class="mobile-search-input"
+          />
+          <button class="mobile-search-btn">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="#icon-search" />
+            </svg>
+            Search
+          </button>
+        </div>
+      </div>
+    </header>
+
+    
+
+    <main>
+      <section
+        class="shop-page-head cart-page-head"
+        aria-label="My Account heading"
+      >
+        <div class="shop-page-head-inner">
+          <h1 class="shop-page-title">My Account</h1>
+          <p class="shop-page-breadcrumbs">Home / My Account</p>
+        </div>
+      </section>
+
+      <section class="profile-section" aria-label="User profile">
+        <div class="profile-wrap">
+          <article class="profile-card">
+            <div class="profile-top">
+              <div class="profile-user">
+                <div class="profile-avatar-wrap">
+                  <div class="profile-avatar" id="profile-avatar-display">AR</div>
+                  <button class="profile-avatar-edit" type="button" id="profile-avatar-btn" aria-label="Change photo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-camera"/></svg>
+                  </button>
+                  <input type="file" id="profile-avatar-input" accept="image/*" hidden />
+                </div>
+                <div class="profile-user-info">
+                  <h2 id="profile-user-name">Alexa Rawles</h2>
+                  <p id="profile-user-email">alexarawles@gmail.com</p>
+                  <span class="profile-member-badge">Member since March 2024</span>
+                </div>
+              </div>
+              <a href="#" class="profile-logout" id="profile-logout-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-logout"/></svg>
+                Log out
+              </a>
+            </div>
+            <div class="profile-menu" role="list">
+              <a href="#" class="profile-item" data-modal="modal-account" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-user"/></svg></span>
+                Account Details
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-wallet" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-wallet"/></svg></span>
+                Wallet
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-orders" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-clock"/></svg></span>
+                Order History
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-privacy" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-shield"/></svg></span>
+                Privacy &amp; Policy
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-favorites" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-heart"/></svg></span>
+                Favorite
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-notifications" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-bell"/></svg></span>
+                Notification
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-password" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-lock"/></svg></span>
+                Reset Password
+              </a>
+              <a href="#" class="profile-item" data-modal="modal-report" role="listitem">
+                <span class="profile-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-flag"/></svg></span>
+                Report
+              </a>
+              <!-- ═══ PLUGIN MENU SLOT ═══════════════════════════════════
+                   WordPress plugins (Smart Coupons, Referral, Subscriptions,
+                   Points & Rewards, etc.) inject items here via:
+                     window.CCProfile.registerMenuItem({ id, icon, label, modalId })
+                   Or PHP/WooCommerce template hooks can echo additional
+                   <a href="#" class="profile-item" data-modal="modal-XXX"> tags here.
+                   ════════════════════════════════════════════════════════ -->
+              <div id="profile-menu-plugins" role="presentation"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+         PROFILE MODALS (8 popups — WooCommerce REST API ready)
+         ============================================================ -->
+
+    <!-- ── Modal 1: Account Details (3 tabs) ── -->
+    <div class="pmodal" id="modal-account" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-account-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-user"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-account-title">Account Details</h2>
+                <p class="pmodal-subtitle">Manage your personal info, billing &amp; shipping addresses</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+
+          <nav class="pmodal-tabs" role="tablist" aria-label="Account sections">
+            <button class="pmodal-tab-btn is-active" role="tab" aria-selected="true" data-tab="personal">Personal Info</button>
+            <button class="pmodal-tab-btn" role="tab" aria-selected="false" data-tab="billing">Billing Address</button>
+            <button class="pmodal-tab-btn" role="tab" aria-selected="false" data-tab="shipping">Shipping Address</button>
+          </nav>
+
+          <form class="pmodal-form" id="form-account"
+                data-wc-endpoint="/wp-json/wc/v3/customers/{id}"
+                data-wc-method="PUT">
+
+            <!-- ─ Tab: Personal Info ─ -->
+            <div class="pmodal-tab-panel is-active" data-tab-panel="personal">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Personal Information</h3>
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-first-name">First Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-first-name" type="text" name="first_name" placeholder="Enter first name" required autocomplete="given-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-last-name">Last Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-last-name" type="text" name="last_name" placeholder="Enter last name" required autocomplete="family-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-display-name">Display Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-display-name" type="text" name="display_name" placeholder="Shown publicly" required />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-username">Username</label>
+                    <input class="pf-input pf-readonly" id="acc-username" type="text" name="username" readonly tabindex="-1" autocomplete="username" />
+                    <p class="pf-hint">Username cannot be changed after registration</p>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-email">Email Address <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="acc-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-phone">Phone Number</label>
+                    <input class="pf-input" id="acc-phone" type="tel" name="billing_phone" placeholder="+20 100 000 0000" autocomplete="tel" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-birthdate">Date of Birth</label>
+                    <input class="pf-input" id="acc-birthdate" type="date" name="meta_birth_date" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-gender">Gender</label>
+                    <select class="pf-input pf-select" id="acc-gender" name="meta_gender">
+                      <option value="">Select gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="prefer_not">Prefer not to say</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Professional Details</h3>
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-specialty">Medical Specialty</label>
+                    <select class="pf-input pf-select" id="acc-specialty" name="meta_specialty">
+                      <option value="">Select specialty</option>
+                      <option value="ophthalmology">Ophthalmology</option>
+                      <option value="general_surgery">General Surgery</option>
+                      <option value="dental">Dental</option>
+                      <option value="orthopedics">Orthopedics</option>
+                      <option value="cardiology">Cardiology</option>
+                      <option value="dermatology">Dermatology</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="acc-role">Role / Title</label>
+                    <select class="pf-input pf-select" id="acc-role" name="meta_role_title">
+                      <option value="">Select role</option>
+                      <option value="doctor">Doctor</option>
+                      <option value="nurse">Nurse</option>
+                      <option value="pharmacist">Pharmacist</option>
+                      <option value="clinic_manager">Clinic Manager</option>
+                      <option value="hospital_buyer">Hospital Buyer</option>
+                      <option value="distributor">Distributor</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="acc-company">Company / Clinic Name</label>
+                    <input class="pf-input" id="acc-company" type="text" name="billing_company" placeholder="Clinic or hospital name" autocomplete="organization" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ Tab: Billing Address ─ -->
+            <div class="pmodal-tab-panel" data-tab-panel="billing">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Billing Address</h3>
+                <p class="pf-section-desc">Used for invoices and payment records.</p>
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-first">First Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-first" type="text" name="billing_first_name" required autocomplete="billing given-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-last">Last Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-last" type="text" name="billing_last_name" required autocomplete="billing family-name" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-company">Company / Clinic</label>
+                    <input class="pf-input" id="bill-company" type="text" name="billing_company" autocomplete="billing organization" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-addr1">Address Line 1 <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-addr1" type="text" name="billing_address_1" placeholder="Street address or P.O. Box" required autocomplete="billing address-line1" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-addr2">Address Line 2</label>
+                    <input class="pf-input" id="bill-addr2" type="text" name="billing_address_2" placeholder="Apartment, suite, unit, building..." autocomplete="billing address-line2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-city">City <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-city" type="text" name="billing_city" required autocomplete="billing address-level2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-state">Governorate / State</label>
+                    <input class="pf-input" id="bill-state" type="text" name="billing_state" autocomplete="billing address-level1" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-postcode">Postal Code</label>
+                    <input class="pf-input" id="bill-postcode" type="text" name="billing_postcode" autocomplete="billing postal-code" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-country">Country <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="bill-country" name="billing_country" required autocomplete="billing country">
+                      <option value="EG" selected>Egypt</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="AE">UAE</option>
+                      <option value="JO">Jordan</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="QA">Qatar</option>
+                      <option value="BH">Bahrain</option>
+                      <option value="OM">Oman</option>
+                      <option value="IQ">Iraq</option>
+                      <option value="LY">Libya</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="MA">Morocco</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="bill-phone">Phone <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="bill-phone" type="tel" name="billing_phone" required autocomplete="billing tel" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="bill-email">Billing Email</label>
+                    <input class="pf-input" id="bill-email" type="email" name="billing_email" placeholder="billing@example.com" autocomplete="billing email" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ Tab: Shipping Address ─ -->
+            <div class="pmodal-tab-panel" data-tab-panel="shipping">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Shipping Address</h3>
+                <p class="pf-section-desc">Where your orders will be delivered.</p>
+                <label class="pf-same-billing-row">
+                  <input type="checkbox" id="ship-same-as-billing" name="ship_same_as_billing" />
+                  <span class="pf-checkbox-custom"></span>
+                  <span>Same as billing address</span>
+                </label>
+                <div class="pf-grid-2" id="shipping-fields-wrap">
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-first">First Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-first" type="text" name="shipping_first_name" required autocomplete="shipping given-name" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-last">Last Name <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-last" type="text" name="shipping_last_name" required autocomplete="shipping family-name" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="ship-company">Company / Clinic</label>
+                    <input class="pf-input" id="ship-company" type="text" name="shipping_company" autocomplete="shipping organization" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="ship-addr1">Address Line 1 <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-addr1" type="text" name="shipping_address_1" required autocomplete="shipping address-line1" />
+                  </div>
+                  <div class="pf-field pf-field--full">
+                    <label class="pf-label" for="ship-addr2">Address Line 2</label>
+                    <input class="pf-input" id="ship-addr2" type="text" name="shipping_address_2" autocomplete="shipping address-line2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-city">City <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="ship-city" type="text" name="shipping_city" required autocomplete="shipping address-level2" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-state">Governorate / State</label>
+                    <input class="pf-input" id="ship-state" type="text" name="shipping_state" autocomplete="shipping address-level1" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-postcode">Postal Code</label>
+                    <input class="pf-input" id="ship-postcode" type="text" name="shipping_postcode" autocomplete="shipping postal-code" />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-country">Country <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="ship-country" name="shipping_country" required autocomplete="shipping country">
+                      <option value="EG" selected>Egypt</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="AE">UAE</option>
+                      <option value="JO">Jordan</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="QA">Qatar</option>
+                      <option value="BH">Bahrain</option>
+                      <option value="OM">Oman</option>
+                      <option value="IQ">Iraq</option>
+                      <option value="LY">Libya</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="MA">Morocco</option>
+                    </select>
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="ship-phone">Phone</label>
+                    <input class="pf-input" id="ship-phone" type="tel" name="shipping_phone" autocomplete="shipping tel" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <footer class="pmodal-footer">
+              <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+              <button type="submit" class="pmodal-btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Save Changes
+              </button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 2: Wallet ── -->
+    <div class="pmodal" id="modal-wallet" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-wallet-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-wallet"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-wallet-title">My Wallet</h2>
+                <p class="pmodal-subtitle">Manage balance and view transaction history</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pwallet-balance-card">
+              <p class="pwallet-label">Available Balance</p>
+              <p class="pwallet-amount" id="wallet-balance-display">1,275.00 <span>EGP</span></p>
+              <div class="pwallet-actions">
+                <button type="button" class="pmodal-btn-primary" id="btn-show-topup">+ Top Up</button>
+                <button type="button" class="pmodal-btn-outline">Withdraw</button>
+              </div>
+            </div>
+            <div class="pf-section" id="wallet-topup-section" hidden>
+              <h3 class="pf-section-title">Top Up Wallet</h3>
+              <form class="pmodal-form" id="form-topup"
+                    data-wc-endpoint="/wp-json/custom/v1/wallet/topup"
+                    data-wc-method="POST">
+                <div class="pf-grid-2">
+                  <div class="pf-field">
+                    <label class="pf-label" for="topup-amount">Amount (EGP) <span class="pf-req">*</span></label>
+                    <input class="pf-input" id="topup-amount" type="number" name="amount" min="10" step="1" placeholder="e.g. 500" required />
+                  </div>
+                  <div class="pf-field">
+                    <label class="pf-label" for="topup-method">Payment Method <span class="pf-req">*</span></label>
+                    <select class="pf-input pf-select" id="topup-method" name="payment_method" required>
+                      <option value="">Select method</option>
+                      <option value="card">Credit / Debit Card</option>
+                      <option value="instapay">InstaPay</option>
+                      <option value="vodafone_cash">Vodafone Cash</option>
+                      <option value="orange_money">Orange Money</option>
+                      <option value="fawry">Fawry</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="pmodal-footer-inline">
+                  <button type="button" class="pmodal-btn-ghost" id="btn-cancel-topup">Cancel</button>
+                  <button type="submit" class="pmodal-btn-primary">Confirm Top Up</button>
+                </div>
+              </form>
+            </div>
+            <div class="pf-section">
+              <h3 class="pf-section-title">Transaction History</h3>
+              <div class="ptable-wrap">
+                <table class="ptable" aria-label="Wallet transactions">
+                  <thead>
+                    <tr><th>TXN ID</th><th>Description</th><th>Date</th><th>Amount</th><th>Balance</th></tr>
+                  </thead>
+                  <tbody id="wallet-transactions-tbody">
+                    <tr>
+                      <td class="ptable-id">#TXN-00421</td>
+                      <td>Top-up via Visa card</td>
+                      <td>30 Mar 2026</td>
+                      <td class="ptable-positive">+500.00 EGP</td>
+                      <td>1,275.00 EGP</td>
+                    </tr>
+                    <tr>
+                      <td class="ptable-id">#TXN-00420</td>
+                      <td>Order #410184730 payment</td>
+                      <td>29 Mar 2026</td>
+                      <td class="ptable-negative">−127.00 EGP</td>
+                      <td>775.00 EGP</td>
+                    </tr>
+                    <tr>
+                      <td class="ptable-id">#TXN-00418</td>
+                      <td>Refund – Order #410180095</td>
+                      <td>22 Mar 2026</td>
+                      <td class="ptable-positive">+200.00 EGP</td>
+                      <td>902.00 EGP</td>
+                    </tr>
+                    <tr>
+                      <td class="ptable-id">#TXN-00415</td>
+                      <td>Order #410178231 payment</td>
+                      <td>15 Mar 2026</td>
+                      <td class="ptable-negative">−498.00 EGP</td>
+                      <td>702.00 EGP</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 3: Order History ── -->
+    <div class="pmodal" id="modal-orders" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-orders-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--indigo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-clock"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-orders-title">Order History</h2>
+                <p class="pmodal-subtitle">Track status and details of all your orders</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="porder-filter-bar" role="tablist" aria-label="Filter by status">
+              <button class="porder-filter-btn is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="processing">Processing</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="completed">Completed</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="cancelled">Cancelled</button>
+              <button class="porder-filter-btn" role="tab" aria-selected="false" data-filter="refunded">Refunded</button>
+            </div>
+            <div class="ptable-wrap">
+              <table class="ptable" aria-label="Order history">
+                <thead>
+                  <tr>
+                    <th>Order #</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                  <tr data-status="completed">
+                    <td class="ptable-id">#410184730</td>
+                    <td>01 Apr 2026</td>
+                    <td>2 items</td>
+                    <td><span class="pstatus-chip pstatus-completed">Completed</span></td>
+                    <td><strong>9,827 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="thank-you.html" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                    </td>
+                  </tr>
+                  <tr data-status="processing">
+                    <td class="ptable-id">#410182105</td>
+                    <td>28 Mar 2026</td>
+                    <td>1 item</td>
+                    <td><span class="pstatus-chip pstatus-processing">Processing</span></td>
+                    <td><strong>4,020 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="#" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                      <button type="button" class="pmodal-btn-sm pmodal-btn-sm--danger">Cancel</button>
+                    </td>
+                  </tr>
+                  <tr data-status="completed">
+                    <td class="ptable-id">#410180095</td>
+                    <td>15 Mar 2026</td>
+                    <td>3 items</td>
+                    <td><span class="pstatus-chip pstatus-completed">Completed</span></td>
+                    <td><strong>12,450 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="#" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                      <button type="button" class="pmodal-btn-sm pmodal-btn-sm--ghost">Re-order</button>
+                    </td>
+                  </tr>
+                  <tr data-status="cancelled">
+                    <td class="ptable-id">#410175012</td>
+                    <td>02 Mar 2026</td>
+                    <td>1 item</td>
+                    <td><span class="pstatus-chip pstatus-cancelled">Cancelled</span></td>
+                    <td><strong>3,200 EGP</strong></td>
+                    <td class="ptable-actions">
+                      <a href="#" class="pmodal-btn-sm pmodal-btn-sm--outline">View</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 4: Privacy & Policy ── -->
+    <div class="pmodal" id="modal-privacy" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-shield"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-privacy-title">Privacy &amp; Policy</h2>
+                <p class="pmodal-subtitle">Control your data, consent settings, and account privacy</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-privacy"
+                  data-wc-endpoint="/wp-json/custom/v1/privacy"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Data &amp; Consent Settings</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Marketing Emails</span>
+                      <span class="pf-toggle-desc">Receive promotional offers, discounts, and product updates by email</span>
+                    </div>
+                    <span class="pf-switch">
+                      <input type="checkbox" name="marketing_email_consent" checked />
+                      <span class="pf-switch-track"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Manage Your Data</h3>
+                <div class="pprivacy-actions">
+                  <div class="pprivacy-action-row">
+                    <div>
+                      <p class="pprivacy-action-title">Download Personal Data</p>
+                      <p class="pprivacy-action-desc">Request an export of all data ConsuCorner holds about you (GDPR / PDPL)</p>
+                    </div>
+                    <button type="button" class="pmodal-btn-outline" data-wc-action="export_data">Request Export</button>
+                  </div>
+                  <div class="pprivacy-action-row pprivacy-action-row--danger">
+                    <div>
+                      <p class="pprivacy-action-title">Delete My Account</p>
+                      <p class="pprivacy-action-desc">Permanently remove your account and all associated personal data. This cannot be undone.</p>
+                    </div>
+                    <button type="button" class="pmodal-btn-danger" id="btn-delete-account" data-wc-action="delete_account">Delete Account</button>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-section">
+                <a href="#" class="pprivacy-policy-link" target="_blank" rel="noopener noreferrer">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Read Full Privacy Policy
+                </a>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-privacy" class="pmodal-btn-primary">Save Preferences</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 5: Favorites / Wishlist ── -->
+    <div class="pmodal" id="modal-favorites" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-favorites-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--rose">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-heart"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-favorites-title">My Wishlist</h2>
+                <p class="pmodal-subtitle">Products saved for later — add to cart anytime</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pwishlist-grid" id="wishlist-grid">
+              <article class="pwishlist-item" data-product-id="prod-001" data-product-url="single-product.html">
+                <a class="pwishlist-img-link" href="single-product.html" aria-label="View McPherson Angled Forceps">
+                  <div class="pwishlist-img">
+                    <img src="assets/images/single-product-image.webp" alt="McPherson Angled Forceps" />
+                  </div>
+                </a>
+                <div class="pwishlist-body">
+                  <p class="pwishlist-cat">SURGICAL INSTRUMENTS</p>
+                  <a class="pwishlist-name-link" href="single-product.html">
+                    <h4 class="pwishlist-name">McPherson Angled Forceps</h4>
+                  </a>
+                  <p class="pwishlist-meta">115mm · Titanium</p>
+                  <p class="pwishlist-price">1,200 EGP</p>
+                  <div class="pwishlist-actions">
+                    <button type="button" class="pmodal-btn-primary pwishlist-add-cart" data-product-id="prod-001">Add to Cart</button>
+                    <button type="button" class="pmodal-btn-icon pwishlist-remove" aria-label="Remove from wishlist" data-product-id="prod-001">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="pwishlist-item" data-product-id="prod-002" data-product-url="single-product.html">
+                <a class="pwishlist-img-link" href="single-product.html" aria-label="View Micro Scissors Set">
+                  <div class="pwishlist-img">
+                    <img src="assets/images/single-product-image.webp" alt="Micro Scissors Set" />
+                  </div>
+                </a>
+                <div class="pwishlist-body">
+                  <p class="pwishlist-cat">MICRO INSTRUMENTS</p>
+                  <a class="pwishlist-name-link" href="single-product.html">
+                    <h4 class="pwishlist-name">Micro Scissors Set</h4>
+                  </a>
+                  <p class="pwishlist-meta">85mm · Stainless Steel</p>
+                  <p class="pwishlist-price">890 EGP</p>
+                  <div class="pwishlist-actions">
+                    <button type="button" class="pmodal-btn-primary pwishlist-add-cart" data-product-id="prod-002">Add to Cart</button>
+                    <button type="button" class="pmodal-btn-icon pwishlist-remove" aria-label="Remove from wishlist" data-product-id="prod-002">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="pwishlist-empty" id="wishlist-empty" hidden>
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><use href="#pi-heart"/></svg>
+              <p>Your wishlist is empty</p>
+              <a href="shop.html" class="pmodal-btn-primary">Browse Products</a>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+            <a href="shop.html" class="pmodal-btn-outline">Continue Shopping</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 6: Notification Preferences ── -->
+    <div class="pmodal" id="modal-notifications" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-notif-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-bell"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-notif-title">Notification Preferences</h2>
+                <p class="pmodal-subtitle">Choose how you receive updates from ConsuCorner</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-notifications"
+                  data-wc-endpoint="/wp-json/custom/v1/notifications"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <h3 class="pf-section-title">Order Updates</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Order Confirmation</span>
+                      <span class="pf-toggle-desc">Email when an order is successfully placed</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_order_confirmed" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Shipping Updates</span>
+                      <span class="pf-toggle-desc">Email &amp; SMS when your order is shipped or out for delivery</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_shipping" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Delivery Confirmation</span>
+                      <span class="pf-toggle-desc">Notification when your order has been delivered</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_delivered" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Cancellation &amp; Refund</span>
+                      <span class="pf-toggle-desc">Updates on cancelled orders and refund status</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_refund" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Account &amp; Security</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Login Alerts</span>
+                      <span class="pf-toggle-desc">Email when your account is accessed from a new device or location</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_login_alert" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Password Change Confirmation</span>
+                      <span class="pf-toggle-desc">Email confirmation when your password has been changed</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_password_change" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                </div>
+              </div>
+              <div class="pf-section">
+                <h3 class="pf-section-title">Promotions &amp; Marketing</h3>
+                <div class="pf-toggle-list">
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">Special Offers &amp; Discounts</span>
+                      <span class="pf-toggle-desc">Flash sale alerts and exclusive discounts for registered users</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_offers" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                  <label class="pf-toggle-row">
+                    <div class="pf-toggle-info">
+                      <span class="pf-toggle-title">New Product Arrivals</span>
+                      <span class="pf-toggle-desc">Alerts when new instruments or equipment matching your specialty arrive</span>
+                    </div>
+                    <span class="pf-switch"><input type="checkbox" name="notif_new_products" checked /><span class="pf-switch-track"></span></span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-notifications" class="pmodal-btn-primary">Save Preferences</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 7: Reset Password ── -->
+    <div class="pmodal" id="modal-password" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-password-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--slate">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-lock"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-password-title">Reset Password</h2>
+                <p class="pmodal-subtitle">Use a strong password with at least 8 characters</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <form class="pmodal-form" id="form-password"
+                  data-wc-endpoint="/wp-json/custom/v1/account/password"
+                  data-wc-method="POST">
+              <div class="pf-section">
+                <div class="pf-field">
+                  <label class="pf-label" for="pwd-current">Current Password <span class="pf-req">*</span></label>
+                  <div class="pf-input-eyewrap">
+                    <input class="pf-input" id="pwd-current" type="password" name="current_password" required autocomplete="current-password" placeholder="Enter current password" />
+                    <button class="pf-eye-btn" type="button" data-eye="pwd-current" aria-label="Show/hide password">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="pf-field">
+                  <label class="pf-label" for="pwd-new">New Password <span class="pf-req">*</span></label>
+                  <div class="pf-input-eyewrap">
+                    <input class="pf-input" id="pwd-new" type="password" name="new_password" required autocomplete="new-password" placeholder="Enter new password" />
+                    <button class="pf-eye-btn" type="button" data-eye="pwd-new" aria-label="Show/hide password">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                  <div class="pf-strength-bar">
+                    <div class="pf-strength-track"><div class="pf-strength-fill" id="pwd-strength-fill"></div></div>
+                    <span class="pf-strength-label" id="pwd-strength-label" aria-live="polite"></span>
+                  </div>
+                  <ul class="pf-pwd-rules" id="pwd-rules">
+                    <li data-rule="length"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> At least 8 characters</li>
+                    <li data-rule="upper"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One uppercase letter</li>
+                    <li data-rule="digit"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One number</li>
+                    <li data-rule="special"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One special character</li>
+                  </ul>
+                </div>
+                <div class="pf-field">
+                  <label class="pf-label" for="pwd-confirm">Confirm New Password <span class="pf-req">*</span></label>
+                  <div class="pf-input-eyewrap">
+                    <input class="pf-input" id="pwd-confirm" type="password" name="confirm_password" required autocomplete="new-password" placeholder="Repeat new password" />
+                    <button class="pf-eye-btn" type="button" data-eye="pwd-confirm" aria-label="Show/hide password">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  </div>
+                  <p class="pf-match-msg" id="pwd-match-msg" aria-live="polite" hidden></p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+            <button type="submit" form="form-password" class="pmodal-btn-primary">Update Password</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 8: Report & Support ── -->
+    <div class="pmodal" id="modal-report" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-report-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-flag"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-report-title">Report &amp; Support</h2>
+                <p class="pmodal-subtitle">Get help with orders, payments, or account issues</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pf-section">
+              <div class="cc-forminator-form cc-forminator-form--report" data-cc-forminator-report></div>
+            </div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Cancel</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 9: Downloads (WooCommerce endpoint content) ── -->
+    <div class="pmodal" id="modal-downloads" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-downloads-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-download"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-downloads-title">Downloads</h2>
+                <p class="pmodal-subtitle">Access your available files, invoices, and downloadable products</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pwoocommerce-content" data-cc-wc-downloads></div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal 10: Payment Methods (WooCommerce endpoint content) ── -->
+    <div class="pmodal" id="modal-payment-methods" aria-hidden="true">
+      <div class="pmodal-backdrop"></div>
+      <div class="pmodal-scroll">
+        <div class="pmodal-dialog pmodal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-payment-methods-title">
+          <header class="pmodal-header">
+            <div class="pmodal-header-inner">
+              <span class="pmodal-hicon pmodal-hicon--teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#pi-card"/></svg>
+              </span>
+              <div>
+                <h2 class="pmodal-title" id="modal-payment-methods-title">Payment Methods</h2>
+                <p class="pmodal-subtitle">Review saved payment options and manage checkout preferences</p>
+              </div>
+            </div>
+            <button class="pmodal-close" type="button" aria-label="Close dialog">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </header>
+          <div class="pmodal-body">
+            <div class="pwoocommerce-content" data-cc-wc-payment-methods></div>
+          </div>
+          <footer class="pmodal-footer">
+            <button type="button" class="pmodal-btn-ghost" data-dismiss>Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PLUGIN MODALS SLOT ════════════════════════════════════════════
+         WordPress plugins can inject additional <div class="pmodal"> modals
+         here via wp_footer() hooks, shortcodes, or WooCommerce account hooks:
+           woocommerce_account_content  /  woocommerce_after_account_navigation
+         JS API: window.CCProfile.registerModal({ id, title, subtitle, icon,
+                   iconColor, bodyHTML, footerHTML })
+         CSS:  All pmodal-* / pf-* classes are available for consistent styling.
+         ═════════════════════════════════════════════════════════════════════ -->
+    <div id="profile-modals-plugins"></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-top-border"></div>
+      <div class="footer-main">
+        <div class="footer-container">
+          <div class="footer-brand-row">
+            <div class="footer-brand">
+              <a href="index.html" class="footer-logo">
+                <img
+                  src="assets/images/main - logo.svg"
+                  alt="ConsuCorner Logo"
+                />
+              </a>
+              <p class="footer-tagline">
+                Your Trusted Medical Supply<br />Hub in Egypt
+              </p>
+            </div>
+            <div class="footer-description">
+              <p>
+                ConsuCorner is Egypt's leading medical e-commerce platform
+                dedicated to providing high-quality medical supplies, surgical
+                instruments, and diagnostic tools to healthcare professionals,
+                clinics, hospitals, and medical businesses. We bring
+                reliability, variety, and simplicity to every purchase — all in
+                one organized online shop.
+              </p>
+            </div>
+          </div>
+          <div class="footer-nav-row">
+            <div class="footer-col">
+              <h4 class="footer-col-heading">EXPLORE</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Shop</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-heading">SERVICES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Bulk &amp; Wholesale Orders</a></li>
+                <li><a href="#">Custom Procurement</a></li>
+                <li><a href="#">Product Consulting</a></li>
+                <li><a href="#">Fast Delivery</a></li>
+                <li><a href="#">Returns &amp; Exchanges</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-heading">CONNECT</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Join Our Newsletter</a></li>
+                <li><a href="#">Follow Us on Instagram</a></li>
+                <li><a href="#">Like Us on Facebook</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-heading">RESOURCES</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Industry Trends</a></li>
+                <li><a href="#">Event Calendar</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4 class="footer-col-heading">LEGAL</h4>
+              <ul class="footer-col-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Copyright Information</a></li>
+                <li><a href="#">Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-container footer-bottom-inner">
+          <div class="footer-bottom-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+          </div>
+          <p class="footer-copyright">
+            &copy; 2026 By ConsuCorner. All Rights Reserved.
+          </p>
+          <div class="footer-payments">
+            <img
+              src="assets/images/footer-payment.png"
+              alt="Accepted payment methods"
+              class="footer-payment-img"
+            />
+          </div>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-facebook" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="#icon-linkedin" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/mega-menu.js"></script>
+    <script src="assets/js/mini-cart.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/auth-modal.js"></script>
+    <script src="assets/js/profile.js"></script>
+  </body>
+</html>

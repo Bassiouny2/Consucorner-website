@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ConsuCorner Operations — Returns &amp; Refunds Guide</title>
+	<style>
+		:root {
+			--brand: #1a5f4a;
+			--brand-light: #e8f5f0;
+			--accent: #c9a227;
+			--text: #1f2937;
+			--muted: #6b7280;
+			--border: #e5e7eb;
+			--danger: #b91c1c;
+			--danger-bg: #fef2f2;
+			--warn-bg: #fffbeb;
+			--ok-bg: #f0fdf4;
+			--info-bg: #eff6ff;
+			--code-bg: #f3f4f6;
+			--radius: 10px;
+			--max: 920px;
+		}
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; font-size: 16px; line-height: 1.65; color: var(--text); background: #f8fafc; }
+		.hero { background: linear-gradient(135deg, #0f3d30, var(--brand), #2d8a6a); color: #fff; padding: 2.5rem 1.5rem 2rem; }
+		.hero-inner, .container { max-width: var(--max); margin: 0 auto; }
+		.container { padding: 1.5rem; }
+		.hero h1 { margin: 0 0 .35rem; font-size: clamp(1.6rem, 4vw, 2.1rem); }
+		.hero .subtitle { opacity: .92; max-width: 55ch; }
+		.hero .meta { margin-top: 1rem; font-size: .88rem; opacity: .8; }
+		section { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+		h2 { margin: 0 0 1rem; font-size: 1.35rem; color: var(--brand); border-bottom: 2px solid var(--brand-light); padding-bottom: .5rem; }
+		h3 { margin: 1.3rem 0 .5rem; font-size: 1.05rem; }
+		p, ul, ol { margin: 0 0 .85rem; }
+		ul, ol { padding-left: 1.35rem; }
+		.callout { border-radius: 8px; padding: .9rem 1rem; margin: 1rem 0; border-left: 4px solid; }
+		.callout.info { background: var(--info-bg); border-color: #1d4ed8; }
+		.callout.warn { background: var(--warn-bg); border-color: var(--accent); }
+		.callout.danger { background: var(--danger-bg); border-color: var(--danger); }
+		.callout.ok { background: var(--ok-bg); border-color: #166534; }
+		.callout strong { display: block; margin-bottom: .25rem; }
+		table { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 1rem 0; }
+		th, td { border: 1px solid var(--border); padding: .55rem .7rem; text-align: left; vertical-align: top; }
+		th { background: var(--brand-light); color: var(--brand); }
+		tr:nth-child(even) td { background: #fafafa; }
+		code { font-family: Consolas, monospace; font-size: .88em; background: var(--code-bg); padding: .1em .35em; border-radius: 4px; }
+		.flow { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: 1rem 0; font-size: .84rem; }
+		.flow .step { background: var(--brand-light); color: var(--brand); padding: .35rem .6rem; border-radius: 6px; font-weight: 600; }
+		.flow .arrow { color: var(--muted); font-weight: 700; }
+		.steps { counter-reset: step; list-style: none; padding: 0; }
+		.steps li { counter-increment: step; position: relative; padding: .75rem 0 .75rem 2.8rem; border-bottom: 1px solid var(--border); }
+		.steps li:last-child { border-bottom: none; }
+		.steps li::before { content: counter(step); position: absolute; left: 0; top: .7rem; width: 1.8rem; height: 1.8rem; background: var(--brand); color: #fff; border-radius: 50%; text-align: center; line-height: 1.8rem; font-weight: 700; font-size: .85rem; }
+		.btn-demo { display: inline-block; background: #f6f7f7; border: 1px solid #c3c4c7; border-radius: 3px; padding: .2rem .55rem; font-size: .82rem; margin: 0 .15rem; }
+		.btn-demo.primary { background: #2271b1; border-color: #2271b1; color: #fff; }
+		.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+		@media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+		.card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: #fafafa; }
+		.card h4 { margin: 0 0 .5rem; color: var(--brand); }
+		.footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 2rem 1rem 3rem; }
+		a { color: var(--brand); }
+	</style>
+</head>
+<body>
+
+<header class="hero">
+	<div class="hero-inner">
+		<h1>Returns &amp; Refunds — Operations Guide</h1>
+		<p class="subtitle">How to resolve return requests as <strong>Wallet</strong> or <strong>Direct (manual)</strong> refund on ConsuCorner.</p>
+		<p class="meta">Version 2.9.4 · <a href="operations-complete-guide.html" style="color:#fff;"><strong>Complete Guide (recommended)</strong></a> · <a href="operations-fulfillment-guide.html" style="color:#fff;">Fulfillment</a></p>
+	</div>
+</header>
+
+<div class="container">
+
+	<section id="summary">
+		<h2>Quick answer</h2>
+		<div class="callout ok">
+			<strong>Wallet / Direct buttons appear only after the return workflow reaches <em>Received</em></strong>
+			Go to <strong>WooCommerce → Returns</strong>, find the return request row, advance the workflow until status is <strong>Received</strong>, then click <span class="btn-demo">Wallet</span> or <span class="btn-demo">Direct</span> in the Actions column.
+		</div>
+		<p>You cannot mark an order as refunded from the fulfillment panel alone. Refunds are always tied to a <strong>return request</strong> (Dokan RMA) and resolved on the Returns page — unless you use the legacy wallet meta box for edge cases.</p>
+	</section>
+
+	<section id="prerequisites">
+		<h2>Before you start</h2>
+		<ul>
+			<li><strong>Permission:</strong> You need <code>manage_woocommerce</code> (Shop Manager / Administrator).</li>
+			<li><strong>Fulfillment:</strong> Customer self-service returns need <strong>Delivered</strong> (or WooCommerce Completed). Ops manual returns need Shipped or later (see <a href="operations-fulfillment-guide.html">Fulfillment Guide</a>).</li>
+			<li><strong>Return request:</strong> A Dokan RMA request must exist — submitted by the customer <em>or</em> created manually by operations.</li>
+			<li><strong>Geidea:</strong> Neither Wallet nor Direct auto-reverses Geidea. You handle money movement separately (bank portal / Geidea dashboard) when using Direct.</li>
+		</ul>
+	</section>
+
+	<section id="workflow">
+		<h2>Return workflow (required before refund)</h2>
+		<p>Every return moves through these operations-controlled steps. Use the buttons in the <strong>Actions</strong> column on the Returns table:</p>
+
+		<div class="flow">
+			<span class="step">Requested</span><span class="arrow">→</span>
+			<span class="step">Reviewing</span><span class="arrow">→</span>
+			<span class="step">Approved</span><span class="arrow">→</span>
+			<span class="step">Return in transit</span><span class="arrow">→</span>
+			<span class="step">Received</span><span class="arrow">→</span>
+			<span class="step" style="background:#d1fae5;">Wallet / Direct</span>
+		</div>
+
+		<table>
+			<thead>
+				<tr><th>Status</th><th>Meaning</th><th>Next button(s)</th></tr>
+			</thead>
+			<tbody>
+				<tr><td><strong>Requested</strong></td><td>Customer or ops created the return</td><td>Reviewing · Rejected</td></tr>
+				<tr><td><strong>Reviewing</strong></td><td>Ops is checking eligibility / photos</td><td>Approved · Rejected</td></tr>
+				<tr><td><strong>Approved</strong></td><td>Return accepted; waiting for pickup/shipment back</td><td>Return in transit · Rejected</td></tr>
+				<tr><td><strong>Return in transit</strong></td><td>Item is on the way back to vendor/warehouse</td><td>Received · Rejected</td></tr>
+				<tr><td><strong>Received</strong></td><td>Returned goods physically received</td><td><strong>Wallet · Direct</strong> (refund buttons appear)</td></tr>
+				<tr><td><strong>Resolved</strong></td><td>Refund completed (after Wallet or Direct)</td><td>—</td></tr>
+				<tr><td><strong>Rejected</strong></td><td>Return denied</td><td>—</td></tr>
+			</tbody>
+		</table>
+
+		<div class="callout warn">
+			<strong>Why don't I see Wallet / Direct?</strong>
+			The return is not at <strong>Received</strong> yet, or it was already resolved (column shows <em>Wallet</em> or <em>Direct (manual)</em> in Resolution).
+		</div>
+
+		<div class="callout info">
+			<strong>Dokan status vs operations workflow</strong>
+			Several operations steps (Approved, Return in transit, Received) map to the same Dokan RMA status (<em>processing</em>) in the background. That is normal. Operations workflow status in the <strong>Status</strong> column is what matters — not the Dokan filter dropdown values.
+		</div>
+
+		<div class="callout warn">
+			<strong>Click workflow buttons one at a time</strong>
+			After each click (Reviewing, Approved, etc.), wait for the green success notice and the table to refresh before clicking the next button. Clicking too fast can hit a stale row.
+		</div>
+	</section>
+
+	<section id="step-by-step">
+		<h2>Step-by-step: resolve a return (Wallet or Direct)</h2>
+
+		<h3>Path A — Customer already submitted a return</h3>
+		<ol class="steps">
+			<li>Open <strong>WooCommerce → Returns</strong> in wp-admin.</li>
+			<li>Find the return row (filter by order ID, vendor, or date). Click the order link if you need order context.</li>
+			<li>In <strong>Actions</strong>, click workflow buttons in order: <span class="btn-demo">Reviewing</span> → <span class="btn-demo">Approved</span> → <span class="btn-demo">Return in transit</span> → <span class="btn-demo">Received</span>.</li>
+			<li>After <strong>Received</strong>, <span class="btn-demo">Wallet</span> and <span class="btn-demo">Direct</span> buttons appear.</li>
+			<li>Click your chosen route (see comparison below).</li>
+			<li>Confirm the popup message.</li>
+			<li>Answer <strong>Restock items?</strong> (Yes/No) — whether returned quantity goes back to stock.</li>
+			<li><em>Wallet only:</em> Enter <strong>shipping deduction</strong> amount (EGP to subtract from refund, or <code>0</code>).</li>
+			<li>Success message appears; <strong>Resolution</strong> column shows Wallet or Direct; status becomes <strong>Resolved</strong>.</li>
+			<li>Check <strong>order notes</strong> on the order for audit trail.</li>
+		</ol>
+
+		<h3>Path B — Operations creates the return first</h3>
+		<ol class="steps">
+			<li><strong>WooCommerce → Returns</strong> → <strong>Operations order workflow</strong>.</li>
+			<li>Enter order number → <span class="btn-demo primary">Load order</span>.</li>
+			<li>Confirm fulfillment is <strong>Return eligible</strong> (Shipped or later).</li>
+			<li>Under <strong>Create manual return request</strong>, tick line items, set qty, reason, notes → <span class="btn-demo primary">Create return request(s)</span>.</li>
+			<li>One RMA request is created <strong>per vendor</strong> if items span multiple vendors.</li>
+			<li>Scroll to the Returns table below. In the <strong>Order #</strong> filter field, enter the <strong>internal ID</strong> (e.g. <code>5662</code>, not always the long display number) → click <span class="btn-demo">Filter</span>.</li>
+			<li>Continue from Path A step 3.</li>
+		</ol>
+	</section>
+
+	<section id="worked-example">
+		<h2>Worked example — order #13566249 (tested)</h2>
+		<p>This flow was verified on the local staging site:</p>
+		<table>
+			<thead><tr><th>Step</th><th>Action</th><th>Result</th></tr></thead>
+			<tbody>
+				<tr><td>1</td><td>Returns → Load order <code>13566249</code></td><td>Order #13566249 (ID 5662), Return eligible</td></tr>
+				<tr><td>2</td><td>Tick item <em>e-scope® Pocket ophthalmoscope</em> → Create return request(s)</td><td>Request <strong>#5</strong> created, 233.33 EGP</td></tr>
+				<tr><td>3</td><td>Filter table Order # <code>5662</code></td><td>Row visible in returns list</td></tr>
+				<tr><td>4</td><td>Reviewing → Approved → Return in transit → Received</td><td>Status badge <strong>RECEIVED</strong></td></tr>
+				<tr><td>5</td><td>Wallet or Direct</td><td>Resolution = Wallet/Direct, status = Resolved</td></tr>
+			</tbody>
+		</table>
+		<div class="callout ok">
+			<strong>After Wallet refund — verify</strong>
+			<ul style="margin:.5rem 0 0;">
+				<li>Returns table <strong>Resolution</strong> column shows <em>Wallet</em></li>
+				<li>Order edit → <strong>Order notes</strong> — wallet credit note with amount</li>
+				<li><strong>Users → Customer Wallets</strong> — customer balance increased</li>
+				<li>Manual return panel — same item checkbox disabled (<em>Pending return request #…</em>)</li>
+			</ul>
+		</div>
+	</section>
+
+	<section id="wallet-vs-direct">
+		<h2>Wallet vs Direct — which to choose?</h2>
+		<div class="compare">
+			<div class="card">
+				<h4>Wallet</h4>
+				<p><strong>Use when:</strong> Customer should receive <strong>store credit</strong> in their ConsuCorner wallet for a future purchase.</p>
+				<ul>
+					<li>Credits <code>cc_add_to_custom_wallet()</code> immediately</li>
+					<li>Customer sees balance in My Account → Wallet</li>
+					<li>Reduces vendor Dokan earnings for monthly payouts</li>
+					<li>Optional shipping cost deduction before credit</li>
+					<li><strong>Does not</strong> touch Geidea / bank</li>
+				</ul>
+				<p><strong>Best for:</strong> Standard returns where you prefer wallet credit over cash back.</p>
+			</div>
+			<div class="card">
+				<h4>Direct (manual)</h4>
+				<p><strong>Use when:</strong> Customer was paid via Geidea/bank and you will refund <strong>offline</strong> (bank transfer, Geidea portal, cash).</p>
+				<ul>
+					<li>Records a <strong>WooCommerce refund</strong> for bookkeeping</li>
+					<li><code>refund_payment = false</code> — gateway is <strong>not</strong> auto-reversed</li>
+					<li>Reduces vendor Dokan earnings same as Wallet</li>
+					<li>Creates WC refund ID on the order</li>
+					<li>You must send money to customer manually outside WordPress</li>
+				</ul>
+				<p><strong>Best for:</strong> Cash/Geidea refunds after you have already processed payment reversal in Geidea dashboard.</p>
+			</div>
+		</div>
+
+		<div class="callout danger">
+			<strong>Never expect automatic Geidea reversal</strong>
+			Direct only records the refund in WooCommerce. Operations must still process the actual money return through Geidea or bank transfer.
+		</div>
+	</section>
+
+	<section id="what-happens">
+		<h2>What happens after you click Wallet or Direct?</h2>
+		<table>
+			<thead>
+				<tr><th></th><th>Wallet</th><th>Direct</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>Customer money</td><td>Wallet balance increased</td><td>No automatic payment — ops refunds offline</td></tr>
+				<tr><td>Order</td><td>Order note + line item meta stamped</td><td>WC refund line items created</td></tr>
+				<tr><td>Vendor</td><td>Dokan <code>net_amount</code> + balance reduced</td><td>Same vendor adjustment</td></tr>
+				<tr><td>Return workflow</td><td>Set to <strong>Resolved</strong></td><td>Set to <strong>Resolved</strong></td></tr>
+				<tr><td>Resolution column</td><td>Shows <em>Wallet</em></td><td>Shows <em>Direct (manual)</em></td></tr>
+				<tr><td>Repeat refund?</td><td>Blocked — same request cannot be resolved twice</td><td>Same</td></tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section id="alternatives">
+		<h2>Other ways to refund (without Returns Wallet/Direct)</h2>
+		<p>These are for <strong>edge cases only</strong>. Prefer the Returns page flow above so vendor ledger and return status stay in sync.</p>
+		<table>
+			<thead>
+				<tr><th>Method</th><th>Where</th><th>When to use</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>Wallet Operations meta box</strong></td>
+					<td>Orders → edit order → sidebar <em>Wallet Operations: Partial Refund &amp; Exchange</em></td>
+					<td>Partial wallet credit without a formal RMA, or legacy workflows. <strong>Blocked</strong> if the same items are already on an open/resolved RMA.</td>
+				</tr>
+				<tr>
+					<td><strong>WooCommerce Refund</strong></td>
+					<td>Orders → edit order → Refund section at bottom of line items</td>
+					<td>Manual WC bookkeeping only. Does not run the return workflow. Avoid duplicating items already refunded via Returns.</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="callout warn">
+			<strong>Do not double-refund</strong>
+			Never refund the same line item twice (Returns + wallet meta box, or Returns + WC refund).
+		</div>
+	</section>
+
+	<section id="find-requests">
+		<h2>Finding return requests</h2>
+		<ul>
+			<li><strong>WooCommerce → Returns</strong> — master list with filters (date, vendor, status, order ID)</li>
+			<li><strong>WooCommerce → Orders</strong> — <em>Returns</em> column shows Open / Resolved</li>
+			<li><strong>Order edit screen</strong> — yellow notice + link to Returns page</li>
+			<li><strong>Pending badge</strong> on WooCommerce menu when returns await review</li>
+		</ul>
+		<p>Lookup tip: use display order number in <strong>Load order</strong> (e.g. <code>13566249</code>) or internal ID (e.g. <code>5662</code>). For the <strong>returns table filter</strong>, use the <strong>internal WooCommerce ID</strong> in the Order # field — the long display number may not match the database filter.</p>
+	</section>
+
+	<section id="troubleshooting">
+		<h2>Troubleshooting</h2>
+		<table>
+			<thead>
+				<tr><th>Problem</th><th>Solution</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>No Wallet/Direct buttons</td><td>Advance workflow to <strong>Received</strong>. Check Resolution column — may already be resolved.</td></tr>
+				<tr><td>"Status not updated, Please try again"</td><td>Old bug when moving Approved → Return in transit (same Dokan status). Fixed in theme v2.7.4 — refresh page and retry. If it persists, contact dev.</td></tr>
+				<tr><td>Return created but table shows 0 rows</td><td>Date filter or wrong Order # in filter</td><td>Enter internal ID <code>5662</code> in Order # filter → Filter. Widen date range if needed.</td></tr>
+				<tr><td>Item checkbox disabled in manual return</td><td>Pending or resolved return on that line</td><td>Finish or reject existing request #N first.</td></tr>
+				<tr><td>"Already resolved"</td><td>This RMA was refunded. Check order notes or Resolution column.</td></tr>
+				<tr><td>"No registered customer for wallet"</td><td>Guest checkout — use Direct after manual bank refund, or create customer account first.</td></tr>
+				<tr><td>"No refundable items"</td><td>Items may be fully refunded already or blocked by prior resolution.</td></tr>
+				<tr><td>Can't create manual return</td><td>Fulfillment must be Shipped / Out for delivery / Delivered.</td></tr>
+				<tr><td>Return not in table</td><td>Widen date filter; search by order ID; customer may not have submitted yet.</td></tr>
+			</tbody>
+		</table>
+	</section>
+
+	<section id="checklist">
+		<h2>Operations checklist (printable)</h2>
+		<ol>
+			<li>☐ Confirm order fulfillment is Shipped or later</li>
+			<li>☐ Confirm return request exists (customer or manual)</li>
+			<li>☐ Reviewing → Approved → Return in transit → <strong>Received</strong></li>
+			<li>☐ Choose Wallet (store credit) or Direct (offline money + WC record)</li>
+			<li>☐ Confirm restock yes/no</li>
+			<li>☐ Wallet: enter shipping deduction if applicable</li>
+			<li>☐ Verify Resolution column + order note</li>
+			<li>☐ Direct only: process Geidea/bank refund outside WordPress</li>
+			<li>☐ Notify customer if needed</li>
+		</ol>
+	</section>
+
+</div>
+
+<footer class="footer">
+	<p>ConsuCorner Operations — Returns &amp; Refunds Guide · Theme v2.9.4</p>
+	<p>Related: <a href="operations-complete-guide.html">Complete Guide</a> · <a href="operations-fulfillment-guide.html">Fulfillment Guide</a></p>
+	<p><code>wp-content/themes/consucorner/docs/operations-returns-refunds-guide.html</code></p>
+</footer>
+
+</body>
+</html>

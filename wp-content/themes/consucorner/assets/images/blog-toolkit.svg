@@ -1,0 +1,11 @@
+<svg width="960" height="760" viewBox="0 0 960 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="760" rx="34" fill="#F3F8FA"/>
+  <rect x="86" y="120" width="788" height="500" rx="32" fill="#D6F5F1"/>
+  <rect x="144" y="180" width="672" height="380" rx="24" fill="white"/>
+  <path d="M226 296H734M226 382H734M226 468H734" stroke="#E5EEF2" stroke-width="26" stroke-linecap="round"/>
+  <path d="M234 294L278 338L356 250M234 380L278 424L356 336M234 466L278 510L356 422" stroke="#00C8B3" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="730" cy="170" r="70" fill="#2597E0"/>
+  <path d="M704 170H756M730 144V196" stroke="white" stroke-width="16" stroke-linecap="round"/>
+  <text x="86" y="88" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="5">CONSU CORNER</text>
+  <text x="86" y="690" fill="#0F172A" font-family="Arial, sans-serif" font-size="48" font-weight="700">Clinic Toolkit Guide</text>
+</svg>

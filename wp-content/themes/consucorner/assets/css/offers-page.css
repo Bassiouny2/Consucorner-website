@@ -1,0 +1,632 @@
+/* ============================================================
+   OFFERS PAGE — hero + cards + unified campaign banner
+   ============================================================ */
+
+.page-offers.cc-offers-page {
+  background: #f7f9fb;
+}
+
+.page-offers .cc-offers-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background: linear-gradient(90deg, #ffffff 0%, #f7fdfc 45%, #f4fbfa 100%);
+  border-top: 1px solid #e8eeee;
+}
+
+.page-offers .cc-offers-hero__content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-offers .cc-offers-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+  margin-bottom: 34px;
+  border-radius: 999px;
+  background: #f8e6e7;
+  color: #c4121c;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.page-offers .cc-offers-hero__title {
+  margin: 0 0 32px;
+  color: #17191c;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  line-height: 1.15;
+}
+
+.page-offers .cc-offers-hero__title .cc-offers-hero__brand {
+  color: #60dec9;
+}
+
+.page-offers .cc-offers-hero__title .cc-offers-hero__deal {
+  color: #268ed8;
+}
+
+.page-offers .cc-offers-hero__description {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #626a73;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.page-offers .cc-offers-hero__context {
+  margin: 20px 0 0;
+  color: #10b3a3;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Campaign banner — fluid full-width card with optional left collage (desktop). */
+.cc-offer-campaign-banner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 48px auto;
+  padding: 0 20px;
+  overflow: visible;
+}
+
+.cc-offer-campaign-banner__card {
+  position: relative;
+  width: 800px;
+  height: 300px;
+  margin: auto;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  font-family: "Manrope", "Inter", sans-serif;
+}
+
+.cc-offer-campaign-banner__inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.cc-offer-campaign-banner__blob {
+  position: absolute;
+  top: -40px;
+  left: -130px;
+  z-index: 1;
+  width: 356.2px;
+  height: 356.2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #40dbd3 0%, #30eab9 100%);
+}
+
+.cc-offer-campaign-banner__circles {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cc-offer-campaign-banner__circle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3.5px solid #40dbd3;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.cc-offer-campaign-banner__circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cc-offer-campaign-banner__circle.is-empty {
+  background: linear-gradient(145deg, #ffffff 0%, #eef7f5 100%);
+}
+
+.cc-offer-campaign-banner__circle--top {
+  top: -70px;
+  left: -100px;
+  z-index: 11;
+  width: 167px;
+  height: 167px;
+}
+
+.cc-offer-campaign-banner__circle--main {
+  top: 15px;
+  left: 80px;
+  z-index: 13;
+  width: 195.5px;
+  height: 195.5px;
+}
+
+.cc-offer-campaign-banner__circle--bottom {
+  bottom: -30px;
+  left: -120px;
+  z-index: 12;
+  width: 204px;
+  height: 204px;
+}
+
+.cc-offer-campaign-banner__content {
+  position: absolute;
+  top: 0;
+  right: 150px;
+  left: 310px;
+  z-index: 5;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cc-offer-campaign-banner__title {
+  max-width: 350px;
+  margin: 0 0 12px;
+  color: #1a253c;
+  font-size: 1.95rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.cc-offer-campaign-banner__subtitle {
+  display: -webkit-box;
+  max-width: 330px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  color: #4a5568;
+  font-size: 0.8rem;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  line-height: 1.6;
+}
+
+.cc-offer-campaign-banner__footer {
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cc-offer-campaign-banner__cta {
+  display: inline-flex;
+  padding: 12px 28px;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0cd4b0;
+  box-shadow: 0 4px 12px rgba(12, 212, 176, 0.2);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cc-offer-campaign-banner__cta svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.cc-offer-campaign-banner__cta:hover,
+.cc-offer-campaign-banner__cta:focus-visible {
+  background-color: #09b899;
+  box-shadow: 0 6px 16px rgba(9, 184, 153, 0.3);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.cc-offer-campaign-banner__ribbon {
+  position: absolute;
+  top: -55px;
+  right: 0;
+  z-index: 15;
+  width: 139px;
+  height: 340px;
+}
+
+.cc-offer-campaign-banner__ribbon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cc-offer-campaign-banner__price {
+  position: absolute;
+  top: 55px;
+  right: 25px;
+  display: flex;
+  width: 90px;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.cc-offer-campaign-banner__currency {
+  margin-bottom: -2px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.cc-offer-campaign-banner__amount {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.cc-offer-campaign-banner__saved {
+  margin-top: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Aggregated /offers/ banner slider — wrapper only; banner card styles stay unchanged. */
+.cc-offers-banner-slider {
+  max-width: 1280px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+.cc-offers-banner-slider__viewport {
+  overflow: hidden;
+  padding: 75px 0;
+}
+
+.cc-offers-banner-slider__track {
+  display: flex;
+  will-change: transform;
+}
+
+.cc-offers-banner-slider__slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+.cc-offers-banner-slider__slide .cc-offer-campaign-banner {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.cc-offers-banner-slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.cc-offers-banner-slider__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d9e2ec;
+  border-radius: 999px;
+  background: #fff;
+  color: #1e293b;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cc-offers-banner-slider__arrow:hover,
+.cc-offers-banner-slider__arrow:focus-visible {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(38, 142, 216, 0.18);
+  outline: none;
+}
+
+.cc-offers-banner-slider__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cc-offers-banner-slider__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.cc-offers-banner-slider__dot.is-active {
+  background: #268ed8;
+  transform: scale(1.25);
+}
+
+.page-offers .cc-offers-products {
+  padding: 40px 20px 60px;
+  background: #ffffff;
+}
+
+.page-offers .cc-offers-products__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.page-offers .cc-offers-products-main.fp-products-main {
+  width: 100%;
+}
+
+.page-offers .cc-offers-empty {
+  max-width: 640px;
+  margin: 24px auto 0;
+  padding: 32px 24px;
+  border: 1px solid #e4e9ef;
+  border-radius: 16px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.page-offers .cc-offers-empty h2 {
+  margin: 0 0 12px;
+  color: #17191c;
+  font-size: 22px;
+}
+
+.page-offers .cc-offers-empty p {
+  margin: 0 0 10px;
+  color: #5f6874;
+  line-height: 1.55;
+}
+
+.page-offers .cc-offers-empty__hint code {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid #dbe5ef;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+/* Bundle deal block on offers cards. */
+.page-offers .cc-offer-deal {
+  margin: 6px 0 8px;
+}
+
+.page-offers .cc-offer-deal__qty {
+  margin: 0 0 4px;
+  color: #5f6874;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.page-offers .cc-offer-deal__prices {
+  display: flex;
+  align-items: center;
+  gap: 6px 8px;
+  flex-wrap: wrap;
+}
+
+.page-offers .cc-offer-deal__regular {
+  color: #9ca3af;
+  font-size: 13px;
+  text-decoration: line-through;
+}
+
+.page-offers .cc-offer-deal__price {
+  color: #2563eb;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.page-offers .cc-offer-deal__save {
+  display: inline-flex;
+  min-height: 18px;
+  padding: 2px 6px;
+  align-items: center;
+  border-radius: 4px;
+  background: #00b894;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Stock quantity bar on offer cards. */
+.page-offers .cc-offer-qty-bar {
+  margin: 10px 0 4px;
+}
+
+.page-offers .cc-offer-qty-bar__top {
+  display: flex;
+  margin-bottom: 6px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #5f6874;
+  font-size: 12px;
+}
+
+.page-offers .cc-offer-qty-bar__number {
+  color: #17191c;
+  font-weight: 700;
+}
+
+.page-offers .cc-offer-qty-bar__track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8edf3;
+}
+
+.page-offers .cc-offer-qty-bar__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #10b3a3 0%, #226cf2 100%);
+  transition: width 0.35s ease;
+}
+
+@media (max-width: 768px) {
+  .page-offers
+    .fp-products-main
+    .fp-products-grid:not(.is-grid-view)
+    .card-shop:has(.cc-offer-qty-bar),
+  .page-offers
+    .fp-products-main
+    .fp-products-grid:not(.is-grid-view)
+    .card-shop:has(.cc-offer-deal) {
+    padding-bottom: 100px;
+  }
+
+  .page-offers .cc-offer-deal__price {
+    font-size: 18px;
+  }
+
+  .page-offers
+    .fp-products-main
+    .fp-products-grid:not(.is-grid-view)
+    .cc-offer-qty-bar {
+    position: absolute;
+    z-index: 1;
+    right: 14px;
+    bottom: 70px;
+    left: 14px;
+    margin: 0;
+  }
+  .cc-offers-banner-slider__viewport {
+    overflow: hidden;
+    padding: 50px 0;
+  }
+
+  .page-offers .cc-offers-hero {
+    padding: 70px 18px;
+  }
+
+  .page-offers .cc-offers-hero__title {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .page-offers .cc-offers-hero__title .cc-offers-hero__deal {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .page-offers .cc-offers-hero__description {
+    font-size: 16px;
+  }
+  .cc-offer-campaign-banner {
+    width: auto;
+  }
+  .cc-offer-campaign-banner__card {
+    width: 100%;
+  }
+  .cc-offer-campaign-banner {
+    margin-top: 36px;
+    margin-bottom: 36px;
+    padding: 0 14px;
+  }
+
+  .cc-offers-banner-slider {
+    margin-top: 36px;
+    margin-bottom: 36px;
+    padding: 0 14px;
+  }
+
+  .cc-offer-campaign-banner__inner,
+  .cc-offer-campaign-banner__circles {
+    display: none;
+  }
+
+  .cc-offer-campaign-banner__content {
+    left: 0;
+    right: 120px;
+    padding-left: 12px;
+    width: 210px;
+  }
+
+  .cc-offer-campaign-banner__title {
+    max-width: none;
+    font-size: 1.45rem;
+  }
+
+  .cc-offer-campaign-banner__subtitle {
+    max-width: none;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .cc-offer-campaign-banner__ribbon {
+    top: -42px;
+    width: 110px;
+    height: 280px;
+  }
+
+  .cc-offer-campaign-banner__price {
+    top: 48px;
+    right: 18px;
+    width: 76px;
+  }
+
+  .cc-offer-campaign-banner__amount {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-offers .cc-offers-hero__title {
+    font-size: 30px;
+  }
+
+  .page-offers .cc-offers-hero__badge {
+    padding: 7px 18px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-offer-campaign-banner__cta {
+    transition: none;
+  }
+}

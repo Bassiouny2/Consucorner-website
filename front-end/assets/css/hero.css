@@ -1,0 +1,261 @@
+/* ---------------------------------
+   Hero Section
+----------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 860px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 60px 0 0 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  /* ── Edit the hero background image here ── */
+  background-image: url("../images/hero image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: var(--z-background);
+}
+
+.hero-wrapper {
+  position: relative;
+  z-index: var(--z-content);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px) 120px;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 808px;
+}
+
+.hero-title {
+  /* Fluid: 36px on small screens → 56px on large */
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  font-family: "Manrope", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  /* Let the title wrap on zoom/small screens — no overflow */
+  white-space: normal;
+}
+
+.hero-title-blue {
+  color: #2597e0;
+}
+
+.hero-title-gradient {
+  color: #64e9cc;
+}
+
+.hero-subtitle {
+  font-size: clamp(20px, 2.8vw, 35px);
+  color: #1f2937;
+  margin: 0 0 40px;
+  font-weight: 500;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.hero-payment-block {
+  margin-top: 40px;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  padding-left: 20px;
+}
+
+.payment-header-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.payment-list {
+  margin: 0;
+  padding: 0 0 0 20px;
+  color: #1f2937;
+  font-size: 20.45px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.payment-list li strong {
+  font-weight: 600;
+}
+
+.payment-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payment-logos-mobile {
+  display: none;
+}
+
+.payment-logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+.payment-text {
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+  max-width: none;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Product Banner - Right Side */
+.hero-banner {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: clamp(280px, 32vw, 430px);
+  height: clamp(420px, 50vw, 600px);
+  background-color: #2597e0;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(37, 151, 224, 0.2);
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 0.8s ease-in-out,
+    transform 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  z-index: var(--z-content);
+}
+
+.banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.banner-tag svg {
+  width: 18px;
+  height: 18px;
+}
+
+.banner-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 32px;
+  line-height: 1.3;
+  font-family: "Inter", system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+  align-self: flex-start;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.banner-btn:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.banner-bottom-info {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.banner-slider-indicator {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.active-slide {
+  color: #ffffff;
+}
+
+.total-slide {
+  font-size: 0.75rem;
+}
+
+.slide-line {
+  flex-grow: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  border-radius: 2px;
+}
+
+.slide-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.banner-product-image {
+  position: absolute;
+  bottom: -20px;
+  right: -60px;
+  width: 120%;
+  height: auto;
+  object-fit: contain;
+  z-index: var(--z-base);
+  pointer-events: none;
+}
+

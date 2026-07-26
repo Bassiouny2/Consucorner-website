@@ -1,0 +1,74 @@
+# Secrets & local environment
+wp-config.php
+wp-config-local.php
+.env
+.env.*
+*.pem
+*.key
+
+# WordPress runtime / generated
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup*/
+wp-content/backups/
+wp-content/ai1wm-backups/
+wp-content/updraft/
+wp-content/wflogs/
+wp-content/debug.log
+wp-content/uploads
+sitemap*.xml
+.htaccess.bk
+
+# Local WP / tooling junk
+local-xdebuginfo.php
+wp-admin/.rnd
+.~lock.*
+*.log
+*.sql
+*.sql.gz
+Users-Export*.csv
+cc-user-migration.log
+
+# Third-party / commercial plugins (install separately; do not publish paid code)
+wp-content/plugins/woocommerce/
+wp-content/plugins/dokan-lite/
+wp-content/plugins/dokan-pro/
+wp-content/plugins/digits-0/
+wp-content/plugins/geidea-online-payments/
+wp-content/plugins/paymob-for-woocommerce/
+wp-content/plugins/bosta-woocommerce/
+wp-content/plugins/forminator/
+wp-content/plugins/seo-by-rank-math/
+wp-content/plugins/import-xml-csv-settings-to-rank-math-seo/
+wp-content/plugins/insert-headers-and-footers/
+wp-content/plugins/duracelltomi-google-tag-manager/
+wp-content/plugins/email-log/
+wp-content/plugins/updraftplus/
+wp-content/plugins/wp-all-import-pro/
+wp-content/plugins/wpai-woocommerce-add-on/
+wp-content/plugins/wpnotif/
+wp-content/plugins/wt-smart-coupons-for-woocommerce/
+wp-content/plugins/Referral-Discounts-for-WooCommerce-RDFW-main/
+
+# Node / IDE / AI local artifacts
+node_modules/
+package-lock.json
+.vscode/
+.idea/
+.claude/
+.cursor/plans/
+.cursor/rules/
+.cursor/debug.log
+*.code-workspace
+
+# Graphify — keep team graph in git; exclude local-only artifacts
+graphify-out/cost.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Heavy vendored SDKs inside custom plugins
+wp-content/plugins/additional-gateways/vendor/

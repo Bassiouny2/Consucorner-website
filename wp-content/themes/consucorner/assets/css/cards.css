@@ -1,0 +1,317 @@
+/* ---------------------------------------------------------------------
+ * Mobile-only card elements — hidden on desktop, shown only inside a
+ * @media (max-width: 768px) block on archive product pages.
+ * They appear in the markup so the mobile layout has nothing to inject. */
+.card-wish-icon,
+.card-subtitle,
+.card-meta-pills,
+.card-used-in,
+.card-stock-status,
+.card-sale-meta,
+.card-vendor-pill,
+.btn-cart-icon {
+  display: none !important;
+}
+
+/* Base product card styles */
+.card-shop {
+  border: 1.5px solid #dce0e5;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 242px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.card-shop:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.card-shop .card-wish-icon {
+  right: 35px !important;
+}
+
+@media (max-width: 768px) {
+  .card-shop .card-wish-icon {
+    right: 23px !important;
+  }
+}
+
+.card-shop-img-wrapper {
+  position: relative;
+  flex-shrink: 0; /* Never compress the image area */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 171px; /* Adjusted for better balance without the pill */
+  padding: 16px;
+  background: #ffffff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-shop-img-wrapper > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+.card-shop-img-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.card-shop-body {
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card-title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #121212;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.priceing {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+  margin-top: auto;
+}
+
+.priceing p {
+  margin: 0;
+}
+
+.price {
+  color: #16c776;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Manrope", sans-serif;
+}
+
+.currency {
+  color: #7a8b9e;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.product-card-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card-btn-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-add-cart,
+.btn-quote-card {
+  background-color: var(--secondary, #64e9cc);
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-add-cart:hover,
+.btn-quote-card:hover {
+  background-color: var(--accent, #00a392);
+}
+
+.card-shop--quote {
+  border-color: #b8e8e3;
+  background: #f8fffe;
+}
+
+.card-quote-price {
+  margin-top: 2px;
+}
+
+.card-quote-price__text {
+  margin: 0;
+  color: #4b5563;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.card-shop--quote .btn-quote-card {
+  background-color: #ffffff;
+  color: #07af9e;
+  border: 1.5px solid #07af9e;
+  box-sizing: border-box;
+}
+
+.card-shop--quote .btn-quote-card:hover {
+  background-color: #e8fbf8;
+  color: #059286;
+  border-color: #059286;
+}
+
+.btn-save {
+  background-color: #e6f0ff;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.btn-save img {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-save.is-saved,
+.oow-btn-save.is-saved,
+.sp-wishlist-btn.is-saved {
+  background-color: #e8fbf8;
+  border-color: #00c8b3;
+  color: #00a392;
+}
+
+.btn-save.is-saved img,
+.oow-btn-save.is-saved img {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(99%) saturate(698%)
+    hue-rotate(130deg) brightness(93%) contrast(101%);
+}
+
+.cc-wishlist-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10000;
+  transform: translate(-50%, 16px);
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: #0f2740;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(15, 39, 64, 0.22);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cc-wishlist-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.btn-compare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-compare img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.btn-compare:hover img {
+  opacity: 1;
+}
+
+.browse-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.browse-specialties-section .btn-all-specialties {
+  background-color: #64e9cc;
+  color: #1f3b36;
+}
+
+.browse-specialties-section .btn-all-specialties:hover {
+  background-color: #53d9bc;
+}
+
+.btn-all-specialties {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 51px;
+  border-radius: 44px;
+  background-color: #2597e0;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.btn-all-specialties:hover {
+  background-color: #1d82c4;
+  transform: translateY(-2px);
+}
+
+.btn-all-products {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 51px;
+  border-radius: 44px;
+  background-color: #64e9cc;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.btn-all-products:hover {
+  background-color: #53d9bc;
+  transform: translateY(-2px);
+}

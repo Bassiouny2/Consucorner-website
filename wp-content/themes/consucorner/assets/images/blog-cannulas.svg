@@ -1,0 +1,11 @@
+<svg width="960" height="760" viewBox="0 0 960 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="760" rx="34" fill="#0EA5E9"/>
+  <circle cx="226" cy="230" r="140" fill="#7DD3FC" opacity=".35"/>
+  <circle cx="748" cy="536" r="190" fill="#00C8B3" opacity=".28"/>
+  <path d="M224 484L684 244" stroke="white" stroke-width="34" stroke-linecap="round"/>
+  <path d="M620 218L744 154" stroke="#E9FFFC" stroke-width="24" stroke-linecap="round"/>
+  <path d="M234 482L166 518C138 533 104 522 88 494C72 466 82 430 110 414L178 378" stroke="#E9FFFC" stroke-width="24" stroke-linecap="round"/>
+  <path d="M330 428L430 376M494 342L594 290" stroke="#0F172A" stroke-width="12" stroke-linecap="round" opacity=".32"/>
+  <text x="72" y="112" fill="white" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="5">CONSU CORNER</text>
+  <text x="72" y="668" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="700">Cannulas Selection</text>
+</svg>

@@ -1,0 +1,23 @@
+{
+    "name": "unitedover/additional-gateways",
+    "description": "Additional SMS Gateways for Digits and WPNotif",
+    "type": "plugin",
+    "autoload": {
+        "psr-4": {
+            "Unitedover\\AdditionalGateways\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "UnitedOver",
+            "email": "support@unitedover.com"
+        }
+    ],
+    "require": {
+        "signalwire/signalwire": "^2.3",
+        "camoo/sms": "^3.1",
+        "cmdotcom/text-sdk-php": "^2.1",
+        "alibabacloud/sdk": "^1.8",
+        "aws/aws-sdk-php": "^3.218"
+    }
+}

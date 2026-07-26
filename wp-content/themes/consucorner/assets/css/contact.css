@@ -1,0 +1,505 @@
+/* ============================================================
+   CONTACT PAGE — self-contained styles for /contact/
+   ------------------------------------------------------------
+   Sections:
+     1. Design tokens
+     2. Page hero
+     3. Get-in-Touch section + card layout
+     4. Form column (Forminator overrides)
+     5. Map column
+     6. Info row (phone / email / location)
+     7. Bottom banner
+     8. Tablet  (≤ 1100px)
+     9. Mobile  (≤ 600px)
+    10. Small mobile (≤ 380px)
+   ============================================================ */
+
+/* ============================================================
+   1. DESIGN TOKENS (scoped to Contact page)
+   ============================================================ */
+.contact-page-head,
+.get-in-touch,
+.get-in-touch-card,
+.contact-banner {
+  --cc-primary: #00c4a0;
+  --cc-primary-hover: #00aa8c;
+  --cc-ink: #1a1a1a;
+  --cc-muted: #5b6770;
+  --cc-line: #e2e6ea;
+  --cc-surface: #ffffff;
+  --cc-surface-alt: #f6f8f9;
+  --cc-radius-card: 28px;
+  --cc-radius-field: 12px;
+  --cc-shadow-card: 0 24px 60px rgba(25, 58, 75, 0.18);
+  --cc-shadow-card-sm: 0 12px 28px rgba(25, 58, 75, 0.14);
+  --cc-font-display: "Manrope", system-ui, -apple-system, sans-serif;
+  --cc-font-body: "Montserrat", system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================================
+   2. PAGE HERO
+   ============================================================ */
+.contact-page-head {
+  position: relative;
+  width: 100%;
+  min-height: 460px;
+  padding: 80px 24px 220px;
+  background-image: url("../images/page-head.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.contact-page-head-inner {
+  width: 100%;
+  max-width: 1280px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contact-page-title {
+  margin: 0;
+  font-family: var(--cc-font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.contact-page-breadcrumbs {
+  margin: 12px 0 0;
+  font-family: var(--cc-font-display);
+  font-weight: 400;
+  font-size: clamp(14px, 2vw, 22px);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================================
+   3. GET-IN-TOUCH SECTION + CARD LAYOUT
+   ============================================================ */
+.get-in-touch {
+  position: relative;
+  padding: 0 24px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.get-in-touch-card {
+  position: relative;
+  margin-top: -180px;
+  width: 100%;
+  max-width: 1180px;
+  background: var(--cc-surface);
+  border-radius: var(--cc-radius-card);
+  box-shadow: var(--cc-shadow-card);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "form  map"
+    "info  info";
+  box-sizing: border-box;
+}
+
+.get-in-touch-form-col {
+  grid-area: form;
+  padding: 56px 56px 48px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.get-in-touch-map-col {
+  grid-area: map;
+  background: var(--cc-surface-alt);
+  min-height: 520px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.get-in-touch-info {
+  grid-area: info;
+  background: var(--cc-surface-alt);
+  padding: 32px 56px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   4. FORM COLUMN (Forminator overrides)
+   ============================================================ */
+.get-in-touch-title {
+  margin: 0 0 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.15;
+  color: var(--cc-ink);
+}
+
+.get-in-touch-title span {
+  color: var(--cc-primary);
+}
+
+.get-in-touch-desc {
+  margin: 0 0 28px;
+  font-family: var(--cc-font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cc-muted);
+}
+
+.get-in-touch-form {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Forminator's frontend admin-only "Edit form" shortcut.
+   The plugin already gates this on edit capability server-side, so it
+   only renders for admins/editors. Style it so it looks intentional. */
+.cc-forminator-form--contact .forminator-edit-module,
+.cc-forminator-form--contact .frontend-edit-form-link,
+.cc-forminator-form--contact .wpmudev-frontend-edit-form-link,
+.cc-forminator-form--contact a[href*="forminator-form-wizard"] {
+  display: inline-block !important;
+  margin-top: 14px !important;
+  padding: 6px 12px !important;
+  border: 1px dashed var(--cc-line) !important;
+  border-radius: 8px !important;
+  font-family: var(--cc-font-body) !important;
+  font-size: 12px !important;
+  color: var(--cc-muted) !important;
+  text-decoration: none !important;
+  transition:
+    color 0.15s,
+    border-color 0.15s !important;
+}
+
+.cc-forminator-form--contact .forminator-edit-module:hover,
+.cc-forminator-form--contact .frontend-edit-form-link:hover,
+.cc-forminator-form--contact .wpmudev-frontend-edit-form-link:hover,
+.cc-forminator-form--contact a[href*="forminator-form-wizard"]:hover {
+  color: var(--cc-primary) !important;
+  border-color: var(--cc-primary) !important;
+}
+
+/* Wrapper, form, rows, columns: always within parent */
+.cc-forminator-form--contact .forminator-ui,
+.cc-forminator-form--contact .forminator-ui form,
+.cc-forminator-form--contact .forminator-row,
+.cc-forminator-form--contact .forminator-col,
+.cc-forminator-form--contact .forminator-field {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.cc-forminator-form--contact .forminator-row {
+  margin-bottom: 16px !important;
+}
+
+.cc-forminator-form--contact .forminator-row:last-child {
+  margin-bottom: 0 !important;
+}
+
+.cc-forminator-form--contact .forminator-label {
+  display: block !important;
+  margin: 0 0 8px !important;
+  font-family: var(--cc-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--cc-ink) !important;
+}
+
+.cc-forminator-form--contact .forminator-input,
+.cc-forminator-form--contact .forminator-textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  border: 1px solid var(--cc-line) !important;
+  border-radius: var(--cc-radius-field) !important;
+  padding: 14px 16px !important;
+  font-family: var(--cc-font-body) !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: var(--cc-ink) !important;
+  background: #ffffff !important;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s !important;
+}
+
+.cc-forminator-form--contact .forminator-input::placeholder,
+.cc-forminator-form--contact .forminator-textarea::placeholder {
+  color: #9aa3ab !important;
+}
+
+.cc-forminator-form--contact .forminator-input:focus,
+.cc-forminator-form--contact .forminator-textarea:focus {
+  outline: none !important;
+  border-color: var(--cc-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 196, 160, 0.15) !important;
+}
+
+.cc-forminator-form--contact .forminator-textarea {
+  min-height: 130px !important;
+  resize: vertical !important;
+}
+
+.cc-forminator-form--contact .forminator-button-submit {
+  width: 100% !important;
+  margin-top: 8px !important;
+  background: var(--cc-primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--cc-radius-field) !important;
+  padding: 16px 20px !important;
+  font-family: var(--cc-font-body) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 1.4px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition:
+    background 0.2s,
+    transform 0.1s !important;
+  white-space: normal !important;
+}
+
+.cc-forminator-form--contact .forminator-button-submit:hover {
+  background: var(--cc-primary-hover) !important;
+}
+
+.cc-forminator-form--contact .forminator-button-submit:active {
+  transform: translateY(1px);
+}
+
+/* Forminator success / error messages */
+.cc-forminator-form--contact .forminator-response-message {
+  margin: 12px 0 0 !important;
+  padding: 12px 14px !important;
+  border-radius: 10px !important;
+  font-family: var(--cc-font-body) !important;
+  font-size: 13px !important;
+}
+
+/* ============================================================
+   5. MAP COLUMN
+   ============================================================ */
+.get-in-touch-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: none;
+}
+
+/* ============================================================
+   6. INFO ROW (phone / email / location)
+   ============================================================ */
+.git-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.git-info-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-top: 2px;
+}
+
+.git-info-item > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.git-info-label {
+  margin: 0 0 4px;
+  font-family: var(--cc-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--cc-ink);
+}
+
+.git-info-value {
+  display: inline-block;
+  margin: 0;
+  font-family: var(--cc-font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--cc-primary);
+  text-decoration: none;
+  width: auto;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+a.git-info-value:hover {
+  color: var(--cc-primary-hover);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   7. BOTTOM BANNER
+   ============================================================ */
+.contact-banner {
+  display: none; /* hidden on desktop; shown on small-mobile only */
+}
+
+.contact-banner .medical-products-banner {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   8. TABLET  (≤ 1100px)
+   ============================================================ */
+@media (max-width: 1100px) {
+  html,
+  body.page-contact,
+  body.page-contact main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .contact-page-head {
+    min-height: 280px;
+    padding: 56px 20px 80px;
+  }
+
+  .get-in-touch {
+    padding: 0 20px 64px;
+    margin-top: 26px;
+  }
+
+  .get-in-touch-card {
+    margin-top: -56px;
+    border-radius: 20px;
+    box-shadow: var(--cc-shadow-card-sm);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "form"
+      "map"
+      "info";
+  }
+
+  .get-in-touch-form-col {
+    padding: 40px 32px 24px;
+  }
+
+  .get-in-touch-map-col,
+  .get-in-touch-map {
+    min-height: 360px;
+  }
+
+  .get-in-touch-info {
+    padding: 28px 32px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ============================================================
+   9. MOBILE  (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+  .contact-page-head {
+    min-height: 220px;
+    padding: 40px 16px 60px;
+  }
+
+  .get-in-touch {
+    padding: 0 16px 56px;
+  }
+
+  .get-in-touch-card {
+    margin-top: -28px;
+    border-radius: 16px;
+  }
+
+  .get-in-touch-form-col {
+    padding: 28px 20px 24px;
+  }
+
+  .get-in-touch-desc {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+
+  /* iOS won't zoom on focus when input is 16px+ */
+  .cc-forminator-form--contact .forminator-input,
+  .cc-forminator-form--contact .forminator-textarea {
+    font-size: 16px !important;
+    padding: 13px 14px !important;
+  }
+
+  .cc-forminator-form--contact .forminator-textarea {
+    min-height: 110px !important;
+  }
+
+  .cc-forminator-form--contact .forminator-button-submit {
+    padding: 15px 16px !important;
+    font-size: 13px !important;
+    letter-spacing: 1.2px !important;
+  }
+
+  .get-in-touch-map-col,
+  .get-in-touch-map {
+    min-height: 240px;
+  }
+
+  .get-in-touch-info {
+    padding: 22px 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .git-info-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact-banner {
+    display: block;
+  }
+}
+
+/* ============================================================
+  10. SMALL MOBILE  (≤ 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  .contact-page-title {
+    font-size: 32px;
+  }
+
+  .get-in-touch-title {
+    font-size: 26px;
+  }
+
+  .get-in-touch-form-col {
+    padding: 24px 16px 20px;
+  }
+
+  .get-in-touch-info {
+    padding: 20px 16px;
+  }
+}
